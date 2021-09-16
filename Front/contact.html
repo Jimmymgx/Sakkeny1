@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Site Metas -->
+<title>Contact Us - Sakkeny Real Estate</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- Colors CSS -->
+<link rel="stylesheet" href="css/colors.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
+
+<!-- Modernizer for Portfolio -->
+<script src="js/modernizer.js"></script>
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="realestate_version" id = "bo">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logos/llll4444.png" alt="image"
+                            style="height: 60px;"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Service</a></li>
+                         
+                        <li><a class="active" href="contact.html">Contact</a></li>
+                        <li class="social-links"><a href="https://twitter.com/sakkeny1"><i
+                                    class="fa fa-twitter global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/"><i
+                                    class="fa fa-facebook global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
+                                    class="fa fa-linkedin global-radius"></i></a></li>
+                        <li><a href="signUp.html" id="SignupBar">Sign Up</a></li>
+                        <li><a href="login.html" id="SigninBar">Log In</a></li>
+                        <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
+                                id="MyaccountBar">MyAccount</a></li>
+                                <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
+                                    id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
+                            </li>
+                            <li class="search-option" title="Add an advertisment">
+                                <a class="search tran3s dropdown-toggle" style="padding: 10px;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
+                                    aria-hidden="true" style="color: black;font-size: 25px;"></i></a>
+                  
+                              </li>
+                            <li class="search-option" title="Search">
+                                <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
+                                        aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
+    
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Contact</h2>
+                    <!-- Breadcrumbs -->
+                    <nav id="breadcrumbs">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li>Contact</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="support" class="section wb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Request for Technical Support</h3>
+                <p class="lead">If you encounter any problem with the site or have a suggestion, you are always welcome
+                    and waiting for you.</p>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact_form">
+                        <div id="message"></div>
+                        <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
+                            <fieldset class="row-fluid">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="first_name" id="first_name" class="form-control"
+                                        placeholder="First Name">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="last_name" id="last_name" class="form-control"
+                                        placeholder="Last Name">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        placeholder="Your Email">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="phone" id="phone" class="form-control"
+                                        placeholder="Your Phone">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" name="comments" id="comments" rows="6"
+                                        placeholder="Tell us your Feedback or suggestion.."></textarea>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-c enter">
+                                    <button type="submit" value="SEND" id="send"
+                                        class="btn btn-light btn-radius btn-brd grd1 btn-block">Send Feedback</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-md-6">
+                    <div class="right-box-contact">
+                        <h4>Phone</h4>
+                        <div class="support-info">
+                            <div class="info-title">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                +02 01093628413
+                                <span>Working-Hours : 09 : 03 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="right-box-contact">
+                        <h4>Your Feedback</h4>
+                        <div class="support-info">
+                            <div class="info-title">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                support@sakkeny.com
+                                <span>Help Us Improve!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    
+
+    <div id="testimonials" class="section lb">
+        <div class="container">
+            <div class="section-title row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>Happy Customers</h3>
+                    <p class="lead">Because customer comfort and safety is our motto, we provided after-sales service,
+                        and this is a sample of our customers' Feedback.</p>
+                </div><!-- end col -->
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="testi-carousel owl-carousel owl-theme">
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Wonderful Support! <i
+                                        class="fa fa-quote-right"></i></h3>
+                                <p class="lead">They have got my project on time with the competition with a sed highly
+                                    skilled, and experienced & professional team.</p>
+
+                            </div>
+                            <div class="testi-meta">
+                                <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
+                                <h4>Abdelrahman Ahmed <small>- Manager of CIB Bank</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Awesome Services! <i class="fa fa-quote-right"></i>
+                                </h3>
+                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and
+                                    praising pain was born and I will give you completed.</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
+                                <h4>Mohamed Abdallah <small>- Officer </small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team! <i
+                                        class="fa fa-quote-right"></i></h3>
+                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids
+                                    pleasure itself, because it is very pursue pleasure. </p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
+                                <h4>Reham Mohamed <small>- Engineer at Electro-Tech</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Great Services! <i class="fa fa-quote-right"></i>
+                                </h3>
+                                <p class="lead">They have got my project on time with the competition with a sed highly
+                                    skilled, and experienced & professional team.</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
+                                <h4>Mohab Mohamed <small>- IT engineer</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Great Team! <i class="fa fa-quote-right"></i></h3>
+                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and
+                                    praising pain was born and I will give you completed.</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
+                                <h4>Hamed Mahfouz <small>- Designer</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <!-- end testi-meta -->
+                    </div><!-- end testimonial -->
+                </div><!-- end carousel -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+    </div><!-- end section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <img src="images/logos/llll4444.png" alt="Sakkeny real-estate agency">
+                        </div>
+                        <p>On Sakkeny website, you will find all your housing units at prices that suit your needs and
+                            sell your units safely.</p>
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Info Link</h3>
+                        </div>
+
+                        <ul class="twitter-widget footer-links">
+                            <li><a href="index.html"> Home </a></li>
+                            <li><a href="service.html"> Services</a></li>
+                            <!--<li><a href="#"> Gallery</a></li>-->
+                            <li><a href="contact.html"> Contact</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Contact Details</h3>
+                        </div>
+
+                        <ul class="footer-links">
+                            <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+                            <li><a href="mailto:support@sakkeny.com">Support@sakkeny.com</a></li>
+                            <li><a href="index.html">www.Sakkeny.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Social</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="https://www.facebook.com/sakkeny.org.eg/"><i class="fa fa-facebook"></i>
+                                    Facebook</a></li>
+                            <li><a href="https://twitter.com/sakkeny1"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
+                                        class="fa fa-linkedin"></i> Linked In</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
+
+    <div class="copyrights" >
+        <div class="container" >
+            <div class="footer-distributed" >
+                <div class="footer-links" style="text-align: center;">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate</a>
+                        Design By : <a>Sakkeny Team</a></p>
+                </div>
+
+                
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/hoverdir.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <!-- MAP & CONTACT -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+    <script src="LogIn.js"></script>
+    <script src="SignOut.js"></script>
+    <script src="SendFeed.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                var user = firebase.auth().currentUser;
+                document.getElementById("SigninBar").style.display = "none";
+                document.getElementById("SignupBar").style.display = "none";
+                document.getElementById("MyaccountBar").style.display = "block";
+                document.getElementById("Logout").style.display = "block";
+                document.getElementById("add").style.display = 'block'
+                var currentusermail = user.email;
+                var isVerify = user.emailVerified;
+                if (isVerify != true) {
+                    window.location.href = "Verfication.html";
+                }
+            }
+
+            else {
+                document.getElementById("SigninBar").style.display = "block";
+                document.getElementById("SignupBar").style.display = "block";
+                document.getElementById("MyaccountBar").style.display = "none";
+                document.getElementById("Logout").style.display = "none";
+                document.getElementById("filter").style.display = 'none';
+                console.log("inside else");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- Site Icons -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<!-- Site Metas -->
+<title>My Favorites - Sakkeny Real Estate</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- Colors CSS -->
+<link rel="stylesheet" href="css/colors.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/modernizer.js"></script>
+<style>
+    .h6,
+    h6 {
+        font-size: .75rem !important;
+        font-weight: 500;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.5em;
+        text-transform: uppercase;
+    }
+
+    .name h6 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+    .fixed-top {
+        position: fixed;
+        z-index: 1030;
+        left: 0;
+        right: 0;
+    }
+
+    .profile-page .page-header {
+        height: 380px;
+        background-position: center;
+    }
+
+    .page-header {
+        height: 100vh;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-filter:after,
+    .header-filter:before {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: block;
+        left: 0;
+        top: 0;
+        content: "";
+    }
+
+    .header-filter::before {
+        background: #997c47;
+    }
+
+    .main-raised {
+        margin: -60px 30px 0;
+        border-radius: 6px;
+        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    }
+
+    .main {
+        background: #FFF;
+        position: relative;
+        z-index: 3;
+    }
+
+    .profile-page .profile {
+        text-align: center;
+    }
+
+    .profile-page .profile img {
+        max-width: 160px;
+        width: 100%;
+        margin: 0 auto;
+        -webkit-transform: translate3d(0, -50%, 0);
+        -moz-transform: translate3d(0, -50%, 0);
+        -o-transform: translate3d(0, -50%, 0);
+        -ms-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+    }
+
+    .img-raised {
+        box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    }
+
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+
+    .img-fluid,
+    .img-thumbnail {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .title {
+        margin-top: 30px;
+        margin-bottom: 25px;
+        min-height: 32px;
+        color: #3C4858;
+        font-weight: 700;
+        font-family: "Roboto Slab", "Times New Roman", serif;
+    }
+
+    .profile-page .description {
+        margin: 1.071rem auto 0;
+        max-width: 600px;
+        color: #997c47;
+        font-weight: 300;
+    }
+
+
+
+    .profile-page .profile-tabs {
+        margin-top: 4.284rem;
+    }
+
+    .nav-pills,
+    .nav-tabs {
+        border: 0;
+        border-radius: 3px;
+        padding: 0 15px;
+    }
+
+
+
+    .nav-pills.nav-pills-icons .nav-item .nav-link {
+        border-radius: 4px;
+    }
+
+    .nav-pills .nav-item .nav-link.active {
+        color: #fff;
+        background-color: #997c47;
+        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(156, 39, 176, .6);
+    }
+
+    .nav-pills .nav-item .nav-link {
+        line-height: 24px;
+        font-size: 12px;
+        font-weight: 500;
+        min-width: 100px;
+        color: #997c47;
+        transition: all .3s;
+        border-radius: 30px;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .nav-pills .nav-item .nav-link:not(.active):hover {
+        background-color: #997c47;
+    }
+
+
+    .nav-pills .nav-item i {
+        display: block;
+        font-size: 30px;
+        padding: 15px 0;
+    }
+
+    .tab-space {
+        padding: 20px 0 50px;
+    }
+
+    .profile-page .gallery {
+        margin-top: 3.213rem;
+        padding-bottom: 50px;
+    }
+
+    .profile-page .gallery img {
+        width: 100%;
+        margin-bottom: 2.142rem;
+    }
+
+    .profile-page .profile .name {
+        margin-top: -80px;
+    }
+
+    img.rounded {
+        border-radius: 6px !important;
+    }
+
+    .tab-content>.active {
+        display: block;
+    }
+</style>
+
+</head>
+
+<body class="profile-page realestate_version">
+    <!-- LOADER -->
+    <div id="preloader">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logos/llll4444.png" alt="image"
+                            style="height: 60px; float: left;"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Service</a></li>
+                        <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                         
+                        <li><a href="contact.html">Contact</a></li>
+                        <li class="social-links"><a href="https://twitter.com/sakkeny1"><i
+                                    class="fa fa-twitter global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/"><i
+                                    class="fa fa-facebook global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
+                                    class="fa fa-linkedin global-radius"></i></a></li>
+                        <li><a class="active" href="MyAccount.html" style="margin-right: 5px;">My Account</a></li>
+                        <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
+                            id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
+                    </li>
+                    <li class="search-option" title="Add an advertisment">
+                        <a class="search tran3s dropdown-toggle" style="padding: 10px;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
+                            aria-hidden="true" style="color: black;font-size: 25px;"></i></a>
+          
+                      </li>
+                    <li class="search-option" title="Search">
+                        <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
+                                aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
+
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header header-filter" data-parallax="true"></div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar" style="text-align: center;">
+                                <img id='userPp' alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                            </div>
+                            <div class="name">
+                                <h1 class="title" id="name"></h1>
+                                <h5>Profile</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <div class="profile-tabs">
+                            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="MyAccount.html">
+                                        <i class="fa fa-audio-description"></i>
+                                        Your Ads
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="MyAccountFav.html">
+                                        <i class="fa fa-star"></i>
+                                        Favorite
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="AdvCard.html">
+                                        <i class="fa fa-plus-circle"></i>
+                                        Add your Advertisment
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="MyAccountViews.html">
+                                        <i class="fa fa-eye"></i>
+                                        Monitor Views
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="ModifyAd.html">
+                                        <i class="fa fa-edit"></i>
+                                        Modify Advertisment
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="EditAccount.html">
+                                        <i class="fa fa-edit"></i>
+                                        Modify Account
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="width: 100%;">
+                                    <a class="nav-link " href="PendingAds.html">
+                                        <i class="fa fa-edit"></i>
+                                        Pending Ads
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+                        <div class="name">
+                            <h1 class="title">My Favorites</h1>
+                        </div>
+                <div class="tab-content tab-space">
+                    <div class="row" id="adHeader">
+
+
+
+
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="widget clearfix">
+                                    <div class="widget-title">
+                                        <img src="images/logos/llll4444.png" alt="Sakkeny real-estate agency">
+                                    </div>
+                                    <p>On Sakkeny website, you will find all your housing units at prices that suit your needs and
+                                        sell your units safely.</p>
+                                </div><!-- end clearfix -->
+                            </div><!-- end col -->
+            
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="widget clearfix">
+                                    <div class="widget-title">
+                                        <h3>Info Link</h3>
+                                    </div>
+            
+                                    <ul class="twitter-widget footer-links">
+                                        <li><a href="index.html"> Home </a></li>
+                                        <li><a href="service.html"> Services</a></li>
+                                        <!--<li><a href="#"> Gallery</a></li>-->
+                                        <li><a href="contact.html"> Contact</a></li>
+                                    </ul><!-- end links -->
+                                </div><!-- end clearfix -->
+                            </div><!-- end col -->
+            
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="widget clearfix">
+                                    <div class="widget-title">
+                                        <h3>Contact Details</h3>
+                                    </div>
+            
+                                    <ul class="footer-links">
+                                        <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+                                        <li><a href="mailto:support@sakkeny.com">Support@sakkeny.com</a></li>
+                                        <li><a href="index.html">www.Sakkeny.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+            
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="widget clearfix">
+                                    <div class="widget-title">
+                                        <h3>Social</h3>
+                                    </div>
+                                    <ul class="footer-links">
+                                        <li><a href="https://www.facebook.com/sakkeny.org.eg/"><i class="fa fa-facebook"></i>
+                                                Facebook</a></li>
+                                        <li><a href="https://twitter.com/sakkeny1"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                        <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
+                                                    class="fa fa-linkedin"></i> Linked In</a></li>
+                                    </ul><!-- end links -->
+                                </div><!-- end clearfix -->
+                            </div><!-- end col -->
+            
+                        </div><!-- end row -->
+                    </div><!-- end container -->
+                </footer><!-- end footer -->
+            
+            
+                <div class="copyrights" >
+                    <div class="container" >
+                        <div class="footer-distributed" >
+                            <div class="footer-links" style="text-align: center;">
+                                <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate</a>
+                                    Design By : <a>Sakkeny Team</a></p>
+                            </div>
+            
+                            
+                        </div>
+                    </div><!-- end container -->
+                </div><!-- end copyrights -->
+
+                <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+                <!-- ALL JS FILES -->
+                <script src="js/all.js"></script>
+                <!-- ALL PLUGINS -->
+                <script src="js/custom.js"></script>
+                <script src="js/portfolio.js"></script>
+                <script src="js/hoverdir.js"></script>
+                <!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> -->
+                <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script> -->
+                <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+                <script src="LogIn.js"></script>
+                <script src="SignOut.js"></script>
+                <script>
+                    var kk = "";
+                    firebase.auth().onAuthStateChanged(function (user) {
+                        if (user) {
+                            var user = firebase.auth().currentUser;
+                            var currentusermail = user.email;
+                            var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
+                            details.once('value', function (snapshot) {
+                                snapshot.forEach(childSnapshot => {
+                                    console.log(currentusermail);
+                                    document.getElementById("name").innerHTML = childSnapshot.val().name;
+                                    console.log(childSnapshot.val().name);
+                                });
+                            });
+                        }
+                    });
+                    function AddAds(title, description, time, location, appID, price, image, name,type) {
+  var divSize = document.createElement('div');
+  var divSer = document.createElement('div');
+  var divMain = document.createElement('div');
+  var divWrap = document.createElement('div');
+  var adFig = document.createElement('figure');
+  var adlink = document.createElement('a');
+  var adlinkIcon = document.createElement('i');
+  var adImg = document.createElement('img');
+  var divLabel = document.createElement('div');
+  
+  var divPrice = document.createElement('div');
+  var spanPrice = document.createElement('span');
+  var divBody = document.createElement('div');
+  var Title = document.createElement('h3');
+  var divDesc = document.createElement('div');
+  var Desc = document.createElement('p');
+  var divAddress = document.createElement('div');
+  var addrsIcon = document.createElement('i');
+  var divFoot = document.createElement('div');
+  var divLeft = document.createElement('div');
+  var spanLeft = document.createElement('span');
+  var leftIcon = document.createElement('i');
+  var divRight = document.createElement('div');
+  var spanRight = document.createElement('span');
+  var rightIcon = document.createElement('i');
+  var Location = document.createElement('text');
+
+
+
+  divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
+  divSer.setAttribute('class', 'service-widget box');
+  divMain.setAttribute('class', 'property-main');
+  divWrap.setAttribute('class', 'property-wrap');
+  adFig.setAttribute('class', 'post-media wow fadeIn');
+  adFig.setAttribute('style','border-width: medium;');
+  adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
+  adlink.setAttribute('class', 'hoverbutton global-radius');
+  adlink.setAttribute('href', image);
+
+
+
+  adlinkIcon.setAttribute('class', 'flaticon-unlink');
+  adImg.setAttribute('src', image);
+  adImg.setAttribute('class', 'img-responsive');
+  divLabel.setAttribute('class', 'label-inner');
+  
+  
+  divPrice.setAttribute('class', 'price');
+  spanPrice.setAttribute('class', 'item-sub-price');
+  divBody.setAttribute('class', 'item-body');
+  divDesc.setAttribute('class', 'info');
+  divAddress.setAttribute('class', 'adderess');
+  addrsIcon.classList.add('fa', 'fa-map-pin');
+  addrsIcon.setAttribute('aria-hidden', 'true');
+  divFoot.setAttribute('class', 'item-foot');
+  divLeft.setAttribute('class', 'pull-left');
+  spanLeft.setAttribute('class', 'prop-user-agent');
+
+  leftIcon.classList.add('fa', 'fa-user');
+  leftIcon.setAttribute('aria-hidden', 'true');
+  divRight.classList.add('pull-right');
+  spanRight.classList.add('prop-date');
+  rightIcon.classList.add('fa', 'fa-calendar');
+  rightIcon.setAttribute('aria-hideen', 'true');
+  Title.setAttribute('style', 'color:black');
+  Desc.innerHTML = description.substring(0, 40);
+  Title.innerHTML = title;
+  Location.innerHTML = location.substring(0, 30);
+  spanPrice.innerHTML = price;
+  adFig.style.display ='flex';
+  adFig.style.justifyContent = 'center';
+  adFig.style.alignItems = 'center';
+  adFig.style.overflow = 'hidden';
+  adImg.style.flexShrink ='0';
+  adImg.style.Width = '100%';
+  //adImg.style.maxHeight = '100%';
+  adFig.style.height = '250px';
+  
+  
+  
+  
+  adlink.appendChild(adlinkIcon);
+  
+  divPrice.appendChild(spanPrice);
+  adFig.appendChild(adlink);
+  adFig.appendChild(adImg);
+  adFig.appendChild(divLabel);
+  adFig.appendChild(divPrice);
+  divDesc.appendChild(Desc);
+  divAddress.appendChild(addrsIcon);
+  divAddress.appendChild(Location);
+  divBody.appendChild(Title);
+  divBody.appendChild(divDesc);
+  divBody.appendChild(divAddress);
+  spanLeft.appendChild(leftIcon);
+  let t = document.createElement('small');
+      t.setAttribute('class','testi-meta text-muted');
+      t.innerHTML = " By " +type;
+      spanLeft.append(name);
+      spanLeft.appendChild(t);
+  divLeft.appendChild(spanLeft);
+  spanRight.appendChild(rightIcon);
+  spanRight.append(time);
+  divRight.appendChild(spanRight);
+  divFoot.appendChild(divLeft);
+  divFoot.appendChild(divRight);
+  divWrap.appendChild(adFig);
+  divWrap.appendChild(divBody);
+  divWrap.appendChild(divFoot);
+  divMain.appendChild(divWrap);
+  divSer.appendChild(divMain);
+  divSize.setAttribute('style','margin-bottom: 30px;');
+  divSize.appendChild(divSer);
+  divSize.addEventListener('click', function () {
+      localStorage.setItem('appID', appID);
+      window.document.location = './ads.html';
+  });
+
+  document.getElementById('adHeader').appendChild(divSize);
+}
+                    function checkTime(str){
+  var today = new Date();
+  dayToday = today.getDate();
+  monthToday = today.getMonth() + 1;
+  yearToday = today.getFullYear();
+
+  //var str = document.getElementById("in").value;
+  var myArr = str.split("-", 3);
+  var dayEnd = parseInt(myArr[2]);
+  var monthEnd = parseInt(myArr[1]);
+  var yearEnd = parseInt(myArr[0]);
+  if(yearToday > yearEnd){
+      //console.log("false");
+      return false;
+  }
+  else if(yearToday == yearEnd){
+      if(monthToday > monthEnd){
+          //console.log("false");
+          return false;
+      }
+      else if(monthToday == monthEnd){
+          if(dayToday >= dayEnd){
+              //console.log("false");
+              return false;
+          }
+          else{
+              //console.log("true");
+              return true;
+          }
+      }
+      else{
+          //console.log("true");
+          return true;
+      }
+  }
+  else{
+      //console.log("true");
+      return true;
+  }
+}
+  function delStor(vv){
+  img = firebase.storage().refFromURL(vv);
+          img.delete()
+          .then(() => {
+          //console.log("Picture is deleted successfully!");
+          })
+          .catch((err) => {
+          console.log(err);
+          });
+}
+function Delete(){
+  firebase.database().ref('Ads').orderByKey().equalTo(kk).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+      childSnapshot.ref.remove();
+      });
+  });
+  firebase.database().ref('images').orderByChild("main").equalTo(kk).once('value', function (snapshot){
+      snapshot.forEach(childSnapshot => {
+          delStor(childSnapshot.val().link);
+          childSnapshot.ref.remove();
+      });
+  });    
+  //alert("The ad has been successfully Deleted");
+  //window.location.href = "Dashboard.html";
+}
+
+                    function fetchAllData() {
+                        window.scrollTo(0, 700);
+                        document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
+                        firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                            snapshot.forEach(childSnapshot => {
+                                image = childSnapshot.val().link;
+                                document.getElementById('userPp').setAttribute('src', image);
+                            });
+                        });
+
+                        firebase.database().ref('Favorites').orderByChild("user").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                            snapshot.forEach(childSnapshot => {
+                                var ad = childSnapshot.val().Ad;
+
+                                firebase.database().ref('Ads').orderByKey().equalTo(ad).once('value', function (snapshot) {
+                                    snapshot.forEach(childSnapshot => {
+                                        kk = childSnapshot.key;
+                                        if(childSnapshot.val().Accepted == "Yes"){
+                                            if(checkTime(childSnapshot.val().DeadLine)){
+                                                console.log(ad);
+                                        let title = childSnapshot.val().Title;
+                                        let description = childSnapshot.val().Description;
+                                        let time = childSnapshot.val().Time;
+                                        let appID = childSnapshot.key;
+                                        let location = childSnapshot.val().location;
+                                        let price = childSnapshot.val().price;
+                                        let mail = childSnapshot.val().UserID;
+                                        var image = "";
+                                        firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot) {
+                                            snapshot.forEach(childSnapshot => {
+                                                if(childSnapshot.val().Des != "Contract"){
+                    image = childSnapshot.val().link;
+                console.log(image);
+                return
+                }
+                                            });
+                                        });
+                                        firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
+                                            snapshot.forEach(childSnapshot => {
+                                                let Name = childSnapshot.val().name;
+                                                let type = childSnapshot.val().type;
+                                                AddAds(title, description, time, location, appID, price, image, Name,type);
+                                                //i++;
+                                            });
+                                        });
+                                            }
+                                            else{
+                                                Delete();
+                                            }
+                                        
+                                    }
+                                    });
+
+                                });
+                            });
+                        });
+                    }
+                    if (window.addEventListener) {
+                        window.addEventListener('load', fetchAllData());
+                    } else if (window.attachEvent) {
+                        window.attachEvent('onload', fetchAllData());
+                    } else {
+                        window.onload = fetchAllData();
+                    }
+                </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<script>
+    firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+      var user = firebase.auth.currentUser;
+      document.getElementById("SigninBar").style.display = "none";
+      document.getElementById("SignupBar").style.display = "none";
+      document.getElementById("MyaccountBar").style.display = "block";
+      alert("out");
+      if(user != null){
+        var currentusermail = user.email;
+        var isVerify = user.emailVerified;
+        alert("inside if");
+      }
+      }
+    
+    else{
+        document.getElementById("SigninBar").style.display = "block";
+        document.getElementById("SignupBar").style.display = "block";
+        document.getElementById("MyaccountBar").style.display = "none";
+        alert("inside else");
+    }
+  });
+  </script>
