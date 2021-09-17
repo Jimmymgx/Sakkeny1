@@ -60,7 +60,32 @@ function checkValidity(){
                           if(len == 11){
                             if(start){
                               if(isB == true || isD == true || isO == true){
-                                addUserByEmail();
+                                var cont2 = document.getElementById("contactnum2").value;
+                                cont2 = cont2.trim();
+                                len2 = cont2.length;
+                                start2 = cont2.startsWith("01");
+                                if(cont2 != ""){
+                                    if (!isNaN(cont2)){
+                                      if(len2 == 11){
+                                        if(start2){
+                                          addUserByEmail();
+                                        }
+                                        else{
+                                          alert("Wrong phone number");
+                                        }
+                                      }
+                                      else{
+                                        alert("Wrong phone number");
+                                      }
+                                    }
+                                    else{
+                                      alert("Wrong phone number");
+                                    }
+                                  }
+                                  else{
+                                    addUserByEmail();
+                                  }
+                                
                               }
                               else{
                                 alert("You have to Specify are you owner or developer or broker");
@@ -114,7 +139,7 @@ function checkValidity(){
 }
 function uploadImage(email){
   var numberOfFiles = document.getElementById('image').files.length;
-    window.alert(numberOfFiles);
+    //window.alert(numberOfFiles);
     let arr = [];
     let names = [];
     for(var i = 0; i < numberOfFiles; i++){
@@ -158,6 +183,15 @@ function addUserByEmail(){
     var errorCode = error.code;
     var errorMessage = error.message;
     window.alert("Error : "+ errorMessage);
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+      window.location.href = "SignUp.html";
+    }).catch((error) => {
+      // An error happened.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage);
+    });
     // ..
   });
   console.log("Hey");
@@ -166,11 +200,13 @@ function addUserByEmail(){
       var monthSelection = document.getElementById("month").value;
       var yearSelection = document.getElementById("year").value;
       var birthdate = daySelection +'/' + monthSelection +'/' +  yearSelection;
+      var photo = document.getElementById('image').files.length;
       var typ = "";
       if(document.getElementById("owner").checked){typ = "Personal"}
       if(document.getElementById("developer").checked){typ = "Developer"}
       if(document.getElementById("broker").checked){typ = "Broker"}
       var cont1 = document.getElementById("contactnum").value;
+      var cont2 = document.getElementById("contactnum2").value;
       var data = {
         email : email,
         name : name,
@@ -180,11 +216,15 @@ function addUserByEmail(){
         birthDate : birthdate,
         type : typ,
         contactNumber : cont1,
+        secondContactNumber : cont2
       }
       firebase.database().ref('users').push(data);
       uploadImage(email);
       makeLoader();
-      setTimeout(function(){window.location.href = "index.html";},5000);
+      if(photo == 0){
+        setTimeout(function(){window.location.href = "index.html";},5000);
+      }
+      
 
       
       //var ref = db.ref("users");
