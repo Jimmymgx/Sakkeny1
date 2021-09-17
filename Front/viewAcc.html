@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <!-- Site Metas -->
-<title>Modify Ad - Sakkeny Real Estate</title>
+<title>View Account - Sakkeny Real Estate</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -257,9 +257,7 @@
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
                                     <ul class="nav navbar-nav navbar-right">
-                                    <li ><a href="signUp.html" id="SignupBar">Sign Up</a></li>
-                        <li><a href="login.html" id="SigninBar">Log In</a></li>
-                        <li><a class="active" href="MyAccount.html" style="margin-right: 5px;  display: none;"
+                        <li><a href="MyAccount.html" style="margin-right: 5px;"
                                 id="MyaccountBar">MyAccount</a></li>
                                 <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
                                     id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
@@ -296,62 +294,37 @@
                                 <h1 class="title" id="name"></h1>
                                 <h5>Profile</h5>
                             </div>
+                            <h2 class="title" id="type" >Type: </h2>
+                            <h2 class="title " id="mail">Email: </h2>
+                            <h2 class="title " id="number">Contact: </h2>
+                            <h2 class="title">user ratings: </h2>
+                            
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                        
+                        <div class="rate">
+                            <h2 class="title">rate the user: </h2>
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                          </div>
                         </div>
                     </div>
                 </div>
+                <br><br><br>
                 <div class="row">
                     <div class="col-md-12 ml-auto mr-auto">
-                        <div class="profile-tabs">
-                            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="MyAccount.html">
-                                        <i class="fa fa-audio-description"></i>
-                                        Your Ads
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="MyAccountFav.html">
-                                        <i class="fa fa-star"></i>
-                                        Favorite
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="AdvCard.html">
-                                        <i class="fa fa-plus-circle"></i>
-                                        Add your Advertisment
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="MyAccountViews.html">
-                                        <i class="fa fa-eye"></i>
-                                        Monitor Views
-                                    </a>
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="ModifyAd.html">
-                                        <i class="fa fa-edit"></i>
-                                        Modify Advertisment
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="EditAccount.html">
-                                        <i class="fa fa-edit"></i>
-                                        Modify Account
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item" style="width: 100%;">
-                                    <a class="nav-link " href="PendingAds.html">
-                                        <i class="fa fa-edit"></i>
-                                        Pending Ads
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <h2 class="title">User Properties:</h2>
                     </div>
                 </div>
-                <div class="name">
-                    <h1 class="title">Choose the ad that you want to modify</h1>
-                </div>
+                
                 <div class="tab-content tab-space">
                     <div class="row" id="adHeader">
 
@@ -477,118 +450,126 @@
                         }
                     });
                     function AddAds(title, description, time, location, appID, price, image, name,type) {
-                        var divSize = document.createElement('div');
-                        var divSer = document.createElement('div');
-                        var divMain = document.createElement('div');
-                        var divWrap = document.createElement('div');
-                        var adFig = document.createElement('figure');
-                        var adlink = document.createElement('a');
-                        var adlinkIcon = document.createElement('i');
-                        var adImg = document.createElement('img');
-                        var divLabel = document.createElement('div');
-                        
-                        var divPrice = document.createElement('div');
-                        var spanPrice = document.createElement('span');
-                        var divBody = document.createElement('div');
-                        var Title = document.createElement('h3');
-                        var divDesc = document.createElement('div');
-                        var Desc = document.createElement('p');
-                        var divAddress = document.createElement('div');
-                        var addrsIcon = document.createElement('i');
-                        var divFoot = document.createElement('div');
-                        var divLeft = document.createElement('div');
-                        var spanLeft = document.createElement('span');
-                        var leftIcon = document.createElement('i');
-                        var divRight = document.createElement('div');
-                        var spanRight = document.createElement('span');
-                        var rightIcon = document.createElement('i');
-                        var Location = document.createElement('text');
+  var divSize = document.createElement('div');
+  var divSer = document.createElement('div');
+  var divMain = document.createElement('div');
+  var divWrap = document.createElement('div');
+  var adFig = document.createElement('figure');
+  var adlink = document.createElement('a');
+  var adlinkIcon = document.createElement('i');
+  var adImg = document.createElement('img');
+  var divLabel = document.createElement('div');
+  
+  var divPrice = document.createElement('div');
+  var spanPrice = document.createElement('span');
+  var divBody = document.createElement('div');
+  var Title = document.createElement('h3');
+  var divDesc = document.createElement('div');
+  var Desc = document.createElement('p');
+  var divAddress = document.createElement('div');
+  var addrsIcon = document.createElement('i');
+  var divFoot = document.createElement('div');
+  var divLeft = document.createElement('div');
+  var spanLeft = document.createElement('span');
+  var leftIcon = document.createElement('i');
+  var divRight = document.createElement('div');
+  var spanRight = document.createElement('span');
+  var rightIcon = document.createElement('i');
+  var Location = document.createElement('text');
 
 
 
-                        divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
-                        divSer.setAttribute('class', 'service-widget box');
-                        divMain.setAttribute('class', 'property-main');
-                        divWrap.setAttribute('class', 'property-wrap');
-                        adFig.setAttribute('class', 'post-media wow fadeIn');
-                        adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
-                        adlink.setAttribute('class', 'hoverbutton global-radius');
-                        adlink.setAttribute('href', image);
+  divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
+  divSer.setAttribute('class', 'service-widget box');
+  divMain.setAttribute('class', 'property-main');
+  divWrap.setAttribute('class', 'property-wrap');
+  adFig.setAttribute('class', 'post-media wow fadeIn');
+  adFig.setAttribute('style','border-width: medium;')
+  adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
+  adlink.setAttribute('class', 'hoverbutton global-radius');
+  adlink.setAttribute('href', image);
 
 
 
-                        adlinkIcon.setAttribute('class', 'flaticon-unlink');
-                        adImg.setAttribute('src', image);
-                        adImg.setAttribute('class', 'img-responsive');
-                        divLabel.setAttribute('class', 'label-inner');
-                        
-                        divPrice.setAttribute('class', 'price');
-                        spanPrice.setAttribute('class', 'item-sub-price');
-                        divBody.setAttribute('class', 'item-body');
-                        divDesc.setAttribute('class', 'info');
-                        divAddress.setAttribute('class', 'adderess');
-                        addrsIcon.classList.add('fa', 'fa-map-pin');
-                        addrsIcon.setAttribute('aria-hidden', 'true');
-                        divFoot.setAttribute('class', 'item-foot');
-                        divLeft.setAttribute('class', 'pull-left');
-                        spanLeft.setAttribute('class', 'prop-user-agent');
-                        leftIcon.classList.add('fa', 'fa-user');
-                        leftIcon.setAttribute('aria-hidden', 'true');
-                        divRight.classList.add('pull-right');
-                        spanRight.classList.add('prop-date');
-                        rightIcon.classList.add('fa', 'fa-calendar');
-                        rightIcon.setAttribute('aria-hideen', 'true');
-                        Title.setAttribute('style', 'color:black');
-                        Desc.innerHTML = description.substring(0, 60);
-                        Title.innerHTML = title;
-                        Location.innerHTML = location.substring(0, 30);
-                        spanPrice.innerHTML = price;
-                        adFig.style.display = 'flex';
-                        adFig.style.justifyContent = 'center';
-                        adFig.style.alignItems = 'center';
-                        adFig.style.overflow = 'hidden';
-                        adImg.style.flexShrink = '0';
-                        adFig.style.height = '250px';
+  adlinkIcon.setAttribute('class', 'flaticon-unlink');
+  adImg.setAttribute('src', image);
+  adImg.setAttribute('class', 'img-responsive');
+  divLabel.setAttribute('class', 'label-inner');
+  
+  
+  divPrice.setAttribute('class', 'price');
+  spanPrice.setAttribute('class', 'item-sub-price');
+  divBody.setAttribute('class', 'item-body');
+  divDesc.setAttribute('class', 'info');
+  divAddress.setAttribute('class', 'adderess');
+  addrsIcon.classList.add('fa', 'fa-map-pin');
+  addrsIcon.setAttribute('aria-hidden', 'true');
+  divFoot.setAttribute('class', 'item-foot');
+  divLeft.setAttribute('class', 'pull-left');
+  spanLeft.setAttribute('class', 'prop-user-agent');
 
-                        adlink.appendChild(adlinkIcon);
-                        
-                        divPrice.appendChild(spanPrice);
-                        adFig.appendChild(adlink);
-                        adFig.appendChild(adImg);
-                        adFig.appendChild(divLabel);
-                        adFig.appendChild(divPrice);
-                        divDesc.appendChild(Desc);
-                        divAddress.appendChild(addrsIcon);
-                        divAddress.appendChild(Location);
-                        divBody.appendChild(Title);
-                        divBody.appendChild(divDesc);
-                        divBody.appendChild(divAddress);
-                        spanLeft.appendChild(leftIcon);
-                        let t = document.createElement('small');
-            t.setAttribute('class','testi-meta text-muted');
-            t.innerHTML = " By " +type;
-            spanLeft.append(name);
-            spanLeft.appendChild(t);
-                        divLeft.appendChild(spanLeft);
-                        spanRight.appendChild(rightIcon);
-                        spanRight.append(time);
-                        divRight.appendChild(spanRight);
-                        divFoot.appendChild(divLeft);
-                        divFoot.appendChild(divRight);
-                        divWrap.appendChild(adFig);
-                        divWrap.appendChild(divBody);
-                        divWrap.appendChild(divFoot);
-                        divMain.appendChild(divWrap);
-                        divSer.appendChild(divMain);
-                        divSize.setAttribute('style','margin-bottom: 30px;');
-                        divSize.appendChild(divSer);
-                        divSize.addEventListener('click', function () {
-                            localStorage.setItem('appID', appID);
-                            window.document.location = './EditAdv.html';
-                        });
+  leftIcon.classList.add('fa', 'fa-user');
+  leftIcon.setAttribute('aria-hidden', 'true');
+  divRight.classList.add('pull-right');
+  spanRight.classList.add('prop-date');
+  rightIcon.classList.add('fa', 'fa-calendar');
+  rightIcon.setAttribute('aria-hideen', 'true');
+  Title.setAttribute('style', 'color:black');
+  Desc.innerHTML = description.substring(0, 40);
+  Title.innerHTML = title;
+  Location.innerHTML = location.substring(0, 30);
+  spanPrice.innerHTML = price;
+  adFig.style.display ='flex';
+  adFig.style.justifyContent = 'center';
+  adFig.style.alignItems = 'center';
+  adFig.style.overflow = 'hidden';
+  adImg.style.flexShrink ='0';
+  adImg.style.Width = '100%';
+  //adImg.style.maxHeight = '100%';
+  adFig.style.height = '250px';
+  
+  
+  
+  
+  adlink.appendChild(adlinkIcon);
+  
+  divPrice.appendChild(spanPrice);
+  adFig.appendChild(adlink);
+  adFig.appendChild(adImg);
+  adFig.appendChild(divLabel);
+  adFig.appendChild(divPrice);
+  divDesc.appendChild(Desc);
+  divAddress.appendChild(addrsIcon);
+  divAddress.appendChild(Location);
+  divBody.appendChild(Title);
+  divBody.appendChild(divDesc);
+  divBody.appendChild(divAddress);
+  spanLeft.appendChild(leftIcon);
+  let t = document.createElement('small');
+      t.setAttribute('class','testi-meta text-muted');
+      t.innerHTML = " By " +type;
+      spanLeft.append(name);
+      spanLeft.appendChild(t);
+  divLeft.appendChild(spanLeft);
+  spanRight.appendChild(rightIcon);
+  spanRight.append(time);
+  divRight.appendChild(spanRight);
+  divFoot.appendChild(divLeft);
+  divFoot.appendChild(divRight);
+  divWrap.appendChild(adFig);
+  divWrap.appendChild(divBody);
+  divWrap.appendChild(divFoot);
+  divMain.appendChild(divWrap);
+  divSer.appendChild(divMain);
+  divSize.setAttribute('style','margin-bottom: 30px;');
+  divSize.appendChild(divSer);
+  divSize.addEventListener('click', function () {
+      localStorage.setItem('appID', appID);
+      window.document.location = './ads.html';
+  });
 
-                        document.getElementById('adHeader').appendChild(divSize);
-                    }
+  document.getElementById('adHeader').appendChild(divSize);
+}
                     function checkTime(str){
   var today = new Date();
   dayToday = today.getDate();
@@ -656,7 +637,7 @@ function Delete(){
 }
 
                     function fetchAllData() {
-                        window.scrollTo(0, 700);
+                        
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
@@ -690,6 +671,11 @@ function Delete(){
                                     snapshot.forEach(childSnapshot => {
                                         let Name = childSnapshot.val().name;
                                         let type = childSnapshot.val().type;
+                                        let mail = childSnapshot.val().email;
+                                        let num = childSnapshot.val().contactNumber;
+                                        document.getElementById('type').innerHTML += type;
+                                        document.getElementById('mail').innerHTML += mail;
+                                        document.getElementById('number').innerHTML += num;
                                         AddAds(title, description, time, location, appID, price, image, Name,type);
                                         //i++;
                                     });

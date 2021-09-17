@@ -1,4 +1,5 @@
 var db = firebase.database();
+document.getElementById("favourite").addEventListener("click", addToFav);
 document.getElementById("fav").addEventListener("click", addToFav);
 function addToFav() {
   console.log("HHH");

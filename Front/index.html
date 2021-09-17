@@ -340,7 +340,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
 <script src="LogIn.js"></script>
 <script src="SignOut.js"></script>
-<script src="AddFav.js"></script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
 <script>
@@ -384,8 +384,7 @@
         var adlink = document.createElement('a');
         var adlinkIcon = document.createElement('i');
         var adImg = document.createElement('img');
-        var divLabel = document.createElement('div');
-        var spanLabel = document.createElement('span');
+        
         var divPrice = document.createElement('div');
         var spanPrice = document.createElement('span');
         var divBody = document.createElement('div');
@@ -420,9 +419,7 @@
         adlinkIcon.setAttribute('class', 'flaticon-unlink');
         adImg.setAttribute('src', image);
         adImg.setAttribute('class', 'img-responsive');
-        divLabel.setAttribute('class', 'label-inner');
-        spanLabel.setAttribute('class', 'label-status label');
-        spanLabel.innerHTML = '<a class="nav-link active" id="fav"><i class="fa fa-star-o" aria-hidden="true"></i></a>';
+      
         
         divPrice.setAttribute('class', 'price');
         spanPrice.setAttribute('class', 'item-sub-price');
@@ -458,11 +455,11 @@
         
         
         adlink.appendChild(adlinkIcon);
-        divLabel.appendChild(spanLabel);
+
         divPrice.appendChild(spanPrice);
         adFig.appendChild(adlink);
         adFig.appendChild(adImg);
-        adFig.appendChild(divLabel);
+        
         adFig.appendChild(divPrice);
         divDesc.appendChild(Desc);
         divAddress.appendChild(addrsIcon);
@@ -486,15 +483,24 @@
         divWrap.appendChild(divBody);
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
-        divSer.appendChild(divMain);
-        divSize.setAttribute('style','margin-bottom: 30px;');
-        divSize.appendChild(divSer);
-        divSize.addEventListener('click', function () {
+        divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
             window.document.location = './ads.html';
         });
-
+        divSer.appendChild(divMain);
+        
+        var fav = document.createElement('a');
+        fav.setAttribute('class','btn btn-primary btn-lg btn-block');
+        fav.innerHTML = '<i class="fa fa-star-o"></i> Add to my favourites';
+        fav.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        fav.setAttribute('id','favourite');
+        divSer.appendChild(fav);
+        divSize.appendChild(divSer);
+        
+        
+        
         document.getElementById('adHeader').appendChild(divSize);
+        
     }
     function checkTime(str){
     var today = new Date();
@@ -615,5 +621,5 @@ function Delete(){
         window.onload = fetchAllData();
     }
 </script>
-
+<script src="AddFav.js"></script>
 </html>
