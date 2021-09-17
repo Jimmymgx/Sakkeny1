@@ -66,10 +66,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html" ><img src="images/logos/llll4444.png" alt="image"
-                    style="height: 60px; margin-top: -5px; float: right;"></a>
+                    style="height: 60px; "></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse" >
-                <ul class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav navbar-left" >
                     <li><a href="index.html">Home</a></li>
                     <li><a href="service.html">Service</a></li>
                     <!-- <li><a href="gallery.html">Gallery</a></li> -->
@@ -208,10 +208,12 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <h4 id="Type" class="u-text u-text-25"></h4>
                       <img id="profile" class="u-image u-image-default u-image-4" src="images/logos/llll.png" alt="" data-image-width="1000" data-image-height="1500">
                       <h4 class="u-text u-text-26">image:</h4>
-                      <h4 id='num' class="u-text u-text-27"></h4>
-                      <h4 class="u-text u-text-28">Contact:</h4>
-                      <h4 id='views' class="u-text u-text-29"></h4>
-                      <h3 class="u-text u-text-30">Ad Views:</h3>
+                      <h4 id='num' style="display: none;" class="u-text u-text-27"></h4>
+                      <h4 class="u-text u-text-28" style="display: none;" id="ccc">Contact:</h4>
+                      <h2 class="u-text u-text-21" style="display: none;" id="msg">If you want to see the Owner Number you have to be a user</h2>
+                      <button class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;" id="showNum" >Show Contact Number</button>
+                      
+                      <h3 id='views' class="u-text u-text-33" style="display: none;">Ad Views:</h3>
                       <h3 id = "up" style="display: none;">The Ad is deleting now<br/>Please Wait ......</h3>
                     </div>
                   </div>
@@ -377,7 +379,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
           vv += 1;
           childSnapshot.ref.update({ NumOfViews: vv });
         });
-        document.querySelector('#views').innerHTML =document.querySelector('#views').innerHTML + numberOfViews;
+        document.querySelector('#views').innerHTML =document.querySelector('#views').innerHTML +"  "+ numberOfViews;
       });
       //ref1.orderByKey().equalTo(localStorage.getItem('appID')).update({ NumOfViews: vv});
     }
