@@ -50,32 +50,38 @@
     <!-- END LOADER -->
 
     <header class="header header_style_01">
-        <nav class="megamenu navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
+        <nav class="megamenu navbar navbar-default"  >
+            <div class="container-fluid" >
+                <div class="navbar-header" >
+                    
+                    <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar" >
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/llll4444.png" alt="image"
-                            style="height: 60px;"></a>
+                    <a class="navbar-brand" href="index.html" ><img src="images/logos/llll4444.png" alt="image"
+                        style="height: 60px; margin-top: -5px; float: right;"></a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Home</a></li>
+                <div id="navbar" class="navbar-collapse collapse" >
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a  href="index.html">Home</a></li>
                         <li><a href="service.html">Service</a></li>
-                         
+                        <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                        
                         <li><a class="active" href="contact.html">Contact</a></li>
-                        <li class="social-links"><a href="https://twitter.com/sakkeny1"><i
+                        <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
-                        <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/"><i
+                        <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
                                     class="fa fa-facebook global-radius"></i></a></li>
-                        <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
+                                    <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
+                                    class="fa fa-instagram global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                     class="fa fa-linkedin global-radius"></i></a></li>
-                        <li><a href="signUp.html" id="SignupBar">Sign Up</a></li>
+                                   </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                    <li style="text-align: right;"><a href="signUp.html" id="SignupBar">Sign Up</a></li>
                         <li><a href="login.html" id="SigninBar">Log In</a></li>
                         <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
                                 id="MyaccountBar">MyAccount</a></li>
@@ -83,7 +89,7 @@
                                     id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
                             </li>
                             <li class="search-option" title="Add an advertisment">
-                                <a class="search tran3s dropdown-toggle" style="padding: 10px;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
+                                <a class="search tran3s dropdown-toggle" style="padding: 10px; display: none;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
                                     aria-hidden="true" style="color: black;font-size: 25px;"></i></a>
                   
                               </li>
@@ -94,6 +100,9 @@
                             </li>
                     </ul>
                 </div>
+                
+                
+                
             </div>
         </nav>
     </header>
@@ -331,6 +340,7 @@
                             <li><a href="https://www.facebook.com/sakkeny.org.eg/"><i class="fa fa-facebook"></i>
                                     Facebook</a></li>
                             <li><a href="https://twitter.com/sakkeny1"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://twitter.com/sakkeny1" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
                             <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
                                         class="fa fa-linkedin"></i> Linked In</a></li>
                         </ul><!-- end links -->
@@ -374,6 +384,8 @@
     <script src="LogIn.js"></script>
     <script src="SignOut.js"></script>
     <script src="SendFeed.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
+     crossorigin="anonymous"></script>
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
