@@ -78,42 +78,49 @@ function Delete(){
           childSnapshot.ref.remove();
       });
   });    
-  //alert("The ad has been successfully Deleted");
-  //window.location.href = "Dashboard.html";
 }
-function check(){ 
+function check(){  
   window.scrollTo(0, 800);
 
     var ci = document.getElementById("cities").value;
     var ty = document.getElementById("type").value;
     var fr = document.getElementById("from").value;
     var t = document.getElementById("to").value;
-    if(fr == "" && t == ""){
-      fetchData();
+    var u = document.getElementById('unit').value;
+    if(ci == "" && ty == "" && fr == "" && t == "" && u == ""){
+      alert('You have to Make the filter');
+      window.scrollTo(0, 300);
     }
+
     else{
-      if(fr == "" || t == ""){
-        alert("This is wrong you have to enter a range of price");
+      if(fr == "" && t == ""){
+        fetchData();
       }
-      else {
-        if(!isNaN(fr)){
-          if(!isNaN(t)){
-           if (t > fr){
-            fetchData();
-           }
-           else{
-             alert("The to is must be higher than from");
-           }
-          }  
+      else{
+        if(fr == "" || t == ""){
+          alert("This is wrong you have to enter a range of price");
+        }
+        else {
+          if(!isNaN(fr)){
+            if(!isNaN(t)){
+             if (t > fr){
+              fetchData();
+             }
+             else{
+               alert("The to is must be higher than from");
+             }
+            }  
+            else{
+              alert("Invalid input in to fieled");  
+            }
+          }
           else{
-            alert("Invalid input in to fieled");  
+            alert("Invalid input in from fieled");
           }
         }
-        else{
-          alert("Invalid input in from fieled");
-        }
       }
     }
+    
 }
 function AddAds(title, description, time, location, appID, price, image, name,type) {
   var divSize = document.createElement('div');
@@ -142,7 +149,8 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   var spanRight = document.createElement('span');
   var rightIcon = document.createElement('i');
   var Location = document.createElement('text');
-
+  //var accept = document.createElement('button');
+  //var decline = document.createElement('button');
 
 
   divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
@@ -150,18 +158,18 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divMain.setAttribute('class', 'property-main');
   divWrap.setAttribute('class', 'property-wrap');
   adFig.setAttribute('class', 'post-media wow fadeIn');
-  adFig.setAttribute('style','border-width: medium;')
   adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
   adlink.setAttribute('class', 'hoverbutton global-radius');
   adlink.setAttribute('href', image);
-
+  //accept.setAttribute('type','button');
+  //accept.classList.add('btn','btn-success' ,'btn-lg', 'fa','fa-check','col-md-6','col-sm-6','col-xs-12');
+  //decline.classList.add('btn', 'btn-danger','btn-lg' , 'fa','fa-times','col-md-6','col-sm-6','col-xs-12');
 
 
   adlinkIcon.setAttribute('class', 'flaticon-unlink');
   adImg.setAttribute('src', image);
   adImg.setAttribute('class', 'img-responsive');
   divLabel.setAttribute('class', 'label-inner');
-  
   
   divPrice.setAttribute('class', 'price');
   spanPrice.setAttribute('class', 'item-sub-price');
@@ -180,9 +188,9 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   spanRight.classList.add('prop-date');
   rightIcon.classList.add('fa', 'fa-calendar');
   rightIcon.setAttribute('aria-hideen', 'true');
-  Desc.innerHTML = description.substring(0, 40);
+  Desc.innerHTML = description.substring(0, 100);
   Title.innerHTML = title;
-  Location.innerHTML = location.substring(0, 30);
+  Location.innerHTML = location.substring(0, 40);
   spanPrice.innerHTML = price;
   adFig.style.display ='flex';
   adFig.style.justifyContent = 'center';
@@ -192,9 +200,6 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   adImg.style.Width = '100%';
   //adImg.style.maxHeight = '100%';
   adFig.style.height = '250px';
-  
-  
-  
   
   adlink.appendChild(adlinkIcon);
   
@@ -211,10 +216,10 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divBody.appendChild(divAddress);
   spanLeft.appendChild(leftIcon);
   let t = document.createElement('small');
-      t.setAttribute('class','testi-meta text-muted');
-      t.innerHTML = " By " +type;
-      spanLeft.append(name);
-      spanLeft.appendChild(t);
+  t.setAttribute('class','testi-meta text-muted');
+  t.innerHTML = " By " +type;
+  spanLeft.append(name);
+  spanLeft.appendChild(t);
   divLeft.appendChild(spanLeft);
   spanRight.appendChild(rightIcon);
   spanRight.append(time);
@@ -226,8 +231,11 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divWrap.appendChild(divFoot);
   divMain.appendChild(divWrap);
   divSer.appendChild(divMain);
+  //divSer.appendChild(accept);
+  //divSer.appendChild(decline);
   divSize.setAttribute('style','margin-bottom: 30px;');
   divSize.appendChild(divSer);
+  
   divSize.addEventListener('click', function () {
       localStorage.setItem('appID', appID);
       window.document.location = './ads.html';
@@ -237,6 +245,9 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
 }
 
 function fetchData() {
+  var num = 0;
+  var counter = 0;
+  var counter2 = 0;
   var ci = document.getElementById("cities").value;
   var ty = document.getElementById("type").value;
   var fr = document.getElementById("from").value;
@@ -248,13 +259,16 @@ function fetchData() {
     .database()
     .ref("Ads")
     .once("value", function (snapshot) {
-      
+      num = snapshot.numChildren();
+      console.log(num);
       snapshot.forEach((childSnapshot) => {
         kk = childSnapshot.key;
         if(ci == ""){city = childSnapshot.val().City;}
-          else{city = ci}
+          else{city = ci;
+          }
           if(ty == ""){type = childSnapshot.val().Type;}
-          else{type = ty}
+          else{type = ty;
+          }
           if(fr == "" && t == ""){
             from = Number.MIN_VALUE;
             to = Number.MAX_VALUE;
@@ -264,9 +278,11 @@ function fetchData() {
             to = parseInt(t);
           }
           if(u==""){unit = childSnapshot.val().unit}
-          else{unit =u}
+          else{unit =u;
+          }
           if(typ == ""){type2 = childSnapshot.val().UnitType;}
-          else{type2 = typ}
+          else{type2 = typ;
+            }
         if(childSnapshot.val().Accepted == "Yes"){
           if(checkTime(childSnapshot.val().DeadLine)){
             if(childSnapshot.val().City == city){
@@ -274,6 +290,7 @@ function fetchData() {
                 Pr = parseInt(childSnapshot.val().price);
                 if(Pr >= from && Pr <= to){
                   if(childSnapshot.val().UnitType == type2){
+                    counter += 1;
                     let title = childSnapshot.val().Title;
                   let description = childSnapshot.val().Description;
                   let time = childSnapshot.val().Time;
@@ -306,6 +323,8 @@ function fetchData() {
                         let Name = childSnapshot.val().name;
                         let type = childSnapshot.val().type;
                         console.log(Name);
+                        
+                        
                         AddAds(
                           title,
                           description,
@@ -317,7 +336,7 @@ function fetchData() {
                           Name,
                           type
                         );
-                        //i++;
+                        check2(counter);
                       });
                     });
                   }
@@ -330,12 +349,31 @@ function fetchData() {
             Delete();
           }
         }
-      });
-    
+        counter2 += 1;
+      console.log(counter2);
+      console.log(num);
+      if(counter2 == num){
+        check2(counter);
+      }
+      });      
     });
+}
+
+function check2(para){
+  if(para < 1){
+    document.getElementById('noRes').style.display = "block";
+  }
+  if(para > 0){
+    document.getElementById('noRes').style.display = "none";
+  }
+}
+function clear2(){
+  document.getElementById('noRes').style.display = "none";
+
 }
 function clear() {
   document.getElementById("adHeader").innerHTML = "";
 }
 document.getElementById("search").addEventListener("click", check);
 document.getElementById("search").addEventListener("click", clear);
+document.getElementById("search").addEventListener("click", clear2);

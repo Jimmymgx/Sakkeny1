@@ -331,7 +331,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
 <script src="LogIn.js"></script>
 <script src="SignOut.js"></script>
-
+<script src="AddFav.js"></script>
 <script>
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -356,6 +356,7 @@
             document.getElementById("filter").style.display = 'none';
             document.getElementById("searchBut").style.display = 'none';
             document.getElementById("msg").style.display = "block";
+            document.getElementById("fav").style.display = "none";
             console.log("inside else");
         }
     });
@@ -373,7 +374,7 @@
         var adlinkIcon = document.createElement('i');
         var adImg = document.createElement('img');
         var divLabel = document.createElement('div');
-        
+        var spanLabel = document.createElement('span');
         var divPrice = document.createElement('div');
         var spanPrice = document.createElement('span');
         var divBody = document.createElement('div');
@@ -409,7 +410,8 @@
         adImg.setAttribute('src', image);
         adImg.setAttribute('class', 'img-responsive');
         divLabel.setAttribute('class', 'label-inner');
-        
+        spanLabel.setAttribute('class', 'label-status label');
+        spanLabel.innerHTML = '<a class="nav-link active" id="fav"><i class="fa fa-star-o" aria-hidden="true"></i></a>';
         
         divPrice.setAttribute('class', 'price');
         spanPrice.setAttribute('class', 'item-sub-price');
@@ -445,7 +447,7 @@
         
         
         adlink.appendChild(adlinkIcon);
-        
+        divLabel.appendChild(spanLabel);
         divPrice.appendChild(spanPrice);
         adFig.appendChild(adlink);
         adFig.appendChild(adImg);
