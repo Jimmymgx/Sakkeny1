@@ -18,6 +18,6 @@ var firebaseConfig = {
     user.sendEmailVerification().then(function(){
     alert("Verification sent Verfy and refresh the page");
     }).catch(function(error){
-
+      alert(error);
     })
   }

@@ -298,12 +298,13 @@
                             <h2 class="title " id="mail">Email: </h2>
                             <h2 class="title " id="number">Contact: </h2>
                             <h2 class="title">user ratings: </h2>
-                            
+                            <h2 class="title" id="rate">user ratings: </h2>
                         </div>
                         <div style="display: flex; justify-content: center;">
                         
                         <div class="rate">
                             <h2 class="title">rate the user: </h2>
+                            
                             <input type="radio" id="star5" name="rate" value="5" />
                             <label for="star5" title="text">5 stars</label>
                             <input type="radio" id="star4" name="rate" value="4" />
@@ -314,10 +315,15 @@
                             <label for="star2" title="text">2 stars</label>
                             <input type="radio" id="star1" name="rate" value="1" />
                             <label for="star1" title="text">1 star</label>
+                            
                           </div>
+                          <input type="button" value="Submit rating" id="doRate"/>
                         </div>
+                        
                     </div>
+                    
                 </div>
+                
                 <br><br><br>
                 <div class="row">
                     <div class="col-md-12 ml-auto mr-auto">
@@ -431,6 +437,7 @@
                 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
                 <script src="LogIn.js"></script>
                 <script src="SignOut.js"></script>
+                <script src="DoRate.js"></script>
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
                 <script>
@@ -443,7 +450,7 @@
                             details.once('value', function (snapshot) {
                                 snapshot.forEach(childSnapshot => {
                                     console.log(currentusermail);
-                                    document.getElementById("name").innerHTML = childSnapshot.val().name;
+                                    //document.getElementById("name").innerHTML = childSnapshot.val().name;
                                     console.log(childSnapshot.val().name);
                                 });
                             });
@@ -639,14 +646,28 @@ function Delete(){
                     function fetchAllData() {
                         
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
-                        firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                        firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("account")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
                                 image = childSnapshot.val().link;
                                 document.getElementById('userPp').setAttribute('src', image);
                             });
                         });
-
-                        firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                        firebase.database().ref('users').orderByChild('email').equalTo(localStorage.getItem('account')).once('value', function (snapshot) {
+                                    snapshot.forEach(childSnapshot => {
+                                        let Name = childSnapshot.val().name;
+                                        let type = childSnapshot.val().type;
+                                        let mail = childSnapshot.val().email;
+                                        let num = childSnapshot.val().contactNumber;
+                                        let Rate = childSnapshot.val().rate;
+                                        document.getElementById('name').innerHTML += Name;
+                                        document.getElementById('type').innerHTML += type;
+                                        document.getElementById('mail').innerHTML += mail;
+                                        document.getElementById('number').innerHTML += num;
+                                        document.getElementById('rate').innerHTML += Rate + " / 5";
+                                        //i++;
+                                    });
+                                });
+                        firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("account")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
                                 kk = childSnapshot.key;
                                 if(childSnapshot.val().Accepted == "Yes"){
@@ -657,7 +678,7 @@ function Delete(){
                                 let appID = childSnapshot.key;
                                 let location = childSnapshot.val().location;
                                 let price = childSnapshot.val().price;
-                                let mail = childSnapshot.val().UserID;
+                                let mail = localStorage.getItem('account');
                                 var image = "";
                                 firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot) {
                                     snapshot.forEach(childSnapshot => {
@@ -667,15 +688,10 @@ function Delete(){
                 return
                 }
                                     });
-                                    firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
+                                    firebase.database().ref('users').orderByChild('email').equalTo(localStorage.getItem('account')).once('value', function (snapshot) {
                                     snapshot.forEach(childSnapshot => {
                                         let Name = childSnapshot.val().name;
-                                        let type = childSnapshot.val().type;
-                                        let mail = childSnapshot.val().email;
-                                        let num = childSnapshot.val().contactNumber;
-                                        document.getElementById('type').innerHTML += type;
-                                        document.getElementById('mail').innerHTML += mail;
-                                        document.getElementById('number').innerHTML += num;
+                                       
                                         AddAds(title, description, time, location, appID, price, image, Name,type);
                                         //i++;
                                     });

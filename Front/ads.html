@@ -211,8 +211,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <h4 id='num' style="display: none;" class="u-text u-text-27"></h4>
                       <h4 class="u-text u-text-28" style="display: none;" id="ccc">Contact:</h4>
                       <h2 class="u-text u-text-21" style="display: none;" id="msg">If you want to see the Owner Number you have to be a user</h2>
+                      <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;"  href= "viewAcc.html">View Account</a>
+
                       <button class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;" id="showNum" >Show Contact Number</button>
-                      
                       <h3 id='views' class="u-text u-text-33" style="display: none;">Ad Views:</h3>
                       <h3 id = "up" style="display: none;">The Ad is deleting now<br/>Please Wait ......</h3>
                     </div>
@@ -364,6 +365,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
   </script>
 
 <script>
+  
   var ref1 = firebase.database().ref('Ads');
  var ref2 = firebase.database().ref('users');
  
@@ -372,6 +374,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
       var vv = 0;
       ref1.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
+          localStorage.setItem('account', childSnapshot.val().UserID);
           numberOfViews = childSnapshot.val().NumOfViews;
           var vv = parseInt(numberOfViews);
           console.log(vv);
