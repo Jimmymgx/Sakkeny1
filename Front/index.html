@@ -336,7 +336,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
 <script src="LogIn.js"></script>
 <script src="SignOut.js"></script>
-
+<script src="AddFav.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
 <script>
@@ -360,7 +360,7 @@
             document.getElementById("SignupBar").style.display = "block";
             document.getElementById("MyaccountBar").style.display = "none";
             document.getElementById("Logout").style.display = "none";
-            document.getElementById("fav").style.display = "none";
+            document.querySelector("fav").style.display = "none";
             console.log("inside else");
         }
     });
@@ -614,5 +614,5 @@ function Delete(){
         window.onload = fetchAllData();
     }
 </script>
-<script src="AddFav.js"></script>
+
 </html>
