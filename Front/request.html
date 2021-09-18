@@ -116,24 +116,28 @@
     <div class="row" id = "ddd">
       <div class="col-md-8">
         <section>
-          <h1 class="entry-title"><span>Make an Advertisment</span> </h1>
+          <h1 class="entry-title"><span>Make your request</span> </h1>
           <hr>
           <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
             <div class="form-group">
-              <label class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
-              <div class="col-md-8 col-sm-9">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="">
+                <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
+                <div class="col-md-5 col-sm-8">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="price" id="price" placeholder="From" value="">
+                    <input type="text" class="form-control" name="price" id="price" placeholder="To" value="">
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-3">Description <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""></textarea>
+              <div class="form-group">
+                <label class="control-label col-sm-3">Area <span class="text-danger">*</span></label>
+                <div class="col-md-5 col-sm-8">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="area" id="area" placeholder="From" value="">
+                    <input type="text" class="form-control" name="area" id="area" placeholder="To" value="">
+                  </div>
+                </div>
               </div>
-            </div>
+
             <div class="form-group">
               <label class="control-label col-sm-3">City <span class="text-danger">*</span></label>
               <div class="col-xs-8">
@@ -184,14 +188,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Floor <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="">
-                </div>
-              </div>
-            </div>
+
             <div class="form-group">
               <label class="control-label col-sm-3">Unit Type <span class="text-danger">*</span></label>
               <div class="col-xs-8">
@@ -208,45 +205,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Bedrooms <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="bed">
-                      <option value=""></option>
-                      <option value="1">1 </option>
-                      <option value="2">2 </option>
-                      <option value="3">3 </option>
-                      <option value="4">4 </option>
-                      <option value="5">5 </option>
-                      <option value="6">6 </option>
-                      <option value="7">7 </option>
-                      <option value="8">8</option>
-                    </select>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Bathrooms <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="bath">
-                      <option value=""></option>
-                      <option value="1">1 </option>
-                      <option value="2">2 </option>
-                      <option value="3">3 </option>
-                      <option value="4">4
-                      <option value="5">5 </option>
-                      <option value="6">6</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <div class="form-group">
               <label class="control-label col-sm-3">Finishing <span class="text-danger">*</span></label>
               <div class="col-xs-8">
@@ -318,48 +277,12 @@
             </div>
 
 
-            <div class="form-group">
-              <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="price" id="price" placeholder="" value="">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Area <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="area" id="area" placeholder="" value="">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Appartment Images <br>
-                <small>(Mandatory)</small></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
-                      class="glyphicon glyphicon-upload"></i></span>
-                      <input class="form-control upload" required name="images" id="images" type="file" multiple>
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Appartment contract OR Electricity bill <br>
-                <small>(Mandatory)</small></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
-                      class="glyphicon glyphicon-upload"></i></span>
-                  <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
-                    aria-describedby="file_upload">
-                </div>
-              </div>
-            </div>
+            
+            
 
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-10">
-                <input name="Share" value="Share Ad." class="btn btn-primary" id="add2">
+                <input name="Share" value="Submit" class="btn btn-primary" id="add2">
                 <h1 id = "up" style="display: none;">Your Ad is uploading now <br/>Please Wait ......</h1>
               </div>
             </div>
@@ -503,90 +426,5 @@
   </script>
 </body>
 
-<!--
-<script>
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  var db = firebase.database();
-  function getch(id){
-    check = document.getElementById(id);
-    var val = false;
-    if(check.checked){
-      val = check.value;
-    }
-    return val;
-  }
-  function addAd (){
-  var title = document.getElementById("title").value;
-  var desc = document.getElementById("comments").value;
-  var loc = document.getElementById("loc").value;
-  var flr = document.getElementById("floor").value;
-  var bed = document.getElementById("bed").value;
-  var bath = document.getElementById("bath").value;
-  var finish = document.getElementById("finish").value;
-  var iselevator = getch("IsElevator");
-  var issec = getch("IsSecure");
-  var isair = getch("IsAir");
-  var isgreatView = getch("IsGreat");
-  var isfire = getch("IsFire");
-  var islarge = getch("IsLarge");
-  var isdog = getch("IsDog");
-  var isplay = getch("IsPlay");
-  var isswim = getch("IsSwim");
-  var isbbq = getch("IsBbq");
-  var isroof = getch("IsRoof");
-  var pric = document.getElementById("price").value;
-  var are = document.getElementById("area").value;
-  var data = {
-    location: loc,
-    floor: flr,
-    bedRooms : bed,
-    bathRooms: bath,
-    Finishing: finish,
-    elevator: iselevator,
-    secure : issec,
-    Air: isair,
-    greatView: isgreatView,
-    fire: isfire,
-    largeWindow: islarge,
-    dogParks: isdog,
-    playGround: isplay,
-    swimmingPool: isswim,
-    bbq: isbbq,
-    roof: isroof,
-    price: price,
-    area: are
-  }
-  var ref = db.ref("Appartment");
-  ref.push(data);
-  var i;
-  ref.on("value", function(snapshot){
-    snapshot.forEach(function(element){
-      i = element.key;
-    });
-    console.log(i);
-  })
-  console.log(i);
-  var id = String(i);
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var dead = today.getFullYear()+'-'+(today.getMonth()+4)+'-'+today.getDate();
-  var user = "";
-  var data2 = {
-    AppartmentId: id ,
-    UserID: user,
-    Title: title,
-    Description: desc,
-    IsDone: "Flase",
-    Time : date,
-    DeadLine : dead
-  }
-  var ref2 = db.ref("Ads");
-  ref2.push(data2);
-  alert("suc");
-  }
-document.getElementById("add").addEventListener("click", addAd);
-  </script>-->
 
 </html>
