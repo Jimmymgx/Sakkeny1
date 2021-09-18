@@ -306,15 +306,15 @@
                             <h2 class="title">rate the user: </h2>
                             
                             <input type="radio" id="star5" name="rate" value="5" />
-                            <label for="star5" title="5 stars">5 stars</label>
+                            <label for="star5" title="text">5 stars</label>
                             <input type="radio" id="star4" name="rate" value="4" />
-                            <label for="star4" title="4 stars">4 stars</label>
+                            <label for="star4" title="text">4 stars</label>
                             <input type="radio" id="star3" name="rate" value="3" />
-                            <label for="star3" title="3 stars">3 stars</label>
+                            <label for="star3" title="text">3 stars</label>
                             <input type="radio" id="star2" name="rate" value="2" />
-                            <label for="star2" title="2 stars">2 stars</label>
+                            <label for="star2" title="text">2 stars</label>
                             <input type="radio" id="star1" name="rate" value="1" />
-                            <label for="star1" title="1 star">1 star</label>
+                            <label for="star1" title="text">1 star</label>
                             
                           </div>
                           <input type="button" class="btn btn-secondary" style="margin-top: 27px;" value="Submit rating" id="doRate"/>
@@ -652,7 +652,21 @@ function Delete(){
                                 document.getElementById('userPp').setAttribute('src', image);
                             });
                         });
-                        
+                        firebase.database().ref('users').orderByChild('email').equalTo(localStorage.getItem('account')).once('value', function (snapshot) {
+                                    snapshot.forEach(childSnapshot => {
+                                        let Name = childSnapshot.val().name;
+                                        let type = childSnapshot.val().type;
+                                        let mail = childSnapshot.val().email;
+                                        let num = childSnapshot.val().contactNumber;
+                                        let Rate = childSnapshot.val().rate;
+                                        document.getElementById('name').innerHTML += Name;
+                                        document.getElementById('type').innerHTML += type;
+                                        document.getElementById('mail').innerHTML += mail;
+                                        document.getElementById('number').innerHTML += num;
+                                        document.getElementById('rate').innerHTML += Rate + " / 5";
+                                        //i++;
+                                    });
+                                });
                         firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("account")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
                                 kk = childSnapshot.key;
@@ -678,14 +692,6 @@ function Delete(){
                                     snapshot.forEach(childSnapshot => {
                                         let Name = childSnapshot.val().name;
                                         let type = childSnapshot.val().type;
-                                        let mail = childSnapshot.val().email;
-                                        let num = childSnapshot.val().contactNumber;
-                                        let Rate = childSnapshot.val().rate;
-                                        document.getElementById('name').innerHTML += Name;
-                                        document.getElementById('type').innerHTML += type;
-                                        document.getElementById('mail').innerHTML += mail;
-                                        document.getElementById('number').innerHTML += num;
-                                        document.getElementById('rate').innerHTML += Rate + " / 5";
                                         AddAds(title, description, time, location, appID, price, image, Name,type);
                                         //i++;
                                     });
