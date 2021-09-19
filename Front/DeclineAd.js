@@ -15,11 +15,11 @@ var ref2 = firebase.database().ref('images');
 var img = "";
 function sendM(email, t){
     Email.send({
-        Host: "smtp.gmail.com",
-        Username: "Sakkenyads@gmail.com",
-        Password: "1122334411",
+        Host: "mail.sakkeny.com",
+            Username: "ads@sakkeny.com",
+            Password: "1-Sakkeny-1",
         To: email,
-        From: "SakkenyAds@gmail.com",
+        From: "ads@sakkeny.com",
         Subject: "Your Ad " + t,
         Body: "Your Ad "+ t + " has been declined and removed because it not match with our polices ",
     })

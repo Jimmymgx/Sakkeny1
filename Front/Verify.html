@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body id="bo"></body>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <script>
+        function makeLoader(){
+    
+    document.getElementById("bo").innerHTML = "";
+    var main = document.createElement("div");
+    main.classList.add("toWait");
+    var text = document.createElement("h1");
+    text.innerHTML = "You are verifying now <br/>Please Wait ......";
+    text.style.color = "white";
+    var toLoad = document.createElement("span");
+    toLoad.classList.add("loaderForWait");
+    var toLoadIn = document.createElement("span");
+    toLoadIn.classList.add("loader-inner");
+    toLoad.appendChild(toLoadIn);
+    main.appendChild(text);
+    main.appendChild(toLoad);
+    document.getElementById("bo").appendChild(main);
+  }
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+  document.addEventListener('DOMContentLoaded', () => {
+    makeLoader();
+    // TODO: Implement getParameterByName()
+  
+    // Get the action to complete.
+    // Get the one-time code from the query parameter.
+    var actionCode = getParameterByName('oobCode');
+    // Configure the Firebase SDK.
+    // This is the minimum configuration required for the API to be used.
+    var config = {
+      apiKey: "AIzaSyAuRCwuZPB4s43vBNhuv8A7jWNyD3qQUKU",
+    authDomain: "sakkenyproject.firebaseapp.com",
+    databaseURL: "https://sakkenyproject-default-rtdb.firebaseio.com",
+    projectId: "sakkenyproject",
+    storageBucket: "sakkenyproject.appspot.com",
+    messagingSenderId: "407960924893",
+    appId: "1:407960924893:web:c1a7b36d984f67469f6134",
+    measurementId: "G-SSL0VK1HTY",
+    };
+    var app = firebase.initializeApp(config);
+    var auth = app.auth();
+    });
+    function handleVerifyEmail(auth, actionCode) {
+  // Localize the UI to the selected language as determined by the lang
+  // parameter.
+  // Try to apply the email verification code.
+  auth.applyActionCode(actionCode).then((resp) => {
+    // Email address has been verified.
+    window.location.href = "index.html";
+    // TODO: Display a confirmation message to the user.
+    // You could also provide the user with a link back to the app.
+
+    // TODO: If a continue URL is available, display a button which on
+    // click redirects the user back to the app via continueUrl with
+    // additional state determined from that URL's parameters.
+  }).catch((error) => {
+    // Code is invalid or expired. Ask the user to verify their email address
+    // again.
+    alert(error);
+  });
+}
+</script>
+
+</html>

@@ -391,11 +391,11 @@ function setLoc(){
 }
 function sendM(email, t){
         Email.send({
-            Host: "smtp.gmail.com",
-            Username: "Sakkenyads@gmail.com",
-            Password: "1122334411",
+          Host: "mail.sakkeny.com",
+          Username: "ads@sakkeny.com",
+          Password: "1-Sakkeny-1",
             To: email,
-            From: "SakkenyAds@gmail.com",
+            From: "ads@sakkeny.com",
             Subject: "Your Ad " + t,
             Body: "Your Ad "+ t + " has been uploaded now it'll be confirmed or declined in 48 hours",
         })
