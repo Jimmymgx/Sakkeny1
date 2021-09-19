@@ -81,7 +81,7 @@
                                 class="fa fa-twitter global-radius"></i></a></li>
                     <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
                                 class="fa fa-facebook global-radius"></i></a></li>
-                                <li class="social-links"><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i
+                                <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                 class="fa fa-instagram global-radius"></i></a></li>
                     <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                 class="fa fa-linkedin global-radius"></i></a></li>
@@ -127,16 +127,9 @@
                 </div>
               </div>
             </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-3">Description <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""></textarea>
-              </div>
-            </div>
             <div class="form-group">
               <label class="control-label col-sm-3">City <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="cities">
@@ -177,10 +170,12 @@
             <div class="form-group">
               <label class="control-label col-sm-3">Location <span class="text-danger">*</span></label>
               <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <select name="dd" class="form-control" id="locations">
-                    <option value=""></option>
+                <div class="form-inline">
+                  <div class="form-group">
+                    <select name="dd" class="form-control" id="locations">
+                      <option value=""></option>
                   </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,9 +187,10 @@
                 </div>
               </div>
             </div>
+           
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Type <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <label class="control-label col-sm-3">Unit Category <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="unitType">
@@ -202,15 +198,36 @@
                       <option value="Residential">Residential </option>
                       <option value="Commercial">Commercial </option>
                       <option value="Administrative">Administrative </option>
+                      <option value="Medical">Medical </option>
+
                     </select>
                   </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="form-group">
+              <label class="control-label col-sm-3">Unit Type <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <select name="dd" class="form-control" id="unitType">
+                      <option value=""></option>
+                      <option value="Flat">Flat </option>
+                      <option value="Dublix">Dublix </option>
+                      <option value="Villa">Villa</option>
+                      <option value="Chalet">Chalet</option>
+                      <option value="Palace">Palace</option>
+                      <option value="TownHome">TownHome</option>
+                      <option value="Bungalow">Bungalow</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Bedrooms <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="bed">
@@ -225,13 +242,12 @@
                       <option value="8">8</option>
                     </select>
                   </div>
-
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Bathrooms <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="bath">
@@ -249,7 +265,7 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Finishing <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="finish">
@@ -257,13 +273,10 @@
                       <option value="Unfinished">Unfinished </option>
                       <option value="Semi finished">Semi finished </option>
                       <option value="Fully Finished">Fully Finished </option>
-                      <option value="Lux">Lux </option>
-                      <option value="Super Lux">Super Lux </option>
-                      <option value="Ultra Lux">Ultra Lux </option>
-                      <option value="Deluxe">Deluxe </option>
+                      <option value="Furnished">Furnished </option>
+                      
                     </select>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -317,6 +330,13 @@
               </div>
             </div>
 
+
+            <div class="form-group">
+              <label class="control-label col-sm-3">Description <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""></textarea>
+              </div>
+            </div>
 
             <div class="form-group">
               <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
@@ -423,7 +443,7 @@
             <ul class="footer-links">
               <li><a href="https://www.facebook.com/sakkeny.org.eg/"><i class="fa fa-facebook"></i> Facebook</a></li>
               <li><a href="https://twitter.com/sakkeny1"><i class="fa fa-twitter"></i> Twitter</a></li>
-              <li><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+              <li><a href="https://twitter.com/sakkeny1" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
               <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i class="fa fa-linkedin"></i> Linked
                   In</a></li>
             </ul><!-- end links -->
