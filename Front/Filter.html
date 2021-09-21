@@ -182,6 +182,7 @@
                 
                 <select  class="custom-select form-control" id="cities" >
                     <option value=""></option>
+                    <option value="">All</option>
                     <option value="Cairo">Cairo</option>
                     <option value="Alexandria">Alexandria </option>
                     <option value="Giza">Giza</option>
@@ -221,22 +222,51 @@
                 </div>
                 <div class="input-group" style="margin-bottom: 20px;">
  
-                    <span  class="input-group-addon" style="padding-right: 60px;">Type</span>
+                    <span  class="input-group-addon" style="padding-right: 80px;">Unit for </span>
                 <select name="dd" class="custom-select form-control" id="type">
                     <option value=""></option>
+                    <option value="">All</option>
                     <option value="Sale">Sale</option>
                     <option value="Rent">Rent </option>
+                    <option value="Old rent">Old rent </option>
                 </select>
                 </div>
                 
                 <div class="input-group" style="margin-bottom: 20px;">
  
-                    <span  class="input-group-addon" style="padding-right: 100px;">Unit Type</span>
+                    <span  class="input-group-addon" style="padding-right: 130px;">Unit Category</span>
                 <select name="dd" class="custom-select form-control" id="unit">
                     <option value=""></option>
+                    <option value="">All</option>
                       <option value="Residential">Residential </option>
                       <option value="Commercial">Commercial </option>
                       <option value="Administrative">Administrative </option>
+                      <option value="Medical">Medical </option>
+                </select>
+                </div>
+                <div class="input-group" style="margin-bottom: 20px;">
+ 
+                    <span  class="input-group-addon" style="padding-right: 90px;">Unit Type</span>
+                <select name="dd" class="custom-select form-control" id="unitType">
+                    <option value=""></option>
+                    <option value="">All</option>
+                    <option value="Flat">Flat </option>
+                    <option value="Dublix">Dublix </option>
+                    <option value="Villa">Villa</option>
+                    <option value="Chalet">Chalet</option>
+                    <option value="Palace">Palace</option>
+                    <option value="TownHome">TownHome</option>
+                    <option value="Bungalow">Bungalow</option>
+                </select>
+                </div>
+                <div class="input-group" style="margin-bottom: 20px;">
+ 
+                    <span  class="input-group-addon" style="padding-right: 160px;">Payment method</span>
+                <select name="dd" class="custom-select form-control" id="Pay">
+                    <option value=""></option>
+                    <option value="Both">Both</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Installment">Installment</option>
                 </select>
                 </div>
                 <div class="input-group-addon">
@@ -312,6 +342,27 @@
         </div>
         </div>
         </div>
+        <div class="input-group-addon">
+            <span>Area</span>
+            <div class="form-group">
+                <span class="control-label col-sm-3">From</span></span>
+                
+                  <div class="input-group ">
+                    <input type="text" class="form-control custom-select" name="from" id="fromArea"
+                      placeholder="Enter your initial Area" value="" >
+                  
+        </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="font-weight: normal;">To</span></label>
+            
+              <div class="input-group">
+                <input type="text" class="form-control" name="to" id="toArea"
+                  placeholder="Enter your highest area" value="" >
+              
+    </div>
+    </div>
+    </div>
 
             <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px;">Search</button>
         <h1 id="noRes" style="display: none;">No results</h1>

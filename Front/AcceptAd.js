@@ -18,10 +18,11 @@ function sendMail(email, t){
       To: email,
       From: "ads@sakkeny.com",
       Subject: "Your Ad " + t,
-      Body: "Your Ad "+ t + " has been Accepted now it's on your ads",
+      Body: "Your Ad "+ t + " has been Accepted now it's on your ads <br><br> Thanks for using Sakkeny <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html",
   })
       .then(function (message) {
       //alert("mail sent successfully")
+      window.location.href = "Dashboard.html";
       });
 }
 
@@ -30,13 +31,13 @@ function Accept(){
         snapshot.forEach(childSnapshot => {
           childSnapshot.ref.update({ Accepted: "Yes" });
           var title = childSnapshot.val().Title;
-          sendMail(localStorage.getItem('currMail'), title);
+          sendMail(localStorage.getItem('email'), title);
         });
       });
       //alert("The ad has been successfully Accepted");
       //window.location.href = "Dashboard.html";
       makeLoader();
-    setTimeout(function(){window.location.href = "Dashboard.html";},5000);
+    
 }
 function makeLoader(){
     

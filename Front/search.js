@@ -13,9 +13,11 @@ var firebaseConfig = {
 var city = "";
 var type = "";
 var unit ="";
-var from = "";
 var loca = "";
+var from = "";
 var to = "";
+var fromArea = "";
+var toArea = "";
 var kk = "";
 var type2 = "";
 function checkTime(str){
@@ -91,6 +93,8 @@ function getch(id){
 }
 function check(){  
   window.scrollTo(0, 800);
+  var pay  = document.getElementById("Pay").value;
+  var isflat = document.getElementById("unitType").value;
   var iselevator = getch("IsElevator");
   var issec = getch("IsSecure");
   var isair = getch("IsAir");
@@ -107,24 +111,26 @@ function check(){
     var ty = document.getElementById("type").value;
     var fr = document.getElementById("from").value;
     var t = document.getElementById("to").value;
+    var frarea = document.getElementById("fromArea").value;
+    var tarea = document.getElementById("toArea").value;
     var u = document.getElementById('unit').value;
-    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == ""){
+    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == ""){
       alert('You have to Make the filter');
       window.scrollTo(0, 300);
     }
 
     else{
-      if(fr == "" && t == ""){
+      if(fr == "" && t == "" && frarea == "" && tarea == ""){
         fetchData();
       }
-      else{
-        if(fr == "" || t == ""){
-          alert("This is wrong you have to enter a range of price");
+      else if (fr == "" && t == "" ){
+        if(frarea == "" || tarea == ""){
+          alert("This is wrong you have to enter a range of Area");
         }
         else {
-          if(!isNaN(fr)){
-            if(!isNaN(t)){
-             if (t > fr){
+          if(!isNaN(frarea)){
+            if(!isNaN(tarea)){
+             if (tarea >= frarea){
               fetchData();
              }
              else{
@@ -140,6 +146,78 @@ function check(){
           }
         }
       }
+      else if (frarea == "" && tarea == ""){
+        if(fr == "" || t == ""){
+          alert("This is wrong you have to enter a range of price");
+        }
+        else {
+          if(!isNaN(fr)){
+            if(!isNaN(t)){
+             if (t >= fr){
+              fetchData();
+             }
+             else{
+               alert("The to is must be higher than from");
+             }
+            }  
+            else{
+              alert("Invalid input in to fieled");  
+            }
+          }
+          else{
+            alert("Invalid input in from fieled");
+          }
+        }
+      }
+      else{
+        if(fr == "" || t == ""){
+          alert("This is wrong you have to enter a range of price");
+        }
+        else {
+          if(!isNaN(fr)){
+            if(!isNaN(t)){
+             if (t >= fr){
+              if(frarea == "" && tarea == ""){
+                fetchData();
+              }
+              else{
+                if(frarea == "" || tarea == ""){
+                  alert("This is wrong you have to enter a range of Area");
+                }
+                else {
+                  if(!isNaN(frarea)){
+                    if(!isNaN(tarea)){
+                     if (tarea >= frarea){
+                      fetchData();
+                     }
+                     else{
+                       alert("The to is must be higher than from");
+                     }
+                    }  
+                    else{
+                      alert("Invalid input in to fieled");  
+                    }
+                  }
+                  else{
+                    alert("Invalid input in from fieled");
+                  }
+                }
+              }
+             }
+             else{
+               alert("The to is must be higher than from");
+             }
+            }  
+            else{
+              alert("Invalid input in to fieled");  
+            }
+          }
+          else{
+            alert("Invalid input in from fieled");
+          }
+        }
+      }
+      
     }
     
 }
@@ -299,6 +377,7 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      
   }
   if(city == "Cairo"){
     sel.innerHTML = "";
@@ -306,6 +385,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< cairo.length; i++){
       var opt = document.createElement('option');
       opt.value = cairo[i];
@@ -319,6 +402,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< alex.length; i++){
       var opt = document.createElement('option');
       opt.value = alex[i];
@@ -332,6 +419,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< giza.length; i++){
       var opt = document.createElement('option');
       opt.value = giza[i];
@@ -345,6 +436,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< beheira.length; i++){
       var opt = document.createElement('option');
       opt.value = beheira[i];
@@ -358,6 +453,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< kafr.length; i++){
       var opt = document.createElement('option');
       opt.value = kafr[i];
@@ -371,6 +470,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< port.length; i++){
       var opt = document.createElement('option');
       opt.value = port[i];
@@ -384,6 +487,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< Sinai.length; i++){
       var opt = document.createElement('option');
       opt.value = Sinai[i];
@@ -397,6 +504,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< gharb.length; i++){
       var opt = document.createElement('option');
       opt.value = gharb[i];
@@ -410,6 +521,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< mnofia.length; i++){
       var opt = document.createElement('option');
       opt.value = mnofia[i];
@@ -423,6 +538,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< qalyobia.length; i++){
       var opt = document.createElement('option');
       opt.value = qalyobia[i];
@@ -436,6 +555,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< sharqia.length; i++){
       var opt = document.createElement('option');
       opt.value = sharqia[i];
@@ -449,6 +572,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< ismailia.length; i++){
       var opt = document.createElement('option');
       opt.value = ismailia[i];
@@ -462,6 +589,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< fayom.length; i++){
       var opt = document.createElement('option');
       opt.value = fayom[i];
@@ -475,6 +606,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< suez.length; i++){
       var opt = document.createElement('option');
       opt.value = suez[i];
@@ -488,6 +623,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< domiat.length; i++){
       var opt = document.createElement('option');
       opt.value = domiat[i];
@@ -501,6 +640,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< baniswef.length; i++){
       var opt = document.createElement('option');
       opt.value = baniswef[i];
@@ -514,6 +657,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< minya.length; i++){
       var opt = document.createElement('option');
       opt.value = minya[i];
@@ -527,6 +674,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< newVally.length; i++){
       var opt = document.createElement('option');
       opt.value = newVally[i];
@@ -540,6 +691,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< asyot.length; i++){
       var opt = document.createElement('option');
       opt.value = asyot[i];
@@ -553,6 +708,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< redSea.length; i++){
       var opt = document.createElement('option');
       opt.value = redSea[i];
@@ -566,6 +725,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< sohag.length; i++){
       var opt = document.createElement('option');
       opt.value = sohag[i];
@@ -579,6 +742,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< qena.length; i++){
       var opt = document.createElement('option');
       opt.value = qena[i];
@@ -592,6 +759,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< luxor.length; i++){
       var opt = document.createElement('option');
       opt.value = luxor[i];
@@ -605,6 +776,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< aswan.length; i++){
       var opt = document.createElement('option');
       opt.value = aswan[i];
@@ -618,6 +793,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< matroh.length; i++){
       var opt = document.createElement('option');
       opt.value = matroh[i];
@@ -631,6 +810,10 @@ function setLoc(){
     op.value = "";
       op.innerHTML = "";
       sel.appendChild(op);
+      var op2 = document.createElement('option');
+      op2.value = "";
+        op2.innerHTML = "All";
+        sel.appendChild(op2);
     for (var i = 0; i< daka.length; i++){
       var opt = document.createElement('option');
       opt.value = daka[i];
@@ -643,13 +826,18 @@ function fetchData() {
   var num = 0;
   var counter = 0;
   var counter2 = 0;
+  var isflat = document.getElementById("unitType").value;
   var loc = document.getElementById("locations").value; 
   var ci = document.getElementById("cities").value;
   var ty = document.getElementById("type").value;
+  var frarea = document.getElementById("fromArea").value;
+  var tarea = document.getElementById("toArea").value;
   var fr = document.getElementById("from").value;
   var t = document.getElementById("to").value;
   var u = document.getElementById("unit").value;
+  var pay = document.getElementById("Pay").value;
   var Pr = "";
+  var area = "";
   var typ = document.getElementById("unit").value;
   var iselevator = getch("IsElevator");
   var issec = getch("IsSecure");
@@ -673,6 +861,8 @@ function fetchData() {
   var swim = "";
   var bbq = "";
   var roof = "";
+  var isflat2 = "";
+  var payment = "";
   
   firebase
     .database()
@@ -682,6 +872,20 @@ function fetchData() {
       console.log(num);
       snapshot.forEach((childSnapshot) => {
         kk = childSnapshot.key;
+        if(isflat == ""){isflat2 = childSnapshot.val().Unit;
+        console.log(isflat2);}
+        else{
+          isflat2 = isflat;
+        }
+        if(pay == ""){
+          payment = childSnapshot.val().payment;
+        }
+        else if(pay == "Both"){
+          payment = childSnapshot.val().payment;
+        }
+        else{
+          payment = pay;
+        }
         if(loc == ""){loca = childSnapshot.val().location;}
         else{loca = loc;}
         console.log(loca);
@@ -698,6 +902,14 @@ function fetchData() {
           else{
             from = parseInt(fr);
             to = parseInt(t);
+          }
+          if(frarea == "" && tarea == ""){
+            fromArea = Number.MIN_VALUE;
+            toArea = Number.MAX_VALUE;
+          }
+          else{
+            fromArea = parseInt(frarea);
+            toArea = parseInt(tarea);
           }
           if(u==""){unit = childSnapshot.val().unit}
           else{unit =u;
@@ -767,7 +979,7 @@ function fetchData() {
                     console.log(roof)
                     console.log(sec);
                     console.log(swim);
-
+                    console.log(isflat2);
                     if(air === childSnapshot.val().Air){
                       
                       if(elevator === childSnapshot.val().elevator){
@@ -781,55 +993,65 @@ function fetchData() {
                                       if(sec === childSnapshot.val().secure){
                                         if(swim === childSnapshot.val().swimmingPool){
                                           if(loca == childSnapshot.val().location){
-                                            counter += 1;
-                    let title = childSnapshot.val().Title;
-                  let description = childSnapshot.val().Description;
-                  let time = childSnapshot.val().Time;
-                  let appID = childSnapshot.key;
-                  let location = childSnapshot.val().location;
-                  let price = childSnapshot.val().price;
-                  let mail = childSnapshot.val().UserID;
-                  var image = "";
-                  firebase
-                    .database()
-                    .ref("images")
-                    .orderByChild("main")
-                    .equalTo(appID)
-                    .once("value", function (snapshot) {
-                      snapshot.forEach((childSnapshot) => {
-                        if(childSnapshot.val().Des != "Contract"){
-                          image = childSnapshot.val().link;
-                      console.log(image);
-                      return
-                      }
-                      });
+                                            if(isflat2 == childSnapshot.val().Unit){
+                                              if(payment == childSnapshot.val().payment || childSnapshot.val().payment == "Both"){
+                                                area = parseInt(childSnapshot.val().area);
+                if(area >= fromArea && area <= toArea){
+                  counter += 1;
+                  let title = childSnapshot.val().Title;
+                let description = childSnapshot.val().Description;
+                let time = childSnapshot.val().Time;
+                let appID = childSnapshot.key;
+                let location = childSnapshot.val().location;
+                let price = childSnapshot.val().price;
+                let mail = childSnapshot.val().UserID;
+                var image = "";
+                firebase
+                  .database()
+                  .ref("images")
+                  .orderByChild("main")
+                  .equalTo(appID)
+                  .once("value", function (snapshot) {
+                    snapshot.forEach((childSnapshot) => {
+                      if(childSnapshot.val().Des != "Contract"){
+                        image = childSnapshot.val().link;
+                    console.log(image);
+                    return
+                    }
                     });
-                  firebase
-                    .database()
-                    .ref("users")
-                    .orderByChild("email")
-                    .equalTo(mail)
-                    .once("value", function (snapshot) {
-                      snapshot.forEach((childSnapshot) => {
-                        let Name = childSnapshot.val().name;
-                        let type = childSnapshot.val().type;
-                        console.log(Name);
-                        
-                        
-                        AddAds(
-                          title,
-                          description,
-                          time,
-                          location,
-                          appID,
-                          price,
-                          image,
-                          Name,
-                          type
-                        );
-                        check2(counter);
-                      });
+                  });
+                firebase
+                  .database()
+                  .ref("users")
+                  .orderByChild("email")
+                  .equalTo(mail)
+                  .once("value", function (snapshot) {
+                    snapshot.forEach((childSnapshot) => {
+                      let Name = childSnapshot.val().name;
+                      let type = childSnapshot.val().type;
+                      console.log(Name);
+                      
+                      
+                      AddAds(
+                        title,
+                        description,
+                        time,
+                        location,
+                        appID,
+                        price,
+                        image,
+                        Name,
+                        type
+                      );
+                      check2(counter);
                     });
+                  });
+                }
+                                                
+                                              }
+                                              
+                                            }
+                                            
                                           }
                                           
                                         }
@@ -884,4 +1106,5 @@ document.getElementById("search").addEventListener("click", check);
 document.getElementById("search").addEventListener("click", clear);
 document.getElementById("search").addEventListener("click", clear2);
 document.getElementById("cities").addEventListener("change", setLoc);
+//document.getElementById("cities").addEventListener("click", setLoc);
 

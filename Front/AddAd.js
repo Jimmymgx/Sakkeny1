@@ -397,7 +397,7 @@ function sendM(email, t){
             To: email,
             From: "ads@sakkeny.com",
             Subject: "Your Ad " + t,
-            Body: "Your Ad "+ t + " has been uploaded now it'll be confirmed or declined in 48 hours",
+            Body: "Your Ad "+ t + " is after review process and it'll be accepted or diclined within 48 hours<br><br> Thanks for using Sakkeny <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html",
         })
             .then(function (message) {
             //alert("mail sent successfully")
@@ -412,6 +412,10 @@ function getch(id){
     return val;
   }
   function checkValidity(){
+    var cash = document.getElementById("cash").checked;
+    var inst = document.getElementById("install").checked;
+    var both = document.getElementById("both").checked;
+    var tt = document.getElementById("unitT").value;
     var title = document.getElementById("title").value;
     var desc = document.getElementById("comments").value;
     var loc = document.getElementById("locations").value;
@@ -424,6 +428,7 @@ function getch(id){
     var are = document.getElementById("area").value;
     var Rent = document.getElementById("rent").checked;
     var Sale = document.getElementById("sale").checked;
+    var old = document.getElementById('oldRent').checked;
     var numberOfFiles = document.getElementById('images').files.length;
     var numberOfFiles2 = document.getElementById('CnotractImg').files.length;
     var unitt = document.getElementById("unitType").value;
@@ -440,15 +445,25 @@ function getch(id){
                         if(!isNaN(pric)){
                           if(are != ""){
                             if(!isNaN(are)){
-                              if(Sale == true || Rent == true) {
+                              if(Sale == true || Rent == true || old == true) {
                                 if(numberOfFiles <= 10){
                                   if(numberOfFiles != 0){
                                     if(numberOfFiles2 != 0){
                                       if (unitt != ""){
-                                        addAd();
+                                        if(tt != ""){
+                                          if(cash == true || inst == true || both == true) {
+                                          addAd();
+                                          }
+                                          else{
+                                            alert("You have to choose the payment method");
+                                          }
+                                        }
+                                        else{
+                                          alert("You have to choose the unit type");
+                                        }
                                       }
                                       else{
-                                        alert("You have to choose the unit type");
+                                        alert("You have to choose the unit Category");
                                       }
                                     }
                                     else{
@@ -465,7 +480,7 @@ function getch(id){
                                 }
                               }
                               else{
-                                alert("You have to Specify is that Apartment for rent or sale");
+                                alert("You have to Specify is that Apartment for rent or sale or old rent");
                               }
                             }
                             else{
@@ -613,11 +628,24 @@ function getch(id){
   var bath = document.getElementById("bath").value;
   var finish = document.getElementById("finish").value;
   var Typ = "";
+  var pay = "";
   if(document.getElementById("rent").checked){
     Typ = "Rent";
   }
-  else{
+  else if (document.getElementById("sale").checked){
     Typ = "Sale";
+  }
+  else{
+    Typ = "Old rent";
+  }
+  if(document.getElementById("cash").checked){
+    pay = "Cash";
+  }
+  else if (document.getElementById("install").checked){
+    pay = "Installment";
+  }
+  else{
+    pay = "Both";
   }
   var iselevator = getch("IsElevator");
   var issec = getch("IsSecure");
@@ -638,6 +666,7 @@ function getch(id){
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var dead = today.getFullYear()+'-'+(today.getMonth()+4)+'-'+today.getDate();
   var unitt = document.getElementById("unitType").value;
+  var tt = document.getElementById("unitT").value;
   var data = {
     location: loc,
     City: city,
@@ -667,7 +696,9 @@ function getch(id){
     NumOfViews: '0',
     Accepted: "No",
     Type: Typ,
-    UnitType: unitt
+    UnitType: unitt, 
+    Unit: tt,
+    payment: pay
   }
   var ref = db.ref("Ads");
   newRef = ref.push(data);

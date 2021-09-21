@@ -325,6 +325,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
   <script src="SignOut.js"></script>
   <script src = "AcceptAd.js"></script>
   <script src = "DeclineAd.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
   <script>
@@ -431,6 +432,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
           let bedrooms = childSnapshot.val().bedRooms;
           let bathrooms = childSnapshot.val().bathRooms;
           let userID = childSnapshot.val().UserID;
+          localStorage.setItem("email", childSnapshot.val().UserID)
           let bbq = childSnapshot.val().bbq;
           let dogParks = childSnapshot.val().dogParks;
           let elevator = childSnapshot.val().elevator;

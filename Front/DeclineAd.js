@@ -21,10 +21,11 @@ function sendM(email, t){
         To: email,
         From: "ads@sakkeny.com",
         Subject: "Your Ad " + t,
-        Body: "Your Ad "+ t + " has been declined and removed because it not match with our polices ",
+        Body: "Your Ad "+ t + " has been declined and removed because it not match with our polices <br><br> Thanks for using Sakkeny <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html",
     })
         .then(function (message) {
         //alert("mail sent successfully")
+        window.location.href = "Dashboard.html";
         });
 }
 
@@ -42,7 +43,7 @@ function Reject(){
     ref1.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
             var title = childSnapshot.val().Title;
-            sendM(localStorage.getItem('currMail'), title);
+            sendM(localStorage.getItem('email'), title);
             //console.log(title);
         childSnapshot.ref.remove();
         });
@@ -56,7 +57,6 @@ function Reject(){
     //alert("The ad has been successfully Deleted");
     makeLoader();
     //sendM(localStorage.getItem('currMail'), t);
-    setTimeout(function(){window.location.href = "Dashboard.html";},5000);
     //window.location.href = "Dashboard.html";
 }
 function makeLoader(){
