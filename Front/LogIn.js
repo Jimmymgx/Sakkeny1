@@ -11,6 +11,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.auth.Auth.Persistence.LOCAL
 document.getElementById("log").addEventListener("click",DoLogIn);
+document.getElementById("signin").addEventListener("click",signin);
 document.addEventListener("keyup", function(event) {
   if (event.code === 'Enter') {
    event.preventDefault();
@@ -32,4 +33,25 @@ function DoLogIn(){
     var errorMessage = error.message;
     alert(errorMessage);
   });
+}
+function signin(){
+  var provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope('user_birthday,email');
+  firebase.auth().useDeviceLanguage();
+  firebase.auth().signInWithPopup(provider).then(function(){
+      var token = result.credential.accessToken;
+
+      document.querySelector('#signout').style.display="block";
+      console.log(user);
+      var user = result.user;
+      console.log(user.email);
+      var userimage = document.querySelector('#user-image');
+
+      var userpic = document.createElement('img');
+      userpic.src = user.photoURL;
+      userimage.append(userpic);
+
+      var useremail = document.querySelector('#user-email');
+      useremail.innerHTML = user.email;
+  })
 }
