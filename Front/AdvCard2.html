@@ -31,8 +31,69 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
+<style>
+      #message5 {
+        display:none;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      #message6 {
+        display:none;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      #message7 {
+        display:none;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      
+      #message5 p {
+        padding: 10px 35px;
+        font-size: 13px;
+      }
+      
+      
+      #message6 p {
+        padding: 10px 35px;
+        font-size: 13px;
+      }
+      #message7 p {
+        padding: 10px 35px;
+        font-size: 13px;
+      }
+
+      .valid {
+        color: green;
+      }
+      
+      .valid:before {
+        position: relative;
+        left: -35px;
+        content: "✔";
+      }
+      
+      /* Add a red text color and an "x" when the requirements are wrong */
+      .invalid {
+        color: red;
+      }
+      
+      .invalid:before {
+        position: relative;
+        left: -35px;
+        content: "✖";
+      }
+      
+</style>
 
 
 <!-- Modernizer for Portfolio -->
@@ -73,7 +134,7 @@
             <div id="navbar" class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="service.html">Services</a></li>
+                    <li><a href="service.html">Service</a></li>
                     <!-- <li><a href="gallery.html">Gallery</a></li> -->
                     
                     <li><a href="contact.html">Contact</a></li>
@@ -81,7 +142,7 @@
                                 class="fa fa-twitter global-radius"></i></a></li>
                     <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
                                 class="fa fa-facebook global-radius"></i></a></li>
-                                <li class="social-links"><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i
+                                <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                 class="fa fa-instagram global-radius"></i></a></li>
                     <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                 class="fa fa-linkedin global-radius"></i></a></li>
@@ -116,31 +177,20 @@
     <div class="row" id = "ddd">
       <div class="col-md-8">
         <section>
-          <h1 class="entry-title"><span>Make your request</span> </h1>
+          <h1 class="entry-title"><span>Make an Advertisment</span> </h1>
           <hr>
           <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
             <div class="form-group">
-                <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
-                <div class="col-md-5 col-sm-8">
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="price" id="from" placeholder="From" value="">
-                    <input type="text" class="form-control" name="price" id="to" placeholder="To" value="">
-                  </div>
+              <label class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
+              <div class="col-md-8 col-sm-9">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="" required>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="control-label col-sm-3">Area <span class="text-danger">*</span></label>
-                <div class="col-md-5 col-sm-8">
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="area" id="fromarea" placeholder="From" value="">
-                    <input type="text" class="form-control" name="area" id="toarea" placeholder="To" value="">
-                  </div>
-                </div>
-              </div>
-
+            </div>
             <div class="form-group">
               <label class="control-label col-sm-3">City <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="cities">
@@ -181,17 +231,32 @@
             <div class="form-group">
               <label class="control-label col-sm-3">Location <span class="text-danger">*</span></label>
               <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <select name="dd" class="form-control" id="locations">
-                    <option value=""></option>
+                <div class="form-inline">
+                  <div class="form-group">
+                    <select name="dd" class="form-control" id="locations">
+                      <option value=""></option>
                   </select>
+                  </div>
                 </div>
               </div>
             </div>
-
+            <div class="form-group">
+              <label class="control-label col-sm-3">Floor <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="">
+                </div>
+                <div id="message5">
+                  <small>
+                  <p id="number5" class="invalid">Numbers <b>Only</b></p>
+                </small>
+                </div>
+              </div>
+            </div>
+           
             <div class="form-group">
               <label class="control-label col-sm-3">Unit Category <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="unitType">
@@ -200,16 +265,73 @@
                       <option value="Commercial">Commercial </option>
                       <option value="Administrative">Administrative </option>
                       <option value="Medical">Medical </option>
+
                     </select>
                   </div>
-
                 </div>
               </div>
             </div>
-            
+
+            <div class="form-group">
+              <label class="control-label col-sm-3">Unit Type <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <select name="dd" class="form-control" id="unitType">
+                      <option value=""></option>
+                      <option value="Flat">Flat </option>
+                      <option value="Dublix">Dublix </option>
+                      <option value="Villa">Villa</option>
+                      <option value="Chalet">Chalet</option>
+                      <option value="Palace">Palace</option>
+                      <option value="TownHome">TownHome</option>
+                      <option value="Bungalow">Bungalow</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Bedrooms <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <select name="dd" class="form-control" id="bed">
+                      <option value=""></option>
+                      <option value="1">1 </option>
+                      <option value="2">2 </option>
+                      <option value="3">3 </option>
+                      <option value="4">4 </option>
+                      <option value="5">5 </option>
+                      <option value="6">6 </option>
+                      <option value="7">7 </option>
+                      <option value="8">8</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Bathrooms <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <select name="dd" class="form-control" id="bath">
+                      <option value=""></option>
+                      <option value="1">1 </option>
+                      <option value="2">2 </option>
+                      <option value="3">3 </option>
+                      <option value="4">4
+                      <option value="5">5 </option>
+                      <option value="6">6</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Finishing <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
+              <div class="col-md-5 col-sm-8">
                 <div class="form-inline">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="finish">
@@ -217,13 +339,10 @@
                       <option value="Unfinished">Unfinished </option>
                       <option value="Semi finished">Semi finished </option>
                       <option value="Fully Finished">Fully Finished </option>
-                      <option value="Lux">Lux </option>
-                      <option value="Super Lux">Super Lux </option>
-                      <option value="Ultra Lux">Ultra Lux </option>
-                      <option value="Deluxe">Deluxe </option>
+                      <option value="Furnished">Furnished </option>
+                      
                     </select>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -278,12 +397,65 @@
             </div>
 
 
-            
-            
+            <div class="form-group">
+              <label class="control-label col-sm-3"> Unit Description <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="" required></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="price" id="price" placeholder="" value="">
+                </div>
+                <div id="message6">
+                  <small>
+                  <p id="number6" class="invalid">Numbers <b>Only</b></p>
+                </small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Area <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="area" id="area" placeholder="" value="" required>
+                </div>
+                <div id="message7">
+                  <small>
+                  <p id="number7" class="invalid">Numbers <b>Only</b></p>
+                </small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Appartment Images <br>
+                <small>(Mandatory)</small></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
+                      class="glyphicon glyphicon-upload"></i></span>
+                      <input class="form-control upload" required name="images" id="images" type="file" multiple>
+
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Appartment contract OR Electricity bill <br>
+                <small>(Mandatory)</small></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
+                      class="glyphicon glyphicon-upload"></i></span>
+                  <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
+                    aria-describedby="file_upload" required>
+                </div>
+              </div>
+            </div>
 
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-10">
-                <input name="Share" value="Make a request" class="btn btn-primary" id="add2">
+                <input name="Share" value="Share Ad." class="btn btn-primary" id="add2">
                 <h1 id = "up" style="display: none;">Your Ad is uploading now <br/>Please Wait ......</h1>
               </div>
             </div>
@@ -347,7 +519,7 @@
             <ul class="footer-links">
               <li><a href="https://www.facebook.com/sakkeny.org.eg/"><i class="fa fa-facebook"></i> Facebook</a></li>
               <li><a href="https://twitter.com/sakkeny1"><i class="fa fa-twitter"></i> Twitter</a></li>
-              <li><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+              <li><a href="https://twitter.com/sakkeny1" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
               <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i class="fa fa-linkedin"></i> Linked
                   In</a></li>
             </ul><!-- end links -->
@@ -424,8 +596,183 @@
         console.log("inside else");
       }
     });
+    var myInput5 = document.getElementById("floor");
+    var number5 = document.getElementById("number5");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput5.onfocus = function() {
+      document.getElementById("message5").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput5.onblur = function() {
+      document.getElementById("message5").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput5.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers5 = /[0-9]/g;
+      if(myInput5.value.match(numbers5)) {  
+        number5.classList.remove("invalid");
+        number5.classList.add("valid");
+      } else {
+        number5.classList.remove("valid");
+        number5.classList.add("invalid");
+      }
+   
+    }
+    var myInput6 = document.getElementById("price");
+    var number6 = document.getElementById("number6");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput6.onfocus = function() {
+      document.getElementById("message6").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput6.onblur = function() {
+      document.getElementById("message6").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput6.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers6 = /[0-9]/g;
+      if(myInput6.value.match(numbers6)) {  
+        number6.classList.remove("invalid");
+        number6.classList.add("valid");
+      } else {
+        number6.classList.remove("valid");
+        number6.classList.add("invalid");
+      }
+      
+      
+    }
+
+    var myInput7 = document.getElementById("area");
+    var number7 = document.getElementById("number7");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput7.onfocus = function() {
+      document.getElementById("message7").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput7.onblur = function() {
+      document.getElementById("message7").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput7.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers7 = /[0-9]/g;
+      if(myInput7.value.match(numbers7)) {  
+        number7.classList.remove("invalid");
+        number7.classList.add("valid");
+      } else {
+        number7.classList.remove("valid");
+        number7.classList.add("invalid");
+      }
+      
+      
+    }
   </script>
 </body>
 
+<!--
+<script>
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.database();
+  function getch(id){
+    check = document.getElementById(id);
+    var val = false;
+    if(check.checked){
+      val = check.value;
+    }
+    return val;
+  }
+  function addAd (){
+  var title = document.getElementById("title").value;
+  var desc = document.getElementById("comments").value;
+  var loc = document.getElementById("loc").value;
+  var flr = document.getElementById("floor").value;
+  var bed = document.getElementById("bed").value;
+  var bath = document.getElementById("bath").value;
+  var finish = document.getElementById("finish").value;
+  var iselevator = getch("IsElevator");
+  var issec = getch("IsSecure");
+  var isair = getch("IsAir");
+  var isgreatView = getch("IsGreat");
+  var isfire = getch("IsFire");
+  var islarge = getch("IsLarge");
+  var isdog = getch("IsDog");
+  var isplay = getch("IsPlay");
+  var isswim = getch("IsSwim");
+  var isbbq = getch("IsBbq");
+  var isroof = getch("IsRoof");
+  var pric = document.getElementById("price").value;
+  var are = document.getElementById("area").value;
+  var data = {
+    location: loc,
+    floor: flr,
+    bedRooms : bed,
+    bathRooms: bath,
+    Finishing: finish,
+    elevator: iselevator,
+    secure : issec,
+    Air: isair,
+    greatView: isgreatView,
+    fire: isfire,
+    largeWindow: islarge,
+    dogParks: isdog,
+    playGround: isplay,
+    swimmingPool: isswim,
+    bbq: isbbq,
+    roof: isroof,
+    price: price,
+    area: are
+  }
+  var ref = db.ref("Appartment");
+  ref.push(data);
+  var i;
+  ref.on("value", function(snapshot){
+    snapshot.forEach(function(element){
+      i = element.key;
+    });
+    console.log(i);
+  })
+  console.log(i);
+  var id = String(i);
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var dead = today.getFullYear()+'-'+(today.getMonth()+4)+'-'+today.getDate();
+  var user = "";
+  var data2 = {
+    AppartmentId: id ,
+    UserID: user,
+    Title: title,
+    Description: desc,
+    IsDone: "Flase",
+    Time : date,
+    DeadLine : dead
+  }
+  var ref2 = db.ref("Ads");
+  ref2.push(data2);
+  alert("suc");
+  }
+document.getElementById("add").addEventListener("click", addAd);
+  </script>-->
 
 </html>

@@ -166,8 +166,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                          
                         </ol>
                       </div>
-                      <a id='fav'  class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1"><i class="fa fa-star"></i> Add to Favourites&nbsp;&nbsp;</a>
-                      <a id='done' class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="display: none;">Sold</a>
+                      <a id='fav'  class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1" style="display: none;"><i class="fa fa-star"></i> Add to Favourites&nbsp;&nbsp;</a>
+                      <a id='del'  class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1" style="display: none;"><i class="fa fa-trash" style="font-size: 15px;"></i> Delete from Favourites&nbsp;&nbsp;</a>
+                      <a id='done' class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1" style="display: none;"><i class="fa fa-check-circle"></i> Sold</a>
                     </div>
                   </div>
                 </div>
@@ -211,7 +212,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <h4 id='num' style="display: none;" class="u-text u-text-27"></h4>
                       <h4 class="u-text u-text-28" style="display: none;" id="ccc">Contact:</h4>
                       <h2 class="u-text u-text-21" style="display: none;" id="msg">If you want to see the Owner Number you have to be a user</h2>
-                      <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;"  href= "viewAcc.html">View Account</a>
+                      <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;"  href= "viewAcc.html" id="acc">View Account</a>
 
                       <button class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;" id="showNum" >Show Contact Number</button>
                       <h3 id='views' class="u-text u-text-33" style="display: none;">Ad Views:</h3>
@@ -332,6 +333,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
   <script src="AddFav.js"></script>
   <script src="Done.js"></script>
   <script src="showNum.js"></script>
+  <script src="deleteFav.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
   <script>
@@ -347,6 +349,41 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         if (isVerify != true) {
           window.location.href = "Verfication.html";
         }
+        var check = false;
+        var user = "";
+            firebase.database().ref('Ads').orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+              user = childSnapshot.val().UserID;
+              //console.log("User1 = " + user);
+              if(localStorage.getItem('currMail') == user){
+                document.getElementById("fav").style.display = "none";
+                document.getElementById("del").style.display = "none";
+                document.getElementById("acc").style.display = "none";
+                document.getElementById("views").style.display = "block";
+                document.getElementById("done").style.display = "block";
+              }
+            });
+            
+            firebase.database().ref('Favorites').orderByChild("user").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+              if(childSnapshot.val().Ad == localStorage.getItem("appID")){
+                check = true;
+              }
+            });
+            if(check == true){
+              document.getElementById("del").style.display = "block";
+            }
+            else{
+              //console.log("User = " + user);
+                //console.log(localStorage.getItem('currMail'));
+              if(localStorage.getItem('currMail') != user){
+                //console.log("User = " + user);
+                //console.log(localStorage.getItem('currMail'));
+              document.getElementById("fav").style.display = "block";
+            }
+          }
+          });
+        }); 
       }
 
       else {
@@ -361,6 +398,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         document.getElementById("showNum").style.display = "none";
         console.log("inside else");
       }
+      
     });
   </script>
 
@@ -547,9 +585,11 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
        }
         if(localStorage.getItem('currMail') == user){
                 document.getElementById("fav").style.display = "none";
-                //document.getElementById("showNum").style.display = "none";
+                document.getElementById("del").style.display = "none";
                 document.getElementById("views").style.display = "block";
                 document.getElementById("done").style.display = "block";
+                document.getElementById("acc").style.display = "none";
+
               }
        console.log(localStorage.getItem('currMail'));
        ref2.orderByChild('email').equalTo(user).once('value', function (snapshot) {

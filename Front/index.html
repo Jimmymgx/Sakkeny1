@@ -47,7 +47,7 @@
 
 </head>
 
-<body class="realestate_version">
+<body class="realestate_version" id="bo">
 
     <!-- LOADER -->
     <div id="preloader">
@@ -180,7 +180,7 @@
                         and this is a sample of our customers' Feedback.</p>
                 </div><!-- end col -->
             </div><!-- end title -->
-
+<input type="button" id="fav" style="display: none;">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="testi-carousel owl-carousel owl-theme">
@@ -336,6 +336,8 @@
 <script src="LogIn.js"></script>
 <script src="SignOut.js"></script>
 <script src="AddFav.js"></script>
+<script src="deleteFav.js"></script>
+<script src="Done.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
 <script>
@@ -480,14 +482,69 @@
             window.document.location = './ads.html';
         });
         divSer.appendChild(divMain);
+        var check = false;
+        var user = "";
+        firebase.database().ref('Ads').orderByKey().equalTo(appID).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+              user = childSnapshot.val().UserID;
+              //console.log("User1 = " + user);
+              if(localStorage.getItem('currMail') == user){
+                var sold = document.createElement('button');
+        sold.setAttribute('class','btn btn-primary btn-lg btn-block');
+        sold.innerHTML = '<i class="fa fa-check-circle"></i> Sold';
+        sold.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        sold.setAttribute('id',"fav");
+        sold.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+        });
+        sold.addEventListener("click", Del);
+        divSer.appendChild(sold);
+        divSize.appendChild(divSer);
         
-        var fav = document.createElement('a');
+              }
+            });
+            
+            firebase.database().ref('Favorites').orderByChild("user").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+              if(childSnapshot.val().Ad == appID){
+                check = true;
+              }
+            });
+            if(check == true){
+                var del = document.createElement('button');
+        del.setAttribute('class','btn btn-primary btn-lg btn-block');
+        del.innerHTML = '<i class="fa fa-trash-o"></i> Delete from my favourites';
+        del.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        del.setAttribute('id',"fav");
+        del.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+        });
+        del.addEventListener("click", delFromFav);
+        divSer.appendChild(del);
+        divSize.appendChild(divSer);
+                    }
+            else{
+              //console.log("User = " + user);
+                //console.log(localStorage.getItem('currMail'));
+              if(localStorage.getItem('currMail') != user){
+                //console.log("User = " + user);
+                //console.log(localStorage.getItem('currMail'));
+                var fav = document.createElement('button');
         fav.setAttribute('class','btn btn-primary btn-lg btn-block');
         fav.innerHTML = '<i class="fa fa-star-o"></i> Add to my favourites';
         fav.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
-        fav.setAttribute('id','favourite');
+        fav.setAttribute('id',"fav");
+        fav.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+        });
+        fav.addEventListener("click", addToFav);
         divSer.appendChild(fav);
         divSize.appendChild(divSer);
+        
+            }
+          }
+          });
+        }); 
         
         
         

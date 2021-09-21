@@ -24,7 +24,7 @@ function delStor(vv){
             });
 }
 function Del(){
-    ref1.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
+    ref.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
         childSnapshot.ref.remove();
         });
@@ -35,7 +35,7 @@ function Del(){
             childSnapshot.ref.remove();
         });
     });    
-    alert("The ad has been successfully Deleted");
+    //alert("The ad has been successfully Deleted");
     
     makeLoader();
   setTimeout(function(){window.location.href = "MyAccount.html";},3000);
