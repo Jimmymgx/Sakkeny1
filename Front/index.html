@@ -144,6 +144,218 @@
         </div><!-- end container -->
     </div><!-- end section -->
 
+    
+            <!-- 
+            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                <li class="nav-item" id="searchBut" >
+                    <a class="nav-link" href="Filter.html">
+                        <i class="fa fa-search"></i>
+                        Search With Filter
+                    </a>
+                </li>
+                  
+-->
+
+<div id="features" class="section wb">
+    <div class="container">
+        <div class="section-title row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <small>Here you will search for an unit easily with our filter.</small>
+                <h3>Property Details Filter</h3>
+                
+            </div><!-- end col -->
+        </div><!-- end title -->
+        
+        <div class="input-group" style="margin-bottom: 20px;">
+
+                <span class="input-group-addon"  style="padding-right: 50px;">City</span>
+            
+            <select  class="custom-select form-control" id="cities" >
+                <option value=""></option>
+                <option value="">All</option>
+                <option value="Cairo">Cairo</option>
+                <option value="Alexandria">Alexandria </option>
+                <option value="Giza">Giza</option>
+                <option value="Beheira">Beheira</option>
+                <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+                <option value="Port Said">Port Said</option>
+                <option value="North Sinai">North Sinai</option>
+                <option value="Gharbia">Gharbia</option>
+                <option value="Monufia">Monufia</option>
+                <option value="Qalyubia">Qalyubia</option>
+                <option value="Sharqia">Sharqia</option>
+                <option value="Ismailia">Ismailia</option>
+                <option value="Faiyum">Faiyum</option>
+                <option value="Suez">Suez</option>
+                <option value="Damietta">Damietta</option>
+                <option value="South Sinai">South Sinai</option>
+                <option value="Beni Suef">Beni Suef</option>
+                <option value="Minya">Minya</option>
+                <option value="New Valley">New Valley</option>
+                <option value="Asyut">Asyut</option>
+                <option value="Red Sea">Red Sea</option>
+                <option value="Sohag">Sohag</option>
+                <option value="Qena">Qena</option>
+                <option value="Luxor">Luxor</option>
+                <option value="Aswan">Aswan</option>
+                <option value="Matruh">Matruh</option>
+                <option value="Dakahlia">Dakahlia</option>
+            </select>
+            </div>
+            <div class="input-group" style="margin-bottom: 20px;">
+
+                <span class="input-group-addon"  style="padding-right: 90px;">Location</span>
+            
+            <select  class="custom-select form-control" id="locations" >
+                <option value=""></option>
+            </select>
+            </div>
+            <div class="input-group" style="margin-bottom: 20px;">
+
+                <span  class="input-group-addon" style="padding-right: 80px;">Unit for </span>
+            <select name="dd" class="custom-select form-control" id="type">
+                <option value=""></option>
+                <option value="">All</option>
+                <option value="Sale">Sale</option>
+                <option value="Rent">Rent </option>
+                <option value="Old rent">Old rent </option>
+            </select>
+            </div>
+            
+            <div class="input-group" style="margin-bottom: 20px;">
+
+                <span  class="input-group-addon" style="padding-right: 130px;">Unit Category</span>
+            <select name="dd" class="custom-select form-control" id="unit">
+                <option value=""></option>
+                <option value="">All</option>
+                  <option value="Residential">Residential </option>
+                  <option value="Commercial">Commercial </option>
+                  <option value="Administrative">Administrative </option>
+                  <option value="Medical">Medical </option>
+            </select>
+            </div>
+            <div class="input-group" style="margin-bottom: 20px;">
+
+                <span  class="input-group-addon" style="padding-right: 90px;">Unit Type</span>
+            <select name="dd" class="custom-select form-control" id="unitType">
+                <option value=""></option>
+                <option value="">All</option>
+                <option value="Flat">Flat </option>
+                <option value="Dublix">Dublix </option>
+                <option value="Villa">Villa</option>
+                <option value="Chalet">Chalet</option>
+                <option value="Palace">Palace</option>
+                <option value="TownHome">TownHome</option>
+                <option value="Bungalow">Bungalow</option>
+            </select>
+            </div>
+            <div class="input-group" style="margin-bottom: 20px;">
+
+                <span  class="input-group-addon" style="padding-right: 160px;">Payment method</span>
+            <select name="dd" class="custom-select form-control" id="Pay">
+                <option value=""></option>
+                <option value="Both">Both</option>
+                <option value="Cash">Cash</option>
+                <option value="Installment">Installment</option>
+            </select>
+            </div>
+            <div class="input-group-addon">
+                <label class="control-label col-sm-3"style="font-weight: normal; ">Amenities </label>
+            </div>
+            <div class="form-group">
+                
+                <div class="col-md-12  col-sm-12">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsElevator" name="Amenities1" value="Elevator" >
+                  <label for="Amenities" >Elevator </label>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsSecure" name="Amenities2" value="Secured Garage">
+                  <label for="Amenities2">Secured Garage </label>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsAir" name="Amenities3" value="Air conditioning">
+                  <label for="Amenities3"> Air conditioning</label>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsGreat" name="Amenities4" value="Great View">
+                  <label for="Amenities4">Great View </label>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsFire" name="Amenities5" value="Fireplace">
+                  <label for="Amenities5"> Fireplace </label>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
+                  <label for="Amenities6">Large Windows with Natural Light </label>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsDog" name="Amenities7" value="Dog Parks">
+                  <label for="Amenities7"> Dog Parks</label>
+                                </div>
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsPlay" name="Amenities8" value="Playground">
+                  <label for="Amenities8"> Playground</label>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsSwim" name="Amenities9" value="Swimming Pool">
+                  <label for="Amenities9">Swimming Pool</label>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsBbq" name="Amenities10" value="Barbecue Areas">
+                  <label for="Amenities10"> Barbecue Areas</label>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input type="checkbox" id="IsRoof" name="Amenities11" value="Rooftop Lounge Areas">
+                  <label for="Amenities11"> Rooftop Lounge Areas</label>
+                  </div>
+                </div>
+              </div>
+            <div class="input-group-addon">
+            <span>Price</span>
+            <div class="form-group">
+                <span class="control-label col-sm-3">From</span></span>
+                
+                  <div class="input-group ">
+                    <input type="text" class="form-control custom-select" name="from" id="from"
+                      placeholder="Enter your initial price" value="" >
+                  
+        </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="font-weight: normal;">To</span></label>
+            
+              <div class="input-group">
+                <input type="text" class="form-control" name="to" id="to"
+                  placeholder="Enter your highest price" value="" >
+              
+    </div>
+    </div>
+    </div>
+    <div class="input-group-addon">
+        <span>Area</span>
+        <div class="form-group">
+            <span class="control-label col-sm-3">From</span></span>
+            
+              <div class="input-group ">
+                <input type="text" class="form-control custom-select" name="from" id="fromArea"
+                  placeholder="Enter your initial Area" value="" >
+              
+    </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" style="font-weight: normal;">To</span></label>
+        
+          <div class="input-group">
+            <input type="text" class="form-control" name="to" id="toArea"
+              placeholder="Enter your highest area" value="" >
+          
+</div>
+</div>
+</div>
+
+        <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px;">Search</button>
+    <h1 id="noRes" style="display: none;">No results</h1>
     <div id="features" class="section wb">
         <div class="container">
             <div class="section-title row text-center">
@@ -153,19 +365,10 @@
                     
                 </div><!-- end col -->
             </div><!-- end title -->
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                <li class="nav-item" id="searchBut" >
-                    <a class="nav-link" href="Filter.html">
-                        <i class="fa fa-search"></i>
-                        Search With Filter
-                    </a>
-                </li>
-                  
-
                 <div class="row" id="adHeader">
 
 
-
+                
 
                 </div><!-- end row -->
         </div><!-- end container -->
@@ -234,7 +437,7 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
-
+    
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -338,6 +541,7 @@
 <script src="AddFav.js"></script>
 <script src="deleteFav.js"></script>
 <script src="Done.js"></script>
+<script src="search.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
 <script>
@@ -368,7 +572,7 @@
 </script>
 
 <script>
-    let kk = "";
+    //let kk = "";
     function AddAds(title, description, time, location, appID, price, image, name,type) {
         var divSize = document.createElement('div');
         var divSer = document.createElement('div');
