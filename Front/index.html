@@ -49,11 +49,7 @@
 
 <body class="realestate_version" id="bo">
 
-    <!-- LOADER -->
-    <div id="preloader">
-        <span class="loader"><span class="loader-inner"></span></span>
-    </div><!-- end loader -->
-    <!-- END LOADER -->
+    
 
     <header class="header header_style_01">
         <nav class="megamenu navbar navbar-default"  >
@@ -208,6 +204,7 @@
             
             <select  class="custom-select form-control" id="locations" >
                 <option value=""></option>
+                <option value="" disabled>You Have To Choose a City</option>
             </select>
             </div>
             <div class="input-group" style="margin-bottom: 20px;">
@@ -256,7 +253,7 @@
                 <option value=""></option>
                 <option value="Both">Both</option>
                 <option value="Cash">Cash</option>
-                <option value="Installment">Installment</option>
+                <option value="Installment">Installments</option>
             </select>
             </div>
             <div class="input-group-addon">
@@ -312,13 +309,13 @@
                 </div>
               </div>
             <div class="input-group-addon">
-            <span>Price</span>
+            <span>Price range</span>
             <div class="form-group">
                 <span class="control-label col-sm-3">From</span></span>
                 
                   <div class="input-group ">
                     <input type="text" class="form-control custom-select" name="from" id="from"
-                      placeholder="Enter your initial price" value="" >
+                      placeholder="Enter your Minimum price" value="" >
                   
         </div>
         </div>
@@ -327,19 +324,19 @@
             
               <div class="input-group">
                 <input type="text" class="form-control" name="to" id="to"
-                  placeholder="Enter your highest price" value="" >
+                  placeholder="Enter your Maximum price" value="" >
               
     </div>
     </div>
     </div>
     <div class="input-group-addon">
-        <span>Area</span>
+        <span>Area range per m<sup>2</sup></span>
         <div class="form-group">
             <span class="control-label col-sm-3">From</span></span>
             
               <div class="input-group ">
                 <input type="text" class="form-control custom-select" name="from" id="fromArea"
-                  placeholder="Enter your initial Area" value="" >
+                  placeholder="Enter your Minimum Area" value="" >
               
     </div>
     </div>
@@ -348,7 +345,7 @@
         
           <div class="input-group">
             <input type="text" class="form-control" name="to" id="toArea"
-              placeholder="Enter your highest area" value="" >
+              placeholder="Enter your Maximum Area" value="" >
           
 </div>
 </div>

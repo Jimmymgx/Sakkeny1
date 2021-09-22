@@ -25,7 +25,7 @@ function DoLogIn(){
   .then((userCredential) => {
     // Signed in
     var user = userCredential.user;
-    window.location.replace("index.html");
+    window.location.replace("MyAccount.html");
     // ...
   })
   .catch((error) => {
