@@ -12,12 +12,28 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth.Auth.Persistence.LOCAL
 document.getElementById("log").addEventListener("click",DoLogIn);
 document.getElementById("signin").addEventListener("click",signin);
+document.getElementById("forget").addEventListener("click",forget);
 document.addEventListener("keyup", function(event) {
   if (event.code === 'Enter') {
    event.preventDefault();
    document.getElementById("log").click();
   }
 });
+function forget(){
+  var email = document.getElementById("email").value;
+  if(email != ""){
+    firebase.auth().sendPasswordResetEmail(email).
+  then(() => {
+    alert("The password reset mail is sent please check your email");
+  })
+  .catch(error =>{
+    alert(error);
+  });
+  }
+  else{
+    alert("Please enter your email so we can help you");
+  }
+}
 function DoLogIn(){
   var email = document.getElementById("email").value;
   var pass = document.getElementById("password").value;
@@ -25,6 +41,7 @@ function DoLogIn(){
   .then((userCredential) => {
     // Signed in
     var user = userCredential.user;
+    localStorage.setItem("currMail", email);
     window.location.replace("MyAccount.html");
     // ...
   })
