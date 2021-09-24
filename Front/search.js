@@ -20,6 +20,9 @@ var fromArea = "";
 var toArea = "";
 var kk = "";
 var type2 = "";
+var finishing = "";
+var bedrooms = "";
+var bathrooms = "";
 function checkTime(str){
   var today = new Date();
   dayToday = today.getDate();
@@ -114,7 +117,10 @@ function check(){
     var frarea = document.getElementById("fromArea").value;
     var tarea = document.getElementById("toArea").value;
     var u = document.getElementById('unit').value;
-    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == ""){
+    var finish = document.getElementById('finish').value;
+    var bed = document.getElementById("bed").value;
+    var bath = document.getElementById("bath").value;
+    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == ""){
       alert('You have to Make the filter');
       window.scrollTo(0, 300);
     }
@@ -863,7 +869,9 @@ function fetchData() {
   var roof = "";
   var isflat2 = "";
   var payment = "";
-  
+  var finish = document.getElementById('finish').value;
+  var bed = document.getElementById("bed").value;
+  var bath = document.getElementById("bath").value;
   firebase
     .database()
     .ref("Ads")
@@ -872,6 +880,14 @@ function fetchData() {
       console.log(num);
       snapshot.forEach((childSnapshot) => {
         kk = childSnapshot.key;
+        if(bed == ""){bedrooms = childSnapshot.val().bedRooms;}
+        else{bedrooms = bed;}
+        if(bath == ""){bathrooms = childSnapshot.val().bathRooms;}
+        else{bathrooms = bath;}
+        if(finish == ""){finishing = childSnapshot.val().Finishing;
+        console.log(finish + "   Finish")}
+        else{finishing = finish;
+        console.log(finish + "   Finish");}
         if(isflat == ""){isflat2 = childSnapshot.val().Unit;
         console.log(isflat2);}
         else{
@@ -997,7 +1013,10 @@ function fetchData() {
                                               if(payment == childSnapshot.val().payment || childSnapshot.val().payment == "Both"){
                                                 area = parseInt(childSnapshot.val().area);
                 if(area >= fromArea && area <= toArea){
-                  counter += 1;
+                  if(finishing === childSnapshot.val().Finishing){
+                    if(bedrooms == childSnapshot.val().bedRooms){
+                      if(bathrooms == childSnapshot.val().bathRooms){
+                        counter += 1;
                   let title = childSnapshot.val().Title;
                 let description = childSnapshot.val().Description;
                 let time = childSnapshot.val().Time;
@@ -1046,6 +1065,11 @@ function fetchData() {
                       check2(counter);
                     });
                   });
+                      }
+                    }
+                    
+                  }
+                  
                 }
                                                 
                                               }
