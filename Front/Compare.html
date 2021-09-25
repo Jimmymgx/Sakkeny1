@@ -68,12 +68,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
                     <ul class="nav navbar-nav">
-                        <li><a class="active" href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
+                        <li><a  href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
                         <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
                         <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact</a></li>
-                        <li><a href="Compare.html"><i class="fa fa-poll"></i> Compare</a></li>
+                        <li><a class="active" href="Compare.html"><i class="fa fa-poll"></i> Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -110,36 +110,24 @@
         </nav>
     </header>
 
-    <ul class='slideshow' >
-        <li>
-            <span>Summer</span>
-        </li>
-        <li>
-            <span>Fall</span>
-        </li>
-        <li>
-            <span>Winter</span>
-
-        </li>
-        <li>
-            <span>Spring</span>
-        </li>
-    </ul>
-
-    <div class="parallax first-section" style="height: 500px;">
+    
+    <div class="all-title-box">
         <div class="container">
             <div class="row">
-
-                <div class="col-md-12 col-sm-12">
-                    <div class="big-tagline clearfix">
-                        <h2>Find Your Property with Sakkeny Real Estate</h2>
-                        <p class="lead">With Sakkeny , you can Rent, sell or buy all your properties and real estate projects. </p>
-                        <!--<a data-scroll href="#gallery" class="btn btn-light btn-radius grd1 btn-brd">View Gallery</a>-->
-                    </div>
+                <div class="col-md-12">
+                    <h2>Compare</h2>
+                    <!-- Breadcrumbs -->
+                    <nav id="breadcrumbs">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li>Compare</li>
+                        </ul>
+                    </nav>
                 </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+            </div>
+        </div>
+    </div>
+
 
     
             <!-- 
@@ -158,7 +146,7 @@
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
                 <small>Here you will search for an unit easily with our filter.</small>
-                <h3>Property Details Filter</h3>
+                <h3>Search for specific ads to get the best comparison</h3>
                 
             </div><!-- end col -->
         </div><!-- end title -->
@@ -595,6 +583,8 @@
             document.getElementById("add").style.display = 'block';
             var currentusermail = user.email;
             var isVerify = user.emailVerified;
+            localStorage.setItem('FirstCompare', "");
+            localStorage.setItem('SecondCompare', "");
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
             }
@@ -607,6 +597,8 @@
             document.getElementById("Logout").style.display = "none";
             document.querySelector("fav").style.display = "none";
             console.log("inside else");
+            localStorage.setItem('FirstCompare', "");
+            localStorage.setItem('SecondCompare', "");
         }
     });
 </script>
@@ -722,8 +714,25 @@
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
-            localStorage.setItem('appID', appID);
-            window.document.location = './ads.html';
+            if(localStorage.getItem('FirstCompare') == ""){
+                localStorage.setItem('FirstCompare', appID);
+                divMain.style.outline = "3px solid green";
+                //alert("You did choose the first ad now choose the second one");
+                //alert(localStorage.getItem('FirstCompare'));
+            }
+            else if(localStorage.getItem('SecondCompare') == ""){
+                localStorage.setItem('SecondCompare', appID);
+                divMain.style.outline = "3px solid green";
+                setTimeout(() => {
+                    window.location.href = "Comparison.html";
+                }, 1000);
+                //alert("You did choose the second ad now you'll go to comparison");
+                //alert(localStorage.getItem('SecondCompare'));
+            }
+            else{
+                alert("Somthing went wrong");
+            }
+            //window.document.location = './ads.html';
         });
         divSer.appendChild(divMain);
         var check = false;

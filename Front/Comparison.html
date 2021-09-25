@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Site Metas -->
+<title>Sakkeny Real Estate</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- Colors CSS -->
+<link rel="stylesheet" href="css/colors.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
+<style>
+    #hov:hover {
+        color: #997c47;
+    }
+    
+</style>
+
+<!-- Modernizer for Portfolio -->
+<script src="js/modernizer.js"></script>
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="realestate_version" id="bo">
+
+    
+
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default"  >
+            <div class="container-fluid" >
+                <div class="navbar-header" >
+                    
+                    <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar" >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html" ><img src="images/logos/llll4444.png" alt="image"
+                        style="height: 60px; "></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse" >
+                    <ul class="nav navbar-nav">
+                        <li><a  href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
+                        <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
+                        <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                        
+                        <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact</a></li>
+                        <li><a class="active" href="Compare.html"><i class="fa fa-poll"></i> Compare</a></li>
+                        <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
+                                    class="fa fa-twitter global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
+                                    class="fa fa-facebook global-radius"></i></a></li>
+                                    <li class="social-links"><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i
+                                    class="fa fa-instagram global-radius"></i></a></li>
+                        <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
+                                    class="fa fa-linkedin global-radius"></i></a></li>
+                                   </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="fa fa-user-plus" style="font-size: 20px;"></i> Sign Up</a></li>
+                        <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fa fa-sign-in" style="font-size: 20px;"></i> Log In</a></li>
+                        <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
+                                id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> MyAccount</a></li>
+                                <li class="search-option" title="LogOut" style="align-items: center;"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px; display :none;"
+                                    id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;"></i> logOut</a>
+                            </li>
+                            <li class="search-option" title="Add an advertisment">
+                                <a class="search tran3s dropdown-toggle" style="padding: 10px; display: none;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
+                                    aria-hidden="true" style="color: black;font-size: 25px; font-size: 20px;"></i> Add a property</a>
+                  
+                              </li>
+                            <li class="search-option" title="Search">
+                                <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
+                                        aria-hidden="true" style="color: black;"></i> Search</a>
+    
+                            </li>
+                    </ul>
+                </div>
+                
+                
+                
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Compare</h2>
+                    <!-- Breadcrumbs -->
+                    <nav id="breadcrumbs">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li>Compare</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+            <!-- 
+            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                <li class="nav-item" id="searchBut" >
+                    <a class="nav-link" href="Filter.html">
+                        <i class="fa fa-search"></i>
+                        Search With Filter
+                    </a>
+                </li>
+                  
+-->
+
+<div id="features" class="section wb">
+    <div class="container">
+        <div class="section-title row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <small>Here you will search for an unit easily with our filter.</small>
+                <h3>Comparison results</h3>
+                
+            </div><!-- end col -->
+        </div><!-- end title -->
+        
+        
+                <div class="row" id="adHeader">
+
+
+                
+
+                </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section --> 
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <img src="images/logos/llll4444.png" alt="Sakkeny real-estate agency">
+                        </div>
+                        <p>On Sakkeny website, you will find all your housing units at prices that suit your needs and
+                            sell your units safely.</p>
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Info Link</h3>
+                        </div>
+
+                        <ul class="twitter-widget footer-links">
+                            <li><a href="index.html"> Home </a></li>
+                            <li><a href="service.html"> Services</a></li>
+                            <!--<li><a href="#"> Gallery</a></li>-->
+                            <li><a href="contact.html"> Contact</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Contact Details</h3>
+                        </div>
+
+                        <ul class="footer-links">
+                            <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+                            <li><a href="mailto:support@sakkeny.com">Support@sakkeny.com</a></li>
+                            <li><a href="index.html">www.Sakkeny.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Social</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i class="fa fa-facebook"></i>
+                                    Facebook</a></li>
+                            <li><a href="https://twitter.com/sakkeny1" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+                            <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
+                                        class="fa fa-linkedin"></i> Linked In</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
+
+    <div class="copyrights" >
+        <div class="container" >
+            <div class="footer-distributed" >
+                <div class="footer-links" style="text-align: center;">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate</a>
+                        Design By : <a>Sakkeny Team</a></p>
+                </div>
+
+                
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/hoverdir.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <!-- MAP & CONTACT -->
+
+
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+<script src="LogIn.js"></script>
+<script src="SignOut.js"></script>
+<script src="AddFav.js"></script>
+<script src="deleteFav.js"></script>
+<script src="Done.js"></script>
+<script src="search.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
+     crossorigin="anonymous"></script>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var user = firebase.auth().currentUser;
+            document.getElementById("SigninBar").style.display = "none";
+            document.getElementById("SignupBar").style.display = "none";
+            document.getElementById("MyaccountBar").style.display = "block";
+            document.getElementById("Logout").style.display = "block";
+            document.getElementById("add").style.display = 'block';
+            var currentusermail = user.email;
+            var isVerify = user.emailVerified;
+            localStorage.setItem('FirstCompare', "");
+            localStorage.setItem('SecondCompare', "");
+            if (isVerify != true) {
+                window.location.href = "Verfication.html";
+            }
+        }
+
+        else {
+            document.getElementById("SigninBar").style.display = "block";
+            document.getElementById("SignupBar").style.display = "block";
+            document.getElementById("MyaccountBar").style.display = "none";
+            document.getElementById("Logout").style.display = "none";
+            document.querySelector("fav").style.display = "none";
+            console.log("inside else");
+            localStorage.setItem('FirstCompare', "");
+            localStorage.setItem('SecondCompare', "");
+        }
+    });
+</script>
+
+<script>
+    //let kk = "";
+    function AddAds(title, description, time, location, appID, price, image, name,type) {
+        var divSize = document.createElement("div");
+        document.getElementById('adHeader').appendChild(divSize);        
+    }
+    function checkTime(str){
+    var today = new Date();
+    dayToday = today.getDate();
+    monthToday = today.getMonth() + 1;
+    yearToday = today.getFullYear();
+
+    //var str = document.getElementById("in").value;
+    var myArr = str.split("-", 3);
+    var dayEnd = parseInt(myArr[2]);
+    var monthEnd = parseInt(myArr[1]);
+    var yearEnd = parseInt(myArr[0]);
+    if(yearToday > yearEnd){
+        //console.log("false");
+        return false;
+    }
+    else if(yearToday == yearEnd){
+        if(monthToday > monthEnd){
+            //console.log("false");
+            return false;
+        }
+        else if(monthToday == monthEnd){
+            if(dayToday >= dayEnd){
+                //console.log("false");
+                return false;
+            }
+            else{
+                //console.log("true");
+                return true;
+            }
+        }
+        else{
+            //console.log("true");
+            return true;
+        }
+    }
+    else{
+        //console.log("true");
+        return true;
+    }
+}
+    function delStor(vv){
+    img = firebase.storage().refFromURL(vv);
+            img.delete()
+            .then(() => {
+            //console.log("Picture is deleted successfully!");
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+}
+function Delete(){
+    firebase.database().ref('Ads').orderByKey().equalTo(kk).once('value', function (snapshot) {
+        snapshot.forEach(childSnapshot => {
+        childSnapshot.ref.remove();
+        });
+    });
+    firebase.database().ref('images').orderByChild("main").equalTo(kk).once('value', function (snapshot){
+        snapshot.forEach(childSnapshot => {
+            delStor(childSnapshot.val().link);
+            childSnapshot.ref.remove();
+        });
+    });    
+    //alert("The ad has been successfully Deleted");
+    //window.location.href = "Dashboard.html";
+}
+
+        function AddCompare(city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2, link1, link2, area1, area2){
+            /**var tbl = document.createElement('table');
+            tbl.style.width = '100%';
+            tbl.setAttribute('border', '1');
+            var tbdy = document.createElement('tbody');
+            var tr1 = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.innerHTML = "Comparison";
+            var td2 = document.createElement('td');
+            td2.innerHTML = "First ad";
+            var td3 = document.createElement('td');
+            td3.innerHTML = "Second ad";
+            tr1.appendChild(td1);
+            tr1.appendChild(td2);
+            tr1.appendChild(td3);
+            tbdy.appendChild(tr1);
+            tbl.appendChild(tbdy);
+            document.getElementById("adHeader").appendChild(tbl);**/
+            var tbl = document.createElement('table');
+            tbl.setAttribute('border', '1');
+            var row = tbl.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = "Compare";
+            cell2.innerHTML = "First ad";
+            cell3.innerHTML = "Second ad";
+            var row1 = tbl.insertRow(1);
+            var cell4 = row1.insertCell(0);
+            var cell5 = row1.insertCell(1);
+            var cell6 = row1.insertCell(2);
+            var img = document.createElement('img');
+            img.src = link1;
+            img.setAttribute('class', 'img-responsive');
+            img.style.flexShrink ='0';
+            img.style.Width = '100%';
+            img.style.height = '250px';
+            var img1 = document.createElement('img');
+            img1.src =link2;
+            img1.setAttribute('class', 'img-responsive');
+            img1.style.flexShrink ='0';
+            img1.style.Width = '100%';
+            img1.style.height = '250px';
+            cell4.innerHTML = "Images";
+            cell5.appendChild(img);
+            cell6.appendChild(img1);
+            var row2 = tbl.insertRow(2);
+            var cell7 = row2.insertCell(0);
+            var cell8 = row2.insertCell(1);
+            var cell9 = row2.insertCell(2);
+            cell7.innerHTML = "City";
+            cell8.innerHTML = city1;
+            cell9.innerHTML = city2;
+            var row3 = tbl.insertRow(3);
+            var cell10 = row3.insertCell(0);
+            var cell11 = row3.insertCell(1);
+            var cell12 = row3.insertCell(2);
+            cell10.innerHTML = "Location";
+            cell11.innerHTML = location1;
+            cell12.innerHTML = location2;
+            var row4 = tbl.insertRow(4);
+            var cell13 = row4.insertCell(0);
+            var cell14 = row4.insertCell(1);
+            var cell15 = row4.insertCell(2);
+            cell13.innerHTML = "Floor";
+            cell14.innerHTML = floor1;
+            cell15.innerHTML = floor2;
+            var row5 = tbl.insertRow(5);
+            var cell16 = row5.insertCell(0);
+            var cell17 = row5.insertCell(1);
+            var cell18 = row5.insertCell(2);
+            cell16.innerHTML = "Category";
+            cell17.innerHTML = category1;
+            cell18.innerHTML = category2;
+            var row6 = tbl.insertRow(6);
+            var cell19 = row6.insertCell(0);
+            var cell20 = row6.insertCell(1);
+            var cell21 = row6.insertCell(2);
+            cell19.innerHTML = "Type";
+            cell20.innerHTML = type1;
+            cell21.innerHTML = type2;
+            var row7 = tbl.insertRow(7);
+            var cell22 = row7.insertCell(0);
+            var cell23 = row7.insertCell(1);
+            var cell24 = row7.insertCell(2);
+            cell22.innerHTML = "Bed rooms";
+            cell23.innerHTML = bed1;
+            cell24.innerHTML = bed2;
+            var row8 = tbl.insertRow(8);
+            var cell25 = row8.insertCell(0);
+            var cell26 = row8.insertCell(1);
+            var cell27 = row8.insertCell(2);
+            cell25.innerHTML = "Bathrooms";
+            cell26.innerHTML = bath1;
+            cell27.innerHTML = bath2;
+            var row9 = tbl.insertRow(9);
+            var cell28 = row9.insertCell(0);
+            var cell29 = row9.insertCell(1);
+            var cell30 = row9.insertCell(2);
+            cell28.innerHTML = "Finishing";
+            cell29.innerHTML = finish1;
+            cell30.innerHTML = finish2;
+            var row10 = tbl.insertRow(10);
+            var cell31 = row10.insertCell(0);
+            var cell32 = row10.insertCell(1);
+            var cell33 = row10.insertCell(2);
+            cell31.innerHTML = "Unit for";
+            cell32.innerHTML = unitfor1;
+            cell33.innerHTML = unitfor2;
+            var row11 = tbl.insertRow(11);
+            var cell34 = row11.insertCell(0);
+            var cell35 = row11.insertCell(1);
+            var cell36 = row11.insertCell(2);
+            cell34.innerHTML = "Payment method";
+            cell35.innerHTML = payment1;
+            cell36.innerHTML = payment2;
+            var row12 = tbl.insertRow(12);
+            var cell37 = row12.insertCell(0);
+            var cell38 = row12.insertCell(1);
+            var cell39 = row12.insertCell(2);
+            cell37.innerHTML = "Amenities";
+            cell38.innerHTML = amin1;
+            cell39.innerHTML = amin2;
+            var row13 = tbl.insertRow(13);
+            var cell40 = row13.insertCell(0);
+            var cell41 = row13.insertCell(1);
+            var cell42 = row13.insertCell(2);
+            cell40.innerHTML = "Price";
+            cell41.innerHTML = price1;
+            cell42.innerHTML = price2;
+            var row14 = tbl.insertRow(14);
+            var cell43 = row14.insertCell(0);
+            var cell44 = row14.insertCell(1);
+            var cell45 = row14.insertCell(2);
+            cell43.innerHTML = "Area";
+            cell44.innerHTML = area1;
+            cell45.innerHTML = area2;
+            document.getElementById("adHeader").appendChild(tbl);
+        }
+    function fetchAllData() {
+        var city1 = "";
+        var city2 = "";
+        var location1 = "";
+        var location2 = "";
+        var floor1 = "";
+        var floor2 = "";
+        var category1 = "";
+        var category2 = "";
+        var type1 = "";
+        var type2 = "";
+        var bed1 = "";
+        var bed2 = "";
+        var bath1 = "";
+
+        var bath2 = "";
+        var finish1 = "";
+        var finish2 = "";
+        var unitfor1 = "";
+        var unitfor2 = "";
+        var payment1 = "";
+        var payment2 = "";
+        var amin1 = "";
+        var amin2 = "";
+        var price1 = "";
+        var price2 = "";
+        var area1 = "";
+        var area2 = "";
+        var link1 = "";
+        var link2 = "";
+        //AddCompare(city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2);        
+        firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("FirstCompare")).once('value', function (snapshot){
+                    snapshot.forEach(childSnapshot => {
+                    if(childSnapshot.val().Des != "Contract"){
+                        link1 = childSnapshot.val().link;
+                        console.log(link1);
+                        return
+                    }
+                    });
+                });
+        firebase.database().ref('Ads').orderByKey().equalTo(localStorage.getItem("FirstCompare")).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+                kk = childSnapshot.key;
+                if(childSnapshot.val().Accepted == "Yes"){
+                    if(checkTime(childSnapshot.val().DeadLine)){
+                    city1 = childSnapshot.val().City;
+                    location1 = childSnapshot.val().location;
+                    floor1 = childSnapshot.val().floor;
+                    city1 = childSnapshot.val().City;
+                    category1 = childSnapshot.val().UnitType;
+                    type1 = childSnapshot.val().Unit;
+                    bed1 = childSnapshot.val().bedRooms;
+                    bath1 = childSnapshot.val().bathRooms;
+                    finish1 = childSnapshot.val().Finishing;
+                    unitfor1 = childSnapshot.val().Type;
+                    payment1 = childSnapshot.val().payment;
+                    price1 = childSnapshot.val().price;
+                    area1 = childSnapshot.val().area;
+                    let bbq = childSnapshot.val().bbq;
+                    let dogParks = childSnapshot.val().dogParks;
+                    let elevator = childSnapshot.val().elevator;
+                    let firePlace = childSnapshot.val().fire;
+                    let greatView = childSnapshot.val().greatView;
+                    let largeWindow = childSnapshot.val().largeWindow;
+                    let playground = childSnapshot.val().playGround;
+                    let air = childSnapshot.val().Air;
+                    let roof = childSnapshot.val().roof;
+                    let secure = childSnapshot.val().secure;
+                    let swimming = childSnapshot.val().swimmingPool;
+                    if (air != false) {
+                        if(amin1 == ""){
+                            amin1 += air;
+                        }
+                        else{
+                            amin1 += "<br>" + air;    
+                        }
+                    }
+                    if (elevator != false) {
+                        if(amin1 == ""){
+                            amin1 += elevator;
+                        }
+                        else{
+                        amin1 += "<br>" + elevator;}
+                    }
+                    if (bbq != false) {
+                        if(amin1 == ""){
+                            amin1 += bbq;
+                        }
+                        else{
+                        amin1 += "<br>" + bbq;}
+                    }
+                    if (dogParks != false) {
+                        if(amin1 == ""){
+                            amin1 += dogParks;
+                        }
+                        else{
+                        amin1 += "<br>" + dogParks;}
+                    }
+                    if (firePlace != false) {
+                        if(amin1 == ""){
+                            amin1 += firePlace
+                        }
+                        else{
+                        amin1 += "<br>" + firePlace;}
+                    }
+                    if (greatView != false) {
+                        if(amin1 == ""){
+                            amin1+= greatView
+                        }
+                        else{amin1 += "<br>" + greatView;}
+                    }
+                    if (largeWindow != false) {
+                        if(amin1 == ""){
+                            amin1 += largeWindow;
+                        }
+                        else{amin1 += "<br>" + largeWindow;}
+                    }
+                    if (playground != false) {
+                        if(amin1 == ""){
+                            amin1 += playground;
+                        }
+                        else{amin1 += "<br>" + playground;}
+                    }
+                    if (roof != false) {
+                        if(amin1 == ""){
+                            amin1 +=roof;
+                        }
+                        else{amin1 += "<br>" + roof;}
+                    }
+                    if (secure != false) {
+                        if(amin1 == ""){
+                            amin1 += secure;
+                        }
+                        else{amin1 += "<br>" + secure;}
+                    }
+                    if (swimming != false) {
+                        if(amin1 == ""){
+                            amin1 += swimming;
+                        }
+                        else{amin1 += "<br>" + swimming;}
+                    }
+                    
+                    }
+                    else{
+                        Delete();
+                    }
+            }
+            });
+        
+        })
+        firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("SecondCompare")).once('value', function (snapshot){
+                    snapshot.forEach(childSnapshot => {
+                    if(childSnapshot.val().Des != "Contract"){
+                        link2 = childSnapshot.val().link;
+                        console.log(link2);
+                        return
+                    }
+                    });
+                    
+                });
+                
+        firebase.database().ref('Ads').orderByKey().equalTo(localStorage.getItem("SecondCompare")).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+                kk = childSnapshot.key;
+                if(childSnapshot.val().Accepted == "Yes"){
+                    if(checkTime(childSnapshot.val().DeadLine)){
+                    city2 = childSnapshot.val().City;
+                    location2 = childSnapshot.val().location;
+                    floor2 = childSnapshot.val().floor;
+                    city2 = childSnapshot.val().City;
+                    category2 = childSnapshot.val().UnitType;
+                    type2 = childSnapshot.val().Unit;
+                    bed2 = childSnapshot.val().bedRooms;
+                    bath2 = childSnapshot.val().bathRooms;
+                    finish2 = childSnapshot.val().Finishing;
+                    unitfor2 = childSnapshot.val().Type;
+                    payment2 = childSnapshot.val().payment;
+                    price2 = childSnapshot.val().price;
+                    area2 = childSnapshot.val().area;
+                    let bbq2 = childSnapshot.val().bbq;
+                    let dogParks2 = childSnapshot.val().dogParks;
+                    let elevator2 = childSnapshot.val().elevator;
+                    let firePlace2 = childSnapshot.val().fire;
+                    let greatView2 = childSnapshot.val().greatView;
+                    let largeWindow2 = childSnapshot.val().largeWindow;
+                    let playground2 = childSnapshot.val().playGround;
+                    let air2 = childSnapshot.val().Air;
+                    let roof2 = childSnapshot.val().roof;
+                    let secure2 = childSnapshot.val().secure;
+                    let swimming2 = childSnapshot.val().swimmingPool;
+                    if (air2 != false) {
+                        amin2 += air2;
+                    }
+                    if (elevator2 != false) {
+                        if(amin2 == ""){
+                            amin2 += elevator2;
+                        }
+                        else{amin2 += "<br>" + elevator2;}
+                    }
+                    if (bbq2 != false) {
+                        if(amin2 == ""){
+                            amin2 += bbq2;
+                        }
+                        else{amin2 += "<br>" + bbq2;}
+                    }
+                    if (dogParks2 != false) {
+                        if(amin2 == ""){
+                            amin2 += dogParks2;
+                        }
+                        else{amin2 += "<br>" + dogParks2;}
+                    }
+                    if (firePlace2 != false) {
+                        if(amin2 == ""){
+                            amin2 += firePlace2;
+                        }
+                        else{amin2 += "<br>" + firePlace2;}
+                    }
+                    if (greatView2 != false) {
+                        if(amin2 == ""){
+                            amin2 += greatView2;
+                        }
+                        else{amin2 += "<br>" + greatView2;}
+                    }
+                    if (largeWindow2 != false) {
+                        if(amin2 == ""){
+                            amin2 += largeWindow2;
+                        }
+                        else{amin2 += "<br>" + largeWindow2;}
+                    }
+                    if (playground2 != false) {
+                        if(amin2 == ""){
+                            amin2 += playground2
+                        }
+                        else{amin2 += "<br>" + playground2;}
+                    }
+                    if (roof2 != false) {
+                        if(amin2 == ""){
+                            amin2 += roof2;
+                        }
+                        else{amin2 += "<br>" + roof2;}
+                    }
+                    if (secure2 != false) {
+                        if(amin2 == ""){
+                            amin2 += secure2;
+                        }
+                        else{amin2 += "<br>" + secure2;}
+                    }
+                    if (swimming2 != false) {
+                        if(amin2 == ""){
+                            amin2 += swimming2;
+                        }
+                        else{amin2 += "<br>" + swimming2;}
+                    }
+                    console.log("Tessst");
+                    console.log(link1);
+                    AddCompare(city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2, link1, link2, area1, area2);
+                    }
+                    else{
+                        Delete();
+                    }
+            }
+            
+            });
+            
+        })
+    }
+    if (window.addEventListener) {
+        window.addEventListener('load', fetchAllData());
+    } else if (window.attachEvent) {
+        window.attachEvent('onload', fetchAllData());
+    } else {
+        window.onload = fetchAllData();
+    }
+</script>
+
+</html>
