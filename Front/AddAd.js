@@ -627,16 +627,25 @@ function getch(id){
   var bed = document.getElementById("bed").value;
   var bath = document.getElementById("bath").value;
   var finish = document.getElementById("finish").value;
+  var term = "EGP";
   var Typ = "";
   var pay = "";
   if(document.getElementById("rent").checked){
     Typ = "Rent";
+    term = "EGP / Month";
+    if(document.getElementById("long").checked){
+      term = "EGP / Year";
+    }
   }
   else if (document.getElementById("sale").checked){
     Typ = "Sale";
   }
   else{
     Typ = "Old rent";
+    term = "EGP / month";
+    if(document.getElementById("long").checked){
+      term = "EGP / Year";
+    }
   }
   if(document.getElementById("cash").checked){
     pay = "Cash";
@@ -685,7 +694,7 @@ function getch(id){
     swimmingPool: isswim,
     bbq: isbbq,
     roof: isroof,
-    price: secondprice,
+    price: secondprice + " " + term,
     area: secondarea,
     UserID: currentusermail,
     Title: title,
@@ -735,6 +744,24 @@ function getch(id){
     main.appendChild(toLoad);
     document.getElementById("bo").appendChild(main);
   }
+  function showTerm(){
+    if(document.getElementById("rent").checked || document.getElementById("oldRent").checked){
+      document.getElementById("terms").style.display = "block";
+      document.getElementById("Egp").style.display = "none";
+    }
+    else{
+      document.getElementById("terms").style.display = "none";
+      document.getElementById("Egp").style.display = "block";
+    }
+  }
+  function hideTerm(){
+    
+      document.getElementById("terms").style.display = "none";
+      document.getElementById("Egp").style.display = "block";
+  }
 document.getElementById("add2").addEventListener("click", checkValidity);
 document.getElementById("cities").addEventListener("change", setLoc);
+document.getElementById("rent").addEventListener("change", showTerm);
+document.getElementById("oldRent").addEventListener("change", showTerm);
+document.getElementById("sale").addEventListener("change", hideTerm);
 //document.getElementById("setActive").addEventListener("click", makeLoader);
