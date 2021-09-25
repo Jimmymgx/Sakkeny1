@@ -33,6 +33,67 @@
 <link rel="stylesheet" href="css/custom.css">
 
 
+<style>
+      #message5 {
+        display:none;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      #message6 {
+        display:none;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      #message7 {
+        display:none;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      
+      #message5 p {
+        padding: 10px 35px;
+        font-size: 13px;
+      }
+      
+      
+      #message6 p {
+        padding: 10px 35px;
+        font-size: 13px;
+      }
+      #message7 p {
+        padding: 10px 35px;
+        font-size: 13px;
+      }
+
+      .valid {
+        color: green;
+      }
+      
+      .valid:before {
+        position: relative;
+        left: -35px;
+        content: "✔";
+      }
+      
+      /* Add a red text color and an "x" when the requirements are wrong */
+      .invalid {
+        color: red;
+      }
+      
+      .invalid:before {
+        position: relative;
+        left: -35px;
+        content: "✖";
+      }
+      
+</style>
+
 
 
 <!-- Modernizer for Portfolio -->
@@ -69,11 +130,11 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <!-- <li><a href="gallery.html">Gallery</a></li> -->
-                    
-                    <li><a href="contact.html">Contact</a></li>
+                  <li><a class="active" href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
+                  <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
+                  <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                  
+                  <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
                     <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                 class="fa fa-twitter global-radius"></i></a></li>
                     <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -84,8 +145,8 @@
                                 class="fa fa-linkedin global-radius"></i></a></li>
                                </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                <li ><a href="signUp.html" id="SignupBar">Sign Up</a></li>
-                    <li><a href="login.html" id="SigninBar">Log In</a></li>
+                                <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="fa fa-user-plus" style="font-size: 20px;"></i> Sign Up</a></li>
+                    <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fa fa-sign-in" style="font-size: 20px;"></i> Log In</a></li>
                     <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
                             id="MyaccountBar">MyAccount</a></li>
                             <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
@@ -120,7 +181,7 @@
               <label class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="">
+                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="" required>
                 </div>
               </div>
             </div>
@@ -181,6 +242,11 @@
               <div class="col-md-5 col-sm-8">
                 <div class="input-group">
                   <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="">
+                </div>
+                <div id="message5">
+                  <small>
+                  <p id="number5" class="invalid">Numbers <b>Only</b></p>
+                </small>
                 </div>
               </div>
             </div>
@@ -348,9 +414,9 @@
 
 
             <div class="form-group">
-              <label class="control-label col-sm-3">Description <span class="text-danger">*</span></label>
+              <label class="control-label col-sm-3">Unit Description <span class="text-danger">*</span></label>
               <div class="col-md-5 col-sm-8">
-                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""></textarea>
+                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="" required></textarea>
               </div>
             </div>
 
@@ -359,6 +425,12 @@
               <div class="col-md-5 col-sm-8">
                 <div class="input-group">
                   <input type="text" class="form-control" name="price" id="price" placeholder="" value="">
+                  
+                </div>
+                <div id="message6">
+                  <small>
+                  <p id="number6" class="invalid">Numbers <b>Only</b></p>
+                </small>
                 </div>
               </div>
             </div>
@@ -367,6 +439,11 @@
               <div class="col-md-5 col-sm-8">
                 <div class="input-group">
                   <input type="text" class="form-control" name="area" id="area" placeholder="" value="">
+                </div>
+                <div id="message7">
+                  <small>
+                  <p id="number7" class="invalid">Numbers <b>Only</b></p>
+                </small>
                 </div>
               </div>
             </div>
@@ -388,7 +465,7 @@
                 <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
                   <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
-                    aria-describedby="file_upload">
+                    aria-describedby="file_upload" required>
                 </div>
               </div>
             </div>
@@ -536,6 +613,96 @@
         console.log("inside else");
       }
     });
+    var myInput5 = document.getElementById("floor");
+    var number5 = document.getElementById("number5");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput5.onfocus = function() {
+      document.getElementById("message5").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput5.onblur = function() {
+      document.getElementById("message5").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput5.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers5 = /[0-9]/g;
+      if(myInput5.value.match(numbers5)) {  
+        number5.classList.remove("invalid");
+        number5.classList.add("valid");
+      } else {
+        number5.classList.remove("valid");
+        number5.classList.add("invalid");
+      }
+   
+    }
+    var myInput6 = document.getElementById("price");
+    var number6 = document.getElementById("number6");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput6.onfocus = function() {
+      document.getElementById("message6").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput6.onblur = function() {
+      document.getElementById("message6").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput6.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers6 = /[0-9]/g;
+      if(myInput6.value.match(numbers6)) {  
+        number6.classList.remove("invalid");
+        number6.classList.add("valid");
+      } else {
+        number6.classList.remove("valid");
+        number6.classList.add("invalid");
+      }
+      
+      
+    }
+
+    var myInput7 = document.getElementById("area");
+    var number7 = document.getElementById("number7");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput7.onfocus = function() {
+      document.getElementById("message7").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput7.onblur = function() {
+      document.getElementById("message7").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput7.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers7 = /[0-9]/g;
+      if(myInput7.value.match(numbers7)) {  
+        number7.classList.remove("invalid");
+        number7.classList.add("valid");
+      } else {
+        number7.classList.remove("valid");
+        number7.classList.add("invalid");
+      }
+      
+      
+    }
   </script>
 </body>
 

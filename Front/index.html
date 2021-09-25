@@ -33,8 +33,7 @@
 <style>
     #hov:hover {
         color: #997c47;
-    }
-    
+    }     
 </style>
 
 <!-- Modernizer for Portfolio -->
@@ -72,8 +71,12 @@
                         <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
+<<<<<<< HEAD
                         <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact</a></li>
                         <li><a href="Compare.html"><i class="fa fa-poll"></i> Compare</a></li>
+=======
+                        <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
+>>>>>>> 05e3d3fb991313785f9a3c27ae4f3e73830b30f0
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -155,20 +158,21 @@
 
 <div id="features" class="section wb">
     <div class="container">
-        <div class="section-title row text-center">
+        <div class="section-title row text-center" style="margin-bottom: 0px;">
             <div class="col-md-8 col-md-offset-2">
                 <small>Here you will search for an unit easily with our filter.</small>
                 <h3>Property Details Filter</h3>
                 
             </div><!-- end col -->
         </div><!-- end title -->
-        
-        <div class="input-group" style="margin-bottom: 20px;">
+        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee;">
+        <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
 
-                <span class="input-group-addon"  style="padding-right: 50px;">City</span>
+                
             
             <select  class="custom-select form-control" id="cities" >
-                <option value=""></option>
+                <option value="" disabled selected hidden>City</option>
+                
                 <option value="">All</option>
                 <option value="Cairo" id="Cairo">Cairo</option>
                 <option value="Alexandria" id="Alexandria">Alexandria </option>
@@ -199,20 +203,16 @@
                 <option value="Dakahlia" id="Dakahlia">Dakahlia</option>
             </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
-
-                <span class="input-group-addon"  style="padding-right: 90px;">Location</span>
-            
+            <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
             <select  class="custom-select form-control" id="locations" >
-                <option value=""></option>
-                <option value="" disabled>You Have To Choose a City</option>
+                <option value="" disabled selected hidden>Location</option>
+                
             </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
-
-                <span  class="input-group-addon" style="padding-right: 80px;">Unit for </span>
+            <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
             <select name="dd" class="custom-select form-control" id="type">
-                <option value=""></option>
+                <option value="" disabled selected hidden>Unit for</option>
+                
                 <option value="">All</option>
                 <option value="Sale">Sale</option>
                 <option value="Rent">Rent </option>
@@ -220,11 +220,10 @@
             </select>
             </div>
             
-            <div class="input-group" style="margin-bottom: 20px;">
-
-                <span  class="input-group-addon" style="padding-right: 130px;">Unit Category</span>
+            <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
             <select name="dd" class="custom-select form-control" id="unit">
-                <option value=""></option>
+                <option value="" disabled selected hidden>Unit Category</option>
+                
                 <option value="">All</option>
                   <option value="Residential">Residential </option>
                   <option value="Commercial">Commercial </option>
@@ -232,11 +231,10 @@
                   <option value="Medical">Medical </option>
             </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
-
-                <span  class="input-group-addon" style="padding-right: 90px;">Unit Type</span>
+            <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
             <select name="dd" class="custom-select form-control" id="unitType">
-                <option value=""></option>
+                <option value="" disabled selected hidden>Unit type</option>
+               
                 <option value="">All</option>
                 <option value="Flat">Flat </option>
                 <option value="Dublix">Dublix </option>
@@ -247,21 +245,19 @@
                 <option value="Bungalow">Bungalow</option>
             </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
-
-                <span  class="input-group-addon" style="padding-right: 160px;">Payment method</span>
+            <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
             <select name="dd" class="custom-select form-control" id="Pay">
-                <option value=""></option>
-                <option value="Both">Both</option>
+                <option value="" disabled selected hidden>Payment method</option>
+               
+                <option value="Both">All</option>
                 <option value="Cash">Cash</option>
                 <option value="Installment">Installments</option>
             </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
+            <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
 
-                <span  class="input-group-addon" style="padding-right: 160px;">Finishing</span>
                 <select name="dd" class="form-control" id="finish">
-                    <option value=""></option>
+                    <option value="" disabled selected hidden>Finishing</option>
                     <option value="">All</option>
                     <option value="Unfinished">Unfinished </option>
                     <option value="Semi finished">Semi finished </option>
@@ -270,11 +266,11 @@
                     
                   </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
+            <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
 
-                <span  class="input-group-addon" style="padding-right: 160px;">Bed rooms</span>
+                
                 <select name="dd" class="form-control" id="bed">
-                    <option value=""></option>
+                    <option value="" disabled selected hidden>Bedrooms</option>
                     <option value="">All</option>
                     <option value="1">1 </option>
                     <option value="2">2 </option>
@@ -286,11 +282,10 @@
                     <option value="8">8</option>
                   </select>
             </div>
-            <div class="input-group" style="margin-bottom: 20px;">
+            <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
 
-                <span  class="input-group-addon" style="padding-right: 160px;">Bathrooms</span>
                 <select name="dd" class="form-control" id="bath">
-                    <option value=""></option>
+                    <option value="" disabled selected hidden>Bathrooms</option>
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -299,102 +294,138 @@
                     <option value="6">6</option>
                   </select>
             </div>
-            <div class="input-group-addon">
-                <label class="control-label col-sm-3"style="font-weight: normal; ">Amenities </label>
-            </div>
-            <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+          
+            <div class="input-group col-md-4 col-sm-4 col-xs-12" style="float: left;">
+            <legend>Price range</legend>
+            <div class="form-group col-md-12">
+                <span class="control-label col-md-3 col-sm-3 col-xs-2">From</span></span>
                 
-                <div class="col-md-12  col-sm-12">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsElevator" name="Amenities1" value="Elevator" >
-                  <label for="Amenities" >Elevator </label>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsSecure" name="Amenities2" value="Secured Garage">
-                  <label for="Amenities2">Secured Garage </label>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsAir" name="Amenities3" value="Air conditioning">
-                  <label for="Amenities3"> Air conditioning</label>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsGreat" name="Amenities4" value="Great View">
-                  <label for="Amenities4">Great View </label>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsFire" name="Amenities5" value="Fireplace">
-                  <label for="Amenities5"> Fireplace </label>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
-                  <label for="Amenities6">Large Windows with Natural Light </label>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsDog" name="Amenities7" value="Dog Parks">
-                  <label for="Amenities7"> Dog Parks</label>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsPlay" name="Amenities8" value="Playground">
-                  <label for="Amenities8"> Playground</label>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsSwim" name="Amenities9" value="Swimming Pool">
-                  <label for="Amenities9">Swimming Pool</label>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsBbq" name="Amenities10" value="Barbecue Areas">
-                  <label for="Amenities10"> Barbecue Areas</label>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12">
-                  <input type="checkbox" id="IsRoof" name="Amenities11" value="Rooftop Lounge Areas">
-                  <label for="Amenities11"> Rooftop Lounge Areas</label>
-                  </div>
-                </div>
-              </div>
-            <div class="input-group-addon">
-            <span>Price range</span>
-            <div class="form-group">
-                <span class="control-label col-sm-3">From</span></span>
-                
-                  <div class="input-group ">
+                  <div class="input-group col-md-9 col-sm-9 col-xs-10">
                     <input type="text" class="form-control custom-select" name="from" id="from"
                       placeholder="Enter your Minimum price" value="" >
                   
         </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3" style="font-weight: normal;">To</span></label>
+        <div class="form-group col-md-12">
+            <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">To</span></label>
             
-              <div class="input-group">
+              <div class="input-group col-md-9 col-sm-9 col-xs-10">
                 <input type="text" class="form-control" name="to" id="to"
                   placeholder="Enter your Maximum price" value="" >
               
     </div>
     </div>
     </div>
-    <div class="input-group-addon">
-        <span>Area range per m<sup>2</sup></span>
-        <div class="form-group">
-            <span class="control-label col-sm-3">From</span></span>
+    <div class="input-group col-md-4 col-sm-4 col-xs-12" style="float: left;">
+        <legend>Area range per m<sup>2</sup></legend>
+        <div class="form-group col-md-12">
+            <span class="control-label  col-md-3 col-sm-3 col-xs-2">From</span></span>
             
-              <div class="input-group ">
+              <div class="input-group col-md-9 col-sm-9 col-xs-10">
                 <input type="text" class="form-control custom-select" name="from" id="fromArea"
                   placeholder="Enter your Minimum Area" value="" >
               
     </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-3" style="font-weight: normal;">To</span></label>
+    <div class="form-group col-md-12">
+        <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">To</span></label>
         
-          <div class="input-group">
+          <div class="input-group col-md-9 col-sm-9 col-xs-10">
             <input type="text" class="form-control" name="to" id="toArea"
               placeholder="Enter your Maximum Area" value="" >
           
 </div>
 </div>
 </div>
+<div class="input-group-addon " style="border: none; float: left;">
+    
+    <legend class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">Amenities </legend>
+<div class="form-group "style="float: left;">
+    
+    
+    
+        <div class="col-md-12 col-sm-12 col-xs-12" >
+            
+           <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px; text-align: left;">
+            <div class="col-md-2 col-sm-2 col-xs-6" >
+                
+              <input type="checkbox" id="IsElevator" name="Amenities1" value="Elevator" >
+     <label for="IsElevator"><small>Elevator</small> </label> 
+    </div>
+    <br>
+    <br>
+   <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsSecure" name="Amenities2" value="Secured Garage">
+      <label for="IsSecure"><small> Garage</small> </label>
+       </div>
+       <br>
+       <br>
+       <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsAir" name="Amenities3" value="Air conditioning">
+      <label for="IsAir"><small> Air conditioning</small></label>
+          </div>
+          <br>
+       <br>
+          <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsGreat" name="Amenities4" value="Great View">
+      <label for="IsGreat"><small>Great View </small></label>
+       </div>
+       <br>
+       <br>
+       <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsFire" name="Amenities5" value="Fireplace">
+      <label for="IsFire"><small> Fireplace </small></label>
+         </div>
+         <br>
+         <br>
+         <div class="col-md-2 col-sm-2 col-xs-6"style="padding-right:15px">
+            <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
+            <label for="IsLarge"><small>Large Windows with Natural Light </small></label>
+                   </div>
+         </div>
+         <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px; text-align: left;">
+         
+                  
+             <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsDog" name="Amenities7" value="Dog Parks">
+      <label for="IsDog"><small> Dog Parks </small></label>
+                 </div>
+                 <br>
+       <br>
+                 <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsPlay" name="Amenities8" value="Playground">
+      <label for="IsPlay"><small> Playground </small></label>
+               </div>
+               <br>
+       <br>
+               <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsSwim" name="Amenities9" value="Swimming Pool">
+      <label for="IsSwim"><small>Swimming Pool</small></label>
+                      </div>
+                      <br>
+       <br>
+                      <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsBbq" name="Amenities10" value="Barbecue Areas">
+      <label for="IsBbq"><small> Barbecue Areas </small></label>
+                                </div>
+                                <br>
+       <br> 
+                                <div class="col-md-2 col-sm-2 col-xs-6">
+      <input type="checkbox" id="IsRoof" name="Amenities11" value="Rooftop Lounge Areas">
+      <label for="IsRoof"><small> Rooftop Lounge Areas </small></label>
+    </div>
+    </div>
+        </div>
+    
+    </form>
+</div>
+</div>
+</div>
+</div>
 
-        <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px;">Search</button>
+
+        <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc;">Search</button>
     <h1 id="noRes" style="display: none;">No results</h1>
     <div id="features" class="section wb">
         <div class="container">
@@ -413,7 +444,8 @@
                 </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
-
+</div>
+</div>
     <div id="testimonials" class="section lb">
         <div class="container">
             <div class="section-title row text-center">
@@ -562,7 +594,7 @@
     <script src="js/custom.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/hoverdir.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> -->
     <!-- MAP & CONTACT -->
 
 
