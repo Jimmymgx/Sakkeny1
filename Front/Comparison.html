@@ -277,8 +277,6 @@
             document.getElementById("add").style.display = 'block';
             var currentusermail = user.email;
             var isVerify = user.emailVerified;
-            localStorage.setItem('FirstCompare', "");
-            localStorage.setItem('SecondCompare', "");
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
             }
@@ -291,8 +289,6 @@
             document.getElementById("Logout").style.display = "none";
             document.querySelector("fav").style.display = "none";
             console.log("inside else");
-            localStorage.setItem('FirstCompare', "");
-            localStorage.setItem('SecondCompare', "");
         }
     });
 </script>
@@ -538,6 +534,8 @@ function Delete(){
         var area2 = "";
         var link1 = "";
         var link2 = "";
+        console.log("First " + localStorage.getItem("FirstCompare"));
+        console.log("Second " + localStorage.getItem("SecondCompare"));
         //AddCompare(city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2);        
         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("FirstCompare")).once('value', function (snapshot){
                     snapshot.forEach(childSnapshot => {

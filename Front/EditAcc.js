@@ -18,16 +18,52 @@ var firebaseConfig = {
 var db = firebase.database();
 firebase.auth.Auth.Persistence.LOCAL
 var ref = firebase.database().ref('users');
-
-
+function delStor(vv){
+  img = firebase.storage().refFromURL(vv);
+          img.delete()
+          .then(() => {
+          console.log("Picture is deleted successfully!");
+          })
+          .catch((err) => {
+          console.log(err);
+          });
+}
+function Del(link){
+  firebase.database().ref('images').orderByChild("link").equalTo(link).once('value', function (snapshot){
+      snapshot.forEach(childSnapshot => {
+          delStor(childSnapshot.val().link);
+          childSnapshot.ref.remove();
+      });
+  });    
+  alert("The ad has been successfully Deleted");
+}
+function putImg(image){
+  but = document.createElement('div');
+  but.style.maxWidth = '100px';
+  but.style.maxHeight = '100px';
+  but.setAttribute('class','col-md-5 col-sm-8'); 
+  but.innerHTML = '<img  style = "max-width:100px; max-hight:100px;"src="' + image + '" />';
+  console.log("but");
+  localStorage.setItem("imagesAcc", parseInt(localStorage.getItem("imagesAcc")) + 1);
+  console.log(localStorage.getItem("imagesAcc"));
+  document.getElementById("images").appendChild(but);
+  but.addEventListener("click", function (){
+    Del(image);
+    but.style.display = "none";
+    localStorage.setItem("imagesAcc", parseInt(localStorage.getItem("imagesAcc")) -1);
+  });
+}
 function fetchAllData(){
+  var check = false;
     console.log(localStorage.getItem('currMail'));
+    localStorage.setItem("imagesAcc", 0);
     ref.orderByChild('email').equalTo(localStorage.getItem('currMail')).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
             document.getElementById("name").value = childSnapshot.val().name;
             document.getElementById("day").value = childSnapshot.val().day;
             document.getElementById("month").value = childSnapshot.val().month;
             document.getElementById("year").value = childSnapshot.val().year;
+            document.getElementById("contactnum2").value = childSnapshot.val().secondContactNumber;
             if((childSnapshot.val().type) == "Owner"){
                 document.getElementById("owner").checked = true;
             }
@@ -40,7 +76,19 @@ function fetchAllData(){
             document.getElementById("contactnum").value = childSnapshot.val().contactNumber;
         })
     });
+    firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          image = childSnapshot.val().link;
+          check = true;
+          putImg(image);
+      });
+      if(check == false){
+        alert("You don't have pp");
+      }
+  });
+  
 }
+
 function checkValidity(){
   console.log("11");
     var email = "Z";
@@ -69,7 +117,46 @@ function checkValidity(){
                           if(len == 11){
                             if(start){
                               if(isB == true || isD == true || isO == true){
-                                EditUserData();
+                                var cont2 = document.getElementById("contactnum2").value;
+                                cont2 = cont2.trim();
+                                len2 = cont2.length;
+                                start2 = cont2.startsWith("01");
+                                if(cont2 != ""){
+                                    if (!isNaN(cont2)){
+                                      if(len2 == 11){
+                                        if(start2){
+                                          var numberOfFiles = document.getElementById('image').files.length;
+                                          console.log(numberOfFiles + parseInt(localStorage.getItem("imagesAcc")));
+                                          if((numberOfFiles + parseInt(localStorage.getItem("imagesAcc"))) <= 1){
+                                            EditUserData();
+                                          }
+                                          else{
+                                            alert("You can't upload the profile picture again you must delete yours first");
+                                          }
+                                        }
+                                        else{
+                                          alert("Wrong phone number");
+                                        }
+                                      }
+                                      else{
+                                        alert("Wrong phone number");
+                                      }
+                                    }
+                                    else{
+                                      alert("Wrong phone number");
+                                    }
+                                  }
+                                  else{
+                                    var numberOfFiles = document.getElementById('image').files.length;
+                                    console.log(numberOfFiles + parseInt(localStorage.getItem("imagesAcc")));
+                                    if(numberOfFiles + parseInt(localStorage.getItem("imagesAcc")) <= 1){
+                                      EditUserData();
+                                    }
+                                    else{
+                                      alert("You can't upload the profile picture again you must delete yours first");
+                                    }
+                                  }
+                                
                               }
                               else{
                                 alert("You have to Specify are you owner or developer or broker");
@@ -121,7 +208,43 @@ function checkValidity(){
       alert("You have to Enter your mail");
     }
 }
-
+function uploadImage(email){
+  var numberOfFiles = document.getElementById('image').files.length;
+    //window.alert(numberOfFiles);
+    let arr = [];
+    let names = [];
+    for(var i = 0; i < numberOfFiles; i++){
+        var image = document.getElementById('image').files[i];
+        arr.push(image);
+        names.push(image.name);
+    }
+    for(var i = 0; i < numberOfFiles; i++){
+      var num = numberOfFiles;
+        var ref = stor.ref(email + '/' + names[i]);
+        var uploadTask = ref.put(arr[i]);
+        uploadTask.on('state_change', function(snapshot){
+            var progress = (snapshot.bytesTransferred/snapshot.totalBytes)+100;
+            console.log('upload is ' + progress + ' done');  
+       }
+       ,function(error){
+           console.log(error.message);
+       }
+       ,function(){
+            uploadTask.snapshot.ref.getDownloadURL().then(function(URL){
+                console.log(URL);
+                var data2 = {
+                  main : email,
+                  link : URL
+                }
+                firebase.database().ref('images').push(data2);
+                setTimeout(function(){window.location.href = "MyAccount.html"; },3000);
+                //var ref2 = db.ref("images");
+                //ref2.push(data2);
+            })
+       }
+       )
+    }
+}
 function EditUserData(){
   var name = document.getElementById("name").value;
       var daySelection = document.getElementById("day").value;
@@ -133,7 +256,9 @@ function EditUserData(){
       if(document.getElementById("developer").checked){typ = "Developer"}
       if(document.getElementById("broker").checked){typ = "Broker"}
       var cont1 = document.getElementById("contactnum").value;
-      ref.orderByChild('email').equalTo(localStorage.getItem('currMail')).once('value', function (snapshot) {
+      var cont2 = document.getElementById("contactnum2").value;
+      console.log(cont2);
+        ref.orderByChild('email').equalTo(localStorage.getItem('currMail')).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
             var data = {
                 name : name,
@@ -143,9 +268,16 @@ function EditUserData(){
                 birthDate : birthdate,
                 type : typ,
                 contactNumber : cont1,
+                secondContactNumber: cont2
               }
               childSnapshot.ref.update(data);      
         })});
+        if(localStorage.getItem("imagesAcc") == 0){
+          if(document.getElementById('image').files.length != 0){
+            uploadImage(localStorage.getItem("currMail"));
+          }
+          
+        }
         alert("Your Account has been changed succesfully");
         makeLoader();
         setTimeout(function(){window.location.href = "MyAccount.html";},3000);
