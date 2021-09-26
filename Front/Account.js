@@ -4,8 +4,7 @@ function AddAds(title, description, time, location, appID, price,image) {
     var divMain = document.createElement('div');
     var divWrap = document.createElement('div');
     var adFig = document.createElement('figure');
-    var adlink = document.createElement('a');
-    var adlinkIcon = document.createElement('i');
+    
     var adImg = document.createElement('img');
     var divLabel = document.createElement('div');
     
@@ -33,13 +32,11 @@ function AddAds(title, description, time, location, appID, price,image) {
     divMain.setAttribute('class', 'property-main');
     divWrap.setAttribute('class', 'property-wrap');
     adFig.setAttribute('class', 'post-media wow fadeIn');
-    adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
-    adlink.setAttribute('class', 'hoverbutton global-radius');
-    adlink.setAttribute('href', image);
     
     
     
-    adlinkIcon.setAttribute('class', 'flaticon-unlink');
+    
+    
     adImg.setAttribute('src', image);
     adImg.setAttribute('class', 'img-responsive');
     divLabel.setAttribute('class', 'label-inner');
@@ -62,14 +59,14 @@ function AddAds(title, description, time, location, appID, price,image) {
     rightIcon.setAttribute('aria-hideen', 'true');
     Title.setAttribute('style','color:black');
     Desc.innerHTML = description.substring(0,100);
-    Title.innerHTML = title;
+    Title.innerHTML = title.substring(0,30);
     Location.innerHTML = location.substring(0,40);
     spanPrice.innerHTML = price;
 
-    adlink.appendChild(adlinkIcon);
+
 
     divPrice.appendChild(spanPrice);
-    adFig.appendChild(adlink);
+
     adFig.appendChild(adImg);
     adFig.appendChild(divLabel);
     adFig.appendChild(divPrice);

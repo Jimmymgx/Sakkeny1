@@ -11,14 +11,24 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.auth.Auth.Persistence.LOCAL
 document.getElementById("log").addEventListener("click",DoLogIn);
-document.getElementById("signin").addEventListener("click",signin);
+document.getElementById("signinF").addEventListener("click",signin);
 document.getElementById("forget").addEventListener("click",forget);
+document.getElementById("signinG").addEventListener("click",googleLogIn);
 document.addEventListener("keyup", function(event) {
   if (event.code === 'Enter') {
    event.preventDefault();
    document.getElementById("log").click();
   }
 });
+let provider = new firebase.auth.GoogleAuthProvider();
+function googleLogIn(){
+  console.log('login btn callback');
+  firebase.auth().signInWithPopup(provider).then(res=>{
+    console.log(res);
+  }).catch(e=>{
+    console.log(e);
+  })
+}
 function forget(){
   var email = document.getElementById("email").value;
   if(email != ""){

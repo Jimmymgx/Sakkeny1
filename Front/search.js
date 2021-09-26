@@ -96,6 +96,7 @@ function getch(id){
 }
 function check(){  
   window.scrollTo(0, 800);
+  document.getElementById('loading').style.display = "block";
   var pay  = document.getElementById("Pay").value;
   var isflat = document.getElementById("unitType").value;
   var iselevator = getch("IsElevator");
@@ -233,8 +234,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   var divMain = document.createElement('div');
   var divWrap = document.createElement('div');
   var adFig = document.createElement('figure');
-  var adlink = document.createElement('a');
-  var adlinkIcon = document.createElement('i');
+
   var adImg = document.createElement('img');
   var divLabel = document.createElement('div');
   
@@ -263,15 +263,11 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divMain.setAttribute('class', 'property-main');
   divWrap.setAttribute('class', 'property-wrap');
   adFig.setAttribute('class', 'post-media wow fadeIn');
-  adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
-  adlink.setAttribute('class', 'hoverbutton global-radius');
-  adlink.setAttribute('href', image);
+ 
   //accept.setAttribute('type','button');
   //accept.classList.add('btn','btn-success' ,'btn-lg', 'fa','fa-check','col-md-6','col-sm-6','col-xs-12');
   //decline.classList.add('btn', 'btn-danger','btn-lg' , 'fa','fa-times','col-md-6','col-sm-6','col-xs-12');
 
-
-  adlinkIcon.setAttribute('class', 'flaticon-unlink');
   adImg.setAttribute('src', image);
   adImg.setAttribute('class', 'img-responsive');
   divLabel.setAttribute('class', 'label-inner');
@@ -294,7 +290,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   rightIcon.classList.add('fa', 'fa-calendar');
   rightIcon.setAttribute('aria-hideen', 'true');
   Desc.innerHTML = description.substring(0, 100);
-  Title.innerHTML = title;
+  Title.innerHTML = title.substring(0,30);
   Location.innerHTML = location.substring(0, 40);
   spanPrice.innerHTML = price;
   adFig.style.display ='flex';
@@ -306,10 +302,10 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   //adImg.style.maxHeight = '100%';
   adFig.style.height = '250px';
   
-  adlink.appendChild(adlinkIcon);
+
   
   divPrice.appendChild(spanPrice);
-  adFig.appendChild(adlink);
+ 
   adFig.appendChild(adImg);
   adFig.appendChild(divLabel);
   adFig.appendChild(divPrice);
@@ -345,7 +341,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
       localStorage.setItem('appID', appID);
       window.document.location = './ads.html';
   });
-
+  
   document.getElementById('adHeader').appendChild(divSize);
 }
 function setLoc(){
@@ -1050,7 +1046,7 @@ function fetchData() {
                       let type = childSnapshot.val().type;
                       console.log(Name);
                       
-                      
+                      document.getElementById('loading').style.display = "none";
                       AddAds(
                         title,
                         description,

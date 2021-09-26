@@ -7,11 +7,12 @@
 
 <!-- Mobile Metas -->
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <!-- Site Metas -->
-<title>My Account - Sakkeny Real Estate</title>
+<title>Monitor Views - Sakkeny Real Estate</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -238,11 +239,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a class="active" href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
+                        <li><a href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
                         <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
                         <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
+                        <li><a href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -252,23 +254,23 @@
                         <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
-                                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="active" href="MyAccount.html" style="margin-right: 5px;"
-                                id="MyaccountBar">MyAccount</a></li>
-                                <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
-                                    id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
-                            </li>
-                            <li class="search-option" title="Add an advertisment">
-                                <a class="search tran3s dropdown-toggle" style="padding: 10px; " id="add" href="AdvCard.html"><i  class="fa fa-plus-circle"
-                                    aria-hidden="true" style="color: black;font-size: 25px;"></i></a>
-                  
-                              </li>
-                            <li class="search-option" title="Search">
-                                <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
-                                        aria-hidden="true" style="color: black;font-size: 20px;"></i></a>
-    
-                            </li>
-                    </ul>
+                                   <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="active" href="MyAccount.html" style="margin-right: 5px;"
+                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> </a></li>
+                                            <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
+                                                id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i> logOut</a>
+                                        </li>
+                                        <li class="search-option" title="Add an advertisment">
+                                            <a class="search tran3s dropdown-toggle" style="padding: 10px; " id="add" href="AdvCard.html"><i  class="fa fa-plus-circle"
+                                                aria-hidden="true" style="color: black;font-size: 25px;"></i> Upload Ad</a>
+                              
+                                          </li>
+                                        <li class="search-option" title="Search">
+                                            <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
+                                          aria-hidden="true" style="color: black;font-size: 20px;"></i> Search</a>
+                
+                                        </li>
+                                </ul>
                 </div>
                 
                 
@@ -285,14 +287,11 @@
                     <div class="col-md-12 ml-auto mr-auto">
                         <div class="profile">
                             <div class="avatar" style="text-align: center;">
-                                <img id="userPp" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                                <img id='userPp' alt="Circle Image" class="img-raised rounded-circle img-fluid">
                             </div>
                             <div class="name">
                                 <h1 class="title" id="name"></h1>
-                                <h5> Profile</h5>
-                                <button type="button" class="btn btn btn-primary" id="forget">
-                                    Reset password
-                                  </button>
+                                <h5>Profile</h5>
                             </div>
                         </div>
                     </div>
@@ -304,64 +303,62 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="AdvCard.html">
                                         <i class="fa fa-plus-circle"></i>
-                                        Add your advertisment
+                                       Upload Ad
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="request.html">
                                         <i class="fa fa-plus-circle"></i>
-                                        Make you request
+                                        Make a wish
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" href="MyAccount.html">
                                         <i class="fa fa-audio-description"></i>
-                                        Your Ads
+                                        My Ads
                                     </a>
                                 </li>
                                 <li class="nav-item" >
                                     <a class="nav-link " href="PendingAds.html">
                                         <i class="fa fa-audio-description"></i>
-                                        Pending advertisments
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="MyAccountFav.html">
-                                        <i class="fa fa-star"></i>
-                                        My favorite
+                                        Pending Ads
                                     </a>
                                 </li>
                                 
-                                <li class="nav-item">
-                                    <a class="nav-link " href="MyAccountViews.html">
-                                        <i class="fa fa-eye"></i>
-                                        Monitor my views
-                                    </a>
-                                    </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="ModifyAd.html">
-                                        <i class="fa fa-edit"></i>
-                                        Modify advertisment
-                                    </a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link " href="EditAccount.html">
                                         <i class="fa fa-edit"></i>
-                                        Modify account
+                                        Edit account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="ModifyAd.html">
+                                        <i class="fa fa-edit"></i>
+                                        Modify Ads
                                     </a>
                                 </li>
                                 
-                                
+                                <li class="nav-item" >
+                                    <a class="nav-link" href="MyAccountFav.html" >
+                                        <i class="fa fa-star"></i>
+                                        My favorites
+                                    </a>
+                                </li>
+                                <li class="nav-item" >
+                                    <a class="nav-link" href="MyWishlist.html" >
+                                        <i class="fa fa-heart"></i>
+                                        My Wishlist
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="name">
-                    <h1 class="title">Your Ads</h1>
-                </div>
+
                 <div class="tab-content tab-space">
                     <div class="row" id="adHeader">
-
+                        <h1 class="title" id='total'></h1>
 
 
 
@@ -465,147 +462,140 @@
                 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
                 <script src="LogIn.js"></script>
                 <script src="SignOut.js"></script>
-                <script src="ResetPass.js"></script>
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
                 <script>
                     var kk = "";
-                    
                     firebase.auth().onAuthStateChanged(function (user) {
                         if (user) {
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
-                            details.once('value', function (snapshot) {
-                                snapshot.forEach(childSnapshot => {
-                                    console.log(currentusermail);
-                                    document.getElementById("name").innerHTML = childSnapshot.val().name;
-                                    console.log(childSnapshot.val().name);
-                                });
-                            });
+                            // details.once('value', function (snapshot) {
+                            //     snapshot.forEach(childSnapshot => {
+                            //         console.log(currentusermail);
+                            //         document.getElementById("name").innerHTML = childSnapshot.val().name;
+                            //         console.log(childSnapshot.val().name);
+                            //         var navname = childSnapshot.val().name.split(' ');
+                            //         console.log(navname);
+                            //         document.getElementById('MyaccountBar').append(navname[0]);
+                            //     });
+                            // });
                         }
                     });
-                    function AddAds(title, description, time, location, appID, price, image, name,type) {
-  var divSize = document.createElement('div');
-  var divSer = document.createElement('div');
-  var divMain = document.createElement('div');
-  var divWrap = document.createElement('div');
-  var adFig = document.createElement('figure');
-  var adlink = document.createElement('a');
-  var adlinkIcon = document.createElement('i');
-  var adImg = document.createElement('img');
-  var divLabel = document.createElement('div');
-  
-  var divPrice = document.createElement('div');
-  var spanPrice = document.createElement('span');
-  var divBody = document.createElement('div');
-  var Title = document.createElement('h3');
-  var divDesc = document.createElement('div');
-  var Desc = document.createElement('p');
-  var divAddress = document.createElement('div');
-  var addrsIcon = document.createElement('i');
-  var divFoot = document.createElement('div');
-  var divLeft = document.createElement('div');
-  var spanLeft = document.createElement('span');
-  var leftIcon = document.createElement('i');
-  var divRight = document.createElement('div');
-  var spanRight = document.createElement('span');
-  var rightIcon = document.createElement('i');
-  var Location = document.createElement('text');
+                    function AddAds(title, description, time, location, appID, price, views, image, name,type) {
+                        var divSize = document.createElement('div');
+                        var divSer = document.createElement('div');
+                        var divMain = document.createElement('div');
+                        var divWrap = document.createElement('div');
+                        var adFig = document.createElement('figure');
+
+                        var adImg = document.createElement('img');
+                        var divLabel = document.createElement('div');
+                        var spanLabel = document.createElement('span');
+                        var divPrice = document.createElement('div');
+                        var spanPrice = document.createElement('span');
+                        var divBody = document.createElement('div');
+                        var Title = document.createElement('h3');
+                        var divDesc = document.createElement('div');
+                        var Desc = document.createElement('p');
+                        var divAddress = document.createElement('div');
+                        var addrsIcon = document.createElement('i');
+                        var divFoot = document.createElement('div');
+                        var divLeft = document.createElement('div');
+                        var spanLeft = document.createElement('span');
+                        var leftIcon = document.createElement('i');
+                        var divRight = document.createElement('div');
+                        var spanRight = document.createElement('span');
+                        var rightIcon = document.createElement('i');
+                        var Location = document.createElement('text');
+
+
+                        divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
+                        divSer.setAttribute('class', 'service-widget box');
+                        divMain.setAttribute('class', 'property-main');
+                        divWrap.setAttribute('class', 'property-wrap');
+                        adFig.setAttribute('class', 'post-media wow fadeIn');
+                        adFig.setAttribute('style','border-width: medium;');
+                       
 
 
 
-  divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
-  divSer.setAttribute('class', 'service-widget box');
-  divMain.setAttribute('class', 'property-main');
-  divWrap.setAttribute('class', 'property-wrap');
-  adFig.setAttribute('class', 'post-media wow fadeIn');
-  adFig.setAttribute('style','border-width: medium;')
-  adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
-  adlink.setAttribute('class', 'hoverbutton global-radius');
-  adlink.setAttribute('href', image);
+                      
+                        adImg.setAttribute('src', image);
+                        adImg.setAttribute('class', 'img-responsive');
+                        divLabel.setAttribute('class', 'label-inner');
+                        spanLabel.setAttribute('class', 'label-status label');
+                        spanLabel.innerHTML = views + " Views";
+                        divPrice.setAttribute('class', 'price');
+                        spanPrice.setAttribute('class', 'item-sub-price');
+                        divBody.setAttribute('class', 'item-body');
+                        divDesc.setAttribute('class', 'info');
+                        divAddress.setAttribute('class', 'adderess');
+                        addrsIcon.classList.add('fa', 'fa-map-pin');
+                        addrsIcon.setAttribute('aria-hidden', 'true');
+                        divFoot.setAttribute('class', 'item-foot');
+                        divLeft.setAttribute('class', 'pull-left');
+                        spanLeft.setAttribute('class', 'prop-user-agent');
+                        leftIcon.classList.add('fa', 'fa-user');
+                        leftIcon.setAttribute('aria-hidden', 'true');
+                        divRight.classList.add('pull-right');
+                        spanRight.classList.add('prop-date');
+                        rightIcon.classList.add('fa', 'fa-calendar');
+                        rightIcon.setAttribute('aria-hideen', 'true');
+                        Title.setAttribute('style', 'color:black');
+                        Desc.innerHTML = description.substring(0, 40);
+                        Title.innerHTML = title.substring(0,30);
+                        Location.innerHTML = location.substring(0, 30);
+                        spanPrice.innerHTML = price;
+                        adFig.style.display = 'flex';
+                        adFig.style.justifyContent = 'center';
+                        adFig.style.alignItems = 'center';
+                        adFig.style.overflow = 'hidden';
+                        adImg.style.flexShrink = '0';
+                        adImg.style.Width = '100%';
+                        //adImg.style.maxHeight = '100%';
+                        adFig.style.height = '250px';
 
+                    
+                        divLabel.appendChild(spanLabel);
+                        divPrice.appendChild(spanPrice);
+               
+                        adFig.appendChild(adImg);
+                        adFig.appendChild(divLabel);
+                        adFig.appendChild(divPrice);
+                        divDesc.appendChild(Desc);
+                        divAddress.appendChild(addrsIcon);
+                        divAddress.appendChild(Location);
+                        divBody.appendChild(Title);
+                        divBody.appendChild(divDesc);
+                        divBody.appendChild(divAddress);
+                        spanLeft.appendChild(leftIcon);
+                        let t = document.createElement('small');
+            t.setAttribute('class','testi-meta text-muted');
+            t.innerHTML = " By " +type;
+            spanLeft.append(name);
+            spanLeft.appendChild(t);
+                        divLeft.appendChild(spanLeft);
+                        spanRight.appendChild(rightIcon);
+                        spanRight.append(time);
+                        divRight.appendChild(spanRight);
+                        divFoot.appendChild(divLeft);
+                        divFoot.appendChild(divRight);
+                        divWrap.appendChild(adFig);
+                        divWrap.appendChild(divBody);
+                        divWrap.appendChild(divFoot);
+                        divMain.appendChild(divWrap);
+                        divSer.appendChild(divMain);
+                        divSize.setAttribute('style','margin-bottom: 30px;');
+                        divSize.appendChild(divSer);
+                        divSize.addEventListener('click', function () {
+                            localStorage.setItem('appID', appID);
+                            window.document.location = './ads.html';
+                        });
 
-
-  adlinkIcon.setAttribute('class', 'flaticon-unlink');
-  adImg.setAttribute('src', image);
-  adImg.setAttribute('class', 'img-responsive');
-  divLabel.setAttribute('class', 'label-inner');
-  
-  
-  divPrice.setAttribute('class', 'price');
-  spanPrice.setAttribute('class', 'item-sub-price');
-  divBody.setAttribute('class', 'item-body');
-  divDesc.setAttribute('class', 'info');
-  divAddress.setAttribute('class', 'adderess');
-  addrsIcon.classList.add('fa', 'fa-map-pin');
-  addrsIcon.setAttribute('aria-hidden', 'true');
-  divFoot.setAttribute('class', 'item-foot');
-  divLeft.setAttribute('class', 'pull-left');
-  spanLeft.setAttribute('class', 'prop-user-agent');
-
-  leftIcon.classList.add('fa', 'fa-user');
-  leftIcon.setAttribute('aria-hidden', 'true');
-  divRight.classList.add('pull-right');
-  spanRight.classList.add('prop-date');
-  rightIcon.classList.add('fa', 'fa-calendar');
-  rightIcon.setAttribute('aria-hideen', 'true');
-  Title.setAttribute('style', 'color:black');
-  Desc.innerHTML = description.substring(0, 40);
-  Title.innerHTML = title;
-  Location.innerHTML = location.substring(0, 30);
-  spanPrice.innerHTML = price;
-  adFig.style.display ='flex';
-  adFig.style.justifyContent = 'center';
-  adFig.style.alignItems = 'center';
-  adFig.style.overflow = 'hidden';
-  adImg.style.flexShrink ='0';
-  adImg.style.Width = '100%';
-  //adImg.style.maxHeight = '100%';
-  adFig.style.height = '250px';
-  
-  
-  
-  
-  adlink.appendChild(adlinkIcon);
-  
-  divPrice.appendChild(spanPrice);
-  adFig.appendChild(adlink);
-  adFig.appendChild(adImg);
-  adFig.appendChild(divLabel);
-  adFig.appendChild(divPrice);
-  divDesc.appendChild(Desc);
-  divAddress.appendChild(addrsIcon);
-  divAddress.appendChild(Location);
-  divBody.appendChild(Title);
-  divBody.appendChild(divDesc);
-  divBody.appendChild(divAddress);
-  spanLeft.appendChild(leftIcon);
-  let t = document.createElement('small');
-      t.setAttribute('class','testi-meta text-muted');
-      t.innerHTML = " By " +type;
-      spanLeft.append(name);
-      spanLeft.appendChild(t);
-  divLeft.appendChild(spanLeft);
-  spanRight.appendChild(rightIcon);
-  spanRight.append(time);
-  divRight.appendChild(spanRight);
-  divFoot.appendChild(divLeft);
-  divFoot.appendChild(divRight);
-  divWrap.appendChild(adFig);
-  divWrap.appendChild(divBody);
-  divWrap.appendChild(divFoot);
-  divMain.appendChild(divWrap);
-  divSer.appendChild(divMain);
-  divSize.setAttribute('style','margin-bottom: 30px;');
-  divSize.appendChild(divSer);
-  divSize.addEventListener('click', function () {
-      localStorage.setItem('appID', appID);
-      window.document.location = './ads.html';
-  });
-
-  document.getElementById('adHeader').appendChild(divSize);
-}
+                        document.getElementById('adHeader').appendChild(divSize);
+                    }
                     function checkTime(str){
   var today = new Date();
   dayToday = today.getDate();
@@ -673,8 +663,9 @@ function Delete(){
 }
 
                     function fetchAllData() {
-                        //window.scrollTo(0, 700);
+                        window.scrollTo(0, 700);
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
+                        Totalnum = 0;
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
                                 image = childSnapshot.val().link;
@@ -683,48 +674,53 @@ function Delete(){
                         });
 
                         firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                            snapshot.forEach(childSnapshot => {
+                                kk = childSnapshot.key;
+                                if(childSnapshot.val().Accepted == "Yes"){
+                                    if(checkTime(childSnapshot.val().DeadLine)){
+                                        var ad = childSnapshot.val().Ad;
+                                let title = childSnapshot.val().Title;
+                                let description = childSnapshot.val().Description;
+                                let time = childSnapshot.val().Time;
+                                let appID = childSnapshot.key;
+                                let location = childSnapshot.val().location;
+                                let price = childSnapshot.val().price;
+                                let views = childSnapshot.val().NumOfViews;
+                                Totalnum += parseInt(views);
+                                let mail = childSnapshot.val().UserID;
+                                var image = "";
+                                firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot) {
                                     snapshot.forEach(childSnapshot => {
-                                        kk = childSnapshot.key;
-                                        if(childSnapshot.val().Accepted == "Yes"){
-                                            if(checkTime(childSnapshot.val().DeadLine)){
-                                                let title = childSnapshot.val().Title;
-                                        let description = childSnapshot.val().Description;
-                                        let time = childSnapshot.val().Time;
-                                        let appID = childSnapshot.key;
-                                        let location = childSnapshot.val().location;
-                                        let price = childSnapshot.val().price;
-                                        let mail = childSnapshot.val().UserID;
-                                        var image = "";
-                                        firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot) {
-                                            snapshot.forEach(childSnapshot => {
-                                                if(childSnapshot.val().Des != "Contract"){
+                                        if(childSnapshot.val().Des != "Contract"){
                     image = childSnapshot.val().link;
                 console.log(image);
                 return
                 }
-                                            });
-                                            firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
-                                            snapshot.forEach(childSnapshot => {
-                                                let Name = childSnapshot.val().name;
-                                                let type = childSnapshot.val().type;
-                                                console.log("///////");
-                                                console.log(image);
-                                                AddAds(title, description, time, location, appID, price, image, Name,type);
-                                                //i++;
-                                            });
-                                        });
-
                                     });
-                                            }
-                                            else{
-                                                Delete();
-                                            }
-                                       
-                                }
-                                        });
-                                        
-
+                                    firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
+                                    snapshot.forEach(childSnapshot => {
+                                        let Name = childSnapshot.val().name;
+                                        let type = childSnapshot.val().type;
+                                        AddAds(title, description, time, location, appID, price, views, image, Name,type);
+                                        //i++;
+                                    });
                                 });
+
+
+
+
+                            });
+                                    }
+                                    else{
+                                        Delete();
+                                    }
+                        }
+                                });
+                                
+                            console.log(Totalnum);
+                            document.getElementById('total').innerHTML = "Total Views of My Ads are: " + Totalnum;
+                        });
+
                     }
                     if (window.addEventListener) {
                         window.addEventListener('load', fetchAllData());

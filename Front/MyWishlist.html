@@ -256,7 +256,7 @@
                                    </ul>
                                    <ul class="nav navbar-nav navbar-right">
                                     <li><a class="active" href="MyAccount.html" style="margin-right: 5px;"
-                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> MyAccount</a></li>
+                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> </a></li>
                                             <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
                                                 id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i> logOut</a>
                                         </li>
@@ -303,59 +303,61 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="AdvCard.html">
                                         <i class="fa fa-plus-circle"></i>
-                                        Add your advertisment
+                                       Upload Ad
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="request.html">
                                         <i class="fa fa-plus-circle"></i>
-                                        Make you request
+                                        Make a wish
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="MyAccount.html">
+                                    <a class="nav-link " href="MyAccount.html">
                                         <i class="fa fa-audio-description"></i>
-                                        Your Ads
+                                        My Ads
                                     </a>
                                 </li>
                                 <li class="nav-item" >
                                     <a class="nav-link " href="PendingAds.html">
                                         <i class="fa fa-audio-description"></i>
-                                        Pending advertisments
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="MyAccountFav.html">
-                                        <i class="fa fa-star"></i>
-                                        My favorite
+                                        Pending Ads
                                     </a>
                                 </li>
                                 
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="MyAccountViews.html">
-                                        <i class="fa fa-eye"></i>
-                                        Monitor my views
-                                    </a>
-                                    </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="ModifyAd.html">
-                                        <i class="fa fa-edit"></i>
-                                        Modify advertisment
-                                    </a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link " href="EditAccount.html">
                                         <i class="fa fa-edit"></i>
-                                        Modify account
+                                        Edit account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="ModifyAd.html">
+                                        <i class="fa fa-edit"></i>
+                                        Modify Ads
                                     </a>
                                 </li>
                                 
-                                
+                                <li class="nav-item" >
+                                    <a class="nav-link" href="MyAccountFav.html" >
+                                        <i class="fa fa-star"></i>
+                                        My favorites
+                                    </a>
+                                </li>
+                                <li class="nav-item" >
+                                    <a class="nav-link active" href="MyWishlist.html" >
+                                        <i class="fa fa-heart"></i>
+                                        My Wishlist
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
+                <div class="name">
+                    <h1 class="title">My Wishlist</h1>
+                </div>
                 <div class="tab-content tab-space">
                     <div class="row" id="adHeader">
                         <h1 class="title" id='total'></h1>
@@ -476,6 +478,9 @@
                                     console.log(currentusermail);
                                     document.getElementById("name").innerHTML = childSnapshot.val().name;
                                     console.log(childSnapshot.val().name);
+                                    var navname = childSnapshot.val().name.split(' ');
+                                    console.log(navname);
+                                    document.getElementById('MyaccountBar').append(navname[0]);
                                 });
                             });
                         }
@@ -486,7 +491,7 @@
                         var divMain = document.createElement('div');
                         var divWrap = document.createElement('div');
                         var adFig = document.createElement('figure');
-                   
+                        
                         var adImg = document.createElement('img');
                         var divLabel = document.createElement('div');
                         var spanLabel = document.createElement('span');
@@ -514,11 +519,7 @@
                         divWrap.setAttribute('class', 'property-wrap');
                         adFig.setAttribute('class', 'post-media wow fadeIn');
                         adFig.setAttribute('style','border-width: medium;');
-                     
-
-
-
-                    
+                       
                         adImg.setAttribute('src', image);
                         adImg.setAttribute('class', 'img-responsive');
                         divLabel.setAttribute('class', 'label-inner');
@@ -554,10 +555,10 @@
                         //adImg.style.maxHeight = '100%';
                         adFig.style.height = '250px';
 
-                       
+                     
                         divLabel.appendChild(spanLabel);
                         divPrice.appendChild(spanPrice);
-                       
+                      
                         adFig.appendChild(adImg);
                         adFig.appendChild(divLabel);
                         adFig.appendChild(divPrice);
@@ -715,7 +716,7 @@ function Delete(){
                                 });
                                 
                             console.log(Totalnum);
-                            document.getElementById('total').innerHTML = "Total Views of Your Ads is: " + Totalnum;
+                            document.getElementById('total').innerHTML = "Total Views of My Ads are: " + Totalnum;
                         });
 
                     }
