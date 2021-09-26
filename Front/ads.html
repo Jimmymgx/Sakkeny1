@@ -208,8 +208,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <h4 class="u-text u-text-23">Name:</h4>
                       <h4 class="u-text u-text-24">Type:</h4>
                       <h4 id="Type" class="u-text u-text-25"></h4>
-                      <h4 class="u-text u-text-30" style="margin-top: 50px;">Rating:</h4>
-                      <h4 id="rating" class="u-text u-text-25"></h4>
+                      <h4 id="rating" class="u-text u-text-22"></h4>
+                      <h4 class="u-text u-text-30" >Rating:</h4>
+                      
                       
                       
                       <img id="profile" class="u-image u-image-default u-image-4" src="images/logos/llll.png" alt="" data-image-width="1000" data-image-height="1500">
@@ -621,7 +622,38 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
            document.getElementById('name').innerHTML = Name;
            document.getElementById('num').innerHTML = num;
            document.getElementById('Type').innerHTML = type;
-           document.getElementById('rating').innerHTML = Rate + ' / 5';
+           if(Rate<=0){
+            document.getElementById('rating').innerHTML ='<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(Rate>0 && Rate<1){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }else if(Rate == 1){
+              document.getElementById('rating').innerHTML ='<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if(Rate > 1 && Rate<2){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(Rate ==2){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if (Rate > 2 && Rate <3){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(Rate ==3){
+              document.getElementById('rating').innerHTML ='<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if (Rate > 3 && Rate <4){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==4){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+            }
+            else if (Rate > 4 && Rate <5){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+            }else if (Rate == 5){
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+            }else{
+                
+              document.getElementById('rating').innerHTML = '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            
+            }
+           //document.getElementById('rating').innerHTML = Rate + ' / 5';
            firebase.database().ref('images').orderByChild("main").equalTo(mail).once('value', function (snapshot) {
                          snapshot.forEach(childSnapshot => {
                              image = childSnapshot.val().link;

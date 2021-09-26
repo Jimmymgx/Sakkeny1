@@ -1045,7 +1045,7 @@ function fetchData() {
                       let Name = childSnapshot.val().name;
                       let type = childSnapshot.val().type;
                       console.log(Name);
-                      
+                      let rating = childSnapshot.val().rate;
                       document.getElementById('loading').style.display = "none";
                       AddAds(
                         title,
@@ -1056,7 +1056,8 @@ function fetchData() {
                         price,
                         image,
                         Name,
-                        type
+                        type,
+                        rating
                       );
                       check2(counter);
                     });
@@ -1110,14 +1111,16 @@ function fetchData() {
 function check2(para){
   if(para < 1){
     document.getElementById('noRes').style.display = "block";
+    document.getElementById('features').style.display = "none";
   }
   if(para > 0){
     document.getElementById('noRes').style.display = "none";
+    document.getElementById('features').style.display = "block";
   }
 }
 function clear2(){
   document.getElementById('noRes').style.display = "none";
-
+  document.getElementById('features').style.display = "block";
 }
 function clear() {
   document.getElementById("adHeader").innerHTML = "";

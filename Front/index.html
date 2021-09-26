@@ -338,7 +338,7 @@
                   
 -->
 
-<div id="features" class="section wb">
+<div  class="section wb">
     <div class="container">
         <div class="section-title row text-center" style="margin-bottom: 0px;">
             <div class="col-md-8 col-md-offset-2">
@@ -608,8 +608,17 @@
 
 
         <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc;">Search</button>
-    <h1 id="noRes" style="display: none;">No results</h1>
-    <div id="features" class="section wb">
+        <div  class="section wb" id="noRes" style="display: none;">
+            <div class="container">
+                <div class="section-title row text-center">
+                    <div class="col-md-8 col-md-offset-2">
+        <h3 >No result found</h3>
+        <p class="lead"> But you can<a href="request.html" style="color: #997c47;"> Make A Wish</a> of your desired property </p>
+    </div><!-- end col -->
+</div><!-- end title -->
+</div>
+</div>
+        <div id="features" class="section wb">
         <div class="container">
             <div class="section-title row text-center">
                 <div class="col-md-8 col-md-offset-2">
@@ -935,7 +944,38 @@
             t.innerHTML = " By " +type;
             let r = document.createElement('small');
             r.setAttribute('class','testi-meta text-muted');
-            r.innerHTML = " Rate : " +rating + " / 5";
+            if(rating<=0){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(rating>0 && rating<1){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }else if(rating == 1){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if(rating > 1 && rating<2){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==2){
+                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if (rating > 2 && rating <3){
+                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==3){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if (rating > 3 && rating <4){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==4){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+            }
+            else if (rating > 4 && rating <5){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+            }else if (rating == 5){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+            }else{
+                
+                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            
+            }
+            //r.innerHTML = " Rate : " +rating + " / 5";
             name1=name.split(' ');
             spanLeft.append(name1[0]);
             spanLeft.appendChild(t);
@@ -956,7 +996,7 @@
         spanRight.appendChild(rightIcon);
         spanRight.append(time);
         spanRight.appendChild(r);
-        spanRight.appendChild(img);
+        spanLeft.appendChild(img);
         divRight.appendChild(spanRight);
         divFoot.appendChild(divLeft);
         divFoot.appendChild(divRight);
