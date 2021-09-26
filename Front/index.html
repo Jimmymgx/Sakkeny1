@@ -837,7 +837,7 @@
 
 <script>
     //let kk = "";
-    function AddAds(title, description, time, location, appID, price, image, name,type) {
+    function AddAds(title, description, time, location, appID, price, image, name,type, rating) {
         var divSize = document.createElement('div');
         var divSer = document.createElement('div');
         var divMain = document.createElement('div');
@@ -933,6 +933,9 @@
         let t = document.createElement('small');
             t.setAttribute('class','testi-meta text-muted');
             t.innerHTML = " By " +type;
+            let r = document.createElement('small');
+            r.setAttribute('class','testi-meta text-muted');
+            r.innerHTML = " Rate : " +rating + " / 5";
             name1=name.split(' ');
             spanLeft.append(name1[0]);
             spanLeft.appendChild(t);
@@ -952,6 +955,7 @@
         divLeft.appendChild(spanLeft);
         spanRight.appendChild(rightIcon);
         spanRight.append(time);
+        spanRight.appendChild(r);
         spanRight.appendChild(img);
         divRight.appendChild(spanRight);
         divFoot.appendChild(divLeft);
@@ -1151,8 +1155,9 @@ function Delete(){
                         let Name = childSnapshot.val().name;
                         console.log(Name);
                         let type = childSnapshot.val().type;
+                        let rating = childSnapshot.val().rate;
                         document.getElementById('loading').style.display = "none";
-                        AddAds(title, description, time, location, appID, price, image, Name,type);
+                        AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                         //i++;
                     });
 
