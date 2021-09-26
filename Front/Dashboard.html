@@ -13,7 +13,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -68,6 +68,7 @@
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
                         <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
+                        <li><a href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -301,8 +302,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         var divMain = document.createElement('div');
         var divWrap = document.createElement('div');
         var adFig = document.createElement('figure');
-        var adlink = document.createElement('a');
-        var adlinkIcon = document.createElement('i');
+        
         var adImg = document.createElement('img');
         var divLabel = document.createElement('div');
         
@@ -331,13 +331,11 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         divWrap.setAttribute('class', 'property-wrap');
         adFig.setAttribute('class', 'post-media wow fadeIn');
         adFig.setAttribute('style','border-width: medium;')
-        adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
-        adlink.setAttribute('class', 'hoverbutton global-radius');
-        adlink.setAttribute('href', image);
+      
 
 console.log(image);
 
-        adlinkIcon.setAttribute('class', 'flaticon-unlink');
+        
         adImg.setAttribute('src', image);
         adImg.setAttribute('class', 'img-responsive');
         divLabel.setAttribute('class', 'label-inner');
@@ -361,7 +359,7 @@ console.log(image);
         rightIcon.classList.add('fa', 'fa-calendar');
         rightIcon.setAttribute('aria-hideen', 'true');
         Desc.innerHTML = description.substring(0, 40);
-        Title.innerHTML = title;
+        Title.innerHTML = title.substring(0,30);
         Location.innerHTML = location.substring(0, 30);
         spanPrice.innerHTML = price;
         adFig.style.display ='flex';
@@ -375,11 +373,10 @@ console.log(image);
         
         
         
-        
-        adlink.appendChild(adlinkIcon);
+ 
         
         divPrice.appendChild(spanPrice);
-        adFig.appendChild(adlink);
+        
         adFig.appendChild(adImg);
         adFig.appendChild(divLabel);
         adFig.appendChild(divPrice);

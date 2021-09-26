@@ -58,7 +58,7 @@
     line-height: 300%;
   }
 </style>
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -196,6 +196,7 @@
                   <!-- <li><a href="gallery.html">Gallery</a></li> -->
                   
                   <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
+                  <li><a href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
                     <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                 class="fa fa-twitter global-radius"></i></a></li>
                     <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -230,11 +231,11 @@
         
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
-            <button onclick="signin()" type="button" id="signin" class="login-with-facebook-btn btn btn-lg btn-block left-icon-holder">
+            <button onclick="signin()" type="button" id="signinF" class="login-with-facebook-btn btn btn-lg btn-block left-icon-holder">
               <i class="fa fa-facebook"></i>Facebook</button>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
-            <button type="button" class="login-with-google-btn btn btn-lg btn-block left-icon-holder" >
+            <button type="button" id='signinG' class="login-with-google-btn btn btn-lg btn-block left-icon-holder" >
               Google
             </button>
           </div>
@@ -367,26 +368,10 @@
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         var user = firebase.auth().currentUser;
-        document.getElementById("SigninBar").style.display = "none";
-        document.getElementById("SignupBar").style.display = "none";
-        document.getElementById("MyaccountBar").style.display = "block";
-        document.getElementById("Logout").style.display = "block";
-        document.getElementById("add").style.display = 'block';
-        if (user != null) {
-          var currentusermail = user.email;
-          var isVerify = user.emailVerified;
-          if (isVerify != true) {
-            window.location.href = "Verfication.html";
-          }
-        }
+      
       }
 
-      else {
-        document.getElementById("SigninBar").style.display = "block";
-        document.getElementById("SignupBar").style.display = "block";
-        document.getElementById("filter").style.display = 'none';
-        console.log("inside else");
-      }
+    
     });
   </script>
 </body>

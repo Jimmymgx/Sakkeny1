@@ -233,8 +233,7 @@ var firebaseConfig = {
     var divMain = document.createElement('div');
     var divWrap = document.createElement('div');
     var adFig = document.createElement('figure');
-    var adlink = document.createElement('a');
-    var adlinkIcon = document.createElement('i');
+  
     var adImg = document.createElement('img');
     var divLabel = document.createElement('div');
     
@@ -263,15 +262,13 @@ var firebaseConfig = {
     divMain.setAttribute('class', 'property-main');
     divWrap.setAttribute('class', 'property-wrap');
     adFig.setAttribute('class', 'post-media wow fadeIn');
-    adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
-    adlink.setAttribute('class', 'hoverbutton global-radius');
-    adlink.setAttribute('href', image);
+   
     //accept.setAttribute('type','button');
     //accept.classList.add('btn','btn-success' ,'btn-lg', 'fa','fa-check','col-md-6','col-sm-6','col-xs-12');
     //decline.classList.add('btn', 'btn-danger','btn-lg' , 'fa','fa-times','col-md-6','col-sm-6','col-xs-12');
   
   
-    adlinkIcon.setAttribute('class', 'flaticon-unlink');
+   
     adImg.setAttribute('src', image);
     adImg.setAttribute('class', 'img-responsive');
     divLabel.setAttribute('class', 'label-inner');
@@ -294,7 +291,7 @@ var firebaseConfig = {
     rightIcon.classList.add('fa', 'fa-calendar');
     rightIcon.setAttribute('aria-hideen', 'true');
     Desc.innerHTML = description.substring(0, 100);
-    Title.innerHTML = title;
+    Title.innerHTML = title.substring(0,30);
     Location.innerHTML = location.substring(0, 40);
     spanPrice.innerHTML = price;
     adFig.style.display ='flex';
@@ -306,10 +303,10 @@ var firebaseConfig = {
     //adImg.style.maxHeight = '100%';
     adFig.style.height = '250px';
     
-    adlink.appendChild(adlinkIcon);
+
     
     divPrice.appendChild(spanPrice);
-    adFig.appendChild(adlink);
+  
     adFig.appendChild(adImg);
     adFig.appendChild(divLabel);
     adFig.appendChild(divPrice);
