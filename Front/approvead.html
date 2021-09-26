@@ -342,15 +342,15 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         if (isVerify != true) {
           window.location.href = "Verfication.html";
         }
-        var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
-                            details.once('value', function (snapshot) {
-                                snapshot.forEach(childSnapshot => {
+        // var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
+        //                     details.once('value', function (snapshot) {
+        //                         snapshot.forEach(childSnapshot => {
                                     
-                                    var navname = childSnapshot.val().name.split(' ');
-                                    console.log(navname);
-                                    document.getElementById('MyaccountBar').append(navname[0]);
-                                });
-                            });
+        //                             var navname = childSnapshot.val().name.split(' ');
+        //                             console.log(navname);
+        //                             document.getElementById('MyaccountBar').append(navname[0]);
+        //                         });
+        //                     });
       }
 
       else {

@@ -13,7 +13,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -257,9 +257,8 @@
                         <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
-                        <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact</a></li>
-                        <li><a href="Compare.html"><i class="fa fa-poll"></i> Compare</a></li>
                         <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
+                        <li><a href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -273,7 +272,7 @@
                                     <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="fa fa-user-plus" style="font-size: 20px;"></i> Sign Up</a></li>
                         <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fa fa-sign-in" style="font-size: 20px;"></i> Log In</a></li>
                         <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
-                                id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> MyAccount</a></li>
+                                id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> </a></li>
                                 <li class="search-option" title="LogOut" style="align-items: center;"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px; display :none;"
                                     id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;"></i> logOut</a>
                             </li>
@@ -620,7 +619,7 @@
                 </div><!-- end col -->
             </div><!-- end title -->
             <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%; display: none;" id='loading'/>
-                <div class="row" id="adHeader">
+                <div class="row" id="adHeader" style="width: 100%;">
 
 
                 
@@ -814,6 +813,15 @@
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
             }
+             
+            // firebase.database().ref("users").orderByChild("email").equalTo(currentusermail).once('value', function (snapshot) {
+            //                     snapshot.forEach(childSnapshot => {
+                                    
+            //                         var navname = childSnapshot.val().name.split(' ');
+            //                         //console.log(navname);
+            //                         document.getElementById('MyaccountBar').append(navname[0]);
+            //                     });
+            //                 });
         }
 
         else {
@@ -893,7 +901,7 @@
         rightIcon.classList.add('fa', 'fa-calendar');
         rightIcon.setAttribute('aria-hideen', 'true');
         Desc.innerHTML = description.substring(0, 40);
-        Title.innerHTML = title;
+        Title.innerHTML = title.substring(0,40);
         Location.innerHTML = location.substring(0, 30);
         spanPrice.innerHTML = price;
         adFig.style.display ='flex';
@@ -925,8 +933,14 @@
         let t = document.createElement('small');
             t.setAttribute('class','testi-meta text-muted');
             t.innerHTML = " By " +type;
-            spanLeft.append(name);
+            name1=name.split(' ');
+            spanLeft.append(name1[0]);
             spanLeft.appendChild(t);
+            let img = document.createElement('img');
+            img.setAttribute('src',image);
+            img.setAttribute('class','testi-meta text-muted');
+            img.style.width = '100px';
+            img.style.height ='40px';
             /**let con = document.createElement('div');
             con.setAttribute("class", "rate");
             con.setAttribute("id", "rating") 
@@ -938,6 +952,7 @@
         divLeft.appendChild(spanLeft);
         spanRight.appendChild(rightIcon);
         spanRight.append(time);
+        spanRight.appendChild(img);
         divRight.appendChild(spanRight);
         divFoot.appendChild(divLeft);
         divFoot.appendChild(divRight);
