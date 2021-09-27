@@ -667,6 +667,19 @@ function getch(id){
   var isswim = getch("IsSwim");
   var isbbq = getch("IsBbq");
   var isroof = getch("IsRoof");
+  var ismain = getch("IsMain");
+  var isbeach = getch("IsBeach");
+  var islake = getch("IsLake");
+  var isnile = getch("IsNile");
+  var iswifi = getch("IsWifi");
+  var isgarden = getch("IsGarden");
+  var issports = getch("IsSports");
+  var isschool = getch("IsSchool");
+  var ishospital = getch("IsHospital");
+  var iscafe = getch("IsCafe");
+  var isswimable = getch("IsSwimable");
+  var isgym = getch("IsGym");
+  var issauna = getch("IsSauna");
   var pric = document.getElementById("price").value;
   var secondprice = pric;
   var are = document.getElementById("area").value;
@@ -694,6 +707,19 @@ function getch(id){
     swimmingPool: isswim,
     bbq: isbbq,
     roof: isroof,
+    mainStreet: ismain,
+    beachfront: isbeach,
+    lake: islake,
+    nile: isnile,
+    wifi: iswifi,
+    garden: isgarden,
+    sportsClup: issports,
+    school: isschool,
+    hospital: ishospital,
+    cafe: iscafe,
+    swimable: isswimable,
+    gym: isgym,
+    sauna: issauna,
     price: secondprice + " " + term,
     area: secondarea,
     UserID: currentusermail,
