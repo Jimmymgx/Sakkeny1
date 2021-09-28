@@ -276,11 +276,14 @@ function EditUserData(){
           if(document.getElementById('image').files.length != 0){
             uploadImage(localStorage.getItem("currMail"));
           }
+          else{
+            setTimeout(function(){window.location.href = "MyAccount.html";},3000);
+          }
           
         }
         alert("Your Account has been changed succesfully");
         makeLoader();
-        setTimeout(function(){window.location.href = "MyAccount.html";},3000);
+        
 
   }
   function makeLoader(){
