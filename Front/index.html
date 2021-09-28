@@ -224,7 +224,35 @@
 
 <!-- Modernizer for Portfolio -->
 <script src="js/modernizer.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#show').click(function() {
+          $('#menu').toggle("slide");
+          $('#search').toggle("slide");
+          if(document.getElementById('iconS').classList.contains("fa-angle-down")){
+          document.getElementById('iconS').classList.remove("fa-angle-down");
+          document.getElementById('iconS').classList.add("fa-angle-up");
+          }else{
+            document.getElementById('iconS').classList.remove("fa-angle-up");
+          document.getElementById('iconS').classList.add("fa-angle-down");
+          }
+        });
+    });
+    $(document).ready(function(){
+        $('#amenities').click(function() {
+          $('#amenities1').toggle("slide");
+          if(document.getElementById('icon').classList.contains("fa-angle-down")){
+          document.getElementById('icon').classList.remove("fa-angle-down");
+          document.getElementById('icon').classList.add("fa-angle-up");
+          }else{
+            document.getElementById('icon').classList.remove("fa-angle-up");
+          document.getElementById('icon').classList.add("fa-angle-down");
+          }
+        });
+    });
+    
+    </script>
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -344,10 +372,10 @@
             <div class="col-md-8 col-md-offset-2">
                 <small>Here you will search for an unit easily with our filter.</small>
                 <h3>Property Details Filter</h3>
-                
+                <small id="show"><a style="cursor: pointer;">Press to show / hide the search <i id='iconS'class="fas fa-angle-down"></i></a></small>
             </div><!-- end col -->
         </div><!-- end title -->
-        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee;">
+        <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee; display: none;">
         <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
 
                 
@@ -476,12 +504,12 @@
                     <option value="6">6</option>
                   </select>
             </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="width: 100%; padding-left: 0px;">
           
-            <div class="input-group col-md-4 col-sm-4 col-xs-12" style="float: left;">
+            <div class="input-group col-md-6 col-sm-6 col-xs-12" style="float: left;">
             <legend>Price range</legend>
             <div class="form-group col-md-12">
-                <span class="control-label col-md-3 col-sm-3 col-xs-2">From</span></span>
+                <span class="control-label col-md-3 col-sm-3 col-xs-2" style="padding-left: 0px;">From</span></span>
                 
                   <div class="input-group col-md-9 col-sm-9 col-xs-10">
                     <input type="text" class="form-control custom-select" name="from" id="from"
@@ -499,10 +527,10 @@
     </div>
     </div>
     </div>
-    <div class="input-group col-md-4 col-sm-4 col-xs-12" style="float: left;">
+    <div class="input-group col-md-6 col-sm-6 col-xs-12" style="float: left;">
         <legend>Area range per m<sup>2</sup></legend>
         <div class="form-group col-md-12">
-            <span class="control-label  col-md-3 col-sm-3 col-xs-2">From</span></span>
+            <span class="control-label  col-md-3 col-sm-3 col-xs-2"style="padding-left: 0px;">From</span></span>
             
               <div class="input-group col-md-9 col-sm-9 col-xs-10">
                 <input type="text" class="form-control custom-select" name="from" id="fromArea"
@@ -520,126 +548,151 @@
 </div>
 </div>
 </div>
-<div class="input-group-addon " style="border: none; float: left;">
+
+
+</div>
+<div class="input-group-addon " style="border: none; float: left; padding-left: 0px;  width: 100%;">
     
-    <legend class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">Amenities </legend>
-<div class="form-group "style="float: left;">
+    <legend id='amenities' class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;padding-left: 0px;cursor: pointer;" >Amenities <i id='icon'class="fas fa-angle-down"></i></legend>
+<div class="form-group " id='amenities1'style="float: left; display: none;">
     
     
     
-        <div class="col-md-12 col-sm-12 col-xs-12" >
+        
             
-           <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px; text-align: left;">
-            <div class="col-md-2 col-sm-2 col-xs-6" >
+           <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px; text-align: left;">
+            <div class="col-md-3 col-sm-2 col-xs-6" >
                 
               <input type="checkbox" id="IsElevator" name="Amenities1" value="Elevator" >
      <label for="IsElevator"><small>Elevator</small> </label> 
     </div>
-    <br>
-    <br>
-   <div class="col-md-2 col-sm-2 col-xs-6">
+   
+   <div class="col-md-3 col-sm-2 col-xs-6">
       <input type="checkbox" id="IsSecure" name="Amenities2" value="Secured Garage">
       <label for="IsSecure"><small> Garage</small> </label>
        </div>
-       <br>
-       <br>
-       <div class="col-md-2 col-sm-2 col-xs-6">
+    
+       <div class="col-md-3 col-sm-2 col-xs-6">
       <input type="checkbox" id="IsAir" name="Amenities3" value="Air conditioning">
       <label for="IsAir"><small> Air conditioning</small></label>
           </div>
-          <br>
-       <br>
-          <div class="col-md-2 col-sm-2 col-xs-6">
+
+          <div class="col-md-3 col-sm-2 col-xs-6">
       <input type="checkbox" id="IsGreat" name="Amenities4" value="Great View">
       <label for="IsGreat"><small>Great View </small></label>
        </div>
-       <br>
-       <br>
-       <div class="col-md-2 col-sm-2 col-xs-6">
+
+       <div class="col-md-3 col-sm-2 col-xs-6">
       <input type="checkbox" id="IsFire" name="Amenities5" value="Fireplace">
       <label for="IsFire"><small> Fireplace </small></label>
          </div>
-         <br>
-         <br>
-         <div class="col-md-2 col-sm-2 col-xs-6"style="padding-right:15px">
-            <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
-            <label for="IsLarge"><small>Large Windows with Natural Light </small></label>
-                   </div>
+
+         <div class="col-md-3 col-sm-2 col-xs-6">
+            <input type="checkbox" id="IsMain" name="Amenities11" value="Main street view">
+                            <label for="IsMain"><small> Main street view</small></label><br>
+                            </div>
+                            <div class="col-md-3 col-sm-2 col-xs-6">
+                            <input type="checkbox" id="IsBeach" name="Amenities11" value="Beachfront view">
+                            <label for="IsBeach"><small> Beachfront view</small></label><br>
+                            </div>
+                            <div class="col-md-3 col-sm-2 col-xs-6">
+                            <input type="checkbox" id="IsLake" name="Amenities11" value="Lake view">
+                            <label for="IsLake"><small> Lake view</small></label><br>
+                            </div>
+                            <div class="col-md-3 col-sm-2 col-xs-6">
+                            <input type="checkbox" id="IsNile" name="Amenities11" value="Nile view">
+                            <label for="IsNile"><small> Nile view</small></label><br>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-2 col-xs-6" style="float: left;">
+                                <input type="checkbox" id="IsSports" name="Amenities11" value="Near to sports clup">
+                                <label for="IsSports"><small> Near to sports clup</small></label>
+                                </div>
+                            <div class="col-md-3 col-sm-2 col-xs-6">
+                            <input type="checkbox" id="IsGarden" name="Amenities11" value="Garden">
+                            <label for="IsGarden"><small> Garden</small></label><br>
+                            </div>
+                           
+                            <div class="col-md-3 col-sm-2 col-xs-6">
+                            <input type="checkbox" id="IsSwimable" name="Amenities11" value="Swimmable lagoon">
+                            <label for="IsSwimable"><small> Swimmable lagoon </small></label><br>
+                            </div>
+                           
+                   
          </div>
-         <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px; text-align: left;">
+         <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px; text-align: left; float: left;">
          
                   
-             <div class="col-md-2 col-sm-2 col-xs-6">
+             <div class="col-md-3 col-sm-2 col-xs-6" style="float: left;">
       <input type="checkbox" id="IsDog" name="Amenities7" value="Dog Parks">
       <label for="IsDog"><small> Dog Parks </small></label>
                  </div>
-                 <br>
-       <br>
-                 <div class="col-md-2 col-sm-2 col-xs-6">
+
+                 <div class="col-md-3 col-sm-2 col-xs-6" style="float: left;">
       <input type="checkbox" id="IsPlay" name="Amenities8" value="Playground">
       <label for="IsPlay"><small> Playground </small></label>
                </div>
-               <br>
-       <br>
-               <div class="col-md-2 col-sm-2 col-xs-6">
+
+               <div class="col-md-3 col-sm-2 col-xs-6" style="float: left;">
       <input type="checkbox" id="IsSwim" name="Amenities9" value="Swimming Pool">
       <label for="IsSwim"><small>Swimming Pool</small></label>
                       </div>
-                      <br>
-       <br>
-                      <div class="col-md-2 col-sm-2 col-xs-6">
+ 
+                      <div class="col-md-3 col-sm-2 col-xs-6" style="float: left;">
       <input type="checkbox" id="IsBbq" name="Amenities10" value="Barbecue Areas">
       <label for="IsBbq"><small> Barbecue Areas </small></label>
                                 </div>
-                                <br>
-       <br> 
-                                <div class="col-md-2 col-sm-2 col-xs-6">
+                                <div class="col-md-3 col-sm-2 col-xs-6">
+                                    <input type="checkbox" id="IsWifi" name="Amenities11" value="WiFi">
+                                    <label for="IsWifi"><small> WiFi</small></label><br>
+                                    </div>
+                                <div class="col-md-3 col-sm-2 col-xs-6" style="float: left;">
       <input type="checkbox" id="IsRoof" name="Amenities11" value="Rooftop Lounge Areas">
       <label for="IsRoof"><small> Rooftop Lounge Areas </small></label>
     </div>
-    <br>
+
+
     
+ 
+        <div class="col-md-3 col-sm-2 col-xs-6" >
+        <input type="checkbox" id="IsSchool" name="Amenities11" value="Near to school">
+        <label for="IsSchool"><small> Near to school</small></label>
+        </div>
+        
+        <div class="col-md-3 col-sm-2 col-xs-6" >
+        <input type="checkbox" id="IsHospital" name="Amenities11" value="Near to hospital">
+        <label for="IsHospital"><small> Near to hospital</small></label>
+        </div>
+        <div class="col-md-3 col-sm-2 col-xs-3" >
+            <input type="checkbox" id="IsGym" name="Amenities11" value="Gym">
+            <label for="IsGym"><small> Gym </small></label>
+            </div>
+        <div class="col-md-3 col-sm-2 col-xs-9" style="word-wrap: break-word;">
+        <input type="checkbox" id="IsCafe" name="Amenities11" value="Near to Cafe & resturant">
+        <label for="IsCafe"><small> Near to Cafe & resturant </small></label>
+        </div>
+        
+            <div class="col-md-3 col-sm-2 col-xs-3" >
+            <input type="checkbox" id="IsSauna" name="Amenities11" value="Sauna">
+            <label for="IsSauna"><small> Sauna  </small></label>
+            </div>
+<div class="col-md-3 col-sm-2 col-xs-9" >
+<input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
+<label  for="IsLarge"><small >Large Windows with Natural Light </small></label>
+   </div>
     </div>
     
-        </div>
+        
     
-    </form>
+    
     
 </div>
 
 </div>
-
-</div>
-<input type="checkbox" id="IsMain" name="Amenities11" value="Main street view">
-                <label for="Amenities11"> Main street view</label><br>
-                <input type="checkbox" id="IsBeach" name="Amenities11" value="Beachfront view">
-                <label for="Amenities11"> Beachfront view</label><br>
-                <input type="checkbox" id="IsLake" name="Amenities11" value="Lake view">
-                <label for="Amenities11"> Lake view</label><br>
-                <input type="checkbox" id="IsNile" name="Amenities11" value="Nile view">
-                <label for="Amenities11"> Nile view</label><br>
-                <input type="checkbox" id="IsWifi" name="Amenities11" value="WiFi">
-                <label for="Amenities11"> WiFi</label><br>
-                <input type="checkbox" id="IsGarden" name="Amenities11" value="Garden">
-                <label for="Amenities11"> Garden</label><br>
-                <input type="checkbox" id="IsSports" name="Amenities11" value="Near to sports clup">
-                <label for="Amenities11"> Near to sports clup</label><br>
-                <input type="checkbox" id="IsSchool" name="Amenities11" value="Near to school">
-                <label for="Amenities11"> Near to school</label><br>
-                <input type="checkbox" id="IsHospital" name="Amenities11" value="Near to hospital">
-                <label for="Amenities11"> Near to hospital</label><br>
-                <input type="checkbox" id="IsCafe" name="Amenities11" value="Near to Cafe & resturant">
-                <label for="Amenities11"> Near to Cafe & resturant </label><br>
-                <input type="checkbox" id="IsSwimable" name="Amenities11" value="Swimmable lagoon">
-                <label for="Amenities11"> Swimmable lagoon </label><br>
-                <input type="checkbox" id="IsGym" name="Amenities11" value="Gym">
-                <label for="Amenities11"> Gym </label><br>
-                <input type="checkbox" id="IsSauna" name="Amenities11" value="Sauna">
-                <label for="Amenities11"> Sauna  </label><br>
 </div>
 
 
-        <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc;">Search</button>
+        <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc; display: none;">Search</button>
         <div  class="section wb" id="noRes" style="display: none;">
             <div class="container">
                 <div class="section-title row text-center">

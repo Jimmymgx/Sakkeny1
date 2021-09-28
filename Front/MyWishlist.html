@@ -473,16 +473,16 @@
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
-                            // details.once('value', function (snapshot) {
-                            //     snapshot.forEach(childSnapshot => {
-                            //         console.log(currentusermail);
-                            //         document.getElementById("name").innerHTML = childSnapshot.val().name;
-                            //         console.log(childSnapshot.val().name);
-                            //         var navname = childSnapshot.val().name.split(' ');
-                            //         console.log(navname);
-                            //         document.getElementById('MyaccountBar').append(navname[0]);
-                            //     });
-                            // });
+                            details.once('value', function (snapshot) {
+                                snapshot.forEach(childSnapshot => {
+                                    console.log(currentusermail);
+                                    document.getElementById("name").innerHTML = childSnapshot.val().name;
+                                    console.log(childSnapshot.val().name);
+                                    var navname = childSnapshot.val().name.split(' ');
+                                    console.log(navname);
+                                    document.getElementById('MyaccountBar').append(navname[0]);
+                                });
+                            });
                         }
                     });
                     function AddAds(title, description, time, location, appID, price, views, image, name,type) {

@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <!-- Site Metas -->
-<title>Sakkeny Real Estate</title>
+<title>Comparison results - Sakkeny Real Estate</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -73,7 +73,7 @@
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
                         <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact</a></li>
-                        <li><a class="active" href="Compare.html"><i class="fa fa-poll"></i> Compare</a></li>
+                        <li><a class="active" href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -93,7 +93,7 @@
                             </li>
                             <li class="search-option" title="Add an advertisment">
                                 <a class="search tran3s dropdown-toggle" style="padding: 10px; display: none;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
-                                    aria-hidden="true" style="color: black;font-size: 25px; font-size: 20px;"></i> Add a property</a>
+                                    aria-hidden="true" style="color: black;font-size: 25px; font-size: 20px;"></i> Upload Ad</a>
                   
                               </li>
                             <li class="search-option" title="Search">
@@ -145,7 +145,7 @@
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <small>Here you will search for an unit easily with our filter.</small>
+                
                 <h3>Comparison results</h3>
                 
             </div><!-- end col -->
@@ -365,7 +365,7 @@ function Delete(){
     //window.location.href = "Dashboard.html";
 }
 
-        function AddCompare(city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2, link1, link2, area1, area2){
+        function AddCompare(title1,title2,city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2, link1, link2, area1, area2){
             /**var tbl = document.createElement('table');
             tbl.style.width = '100%';
             tbl.setAttribute('border', '1');
@@ -385,13 +385,18 @@ function Delete(){
             document.getElementById("adHeader").appendChild(tbl);**/
             var tbl = document.createElement('table');
             tbl.setAttribute('border', '1');
+            tbl.setAttribute('class','table table-hover');
             var row = tbl.insertRow(0);
+            row.setAttribute('class','thead-dark');
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
+            cell1.align = 'center';
+            cell2.align = 'center';
+            cell3.align = 'center';
             cell1.innerHTML = "Compare";
-            cell2.innerHTML = "First ad";
-            cell3.innerHTML = "Second ad";
+            cell2.innerHTML = title1;
+            cell3.innerHTML = title2;
             var row1 = tbl.insertRow(1);
             var cell4 = row1.insertCell(0);
             var cell5 = row1.insertCell(1);
@@ -409,12 +414,18 @@ function Delete(){
             img1.style.Width = '100%';
             img1.style.height = '250px';
             cell4.innerHTML = "Images";
+            cell5.align = 'center';
+            cell6.align = 'center';
+            cell4.align = 'center';
             cell5.appendChild(img);
             cell6.appendChild(img1);
             var row2 = tbl.insertRow(2);
             var cell7 = row2.insertCell(0);
             var cell8 = row2.insertCell(1);
             var cell9 = row2.insertCell(2);
+            cell7.align = 'center';
+            cell8.align = 'center';
+            cell9.align = 'center';
             cell7.innerHTML = "City";
             cell8.innerHTML = city1;
             cell9.innerHTML = city2;
@@ -422,6 +433,9 @@ function Delete(){
             var cell10 = row3.insertCell(0);
             var cell11 = row3.insertCell(1);
             var cell12 = row3.insertCell(2);
+            cell10.align = 'center';
+            cell11.align = 'center';
+            cell12.align = 'center';
             cell10.innerHTML = "Location";
             cell11.innerHTML = location1;
             cell12.innerHTML = location2;
@@ -429,6 +443,9 @@ function Delete(){
             var cell13 = row4.insertCell(0);
             var cell14 = row4.insertCell(1);
             var cell15 = row4.insertCell(2);
+            cell13.align = 'center';
+            cell14.align = 'center';
+            cell15.align = 'center';
             cell13.innerHTML = "Floor";
             cell14.innerHTML = floor1;
             cell15.innerHTML = floor2;
@@ -436,6 +453,9 @@ function Delete(){
             var cell16 = row5.insertCell(0);
             var cell17 = row5.insertCell(1);
             var cell18 = row5.insertCell(2);
+            cell16.align = 'center';
+            cell17.align = 'center';
+            cell18.align = 'center';
             cell16.innerHTML = "Category";
             cell17.innerHTML = category1;
             cell18.innerHTML = category2;
@@ -443,6 +463,9 @@ function Delete(){
             var cell19 = row6.insertCell(0);
             var cell20 = row6.insertCell(1);
             var cell21 = row6.insertCell(2);
+            cell19.align = 'center';
+            cell20.align = 'center';
+            cell21.align = 'center';
             cell19.innerHTML = "Type";
             cell20.innerHTML = type1;
             cell21.innerHTML = type2;
@@ -450,6 +473,9 @@ function Delete(){
             var cell22 = row7.insertCell(0);
             var cell23 = row7.insertCell(1);
             var cell24 = row7.insertCell(2);
+            cell22.align = 'center';
+            cell23.align = 'center';
+            cell24.align = 'center';
             cell22.innerHTML = "Bed rooms";
             cell23.innerHTML = bed1;
             cell24.innerHTML = bed2;
@@ -457,6 +483,9 @@ function Delete(){
             var cell25 = row8.insertCell(0);
             var cell26 = row8.insertCell(1);
             var cell27 = row8.insertCell(2);
+            cell25.align = 'center';
+            cell26.align = 'center';
+            cell27.align = 'center';
             cell25.innerHTML = "Bathrooms";
             cell26.innerHTML = bath1;
             cell27.innerHTML = bath2;
@@ -464,6 +493,9 @@ function Delete(){
             var cell28 = row9.insertCell(0);
             var cell29 = row9.insertCell(1);
             var cell30 = row9.insertCell(2);
+            cell28.align = 'center';
+            cell29.align = 'center';
+            cell30.align = 'center';
             cell28.innerHTML = "Finishing";
             cell29.innerHTML = finish1;
             cell30.innerHTML = finish2;
@@ -471,6 +503,9 @@ function Delete(){
             var cell31 = row10.insertCell(0);
             var cell32 = row10.insertCell(1);
             var cell33 = row10.insertCell(2);
+            cell31.align = 'center';
+            cell32.align = 'center';
+            cell33.align = 'center';
             cell31.innerHTML = "Unit for";
             cell32.innerHTML = unitfor1;
             cell33.innerHTML = unitfor2;
@@ -478,6 +513,9 @@ function Delete(){
             var cell34 = row11.insertCell(0);
             var cell35 = row11.insertCell(1);
             var cell36 = row11.insertCell(2);
+            cell34.align = 'center';
+            cell35.align = 'center';
+            cell36.align = 'center';
             cell34.innerHTML = "Payment method";
             cell35.innerHTML = payment1;
             cell36.innerHTML = payment2;
@@ -485,6 +523,9 @@ function Delete(){
             var cell37 = row12.insertCell(0);
             var cell38 = row12.insertCell(1);
             var cell39 = row12.insertCell(2);
+            cell37.align = 'center';
+            cell38.align = 'center';
+            cell39.align = 'center';
             cell37.innerHTML = "Amenities";
             cell38.innerHTML = amin1;
             cell39.innerHTML = amin2;
@@ -492,6 +533,9 @@ function Delete(){
             var cell40 = row13.insertCell(0);
             var cell41 = row13.insertCell(1);
             var cell42 = row13.insertCell(2);
+            cell40.align = 'center';
+            cell41.align = 'center';
+            cell42.align = 'center';
             cell40.innerHTML = "Price";
             cell41.innerHTML = price1;
             cell42.innerHTML = price2;
@@ -499,12 +543,17 @@ function Delete(){
             var cell43 = row14.insertCell(0);
             var cell44 = row14.insertCell(1);
             var cell45 = row14.insertCell(2);
+            cell43.align = 'center';
+            cell44.align = 'center';
+            cell45.align = 'center';
             cell43.innerHTML = "Area";
             cell44.innerHTML = area1;
             cell45.innerHTML = area2;
             document.getElementById("adHeader").appendChild(tbl);
         }
     function fetchAllData() {
+        var title1 ="";
+        var title2 = "";
         var city1 = "";
         var city2 = "";
         var location1 = "";
@@ -551,6 +600,7 @@ function Delete(){
                 kk = childSnapshot.key;
                 if(childSnapshot.val().Accepted == "Yes"){
                     if(checkTime(childSnapshot.val().DeadLine)){
+                    title1 = childSnapshot.val().Title;
                     city1 = childSnapshot.val().City;
                     location1 = childSnapshot.val().location;
                     floor1 = childSnapshot.val().floor;
@@ -764,6 +814,7 @@ function Delete(){
                 kk = childSnapshot.key;
                 if(childSnapshot.val().Accepted == "Yes"){
                     if(checkTime(childSnapshot.val().DeadLine)){
+                        title2 = childSnapshot.val().Title;
                     city2 = childSnapshot.val().City;
                     location2 = childSnapshot.val().location;
                     floor2 = childSnapshot.val().floor;
@@ -944,7 +995,7 @@ function Delete(){
                     }
                     console.log("Tessst");
                     console.log(link1);
-                    AddCompare(city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2, link1, link2, area1, area2);
+                    AddCompare(title1,title2,city1, city2, location1, location2, floor1, floor2, category1, category2, type1, type2, bed1, bed2, bath1, bath2, finish1, finish2, unitfor1, unitfor2, payment1, payment2, amin1, amin2, price1, price2, link1, link2, area1, area2);
                     }
                     else{
                         Delete();
