@@ -18,7 +18,7 @@
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- Site CSS -->
@@ -154,7 +154,7 @@
                                 id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;"></i> logOut</a>
                         </li>
                         <li class="search-option" title="Add an advertisment">
-                            <a class="search tran3s dropdown-toggle active" style="padding: 10px;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
+                            <a class="search tran3s dropdown-toggle " style="padding: 10px;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
                                 aria-hidden="true" style="color: black;font-size: 25px; font-size: 20px;"></i> Upload Ad</a>
               
                           </li>
@@ -175,22 +175,16 @@
     <div class="row" id = "ddd">
       <div class="col-md-8">
         <section>
-          <h1 class="entry-title"><span>Make an Advertisment</span> </h1>
+          <h1 class="entry-title"><span>Make a wish</span> </h1>
           <hr>
           <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
+            
             <div class="form-group">
-              <label class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
+              <label class="control-label col-sm-3">City <span class="text-danger"></span></label>
               <div class="col-md-8 col-sm-9">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="" required>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">City <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-city"></i></span>
                     <select name="dd" class="form-control" id="cities">
                       <option value=""></option>
                       <option value="Cairo">Cairo</option>
@@ -220,55 +214,34 @@
                       <option value="Aswan">Aswan</option>
                       <option value="Matruh">Matruh</option>
                       <option value="Dakahlia">Dakahlia</option>
-                      <option value="Gouna" id="Gouna">Gouna</option>
-                      <option value="North Coast" id="North Coast">North Coast</option>
-                <option value="Ain Sokhna" id="Ain Sokhna">Ain Sokhna</option>
-                <option value="Marina" id="Marina">Marina</option>
-                <option value="Ras Sedr" id="Ras Sedr">Ras Sedr</option>
-                <option value="Dahab" id="Dahab">Dahab</option>
-                <option value="Hurghada" id="Hurghada">Hurghada</option>
-                <option value="Marsa Alam" id="Marsa Alam">Marsa Alam</option>
-                <option value="El Alamein" id="El Alamein">El Alamein</option>
-                <option value="Sharm ElSheikh" id="Sharm ElSheikh">Sharm ElSheikh</option>
-                
                     </select>
                   </div>
 
-                </div>
+               
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Location <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
+              <label class="control-label col-sm-3">Location <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9" >
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
                     <select name="dd" class="form-control" id="locations">
-                      <option value=""></option>
+                      <option value="" selected hidden></option>
                   </select>
                   </div>
-                </div>
+               
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Floor <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="">
-                </div>
-                <div id="message5">
-                  <small>
-                  <p id="number5" class="invalid">Numbers <b>Only</b></p>
-                </small>
-                </div>
-              </div>
-            </div>
+            
            
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Category <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="unitType">
+              <label class="control-label col-sm-3">Unit Category <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-building"></i></span>
+                    <select name="dd" class="form-control" id="unit">
                       <option value=""></option>
                       <option value="Residential">Residential </option>
                       <option value="Commercial">Commercial </option>
@@ -277,51 +250,36 @@
 
                     </select>
                   </div>
-                </div>
+                
               </div>
             </div>
 
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Type <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="unitT">
+              <label class="control-label col-sm-3">Unit Type <span class="text-danger"></label><span></label>
+              <div class="col-md-8 col-sm-9">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-home"></i></i></span>
+                    <select name="dd" class="form-control" id="unitT" >
                       <option value=""></option>
-                      <option value="Appartment">Appartment</option>
+                      <option value="Flat">Flat </option>
                       <option value="Dublix">Dublix </option>
                       <option value="Villa">Villa</option>
                       <option value="Chalet">Chalet</option>
                       <option value="Palace">Palace</option>
                       <option value="TownHome">TownHome</option>
                       <option value="Bungalow">Bungalow</option>
-                      <option value="Condominium">Condominium</option>
-                      <option value="Co-op">Co-op</option>
-                      <option value="Ranch-Style">Ranch-Style</option>
-                      <option value="Cottage">Cottage</option>
-                      <option value="Yurt">Yurt</option>
-                      <option value="Tiny home">Tiny home</option>
-                      <option value="Studio">Studio</option>
-                      <option value="Mansion">Mansion</option>
-                      <option value="Fort">Fort</option>
-                      <option value="Container Home">Container Home</option>
-                      <option value="Underground House">Underground House</option>
-                      <option value="McMansion">McMansion</option>
-                      <option value="Tree house">Tree house</option>
-                      <option value="Cabin">Cabin</option>
-                      <option value="Castle">Castle</option>
-                      <option value="Barndominium">Barndominium</option>
-                      <option value="Mobile Home">Mobile Home</option>
                     </select>
                   </div>
-                </div>
+                
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Bedrooms <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
+              <label class="control-label col-sm-3">Bedrooms <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
+        
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-bed"></i></span>
                     <select name="dd" class="form-control" id="bed">
                       <option value=""></option>
                       <option value="1">1 </option>
@@ -334,14 +292,15 @@
                       <option value="8">8</option>
                     </select>
                   </div>
-                </div>
+             
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Bathrooms <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
+              <label class="control-label col-sm-3">Bathrooms <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
+            
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-bath"></i></span>
                     <select name="dd" class="form-control" id="bath">
                       <option value=""></option>
                       <option value="1">1 </option>
@@ -354,196 +313,169 @@
                   </div>
                 </div>
               </div>
-            </div>
+  
             <div class="form-group">
-              <label class="control-label col-sm-3">Finishing <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="form-inline">
-                  <div class="form-group">
+              <label class="control-label col-sm-3">Finishing <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
+              
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-list-ul"></i></span>
                     <select name="dd" class="form-control" id="finish">
                       <option value=""></option>
                       <option value="Unfinished">Unfinished </option>
                       <option value="Semi finished">Semi finished </option>
-                      <option value="3/4 finished">3/4 finished </option>
                       <option value="Fully Finished">Fully Finished </option>
                       <option value="Furnished">Furnished </option>
-                      <option value="Furnished with E-devices">Furnished with Electrical Devices </option>
-
                       
                     </select>
                   </div>
+               
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Unit for <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
+                
+                  
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-shopping-cart"></i></span>
+                    <select name="dd" class="form-control" id="type">
+                      <option value=""></option>
+                      <option value="Sale">Buy</option>
+                      <option value="Rent">Rent </option>
+                      <option value="Old rent">Old rent </option>
+                    </select>
+                  </div>
+               
                 </div>
               </div>
-            </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Case <span class="text-danger">*</span></label>
-              <div class="col-md-9 col-sm-9">
-                <label>
-                  <input name="type" type="radio" value="rent" id="rent">
-                  Rent</label>
-                   
-                <label>
-                  <input name="type" type="radio" value="sale" id="sale">
-                  Sale </label>
-                  <label style="margin-left: 3%;">
-                    <input name="type" type="radio" value="old rent" id="oldRent">
-                    Old rent </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Payment Method <span class="text-danger">*</span></label>
-              <div class="col-md-9 col-sm-9">
-                <label>
-                  <input name="pay" type="radio" value="rent" id="cash">
-                  Cash</label>
-                   
-                <label>
-                  <input name="pay" type="radio" value="sale" id="install">
-                  Installment </label>
-                  <label style="margin-left: 3%;">
-                    <input name="pay" type="radio" value="old rent" id="both">
-                    Both </label>
+              <label class="control-label col-sm-3">Payment method <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
+               
                   
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-cash-register"></i></span>
+                    <select name="dd" class="form-control" id="pay">
+                      <option value=""></option>
+                      <option value="Both">All</option>
+                      <option value="Cash">Cash</option>
+                      <option value="Installment">Installments</option>
+                    </select>
+                  </div>
+                  
+                </div>
               </div>
-            </div>
+            
+            
             <div class="form-group">
-              <label class="control-label col-sm-3">Amenities <span class="text-danger">*</span></label>
-              <div class="col-md-8  col-sm-9">
+              <label class="control-label col-sm-3">Amenities <span class="text-danger"></span></label>
+              <br><br>
+              <div class="col-md-12  col-sm-9" style="padding-left: 25%;">
+                <div class="col-md-7 col-sm-7">
                 <input type="checkbox" id="IsElevator" name="Amenities1" value="Elevator">
-                <label for="Amenities">Elevator </label><br>
+                <label for="IsElevator">Elevator </label><br>
 
                 <input type="checkbox" id="IsSecure" name="Amenities2" value="Secured Garage">
-                <label for="Amenities2">Secured Garage </label><br>
+                <label for="IsSecure">Secured Garage </label><br>
 
                 <input type="checkbox" id="IsAir" name="Amenities3" value="Air conditioning">
-                <label for="Amenities3"> Air conditioning</label><br>
+                <label for="IsAir"> Air conditioning</label><br>
 
                 <input type="checkbox" id="IsGreat" name="Amenities4" value="Great View">
-                <label for="Amenities4">Great View </label><br>
+                <label for="IsGreat">Great View </label><br>
 
                 <input type="checkbox" id="IsFire" name="Amenities5" value="Fireplace">
-                <label for="Amenities5"> Fireplace </label><br>
+                <label for="IsFire"> Fireplace </label><br>
 
-                <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
-                <label for="Amenities6">Large Windows with Natural Light </label><br>
+                
 
                 <input type="checkbox" id="IsDog" name="Amenities7" value="Dog Parks">
-                <label for="Amenities7"> Dog Parks</label><br>
+                <label for="IsDog"> Dog Parks</label><br>
 
                 <input type="checkbox" id="IsPlay" name="Amenities8" value="Playground">
-                <label for="Amenities8"> Playground</label><br>
+                <label for="IsPlay"> Playground</label><br>
 
                 <input type="checkbox" id="IsSwim" name="Amenities9" value="Swimming Pool">
-                <label for="Amenities9">Swimming Pool</label><br>
+                <label for="IsSwim">Swimming Pool</label><br>
 
                 <input type="checkbox" id="IsBbq" name="Amenities10" value="Barbecue Areas">
-                <label for="Amenities10"> Barbecue Areas</label><br>
+                <label for="IsBbq"> Barbecue Areas</label><br>
 
                 <input type="checkbox" id="IsRoof" name="Amenities11" value="Rooftop Lounge Areas">
-                <label for="Amenities11"> Rooftop Lounge Areas</label><br>
+                <label for="IsRoof"> Rooftop Lounge Areas</label><br>
 
 
                 <input type="checkbox" id="IsMain" name="Amenities11" value="Main street view">
-                <label for="Amenities11"> Main street view</label><br>
+                <label for="IsMain"> Main street view</label><br>
                 <input type="checkbox" id="IsBeach" name="Amenities11" value="Beachfront view">
-                <label for="Amenities11"> Beachfront view</label><br>
+                <label for="IsBeach"> Beachfront view</label><br>
+                
+                <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
+                <label for="IsLarge">Large Windows with Natural Light </label><br>
+                
+                </div>
+
+                <div class="col-md-5 col-sm-5">
                 <input type="checkbox" id="IsLake" name="Amenities11" value="Lake view">
-                <label for="Amenities11"> Lake view</label><br>
+                <label for="IsLake"> Lake view</label><br>
                 <input type="checkbox" id="IsNile" name="Amenities11" value="Nile view">
-                <label for="Amenities11"> Nile view</label><br>
+                <label for="IsNile"> Nile view</label><br>
                 <input type="checkbox" id="IsWifi" name="Amenities11" value="WiFi">
-                <label for="Amenities11"> WiFi</label><br>
+                <label for="IsWifi"> WiFi</label><br>
                 <input type="checkbox" id="IsGarden" name="Amenities11" value="Garden">
-                <label for="Amenities11"> Garden</label><br>
+                <label for="IsGarden"> Garden</label><br>
                 <input type="checkbox" id="IsSports" name="Amenities11" value="Near to sports clup">
-                <label for="Amenities11"> Near to sports clup</label><br>
+                <label for="IsSports"> Near to sports clup</label><br>
                 <input type="checkbox" id="IsSchool" name="Amenities11" value="Near to school">
-                <label for="Amenities11"> Near to school</label><br>
+                <label for="IsSchool"> Near to school</label><br>
                 <input type="checkbox" id="IsHospital" name="Amenities11" value="Near to hospital">
-                <label for="Amenities11"> Near to hospital</label><br>
+                <label for="IsHospital"> Near to hospital</label><br>
                 <input type="checkbox" id="IsCafe" name="Amenities11" value="Near to Cafe & resturant">
-                <label for="Amenities11"> Near to Cafe & resturant </label><br>
+                <label for="IsCafe"> Near to Cafe & resturant </label><br>
                 <input type="checkbox" id="IsSwimable" name="Amenities11" value="Swimmable lagoon">
-                <label for="Amenities11"> Swimmable lagoon </label><br>
+                <label for="IsSwimable"> Swimmable lagoon </label><br>
                 <input type="checkbox" id="IsGym" name="Amenities11" value="Gym">
-                <label for="Amenities11"> Gym </label><br>
+                <label for="IsGym"> Gym </label><br>
                 <input type="checkbox" id="IsSauna" name="Amenities11" value="Sauna">
-                <label for="Amenities11"> Sauna  </label><br>
+                <label for="IsSauna"> Sauna  </label><br>
+                
+                </div>
               </div>
             </div>
-
-
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Description <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="" required></textarea>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <label class="control-label col-sm-3">Price <span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="price" id="price" placeholder="" value="">
-                  <label id="Egp">EGP</label>
-                  <div style="display: none;" id="terms">
-                    <label>
-                      <input name="term" type="radio" value="Short" id="short">
-                      Short term (EGP / Month) </label>
-                      <label>
-                        <input name="term" type="radio" value="Long" id="long">
-                        Long term (EGP / Year) </label>
-                        <label>
-                          The default is Short term (EGP / Month)
-                        </label>
-                  </div>
+                  <span class="input-group-addon"><i class="fas fa-hand-holding-usd"></i></span>
+                  <input type="text" class="form-control" name="price" id="from" placeholder="From" value="">
                 </div>
-                <div id="message6">
-                  <small>
-                  <p id="number6" class="invalid">Numbers <b>Only</b></p>
-                </small>
+                  <div class="input-group">
+                  <span class="input-group-addon"><i class="fas fa-hand-holding-usd"></i></span>
+                  <input type="text" class="form-control" name="price" id="to" placeholder="To" value="">
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Area per m<sup>2</sup> <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <label class="control-label col-sm-3">Area per m<sup>2</sup><span class="text-danger"></span></label>
+              <div class="col-md-8 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="area" id="area" placeholder="" value="">
+                  <span class="input-group-addon"><i class="fas fa-chart-area"></i></span>
+                  <input type="text" class="form-control col-md-12"name="area" id="fromArea" placeholder="From" value="">
                 </div>
-                <div id="message7">
-                  <small>
-                  <p id="number7" class="invalid">Numbers <b>Only</b></p>
-                </small>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Appartment Images <br>
-                <small>(Mandatory)</small></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
-                      class="glyphicon glyphicon-upload"></i></span>
-                      <input class="form-control upload" required name="images" id="images" type="file" multiple>
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Appartment contract OR Electricity bill <br>
-                <small>(Mandatory)</small></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
-                      class="glyphicon glyphicon-upload"></i></span>
-                  <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
-                    aria-describedby="file_upload" required>
+                  <div class="input-group">
+                  <span class="input-group-addon"><i class="fas fa-chart-area"></i></span>
+                  <input type="text" class="form-control" name="area" id="toArea" placeholder="To" value="">
+                
                 </div>
               </div>
             </div>
 
+            
+           
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-10">
-                <input type="submit" name="Share" value="Upload Ad." class="btn btn-primary" id="add2" >
+                <input name="Share" value="Make a wish." class="btn btn-primary" id="add2">
                 <h1 id = "up" style="display: none;">Your Ad is uploading now <br/>Please Wait ......</h1>
               </div>
             </div>
@@ -656,7 +588,7 @@
   <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 
-  <script src="AddAd.js"></script>
+  <script src="request.js"></script>
   <script src="SignOut.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
   crossorigin="anonymous"></script>
@@ -693,96 +625,7 @@
         console.log("inside else");
       }
     });
-    var myInput5 = document.getElementById("floor");
-    var number5 = document.getElementById("number5");
-   
     
-    // When the user clicks on the password field, show the message box
-    myInput5.onfocus = function() {
-      document.getElementById("message5").style.display = "block";
-    }
-    
-    // When the user clicks outside of the password field, hide the message box
-    myInput5.onblur = function() {
-      document.getElementById("message5").style.display = "none";
-    }
-    
-    // When the user starts to type something inside the password field
-    myInput5.onkeyup = function() {
-      
-    
-      // Validate numbers
-      var numbers5 = /[0-9]/g;
-      if(myInput5.value.match(numbers5)) {  
-        number5.classList.remove("invalid");
-        number5.classList.add("valid");
-      } else {
-        number5.classList.remove("valid");
-        number5.classList.add("invalid");
-      }
-   
-    }
-    var myInput6 = document.getElementById("price");
-    var number6 = document.getElementById("number6");
-   
-    
-    // When the user clicks on the password field, show the message box
-    myInput6.onfocus = function() {
-      document.getElementById("message6").style.display = "block";
-    }
-    
-    // When the user clicks outside of the password field, hide the message box
-    myInput6.onblur = function() {
-      document.getElementById("message6").style.display = "none";
-    }
-    
-    // When the user starts to type something inside the password field
-    myInput6.onkeyup = function() {
-      
-    
-      // Validate numbers
-      var numbers6 = /[0-9]/g;
-      if(myInput6.value.match(numbers6)) {  
-        number6.classList.remove("invalid");
-        number6.classList.add("valid");
-      } else {
-        number6.classList.remove("valid");
-        number6.classList.add("invalid");
-      }
-      
-      
-    }
-
-    var myInput7 = document.getElementById("area");
-    var number7 = document.getElementById("number7");
-   
-    
-    // When the user clicks on the password field, show the message box
-    myInput7.onfocus = function() {
-      document.getElementById("message7").style.display = "block";
-    }
-    
-    // When the user clicks outside of the password field, hide the message box
-    myInput7.onblur = function() {
-      document.getElementById("message7").style.display = "none";
-    }
-    
-    // When the user starts to type something inside the password field
-    myInput7.onkeyup = function() {
-      
-    
-      // Validate numbers
-      var numbers7 = /[0-9]/g;
-      if(myInput7.value.match(numbers7)) {  
-        number7.classList.remove("invalid");
-        number7.classList.add("valid");
-      } else {
-        number7.classList.remove("valid");
-        number7.classList.add("invalid");
-      }
-      
-      
-    }
   </script>
 </body>
 

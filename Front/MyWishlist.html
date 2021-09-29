@@ -307,7 +307,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="request.html">
+                                    <a class="nav-link" href="DoWish.html">
                                         <i class="fa fa-plus-circle"></i>
                                         Make a wish
                                     </a>
@@ -360,7 +360,13 @@
                 </div>
                 <div class="tab-content tab-space">
                     <div class="row" id="adHeader">
-                        <h1 class="title" id='total'></h1>
+                        <div class="col-md-12 col-sm-12">
+                            <div  class="testi-carousel owl-carousel owl-theme">
+                                <div class="container col-md-12 col-sm-4" id = 'carousel'>
+                                    
+                            </div>
+                                </div><!-- end carousel -->
+                        </div><!-- end col -->
 
 
 
@@ -472,194 +478,21 @@
                         if (user) {
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
+                            var navname ="";
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
                             details.once('value', function (snapshot) {
                                 snapshot.forEach(childSnapshot => {
                                     console.log(currentusermail);
                                     document.getElementById("name").innerHTML = childSnapshot.val().name;
                                     console.log(childSnapshot.val().name);
-                                    var navname = childSnapshot.val().name.split(' ');
+                                    navname = childSnapshot.val().name.split(' ');
                                     console.log(navname);
                                     document.getElementById('MyaccountBar').append(navname[0]);
                                 });
                             });
                         }
                     });
-                    function AddAds(title, description, time, location, appID, price, views, image, name,type) {
-                        var divSize = document.createElement('div');
-                        var divSer = document.createElement('div');
-                        var divMain = document.createElement('div');
-                        var divWrap = document.createElement('div');
-                        var adFig = document.createElement('figure');
-                        
-                        var adImg = document.createElement('img');
-                        var divLabel = document.createElement('div');
-                        var spanLabel = document.createElement('span');
-                        var divPrice = document.createElement('div');
-                        var spanPrice = document.createElement('span');
-                        var divBody = document.createElement('div');
-                        var Title = document.createElement('h3');
-                        var divDesc = document.createElement('div');
-                        var Desc = document.createElement('p');
-                        var divAddress = document.createElement('div');
-                        var addrsIcon = document.createElement('i');
-                        var divFoot = document.createElement('div');
-                        var divLeft = document.createElement('div');
-                        var spanLeft = document.createElement('span');
-                        var leftIcon = document.createElement('i');
-                        var divRight = document.createElement('div');
-                        var spanRight = document.createElement('span');
-                        var rightIcon = document.createElement('i');
-                        var Location = document.createElement('text');
-
-
-                        divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
-                        divSer.setAttribute('class', 'service-widget box');
-                        divMain.setAttribute('class', 'property-main');
-                        divWrap.setAttribute('class', 'property-wrap');
-                        adFig.setAttribute('class', 'post-media wow fadeIn');
-                        adFig.setAttribute('style','border-width: medium;');
-                       
-                        adImg.setAttribute('src', image);
-                        adImg.setAttribute('class', 'img-responsive');
-                        divLabel.setAttribute('class', 'label-inner');
-                        spanLabel.setAttribute('class', 'label-status label');
-                        spanLabel.innerHTML = views + " Views";
-                        divPrice.setAttribute('class', 'price');
-                        spanPrice.setAttribute('class', 'item-sub-price');
-                        divBody.setAttribute('class', 'item-body');
-                        divDesc.setAttribute('class', 'info');
-                        divAddress.setAttribute('class', 'adderess');
-                        addrsIcon.classList.add('fa', 'fa-map-pin');
-                        addrsIcon.setAttribute('aria-hidden', 'true');
-                        divFoot.setAttribute('class', 'item-foot');
-                        divLeft.setAttribute('class', 'pull-left');
-                        spanLeft.setAttribute('class', 'prop-user-agent');
-                        leftIcon.classList.add('fa', 'fa-user');
-                        leftIcon.setAttribute('aria-hidden', 'true');
-                        divRight.classList.add('pull-right');
-                        spanRight.classList.add('prop-date');
-                        rightIcon.classList.add('fa', 'fa-calendar');
-                        rightIcon.setAttribute('aria-hideen', 'true');
-                        Title.setAttribute('style', 'color:black');
-                        Desc.innerHTML = description.substring(0, 40);
-                        Title.innerHTML = title.substring(0,30);
-                        Location.innerHTML = location.substring(0, 30);
-                        spanPrice.innerHTML = price;
-                        adFig.style.display = 'flex';
-                        adFig.style.justifyContent = 'center';
-                        adFig.style.alignItems = 'center';
-                        adFig.style.overflow = 'hidden';
-                        adImg.style.flexShrink = '0';
-                        adImg.style.Width = '100%';
-                        //adImg.style.maxHeight = '100%';
-                        adFig.style.height = '250px';
-
-                     
-                        divLabel.appendChild(spanLabel);
-                        divPrice.appendChild(spanPrice);
-                      
-                        adFig.appendChild(adImg);
-                        adFig.appendChild(divLabel);
-                        adFig.appendChild(divPrice);
-                        divDesc.appendChild(Desc);
-                        divAddress.appendChild(addrsIcon);
-                        divAddress.appendChild(Location);
-                        divBody.appendChild(Title);
-                        divBody.appendChild(divDesc);
-                        divBody.appendChild(divAddress);
-                        spanLeft.appendChild(leftIcon);
-                        let t = document.createElement('small');
-            t.setAttribute('class','testi-meta text-muted');
-            t.innerHTML = " By " +type;
-            spanLeft.append(name);
-            spanLeft.appendChild(t);
-                        divLeft.appendChild(spanLeft);
-                        spanRight.appendChild(rightIcon);
-                        spanRight.append(time);
-                        divRight.appendChild(spanRight);
-                        divFoot.appendChild(divLeft);
-                        divFoot.appendChild(divRight);
-                        divWrap.appendChild(adFig);
-                        divWrap.appendChild(divBody);
-                        divWrap.appendChild(divFoot);
-                        divMain.appendChild(divWrap);
-                        divSer.appendChild(divMain);
-                        divSize.setAttribute('style','margin-bottom: 30px;');
-                        divSize.appendChild(divSer);
-                        divSize.addEventListener('click', function () {
-                            localStorage.setItem('appID', appID);
-                            window.document.location = './ads.html';
-                        });
-
-                        document.getElementById('adHeader').appendChild(divSize);
-                    }
-                    function checkTime(str){
-  var today = new Date();
-  dayToday = today.getDate();
-  monthToday = today.getMonth() + 1;
-  yearToday = today.getFullYear();
-
-  //var str = document.getElementById("in").value;
-  var myArr = str.split("-", 3);
-  var dayEnd = parseInt(myArr[2]);
-  var monthEnd = parseInt(myArr[1]);
-  var yearEnd = parseInt(myArr[0]);
-  if(yearToday > yearEnd){
-      //console.log("false");
-      return false;
-  }
-  else if(yearToday == yearEnd){
-      if(monthToday > monthEnd){
-          //console.log("false");
-          return false;
-      }
-      else if(monthToday == monthEnd){
-          if(dayToday >= dayEnd){
-              //console.log("false");
-              return false;
-          }
-          else{
-              //console.log("true");
-              return true;
-          }
-      }
-      else{
-          //console.log("true");
-          return true;
-      }
-  }
-  else{
-      //console.log("true");
-      return true;
-  }
-}
-  function delStor(vv){
-  img = firebase.storage().refFromURL(vv);
-          img.delete()
-          .then(() => {
-          //console.log("Picture is deleted successfully!");
-          })
-          .catch((err) => {
-          console.log(err);
-          });
-}
-function Delete(){
-  firebase.database().ref('Ads').orderByKey().equalTo(kk).once('value', function (snapshot) {
-      snapshot.forEach(childSnapshot => {
-      childSnapshot.ref.remove();
-      });
-  });
-  firebase.database().ref('images').orderByChild("main").equalTo(kk).once('value', function (snapshot){
-      snapshot.forEach(childSnapshot => {
-          delStor(childSnapshot.val().link);
-          childSnapshot.ref.remove();
-      });
-  });    
-  //alert("The ad has been successfully Deleted");
-  //window.location.href = "Dashboard.html";
-}
-
+                   
                     function fetchAllData() {
                         window.scrollTo(0, 700);
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
@@ -671,52 +504,165 @@ function Delete(){
                             });
                         });
 
-                        firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                        firebase.database().ref('requests').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                            
                             snapshot.forEach(childSnapshot => {
-                                kk = childSnapshot.key;
-                                if(childSnapshot.val().Accepted == "Yes"){
-                                    if(checkTime(childSnapshot.val().DeadLine)){
-                                        var ad = childSnapshot.val().Ad;
-                                let title = childSnapshot.val().Title;
-                                let description = childSnapshot.val().Description;
-                                let time = childSnapshot.val().Time;
-                                let appID = childSnapshot.key;
-                                let location = childSnapshot.val().location;
-                                let price = childSnapshot.val().price;
-                                let views = childSnapshot.val().NumOfViews;
-                                Totalnum += parseInt(views);
+                                var key = childSnapshot.key;
                                 let mail = childSnapshot.val().UserID;
-                                var image = "";
-                                firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot) {
-                                    snapshot.forEach(childSnapshot => {
-                                        if(childSnapshot.val().Des != "Contract"){
-                    image = childSnapshot.val().link;
-                console.log(image);
-                return
-                }
-                                    });
-                                    firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
-                                    snapshot.forEach(childSnapshot => {
-                                        let Name = childSnapshot.val().name;
-                                        let type = childSnapshot.val().type;
-                                        AddAds(title, description, time, location, appID, price, views, image, Name,type);
-                                        //i++;
-                                    });
-                                });
-
-
-
-
-                            });
-                                    }
-                                    else{
-                                        Delete();
-                                    }
-                        }
+                                var city = childSnapshot.val().City;
+                                var loc = childSnapshot.val().location;
+                                var cat = childSnapshot.val().UnitType;
+                                var unit = childSnapshot.val().Unit;
+                                var bed = childSnapshot.val().bedRooms;
+                                var bath = childSnapshot.val().bathRooms;
+                                var finish = childSnapshot.val().Finishing;
+                                var type = childSnapshot.val().Type;
+                                var pay = childSnapshot.val().payment;
+                                let bbq = childSnapshot.val().bbq;
+                                let dogParks = childSnapshot.val().dogParks;
+                                let elevator = childSnapshot.val().elevator;
+                                let firePlace = childSnapshot.val().fire;
+                                let greatView = childSnapshot.val().greatView;
+                                let largeWindow = childSnapshot.val().largeWindow;
+                                let playground = childSnapshot.val().playGround;
+                                let air = childSnapshot.val().Air;
+                                let roof = childSnapshot.val().roof;
+                                let secure = childSnapshot.val().secure;
+                                let swimming = childSnapshot.val().swimmingPool;
+                                let main = childSnapshot.val().mainStreet;
+                                let beach = childSnapshot.val().beachfront;
+                                let lake = childSnapshot.val().lake;
+                                let nile = childSnapshot.val().nile;
+                                let wifi = childSnapshot.val().wifi;
+                                let garden = childSnapshot.val().garden;
+                                let sports = childSnapshot.val().sportsClup;
+                                let school = childSnapshot.val().school;
+                                let hospital = childSnapshot.val().hospital;
+                                let cafe = childSnapshot.val().cafe;
+                                let swimmable = childSnapshot.val().swimable;
+                                let gym = childSnapshot.val().gym;
+                                let sauna = childSnapshot.val().sauna;
+                                var text ="";
+                                var text1 ="";
+                                text +="City: " + city;
+                                text +=", Location: " + loc;
+                                text +=", Unit Cateogry: " + cat;
+                                text +=", Unit Type: " + unit;
+                                text+=", Bedrooms: " + bed;
+                                text +=", Bathrooms: " + bath;
+                                text += ", Finishing: " + finish;
+                                if(type == 'Sale'){
+                                text1 +=" For Buy";
+                                }else{
+                                    text1 +=" For Rent";
+                                }
+                                text +=", Payment Method: " + pay;
+                                text += "<br> Amenties: <br>";
+                                if (air != false) {
+         var Airc = document.createElement('a');
+         Airc.setAttribute('class','u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3');
+         Airc.innerHTML = air;
+         text += air;
+       }
+       if (elevator != false) {
+         var Elevator = document.createElement('a');
+         Elevator.setAttribute('class','u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3');
+         Elevator.innerHTML = elevator;
+         text +=", "+elevator;
+       }
+       if (bbq != false) {
+       
+         text +=", "+bbq;
+       }
+       if (dogParks != false) {
+         
+         text +=", "+dogParks;
+       }
+       if (firePlace != false) {
+        
+         text +=", "+firePlace;
+       }
+       if (greatView != false) {
+       
+         text +=", "+ greatView;
+       }
+       if (largeWindow != false) {
+        
+         text +=", "+largeWindow;
+       }
+       if (playground != false) {
+        
+         text +=", "+playground;
+       }
+       if (roof != false) {
+        
+         text +=", "+ roof;
+       }
+       if (secure != false) {
+  
+         text +=", "+secure;
+       }
+       if (swimming != false) {
+        
+         text +=swimming;
+       }
+       if (main != false) {
+        
+         text +=", "+main;
+       }
+       if (beach != false) {
+      
+         text +=", "+beach;
+       }
+       if (lake != false) {
+     
+         text +=", "+lake;
+       }
+       if (nile != false) {
+         
+         text +=", "+nile;
+       }
+       if (wifi != false) {
+      
+         text +=", "+wifi;
+       }
+       if (garden != false) {
+       
+         text +=", "+garden;
+       }
+       if (sports != false) {
+   
+         text +=", "+sports;
+       }
+       if (school != false) {
+        
+         text +=", "+school;
+       }
+       if (hospital != false) {
+         
+         text +=", "+hospital;
+       }
+       if (cafe != false) {
+     
+         text +=", "+cafe;
+       }
+       if (swimmable != false) {
+         
+         text +=", "+swimmable;
+       }
+       if (gym != false) {
+       
+         text +=", "+gym;
+       }
+       if (sauna != false) {
+        
+         text +=", "+sauna;
+       }
+       console.log(text);
+       document.querySelector('.owl-stage-outer').innerHTML +='<div class="testimonial clearfix col-md-4" ><div class="desc"><h3><i class="fa fa-quote-left"></i>' + key +'<i class="fa fa-quote-right"></i><br> -' +text1 +'<br>- Found Ads: 10</h3><p class="lead"style="color: black;">'+ text+'</p></div><div class="testi-meta"><h4> - '+ mail+'</h4></div><!-- end testi-meta --></div>'; 
                                 });
                                 
-                            console.log(Totalnum);
-                            document.getElementById('total').innerHTML = "Total Views of My Ads are: " + Totalnum;
+                            
                         });
 
                     }

@@ -307,7 +307,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="request.html">
+                                    <a class="nav-link" href="DoWish.html">
                                         <i class="fa fa-plus-circle"></i>
                                         Make a wish
                                     </a>
@@ -486,122 +486,239 @@
                             // });
                         }
                     });
-                    function AddAds(title, description, time, location, appID, price, image, name,type) {
-  var divSize = document.createElement('div');
-  var divSer = document.createElement('div');
-  var divMain = document.createElement('div');
-  var divWrap = document.createElement('div');
-  var adFig = document.createElement('figure');
-
-  var adImg = document.createElement('img');
-  var divLabel = document.createElement('div');
-  
-  var divPrice = document.createElement('div');
-  var spanPrice = document.createElement('span');
-  var divBody = document.createElement('div');
-  var Title = document.createElement('h3');
-  var divDesc = document.createElement('div');
-  var Desc = document.createElement('p');
-  var divAddress = document.createElement('div');
-  var addrsIcon = document.createElement('i');
-  var divFoot = document.createElement('div');
-  var divLeft = document.createElement('div');
-  var spanLeft = document.createElement('span');
-  var leftIcon = document.createElement('i');
-  var divRight = document.createElement('div');
-  var spanRight = document.createElement('span');
-  var rightIcon = document.createElement('i');
-  var Location = document.createElement('text');
-
-
-
-  divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
-  divSer.setAttribute('class', 'service-widget box');
-  divMain.setAttribute('class', 'property-main');
-  divWrap.setAttribute('class', 'property-wrap');
-  adFig.setAttribute('class', 'post-media wow fadeIn');
-  adFig.setAttribute('style','border-width: medium;')
+                    function AddAds(title, description, time, location, appID, price, image, name,type, rating) {
+        var divSize = document.createElement('div');
+        var divSer = document.createElement('div');
+        var divMain = document.createElement('div');
+        var divWrap = document.createElement('div');
+        var adFig = document.createElement('figure');
+        var adlink = document.createElement('a');
+        var adlinkIcon = document.createElement('i');
+        var adImg = document.createElement('img');
+        
+        var divPrice = document.createElement('div');
+        var spanPrice = document.createElement('span');
+        var divBody = document.createElement('div');
+        var Title = document.createElement('h3');
+        var divDesc = document.createElement('div');
+        var Desc = document.createElement('p');
+        var divAddress = document.createElement('div');
+        var addrsIcon = document.createElement('i');
+        var divFoot = document.createElement('div');
+        var divLeft = document.createElement('div');
+        var spanLeft = document.createElement('span');
+        var leftIcon = document.createElement('i');
+        var divRight = document.createElement('div');
+        var spanRight = document.createElement('span');
+        var rightIcon = document.createElement('i');
+        var Location = document.createElement('text');
 
 
 
-  adImg.setAttribute('src', image);
-  adImg.setAttribute('class', 'img-responsive');
-  divLabel.setAttribute('class', 'label-inner');
-  
-  
-  divPrice.setAttribute('class', 'price');
-  spanPrice.setAttribute('class', 'item-sub-price');
-  divBody.setAttribute('class', 'item-body');
-  divDesc.setAttribute('class', 'info');
-  divAddress.setAttribute('class', 'adderess');
-  addrsIcon.classList.add('fa', 'fa-map-pin');
-  addrsIcon.setAttribute('aria-hidden', 'true');
-  divFoot.setAttribute('class', 'item-foot');
-  divLeft.setAttribute('class', 'pull-left');
-  spanLeft.setAttribute('class', 'prop-user-agent');
+        divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
+        divSer.setAttribute('class', 'service-widget box');
+        divMain.setAttribute('class', 'property-main');
+        divWrap.setAttribute('class', 'property-wrap');
+        adFig.setAttribute('class', 'post-media wow fadeIn');
+        adFig.setAttribute('style','border-width: medium;')
+        adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
+        adlink.setAttribute('class', 'hoverbutton global-radius');
+        adlink.setAttribute('href', image);
 
-  leftIcon.classList.add('fa', 'fa-user');
-  leftIcon.setAttribute('aria-hidden', 'true');
-  divRight.classList.add('pull-right');
-  spanRight.classList.add('prop-date');
-  rightIcon.classList.add('fa', 'fa-calendar');
-  rightIcon.setAttribute('aria-hideen', 'true');
-  Title.setAttribute('style', 'color:black');
-  Desc.innerHTML = description.substring(0, 40);
-  Title.innerHTML = title.substring(0,30);
-  Location.innerHTML = location.substring(0, 30);
-  spanPrice.innerHTML = price;
-  adFig.style.display ='flex';
-  adFig.style.justifyContent = 'center';
-  adFig.style.alignItems = 'center';
-  adFig.style.overflow = 'hidden';
-  adImg.style.flexShrink ='0';
-  adImg.style.Width = '100%';
-  //adImg.style.maxHeight = '100%';
-  adFig.style.height = '250px';
-  
-  
-  
-  
 
-  
-  divPrice.appendChild(spanPrice);
 
-  adFig.appendChild(adImg);
-  adFig.appendChild(divLabel);
-  adFig.appendChild(divPrice);
-  divDesc.appendChild(Desc);
-  divAddress.appendChild(addrsIcon);
-  divAddress.appendChild(Location);
-  divBody.appendChild(Title);
-  divBody.appendChild(divDesc);
-  divBody.appendChild(divAddress);
-  spanLeft.appendChild(leftIcon);
-  let t = document.createElement('small');
-      t.setAttribute('class','testi-meta text-muted');
-      t.innerHTML = " By " +type;
-      spanLeft.append(name);
-      spanLeft.appendChild(t);
-  divLeft.appendChild(spanLeft);
-  spanRight.appendChild(rightIcon);
-  spanRight.append(time);
-  divRight.appendChild(spanRight);
-  divFoot.appendChild(divLeft);
-  divFoot.appendChild(divRight);
-  divWrap.appendChild(adFig);
-  divWrap.appendChild(divBody);
-  divWrap.appendChild(divFoot);
-  divMain.appendChild(divWrap);
-  divSer.appendChild(divMain);
-  divSize.setAttribute('style','margin-bottom: 30px;');
-  divSize.appendChild(divSer);
-  divSize.addEventListener('click', function () {
-      localStorage.setItem('appID', appID);
-      window.document.location = './EditAdv.html';
-  });
+        adlinkIcon.setAttribute('class', 'flaticon-unlink');
+        adImg.setAttribute('src', image);
+        adImg.setAttribute('class', 'img-responsive');
+      
+        
+        divPrice.setAttribute('class', 'price');
+        spanPrice.setAttribute('class', 'item-sub-price');
+        divBody.setAttribute('class', 'item-body');
+        divDesc.setAttribute('class', 'info');
+        divAddress.setAttribute('class', 'adderess');
+        addrsIcon.classList.add('fa', 'fa-map-pin');
+        addrsIcon.setAttribute('aria-hidden', 'true');
+        divFoot.setAttribute('class', 'item-foot');
+        divLeft.setAttribute('class', 'pull-left');
+        spanLeft.setAttribute('class', 'prop-user-agent');
 
-  document.getElementById('adHeader').appendChild(divSize);
-}
+        leftIcon.classList.add('fa', 'fa-user');
+        leftIcon.setAttribute('aria-hidden', 'true');
+        divRight.classList.add('pull-right');
+        spanRight.classList.add('prop-date');
+        rightIcon.classList.add('fa', 'fa-calendar');
+        rightIcon.setAttribute('aria-hideen', 'true');
+        Desc.innerHTML = description.substring(0, 40);
+        Title.innerHTML = title.substring(0,40);
+        Location.innerHTML = location.substring(0, 30);
+        spanPrice.innerHTML = price;
+        adFig.style.display ='flex';
+        adFig.style.justifyContent = 'center';
+        adFig.style.alignItems = 'center';
+        adFig.style.overflow = 'hidden';
+        adImg.style.flexShrink ='0';
+        adImg.style.Width = '100%';
+        //adImg.style.maxHeight = '100%';
+        adFig.style.height = '250px';
+        
+        
+        
+        
+        //adlink.appendChild(adlinkIcon);
+
+        divPrice.appendChild(spanPrice);
+        //adFig.appendChild(adlink);
+        adFig.appendChild(adImg);
+        
+        adFig.appendChild(divPrice);
+        divDesc.appendChild(Desc);
+        divAddress.appendChild(addrsIcon);
+        divAddress.appendChild(Location);
+        divBody.appendChild(Title);
+        divBody.appendChild(divDesc);
+        divBody.appendChild(divAddress);
+        spanLeft.appendChild(leftIcon);
+        let t = document.createElement('small');
+            t.setAttribute('class','testi-meta text-muted');
+            t.innerHTML = " By " +type;
+            let r = document.createElement('small');
+            r.setAttribute('class','testi-meta text-muted');
+            if(rating<=0){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(rating>0 && rating<1){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }else if(rating == 1){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if(rating > 1 && rating<2){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==2){
+                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if (rating > 2 && rating <3){
+                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==3){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+            }
+            else if (rating > 3 && rating <4){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+            }else if(rating ==4){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+            }
+            else if (rating > 4 && rating <5){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+            }else if (rating == 5){
+                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+            }else{
+                
+                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+            
+            }
+            //r.innerHTML = " Rate : " +rating + " / 5";
+            name1=name.split(' ');
+            spanLeft.append(name1[0]);
+            spanLeft.appendChild(t);
+            let img = document.createElement('img');
+            img.setAttribute('src',image);
+            img.setAttribute('class','testi-meta text-muted');
+            img.style.width = '100px';
+            img.style.height ='40px';
+            /**let con = document.createElement('div');
+            con.setAttribute("class", "rate");
+            con.setAttribute("id", "rating") 
+        let stars = document.createElement('i');
+            stars.setAttribute('class','testi-meta text-muted');
+            stars.innerHTML = '<input type="radio" id="star5" name="rate" value="5" style="display: none;" /> <label for="star5" title="text">5 stars</label> <input type="radio" id="star4" name="rate" value="4" style="display: none;"/><label for="star4" title="text">4 stars</label><input type="radio" id="star3" name="rate" value="3" style="display: none;"/><label for="star3" title="text">3 stars</label><input type="radio" id="star2" name="rate" value="2" style="display: none;"/><label for="star2" title="text">2 stars</label><input type="radio" id="star1" name="rate" value="1" style="display: none;"/><label for="star1" title="text">1 star</label>';
+            con.appendChild(stars);
+            spanRight.appendChild(con);**/
+        divLeft.appendChild(spanLeft);
+        spanRight.appendChild(rightIcon);
+        spanRight.append(time);
+        spanRight.appendChild(r);
+        spanLeft.appendChild(img);
+        divRight.appendChild(spanRight);
+        divFoot.appendChild(divLeft);
+        divFoot.appendChild(divRight);
+        divWrap.appendChild(adFig);
+        divWrap.appendChild(divBody);
+        divWrap.appendChild(divFoot);
+        divMain.appendChild(divWrap);
+        divMain.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+            window.document.location = './ads.html';
+        });
+        divSer.appendChild(divMain);
+        var check = false;
+        var user = "";
+        firebase.database().ref('Ads').orderByKey().equalTo(appID).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+              user = childSnapshot.val().UserID;
+              //console.log("User1 = " + user);
+              if(localStorage.getItem('currMail') == user){
+                var sold = document.createElement('button');
+        sold.setAttribute('class','btn btn-primary btn-lg btn-block');
+        sold.innerHTML = '<i class="fa fa-check-circle"></i> Sold';
+        sold.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        sold.setAttribute('id',"fav");
+        sold.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+        });
+        sold.addEventListener("click", Del);
+        divSer.appendChild(sold);
+        divSize.appendChild(divSer);
+        
+              }
+            });
+            
+            firebase.database().ref('Favorites').orderByChild("user").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+            snapshot.forEach(childSnapshot => {
+              if(childSnapshot.val().Ad == appID){
+                check = true;
+              }
+            });
+            if(check == true){
+                var del = document.createElement('button');
+        del.setAttribute('class','btn btn-primary btn-lg btn-block');
+        del.innerHTML = '<i class="fa fa-trash-o"></i> Delete from my favourites';
+        del.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        del.setAttribute('id',"fav");
+        del.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+        });
+        del.addEventListener("click", delFromFav);
+        divSer.appendChild(del);
+        divSize.appendChild(divSer);
+                    }
+            else{
+              //console.log("User = " + user);
+                //console.log(localStorage.getItem('currMail'));
+              if(localStorage.getItem('currMail') != user){
+                //console.log("User = " + user);
+                //console.log(localStorage.getItem('currMail'));
+                var fav = document.createElement('button');
+        fav.setAttribute('class','btn btn-primary btn-lg btn-block');
+        fav.innerHTML = '<i class="fa fa-star-o"></i> Add to my favourites';
+        fav.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        fav.setAttribute('id',"fav");
+        fav.addEventListener('click', function () {
+            localStorage.setItem('appID', appID);
+        });
+        fav.addEventListener("click", addToFav);
+        divSer.appendChild(fav);
+        divSize.appendChild(divSer);
+        
+            }
+          }
+          });
+        }); 
+        
+        
+        
+        document.getElementById('adHeader').appendChild(divSize);
+        cityCounter();
+        
+    }
                     function checkTime(str){
   var today = new Date();
   dayToday = today.getDate();
@@ -703,7 +820,9 @@ function Delete(){
                                     snapshot.forEach(childSnapshot => {
                                         let Name = childSnapshot.val().name;
                                         let type = childSnapshot.val().type;
-                                        AddAds(title, description, time, location, appID, price, image, Name,type);
+                                        let rating = childSnapshot.val().rate;
+                        document.getElementById('loading').style.display = "none";
+                        AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                                         //i++;
                                     });
                                 });

@@ -110,6 +110,19 @@ function check(){
   var isswim = getch("IsSwim");
   var isbbq = getch("IsBbq");
   var isroof = getch("IsRoof");
+  var ismain = getch("IsMain");
+  var isbeach = getch("IsBeach");
+  var islake = getch("IsLake");
+  var isnile = getch("IsNile");
+  var iswifi = getch("IsWifi");
+  var isgarden = getch("IsGarden");
+  var issports = getch("IsSports");
+  var isschool = getch("IsSchool");
+  var ishospital = getch("IsHospital");
+  var iscafe = getch("IsCafe");
+  var isswimable = getch("IsSwimable");
+  var isgym = getch("IsGym");
+  var issauna = getch("IsSauna");
     var loc = document.getElementById("locations").value; 
     var ci = document.getElementById("cities").value;
     var ty = document.getElementById("type").value;
@@ -121,7 +134,7 @@ function check(){
     var finish = document.getElementById('finish').value;
     var bed = document.getElementById("bed").value;
     var bath = document.getElementById("bath").value;
-    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == ""){
+    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false){
       alert('You have to Make the filter');
       window.scrollTo(0, 300);
     }
@@ -377,7 +390,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled;
+    op.selected;
+    op.hidden;
+      op.innerHTML = "Location";
       sel.appendChild(op);
       
   }
@@ -385,7 +401,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -402,7 +421,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -419,7 +441,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -436,7 +461,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -453,7 +481,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -470,7 +501,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -487,7 +521,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -504,7 +541,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -521,7 +561,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -538,7 +581,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -555,7 +601,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -572,7 +621,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -589,7 +641,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -606,7 +661,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -623,7 +681,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -640,7 +701,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -657,7 +721,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -674,7 +741,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -691,7 +761,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -708,7 +781,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -725,7 +801,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -742,7 +821,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -759,7 +841,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -776,7 +861,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -793,7 +881,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -810,7 +901,10 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-      op.innerHTML = "";
+    op.disabled = 'true';
+    op.selected ='true';
+    op.hidden = 'true';
+      op.innerHTML = "Location";
       sel.appendChild(op);
       var op2 = document.createElement('option');
       op2.value = "";
@@ -852,6 +946,19 @@ function fetchData() {
   var isswim = getch("IsSwim");
   var isbbq = getch("IsBbq");
   var isroof = getch("IsRoof");
+  var ismain = getch("IsMain");
+  var isbeach = getch("IsBeach");
+  var islake = getch("IsLake");
+  var isnile = getch("IsNile");
+  var iswifi = getch("IsWifi");
+  var isgarden = getch("IsGarden");
+  var issports = getch("IsSports");
+  var isschool = getch("IsSchool");
+  var ishospital = getch("IsHospital");
+  var iscafe = getch("IsCafe");
+  var isswimable = getch("IsSwimable");
+  var isgym = getch("IsGym");
+  var issauna = getch("IsSauna");
   var elevator = "";
   var sec = "";
   var air = "";
@@ -865,6 +972,19 @@ function fetchData() {
   var roof = "";
   var isflat2 = "";
   var payment = "";
+  let main = "";
+  let beach = "";
+  let lake = "";
+  let nile = "";
+  let wifi = "";
+  let garden = "";
+  let sports = "";
+  let school = "";
+  let hospital = "";
+  let cafe = "";
+  let swimmable = "";
+  let gym = "";
+  let sauna = "";
   var finish = document.getElementById('finish').value;
   var bed = document.getElementById("bed").value;
   var bath = document.getElementById("bath").value;
@@ -973,6 +1093,58 @@ function fetchData() {
               swim = childSnapshot.val().swimmingPool;
             }
             else{swim = isswim;}
+            if (ismain == false) {
+              main = childSnapshot.val().mainStreet;
+            }
+            else{main = ismain;}
+            if (isbeach == false) {
+              beach = childSnapshot.val().beachfront;
+            }
+            else{beach = isbeach;}
+            if (islake == false) {
+              lake = childSnapshot.val().lake;
+            }
+            else{lake = islake;}
+            if (isnile == false) {
+              nile = childSnapshot.val().nile;
+            }
+            else{nile = isnile;}
+            if (iswifi == false) {
+              wifi = childSnapshot.val().wifi;
+            }
+            else{wifi = iswifi;}
+            if (isgarden == false) {
+              garden = childSnapshot.val().garden;
+            }
+            else{garden = isgarden;}
+            if (issports == false) {
+              sports = childSnapshot.val().sportsClup;
+            }
+            else{sports = issports;}
+            if (isschool == false) {
+              school = childSnapshot.val().school;
+            }
+            else{school = isschool;}
+            if (ishospital == false) {
+              hospital = childSnapshot.val().hospital;
+            }
+            else{hospital = ishospital;}
+            if (iscafe == false) {
+              cafe = childSnapshot.val().cafe;
+            }
+            else{cafe = iscafe;}
+            if (isswimable == false) {
+              swimmable = childSnapshot.val().swimable;
+            }
+            else{swimmable = isswimable;}
+            if (isgym == false) {
+              gym = childSnapshot.val().gym;
+            }
+            else{gym = isgym;}
+            if (issauna == false) {
+              sauna = childSnapshot.val().sauna;
+            }
+            else{sauna = issauna;}
         if(childSnapshot.val().Accepted == "Yes"){
           if(checkTime(childSnapshot.val().DeadLine)){
             if(childSnapshot.val().City == city){
@@ -1004,76 +1176,103 @@ function fetchData() {
                                     if(roof === childSnapshot.val().roof){
                                       if(sec === childSnapshot.val().secure){
                                         if(swim === childSnapshot.val().swimmingPool){
-                                          if(loca == childSnapshot.val().location){
-                                            if(isflat2 == childSnapshot.val().Unit){
-                                              if(payment == childSnapshot.val().payment || childSnapshot.val().payment == "Both"){
-                                                area = parseInt(childSnapshot.val().area);
-                if(area >= fromArea && area <= toArea){
-                  if(finishing === childSnapshot.val().Finishing){
-                    if(bedrooms == childSnapshot.val().bedRooms){
-                      if(bathrooms == childSnapshot.val().bathRooms){
-                        counter += 1;
-                  let title = childSnapshot.val().Title;
-                let description = childSnapshot.val().Description;
-                let time = childSnapshot.val().Time;
-                let appID = childSnapshot.key;
-                let location = childSnapshot.val().location;
-                let price = childSnapshot.val().price;
-                let mail = childSnapshot.val().UserID;
-                var image = "";
-                firebase
-                  .database()
-                  .ref("images")
-                  .orderByChild("main")
-                  .equalTo(appID)
-                  .once("value", function (snapshot) {
-                    snapshot.forEach((childSnapshot) => {
-                      if(childSnapshot.val().Des != "Contract"){
-                        image = childSnapshot.val().link;
-                    console.log(image);
-                    return
-                    }
-                    });
-                  });
-                firebase
-                  .database()
-                  .ref("users")
-                  .orderByChild("email")
-                  .equalTo(mail)
-                  .once("value", function (snapshot) {
-                    snapshot.forEach((childSnapshot) => {
-                      let Name = childSnapshot.val().name;
-                      let type = childSnapshot.val().type;
-                      console.log(Name);
-                      
-                      document.getElementById('loading').style.display = "none";
-                      AddAds(
-                        title,
-                        description,
-                        time,
-                        location,
-                        appID,
-                        price,
-                        image,
-                        Name,
-                        type
-                      );
-                      check2(counter);
-                    });
-                  });
-                      }
-                    }
-                    
-                  }
-                  
-                }
-                                                
+                                          if(main === childSnapshot.val().mainStreet){
+                                            if(beach === childSnapshot.val().beachfront){
+                                              if(lake === childSnapshot.val().lake){
+                                                if(nile === childSnapshot.val().nile){
+                                                  if(wifi === childSnapshot.val().wifi){
+                                                    if(garden === childSnapshot.val().garden){
+                                                      if(sports === childSnapshot.val().sportsClup){
+                                                        if(school === childSnapshot.val().school){
+                                                          if(hospital === childSnapshot.val().hospital){
+                                                            if(cafe === childSnapshot.val().cafe){
+                                                              if(swimmable === childSnapshot.val().swimable){
+                                                                if(gym === childSnapshot.val().gym){
+                                                                  if(sauna === childSnapshot.val().sauna){
+                                                                    if(loca == childSnapshot.val().location){
+                                                                      if(isflat2 == childSnapshot.val().Unit){
+                                                                        if(payment == childSnapshot.val().payment || childSnapshot.val().payment == "Both"){
+                                                                          area = parseInt(childSnapshot.val().area);
+                                          if(area >= fromArea && area <= toArea){
+                                            if(finishing === childSnapshot.val().Finishing){
+                                              if(bedrooms == childSnapshot.val().bedRooms){
+                                                if(bathrooms == childSnapshot.val().bathRooms){
+                                                  counter += 1;
+                                            let title = childSnapshot.val().Title;
+                                          let description = childSnapshot.val().Description;
+                                          let time = childSnapshot.val().Time;
+                                          let appID = childSnapshot.key;
+                                          let location = childSnapshot.val().location;
+                                          let price = childSnapshot.val().price;
+                                          let mail = childSnapshot.val().UserID;
+                                          var image = "";
+                                          firebase
+                                            .database()
+                                            .ref("images")
+                                            .orderByChild("main")
+                                            .equalTo(appID)
+                                            .once("value", function (snapshot) {
+                                              snapshot.forEach((childSnapshot) => {
+                                                if(childSnapshot.val().Des != "Contract"){
+                                                  image = childSnapshot.val().link;
+                                              console.log(image);
+                                              return
+                                              }
+                                              });
+                                            });
+                                          firebase
+                                            .database()
+                                            .ref("users")
+                                            .orderByChild("email")
+                                            .equalTo(mail)
+                                            .once("value", function (snapshot) {
+                                              snapshot.forEach((childSnapshot) => {
+                                                let Name = childSnapshot.val().name;
+                                                let type = childSnapshot.val().type;
+                                                console.log(Name);
+                                                let rating = childSnapshot.val().rate;
+                                                document.getElementById('loading').style.display = "none";
+                                                AddAds(
+                                                  title,
+                                                  description,
+                                                  time,
+                                                  location,
+                                                  appID,
+                                                  price,
+                                                  image,
+                                                  Name,
+                                                  type,
+                                                  rating
+                                                );
+                                                check2(counter);
+                                              });
+                                            });
+                                                }
                                               }
                                               
                                             }
                                             
                                           }
-                                          
+                                                                          
+                                                                        }
+                                                                        
+                                                                      }
+                                                                      
+                                                                    }
+                                                                    
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
                                         }
                                       }
                                     }
@@ -1110,14 +1309,16 @@ function fetchData() {
 function check2(para){
   if(para < 1){
     document.getElementById('noRes').style.display = "block";
+    document.getElementById('features').style.display = "none";
   }
   if(para > 0){
     document.getElementById('noRes').style.display = "none";
+    document.getElementById('features').style.display = "block";
   }
 }
 function clear2(){
   document.getElementById('noRes').style.display = "none";
-
+  document.getElementById('features').style.display = "block";
 }
 function clear() {
   document.getElementById("adHeader").innerHTML = "";
