@@ -542,9 +542,25 @@
                                 let swimmable = childSnapshot.val().swimable;
                                 let gym = childSnapshot.val().gym;
                                 let sauna = childSnapshot.val().sauna;
+                                let priceF = childSnapshot.val().priceFrom;
+                                let priceT = childSnapshot.val().priceTo;
+                                let areaF = childSnapshot.val().areaFrom;
+                                let areaT = childSnapshot.val().areaTo;
                                 var text ="";
                                 var text1 ="";
-                                text +="City: " + city;
+                                if(priceF =="" && priceT ==""){
+                                    text += "Price: ALL";
+                                }else{
+                                text += "Price: From " + priceF;
+                                text += " To " + priceT;
+                                }
+                                if(areaF =="" && areaT ==""){
+                                    text += ", Area per m<sup>2</sup>: ALL ";
+                                }else{
+                                text += ", Area per m<sup>2</sup>: From " + areaF;
+                                text += " To " + areaT;
+                                text +=", City: " + city;
+                                }
                                 text +=", Location: " + loc;
                                 text +=", Unit Cateogry: " + cat;
                                 text +=", Unit Type: " + unit;
