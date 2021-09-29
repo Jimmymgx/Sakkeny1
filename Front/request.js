@@ -633,7 +633,7 @@ function getch(id){
   //document.getElementById("add").style.display = "none";
   //document.getElementById("up").style.display = "block";
   makeLoader();
-  setTimeout(function(){window.location.href = "PendingAds.html"; },5000);
+  setTimeout(function(){window.location.href = "MyWishlist.html"; },5000);
 
 }
 });
@@ -644,7 +644,7 @@ function getch(id){
     var main = document.createElement("div");
     main.classList.add("toWait");
     var text = document.createElement("h1");
-    text.innerHTML = "Your Ad is uploading now <br/>Please Wait ......";
+    text.innerHTML = "Your wish is uploading now <br/>Please Wait ......";
     text.style.color = "white";
     var toLoad = document.createElement("span");
     toLoad.classList.add("loaderForWait");
