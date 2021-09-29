@@ -220,6 +220,34 @@
     .tab-content>.active {
         display: block;
     }
+
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
 </style>
 
 <!-- Modernizer for Portfolio -->
@@ -327,16 +355,6 @@
     </div><!-- end section -->
 
     
-            <!-- 
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                <li class="nav-item" id="searchBut" >
-                    <a class="nav-link" href="Filter.html">
-                        <i class="fa fa-search"></i>
-                        Search With Filter
-                    </a>
-                </li>
-                  
--->
 
 <div id="features" class="section wb">
     <div class="container">
@@ -403,7 +421,7 @@
             </div>
             <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
             <select name="dd" class="custom-select form-control" id="type">
-                <option value="" disabled selected hidden>Unit for</option>
+                <option value="" disabled selected hidden>Unit Case</option>
                 
                 <option value="">All</option>
                 <option value="Sale">Sale</option>
@@ -471,8 +489,11 @@
                     <option value="">All</option>
                     <option value="Unfinished">Unfinished </option>
                     <option value="Semi finished">Semi finished </option>
+                    <option value="3/4 finished">3/4 finished </option>
                     <option value="Fully Finished">Fully Finished </option>
                     <option value="Furnished">Furnished </option>
+                    <option value="Furnished with E-devices">Furnished with Electrical Devices </option>
+
                     
                   </select>
             </div>
@@ -637,21 +658,49 @@
 
         <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc;">Search</button>
     <h1 id="noRes" style="display: none;">No results</h1>
+
     <div id="features" class="section wb">
         <div class="container">
             <div class="section-title row text-center">
                 <div class="col-md-8 col-md-offset-2">
                     <small>All Awesome Property Details</small>
+                    <br>
+                        <br>
+                        <h3 style="font-style:italic; color:indianred;"><strong> Featured properties</strong></h3>
+                        <div class="row">
+                                  <div class="cloumn">
+                                  <div class="card">
+                                    <img src="images/29961453-0.jpeg" alt="Denim Jeans" style="width:100%">
+                                    <h1>Tailored Jeans</h1>
+                                    <p class="price">$19.99</p>
+                                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                                    <p><button>Add to Fav</button></p>
+                                  </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+    <div id="features" class="section wb">
+        <div class="container">
+            <div class="section-title row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <br>
+                        <br>
                     <h3>Choose your unit</h3>
                     
                 </div><!-- end col -->
             </div><!-- end title -->
             <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%; display: none;" id='loading'/>
                 <div class="row" id="adHeader" style="width: 100%;">
-
-
-                
-
                 </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
