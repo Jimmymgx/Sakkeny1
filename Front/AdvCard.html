@@ -98,6 +98,7 @@
 
 <!-- Modernizer for Portfolio -->
 <script src="js/modernizer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -524,7 +525,7 @@
               <div class="col-md-5 col-sm-8">
                 <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
-                      <input class="form-control upload" required name="images" id="images" type="file" multiple>
+                      <input class="form-control upload" required name="images" id="images" type="file" multiple="multiple">
 
                 </div>
               </div>
@@ -536,14 +537,14 @@
                 <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
                   <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
-                    aria-describedby="file_upload" required>
+                    aria-describedby="file_upload" multiple="multiple" required >
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-10">
-                <input type="submit" name="Share" value="Upload Ad." class="btn btn-primary" id="add2" >
+                <input  name="Share" value="Upload Ad." class="btn btn-primary" id="add2" >
                 <h1 id = "up" style="display: none;">Your Ad is uploading now <br/>Please Wait ......</h1>
               </div>
             </div>
@@ -661,6 +662,26 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
   crossorigin="anonymous"></script>
   <script>
+    $("#images").on("change", function() {
+    if ($("#images")[0].files.length > 10) {
+        alert("You can select only 10 images");
+    } else {
+        $("#imageUploadForm").submit();
+    }
+});
+
+$("#CnotractImg").on("change", function() {
+    if ($("#CnotractImg")[0].files.length > 2) {
+        alert("You can select up to 2 images");
+    } else {
+        $("#imageUploadForm").submit();
+    }
+});
+
+
+
+
+
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         var user = firebase.auth().currentUser;

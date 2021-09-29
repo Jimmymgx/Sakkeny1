@@ -118,8 +118,35 @@
     <div class="u-container-layout u-container-layout-1">
       <br>
       <br>
+      <br>
       
-      <h2 style="text-align:center; color: #85630d;"  id='title' class="u-font-georgia u-text-1" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""></h2>
+      <h2 style="text-align:center; color:black;"  id='title' class="u-font-georgia u-text-1" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""></h2>
+      <br>
+      <br>
+      <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-3" style="margin:auto">
+        <div class="u-container-layout u-container-layout-3">
+          <h2 class="u-text u-text-21" style="font-style: italic; color: burlywood;">Account Holder&nbsp;</h2>
+          <p id='name' class="u-text u-text-22">&nbsp;</p>
+          <p class="u-text u-text-23">Name:</p>
+          <p class="u-text u-text-24">Type:</p>
+          <p id="Type" class="u-text u-text-25"></p>
+          <p id="rating" class="u-text u-text-22"></p>
+          <p class="u-text u-text-30" >Rating:</p>
+          <img id="profile" class="u-image u-image-default u-image-4" src="images/logos/llll.png" alt="" data-image-width="1000" data-image-height="1500" style="margin-left: 120px; border-radius: 20px;">
+          <p class="u-text u-text-26">image:</p>
+          <p id='num' style="display: none;" class="u-text u-text-27"></p>
+          <h5 class="u-text u-text-28" style="display: none;" id="ccc">Contact:</h5>
+          <br>
+          <h3 class="u-text u-text-21" style="display: none;" id="msg">Note: If you want to see the Owner Number you have to be a user</h3>
+          <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;"  href= "viewAcc.html" id="acc">View Account</a>
+          <h5 style="text-align: center; color: burlywood;">With Sakkeny you are Secured!</h5>
+          <button class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;" id="showNum" >Show Contact Number</button>
+          <h3 id='views' class="u-text u-text-33" style="display: none;">Ad Views:</h3>
+          <h3 id = "up" style="display: none;">The Ad is deleting now<br/>Please Wait ......</h3>
+        </div>
+      </div>
+
+      
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
@@ -170,6 +197,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <a id='fav'  class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1" style="display: none;"><i class="fa fa-star"></i> Add to Favourites&nbsp;&nbsp;</a>
                       <a id='del'  class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1" style="display: none;"><i class="fa fa-trash" style="font-size: 15px;"></i> Delete from Favourites&nbsp;&nbsp;</a>
                       <a id='done' class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-text-body-alt-color u-btn-1" style="display: none;"><i class="fa fa-check-circle"></i> Sold</a>
+                    <h5 id='done' style="display: none;">If the deal is Done Please click to the Sold Button</h5>
                     </div>
                   </div>
                 </div>
@@ -183,7 +211,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <h5 id="type" class="u-text u-text-3"></h5>
                       <h5 class="u-text u-text-default u-text-4">Description:&nbsp;</h5>
                       <p class="u-text u-text-default u-text-5" id='description'></p>
-                      <h5 class="u-text u-text-default u-text-6">Area per m <sup>2</sup> :&nbsp;</h5>
+                      <h5 class="u-text u-text-default u-text-6">Area m <sup>2</sup> :&nbsp;</h5>
                       <h5 id='area' class="u-text u-text-default u-text-7"></h5>
                       <h5 class="u-text u-text-8">Location:&nbsp;</h5>
                       <h5 id='location' class="u-text u-text-9">&nbsp;</h5>
@@ -198,34 +226,19 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                       <h5 class="u-text u-text-default u-text-19">Price:&nbsp;</h5>
                       <h5 id='price' class="u-text u-text-20" style="margin-left: 100px;">&nbsp;</h5>
                       <h5 class="u-text u-text-default u-text-18">Amenities:&nbsp;</h5>
-                      
-                    </div>
-                  </div>
-                  <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-3">
-                    <div class="u-container-layout u-container-layout-3">
-                      <h2 class="u-text u-text-21">Account Holder&nbsp;</h2>
-                      <h4 id='name' class="u-text u-text-22">&nbsp;</h4>
-                      <h4 class="u-text u-text-23">Name:</h4>
-                      <h4 class="u-text u-text-24">Type:</h4>
-                      <h4 id="Type" class="u-text u-text-25"></h4>
-                      <h4 id="rating" class="u-text u-text-22"></h4>
-                      <h4 class="u-text u-text-30" >Rating:</h4>
-                      
-                      
-                      
-                      <img id="profile" class="u-image u-image-default u-image-4" src="images/logos/llll.png" alt="" data-image-width="1000" data-image-height="1500">
-                      <h4 class="u-text u-text-26">image:</h4>
-                      
-                      <h4 id='num' style="display: none;" class="u-text u-text-27"></h4>
-                      <h4 class="u-text u-text-28" style="display: none;" id="ccc">Contact:</h4>
-                      <h2 class="u-text u-text-21" style="display: none;" id="msg">If you want to see the Owner Number you have to be a user</h2>
-                      <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;"  href= "viewAcc.html" id="acc">View Account</a>
+                      <div style="margin-left:50px; padding: auto ;">
+                      <h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span> Garden View</h5>
+                      <h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span> Air Conditioning</h5>
+                      <h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span>GYM</h5>
+                      <h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span>Fire</h5>
+                      <h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span>Security</h5>
+                      <h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span>WiFi</h5>
 
-                      <button class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px;" id="showNum" >Show Contact Number</button>
-                      <h3 id='views' class="u-text u-text-33" style="display: none;">Ad Views:</h3>
-                      <h3 id = "up" style="display: none;">The Ad is deleting now<br/>Please Wait ......</h3>
+
+                    </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -233,11 +246,6 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         </div>
       </div>
     </section>
-
-
-
-
-
 
   <footer class="footer">
     <div class="container">
@@ -550,9 +558,10 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
        let ty = document.querySelector('#type');
        ty.innerHTML = type;
        var div = document.querySelector('#ads');
+       /*
        if (air != false) {
          var Airc = document.createElement('a');
-         Airc.setAttribute('class','u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3');
+         Airc.setAttribute('class','u-text u-text-default u-text-18');
          Airc.innerHTML = air;
          div.appendChild(Airc);
        }
@@ -694,6 +703,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
          pool.innerHTML = sauna;
          div.appendChild(pool);
        }
+      */
         if(localStorage.getItem('currMail') == user){
                 document.getElementById("fav").style.display = "none";
                 document.getElementById("del").style.display = "none";
