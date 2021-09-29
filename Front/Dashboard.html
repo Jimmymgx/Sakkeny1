@@ -254,6 +254,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
     <script src="LogIn.js"></script>
+    <script src="AddFav.js"></script>
     <script src="SignOut.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
     crossorigin="anonymous"></script>
@@ -460,7 +461,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './ads.html';
+            window.document.location = './approvead.html';
         });
         divSer.appendChild(divMain);
         var check = false;
@@ -530,7 +531,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         
         
         document.getElementById('adHeader').appendChild(divSize);
-        cityCounter();
+        //cityCounter();
         
     }
     
@@ -564,7 +565,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
                             console.log(Name);
                             console.log(image);
                             let rating = childSnapshot.val().rate;
-                        document.getElementById('loading').style.display = "none";
+                        //document.getElementById('loading').style.display = "none";
                         AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                             //i++;
                         });
