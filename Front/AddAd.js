@@ -845,7 +845,7 @@ function getch(id){
                                         if(tt != ""){
                                           if(cash == true || inst == true || both == true) {
                                           addAd();
-                                          checkRequests();
+                                          //checkRequests();
                                           }
                                           else{
                                             alert("You have to choose the payment method");
