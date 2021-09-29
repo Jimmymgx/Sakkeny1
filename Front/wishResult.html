@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <!-- Site Metas -->
-<title>Dashboard - Sakkeny Real Estate</title>
+<title>Wishlist Results - Sakkeny Real Estate</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -108,12 +108,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Dashboard</h2>
+                    <h2>Wishlist Result</h2>
                     <!-- Breadcrumbs -->
                     <nav id="breadcrumbs">
                         <ul>
                             <li><a href="#">Home</a></li>
-                            <li>Dashboard</li>
+                            <li>Wishlist Result</li>
                         </ul>
                     </nav>
                 </div>
@@ -125,7 +125,7 @@
             <div class="section-title row text-center">
                 <div class="col-md-8 col-md-offset-2">
                     <small>All Awesome Property Details</small>
-                    <h3>Dashboard</h3>
+                    <h3>Wishlist Results</h3>
                     
                 </div><!-- end col -->
             </div><!-- end title -->
@@ -139,27 +139,7 @@
                 </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
-    <div id="testimonials" class="section lb">
-        <div class="container">
-            <div class="section-title row text-center">
-                <div class="col-md-8 col-md-offset-2">
-                    <h3>Customers Feedbacks</h3>
-                    <p class="lead">Because customer comfort and safety is our motto, we provided after-sales service,
-                        and this is a sample of our customers' Feedback.</p>
-                </div><!-- end col -->
-            </div><!-- end title -->
-
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div  class="testi-carousel owl-carousel owl-theme">
-                        <div class="container col-md-12 col-sm-4" id = 'carousel'>
-                            
-                    </div>
-                        </div><!-- end carousel -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+    
 
     <footer class="footer">
         <div class="container">
@@ -254,7 +234,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
     <script src="LogIn.js"></script>
-    <script src="AddFav.js"></script>
     <script src="SignOut.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
     crossorigin="anonymous"></script>
@@ -264,9 +243,7 @@
             if (user) {
                 var user = firebase.auth().currentUser;
                 var currentusermail = user.email;
-                if(currentusermail != "sakkenyorg@gmail.com"){
-                    document.getElementById("bo").innerHTML = "Error : You Don't Have access To this page"
-                }
+                
                 document.getElementById("SigninBar").style.display = "none";
                 document.getElementById("SignupBar").style.display = "none";
                 document.getElementById("MyaccountBar").style.display = "block";
@@ -461,7 +438,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './approvead.html';
+            window.document.location = './ads.html';
         });
         divSer.appendChild(divMain);
         var check = false;
@@ -531,7 +508,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         
         
         document.getElementById('adHeader').appendChild(divSize);
-        //cityCounter();
+        cityCounter();
         
     }
     
@@ -565,7 +542,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
                             console.log(Name);
                             console.log(image);
                             let rating = childSnapshot.val().rate;
-                        //document.getElementById('loading').style.display = "none";
+                        document.getElementById('loading').style.display = "none";
                         AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                             //i++;
                         });
