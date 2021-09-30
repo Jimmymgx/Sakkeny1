@@ -917,7 +917,6 @@
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
-<<<<<<< HEAD
             if(localStorage.getItem('FirstCompare') == ""){
                 localStorage.setItem('FirstCompare', appID);
                 divMain.style.outline = "3px solid green";
@@ -938,28 +937,6 @@
             }
             //window.document.location = './ads.html';
         });
-=======
-    if(localStorage.getItem('FirstCompare') == ""){
-        localStorage.setItem('FirstCompare', appID);
-        divMain.style.outline = "3px solid green";
-        //alert("You did choose the first ad now choose the second one");
-        //alert(localStorage.getItem('FirstCompare'));
-    }
-    else if(localStorage.getItem('SecondCompare') == ""){
-        localStorage.setItem('SecondCompare', appID);
-        divMain.style.outline = "3px solid green";
-        setTimeout(() => {
-            window.location.href = "Comparison.html";
-        }, 1000);
-        //alert("You did choose the second ad now you'll go to comparison");
-        //alert(localStorage.getItem('SecondCompare'));
-    }
-    else{
-        alert("Somthing went wrong");
-    }
-    //window.document.location = './ads.html';
-});
->>>>>>> 3ca48d49d9969331ce3f4705bd37c37834cf3678
         divSer.appendChild(divMain);
         var check = false;
         var user = "";
