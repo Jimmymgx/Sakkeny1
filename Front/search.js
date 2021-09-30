@@ -95,7 +95,7 @@ function getch(id){
   return val;
 }
 function check(){  
-  window.scrollTo(0, 800);
+  
   document.getElementById('loading').style.display = "block";
   var pay  = document.getElementById("Pay").value;
   var isflat = document.getElementById("unitType").value;
@@ -241,15 +241,15 @@ function check(){
     }
     
 }
-function AddAds(title, description, time, location, appID, price, image, name,type) {
+function AddAds(title, description, time, location, appID, price, image, name,type, rating) {
   var divSize = document.createElement('div');
   var divSer = document.createElement('div');
   var divMain = document.createElement('div');
   var divWrap = document.createElement('div');
   var adFig = document.createElement('figure');
-
+  var adlink = document.createElement('a');
+  var adlinkIcon = document.createElement('i');
   var adImg = document.createElement('img');
-  var divLabel = document.createElement('div');
   
   var divPrice = document.createElement('div');
   var spanPrice = document.createElement('span');
@@ -267,8 +267,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   var spanRight = document.createElement('span');
   var rightIcon = document.createElement('i');
   var Location = document.createElement('text');
-  //var accept = document.createElement('button');
-  //var decline = document.createElement('button');
+
 
 
   divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
@@ -276,14 +275,17 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divMain.setAttribute('class', 'property-main');
   divWrap.setAttribute('class', 'property-wrap');
   adFig.setAttribute('class', 'post-media wow fadeIn');
- 
-  //accept.setAttribute('type','button');
-  //accept.classList.add('btn','btn-success' ,'btn-lg', 'fa','fa-check','col-md-6','col-sm-6','col-xs-12');
-  //decline.classList.add('btn', 'btn-danger','btn-lg' , 'fa','fa-times','col-md-6','col-sm-6','col-xs-12');
+  adFig.setAttribute('style','border-width: medium;')
+  adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
+  adlink.setAttribute('class', 'hoverbutton global-radius');
+  adlink.setAttribute('href', image);
 
+
+
+  adlinkIcon.setAttribute('class', 'flaticon-unlink');
   adImg.setAttribute('src', image);
   adImg.setAttribute('class', 'img-responsive');
-  divLabel.setAttribute('class', 'label-inner');
+
   
   divPrice.setAttribute('class', 'price');
   spanPrice.setAttribute('class', 'item-sub-price');
@@ -302,9 +304,9 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   spanRight.classList.add('prop-date');
   rightIcon.classList.add('fa', 'fa-calendar');
   rightIcon.setAttribute('aria-hideen', 'true');
-  Desc.innerHTML = description.substring(0, 100);
-  Title.innerHTML = title.substring(0,30);
-  Location.innerHTML = location.substring(0, 40);
+  Desc.innerHTML = description.substring(0, 40);
+  Title.innerHTML = title.substring(0,40);
+  Location.innerHTML = location.substring(0, 30);
   spanPrice.innerHTML = price;
   adFig.style.display ='flex';
   adFig.style.justifyContent = 'center';
@@ -315,12 +317,15 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   //adImg.style.maxHeight = '100%';
   adFig.style.height = '250px';
   
-
   
+  
+  
+  //adlink.appendChild(adlinkIcon);
+
   divPrice.appendChild(spanPrice);
- 
+  //adFig.appendChild(adlink);
   adFig.appendChild(adImg);
-  adFig.appendChild(divLabel);
+  
   adFig.appendChild(divPrice);
   divDesc.appendChild(Desc);
   divAddress.appendChild(addrsIcon);
@@ -330,13 +335,63 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divBody.appendChild(divAddress);
   spanLeft.appendChild(leftIcon);
   let t = document.createElement('small');
-  t.setAttribute('class','testi-meta text-muted');
-  t.innerHTML = " By " +type;
-  spanLeft.append(name);
-  spanLeft.appendChild(t);
+      t.setAttribute('class','testi-meta text-muted');
+      t.innerHTML = " By " +type;
+      let r = document.createElement('small');
+      r.setAttribute('class','testi-meta text-muted');
+      if(rating<=0){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+      }else if(rating>0 && rating<1){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+      }else if(rating == 1){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+      }
+      else if(rating > 1 && rating<2){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+      }else if(rating ==2){
+          r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+      }
+      else if (rating > 2 && rating <3){
+          r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+      }else if(rating ==3){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+      }
+      else if (rating > 3 && rating <4){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+      }else if(rating ==4){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+      }
+      else if (rating > 4 && rating <5){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+      }else if (rating == 5){
+          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+      }else{
+          
+          r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+      
+      }
+      //r.innerHTML = " Rate : " +rating + " / 5";
+      name1=name.split(' ');
+      spanLeft.append(name1[0]);
+      spanLeft.appendChild(t);
+      let img = document.createElement('img');
+      img.setAttribute('src',image);
+      img.setAttribute('class','testi-meta text-muted');
+      img.style.width = '100px';
+      img.style.height ='40px';
+      /**let con = document.createElement('div');
+      con.setAttribute("class", "rate");
+      con.setAttribute("id", "rating") 
+  let stars = document.createElement('i');
+      stars.setAttribute('class','testi-meta text-muted');
+      stars.innerHTML = '<input type="radio" id="star5" name="rate" value="5" style="display: none;" /> <label for="star5" title="text">5 stars</label> <input type="radio" id="star4" name="rate" value="4" style="display: none;"/><label for="star4" title="text">4 stars</label><input type="radio" id="star3" name="rate" value="3" style="display: none;"/><label for="star3" title="text">3 stars</label><input type="radio" id="star2" name="rate" value="2" style="display: none;"/><label for="star2" title="text">2 stars</label><input type="radio" id="star1" name="rate" value="1" style="display: none;"/><label for="star1" title="text">1 star</label>';
+      con.appendChild(stars);
+      spanRight.appendChild(con);**/
   divLeft.appendChild(spanLeft);
   spanRight.appendChild(rightIcon);
   spanRight.append(time);
+  spanRight.appendChild(r);
+  spanLeft.appendChild(img);
   divRight.appendChild(spanRight);
   divFoot.appendChild(divLeft);
   divFoot.appendChild(divRight);
@@ -344,18 +399,101 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divWrap.appendChild(divBody);
   divWrap.appendChild(divFoot);
   divMain.appendChild(divWrap);
-  divSer.appendChild(divMain);
-  //divSer.appendChild(accept);
-  //divSer.appendChild(decline);
-  divSize.setAttribute('style','margin-bottom: 30px;');
-  divSize.appendChild(divSer);
-  
-  divSize.addEventListener('click', function () {
+  divMain.addEventListener('click', function () {
       localStorage.setItem('appID', appID);
       window.document.location = './ads.html';
   });
+  divSer.appendChild(divMain);
+  var check = false;
+  var user = "";
+  firebase.database().ref('Ads').orderByKey().equalTo(appID).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+        user = childSnapshot.val().UserID;
+        //console.log("User1 = " + user);
+        if(localStorage.getItem('currMail') == user){
+          var sold = document.createElement('button');
+  sold.setAttribute('class','btn btn-primary btn-lg btn-block');
+  sold.innerHTML = '<i class="fa fa-check-circle"></i> Sold';
+  sold.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+  sold.setAttribute('id',"fav");
+  sold.addEventListener('click', function () {
+      localStorage.setItem('appID', appID);
+  });
+  sold.addEventListener("click", Del);
+  divSer.appendChild(sold);
+  divSize.appendChild(divSer);
+  
+        }
+      });
+      
+      firebase.database().ref('Favorites').orderByChild("user").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+        if(childSnapshot.val().Ad == appID){
+          check = true;
+        }
+      });
+      if(check == true){
+          var del = document.createElement('button');
+  del.setAttribute('class','btn btn-primary btn-lg btn-block');
+  del.innerHTML = '<i class="fa fa-trash-o"></i> Delete from my favourites';
+  del.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+  del.setAttribute('id',"fav");
+  del.addEventListener('click', function () {
+      localStorage.setItem('appID', appID);
+  });
+  del.addEventListener("click", delFromFav);
+  divSer.appendChild(del);
+  divSize.appendChild(divSer);
+              }
+      else{
+        //console.log("User = " + user);
+          //console.log(localStorage.getItem('currMail'));
+        if(localStorage.getItem('currMail') != user){
+          //console.log("User = " + user);
+          //console.log(localStorage.getItem('currMail'));
+          var fav = document.createElement('button');
+  fav.setAttribute('class','btn btn-primary btn-lg btn-block');
+  fav.innerHTML = '<i class="fa fa-star-o"></i> Add to my favourites';
+  fav.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+  fav.setAttribute('id',"fav");
+  fav.addEventListener('click', function () {
+      localStorage.setItem('appID', appID);
+  });
+  fav.addEventListener("click", addToFav);
+  divSer.appendChild(fav);
+  divSize.appendChild(divSer);
+  
+      }
+    }
+    });
+  }); 
+  
+  
   
   document.getElementById('adHeader').appendChild(divSize);
+  cityCounter();
+  
+}
+function cityCounter(){
+  let cit = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia"];
+  let count = 0;
+  for(let i = 0; i < cit.length; i++){
+      let counter = 0;
+      firebase.database().ref('Ads').orderByChild("City").equalTo(cit[i]).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          if(childSnapshot.val().Accepted == "Yes"){
+              counter += 1;  
+          console.log(counter);
+          console.log(cit[i]);
+          count = counter;
+          document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+          }
+      }); 
+      document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+  });
+  //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+  }
+  
 }
 function setLoc(){
   var cairo = ["Abbassia", "Ain Shams", "Azbakeya", "Bab al-Louq", "Boulaq", "City of the Dead (Cairo)", "Coptic Cairo", "Daher", "Downtown", "El Manial", "El Marg", "El Matareya", "El Sherouk", "El Obour", "El Qobbah", "El Rehab", "El Sahel", "El Sakkakini", "El Zawia El Hamra","Ezbet El Haggana", "Ezbet El Nakhl", "Faggala", "Fifth Settlement", "Fustat", "Garden City", "Gezira", "Heliopolis", "Islamic", "Maadi", "Mataria", "Naser City", "Old Cairo", "Roda Island", "Shubra", "Shubra El Kheima", "Wagh El Birket", "Zamalek", "Zeitoun"];

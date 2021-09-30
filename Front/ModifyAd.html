@@ -360,6 +360,7 @@
                     <h1 class="title">Choose the ad that you want to modify</h1>
                 </div>
                 <div class="tab-content tab-space">
+                    <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%;" id='loading'/>
                     <div class="row" id="adHeader">
 
 
@@ -551,6 +552,7 @@
         rightIcon.classList.add('fa', 'fa-calendar');
         rightIcon.setAttribute('aria-hideen', 'true');
         Desc.innerHTML = description.substring(0, 40);
+        Title.setAttribute('style' ,'color: black;')
         Title.innerHTML = title.substring(0,40);
         Location.innerHTML = location.substring(0, 30);
         spanPrice.innerHTML = price;
@@ -717,7 +719,7 @@
         
         
         document.getElementById('adHeader').appendChild(divSize);
-        cityCounter();
+        
         
     }
                     function checkTime(str){

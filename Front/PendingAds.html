@@ -360,6 +360,7 @@
                     <h1 class="title">Your pending ads</h1>
                 </div>
                 <div class="tab-content tab-space">
+                    <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%;" id='loading'/>
                     <div class="row" id="adHeader">
 
 
@@ -679,6 +680,7 @@ function Delete(){
                         firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                                     snapshot.forEach(childSnapshot => {
                                         kk = childSnapshot.key;
+                                        document.getElementById('loading').style.display = "none";
                                         if(childSnapshot.val().Accepted == "No"){
                                             if(checkTime(childSnapshot.val().DeadLine)){
                                                 let title = childSnapshot.val().Title;
@@ -703,6 +705,7 @@ function Delete(){
                                                 let type = childSnapshot.val().type;
                                                 console.log("///////");
                                                 console.log(image);
+                                                document.getElementById('loading').style.display = "none";
                                                 AddAds(title, description, time, location, appID, price, image, Name,type);
                                                 i++;
                                             });
