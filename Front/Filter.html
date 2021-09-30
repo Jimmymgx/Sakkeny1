@@ -78,19 +78,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('#show').click(function() {
-          $('#menu').toggle("slide");
-          $('#search').toggle("slide");
-          if(document.getElementById('iconS').classList.contains("fa-angle-down")){
-          document.getElementById('iconS').classList.remove("fa-angle-down");
-          document.getElementById('iconS').classList.add("fa-angle-up");
-          }else{
-            document.getElementById('iconS').classList.remove("fa-angle-up");
-          document.getElementById('iconS').classList.add("fa-angle-down");
-          }
-        });
-    });
-    $(document).ready(function(){
         $('#amenities').click(function() {
           $('#amenities1').toggle("slide");
           if(document.getElementById('icon').classList.contains("fa-angle-down")){
@@ -197,10 +184,10 @@
                 <div class="col-md-8 col-md-offset-2">
                     <small>Here you will search for an unit easily with our filter.</small>
                     <h3>Property Details Filter</h3>
-                    <small id="show"><a style="cursor: pointer;">Press to show / hide the search <i id='iconS'class="fas fa-angle-down"></i></a></small>
+                   
                 </div><!-- end col -->
             </div><!-- end title -->
-            <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee; display: none;">
+            <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee; ">
             <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
     
                     
@@ -517,7 +504,7 @@
     </div>
     
     
-            <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc; display: none;">Search</button>
+            <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc;">Search</button>
             <div  class="section wb" id="noRes" style="display: none;">
                 <div class="container">
                     <div class="section-title row text-center">
@@ -713,6 +700,9 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
 <script src="LogIn.js"></script>
 <script src="SignOut.js"></script>
+<script src="AddFav.js"></script>
+<script src="deleteFav.js"></script>
+<script src="Done.js"></script>
 <script src='search.js'></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
