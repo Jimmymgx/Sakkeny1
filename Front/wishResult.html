@@ -235,6 +235,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
     <script src="LogIn.js"></script>
     <script src="SignOut.js"></script>
+    <script src="AddFav.js"></script>
+    <script src="Done.js"></script>
+    <script src="deleteFav.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
     crossorigin="anonymous"></script>
     <script>
@@ -508,70 +511,853 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         
         
         document.getElementById('adHeader').appendChild(divSize);
-        cityCounter();
+        //cityCounter();
         
     }
-    
-        function fetchAllData() {
-            
-            firebase.database().ref('Ads').once('value', function (snapshot) {
-                snapshot.forEach(childSnapshot => {
-                    if(childSnapshot.val().Accepted == "No"){
-                    let title = childSnapshot.val().Title;
-                    let description = childSnapshot.val().Description;
-                    let time = childSnapshot.val().Time;
-                    let appID = childSnapshot.key;
-                    let location = childSnapshot.val().location;
-                    let price = childSnapshot.val().price;
-                    let mail = childSnapshot.val().UserID;
-                    var image = "";
-                    firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot){
-            snapshot.forEach(childSnapshot => {
-                if(childSnapshot.val().Des != "Contract"){
+    function checkTime(str){
+    var today = new Date();
+    dayToday = today.getDate();
+    monthToday = today.getMonth() + 1;
+    yearToday = today.getFullYear();
+
+    //var str = document.getElementById("in").value;
+    var myArr = str.split("-", 3);
+    var dayEnd = parseInt(myArr[2]);
+    var monthEnd = parseInt(myArr[1]);
+    var yearEnd = parseInt(myArr[0]);
+    if(yearToday > yearEnd){
+        //console.log("false");
+        return false;
+    }
+    else if(yearToday == yearEnd){
+        if(monthToday > monthEnd){
+            //console.log("false");
+            return false;
+        }
+        else if(monthToday == monthEnd){
+            if(dayToday >= dayEnd){
+                //console.log("false");
+                return false;
+            }
+            else{
+                //console.log("true");
+                return true;
+            }
+        }
+        else{
+            //console.log("true");
+            return true;
+        }
+    }
+    else{
+        //console.log("true");
+        return true;
+    }
+}
+  
+function checkRequests(city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, fr, t, frarea, tarea){
+  //alert('Under process');
+  //Current
+  //localStorage.setItem('resultCounter', 0);
+  firebase
+  .database()
+  .ref("Ads")
+  .once("value", function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+      let k = childSnapshot.key;
+      let loc = childSnapshot.val().location;
+    let ci = childSnapshot.val().City;
+    let bed = childSnapshot.val().bedRooms;
+    let bath = childSnapshot.val().bathRooms;
+    let finish = childSnapshot.val().Finishing;
+    let iselevator = childSnapshot.val().elevator;
+    let issec = childSnapshot.val().secure;
+    let isair = childSnapshot.val().Air;
+    let isgreatView = childSnapshot.val().greatView;
+    let isfire = childSnapshot.val().fire;
+    let islarge = childSnapshot.val().largeWindow;
+    let isdog = childSnapshot.val().dogParks;
+    let isplay = childSnapshot.val().playGround;
+    let isswim = childSnapshot.val().swimmingPool;
+    let isbbq = childSnapshot.val().bbq;
+    let isroof = childSnapshot.val().roof;
+    let ismain = childSnapshot.val().mainStreet;
+    let isbeach = childSnapshot.val().beachfront;
+    let islake = childSnapshot.val().lake;
+    let isnile = childSnapshot.val().nile;
+    let iswifi = childSnapshot.val().wifi;
+    let isgarden = childSnapshot.val().garden;
+    let issports = childSnapshot.val().sportsClup;
+    let isschool = childSnapshot.val().school;
+    let ishospital = childSnapshot.val().hospital;
+    let iscafe = childSnapshot.val().cafe;
+    let isswimable = childSnapshot.val().swimable;
+    let isgym = childSnapshot.val().gym;
+    let issauna = childSnapshot.val().sauna;
+    let price = childSnapshot.val().price;
+    let area = childSnapshot.val().area;
+    let usermail = childSnapshot.val().UserID;
+    let ty = childSnapshot.val().Type;
+    let u = childSnapshot.val().UnitType;
+    let isflat = childSnapshot.val().Unit;
+    let pay = childSnapshot.val().payment;
+    var ele = "";
+var se= "";
+var ai = "";
+var greatVie = "";
+var fir = "";
+var larg = "";
+var dogg = "";
+var pla = "";
+var swi = "";
+var bb = "";
+var roo = "";
+let mai = "";
+let beac = "";
+let lak = "";
+let nil = "";
+let wif = "";
+let garde = "";
+let sport = "";
+let schoo = "";
+let hospita = "";
+let caf = "";
+let swimmabl = "";
+let gy = "";
+let saun = "";
+if (air == false) {
+  ai = isair;
+}
+else{ai= air;}
+if (elevator == false) {
+  ele = iselevator;
+}
+else{ele = elevator;}
+if (bbq == false) {
+  bb = isbbq;
+}
+else{bb = bbq;}
+if (dog == false) {
+  dogg = isdog;
+}
+else{dogg = dog;}
+if (fire == false) {
+  fir = isfire;
+}
+else{fir = fire;}
+if (greatView == false) {
+  greatVie = isgreatView;
+}
+else{greatVie = greatView;}
+if (large == false) {
+  larg = islarge;
+}
+else{larg = large;}
+if (play == false) {
+  pla = isplay;
+  //console.log("Here" + pla);
+  //console.log("Here" + isplay);
+}
+else{pla = play;}
+if (roof == false) {
+  roo = isroof;
+}
+else{roo = roof;}
+if (sec == false) {
+  se = issec;
+}
+else{se = sec;}
+if (swim == false) {
+  swi = isswim;
+}
+else{swi = swim;}
+if (main == false) {
+  mai = ismain;
+}
+else{mai = main;}
+if (beach == false) {
+  beac = isbeach;
+}
+else{beac = beach;}
+if (lake == false) {
+  lak = islake;
+}
+else{lak = lake;}
+if (nile == false) {
+  nil = isnile;
+}
+else{nil = nile;}
+if (wifi == false) {
+  wif = iswifi;
+}
+else{wif = wifi;}
+if (garden == false) {
+  garde = isgarden;
+}
+else{garde = garden;}
+if (sports == false) {
+  sport = issports;
+}
+else{sport = sports;}
+if (school == false) {
+  schoo = isschool;
+}
+else{schoo = school;}
+if (hospital == false) {
+  hospita = ishospital;
+}
+else{hospita = hospital;}
+if (cafe == false) {
+  caf = iscafe;
+}
+else{caf = cafe;}
+if (swimable == false) {
+  swimmabl = isswimable;
+}
+else{swimmabl = swimable;}
+if (gym == false) {
+  gy = isgym;
+}
+else{gy = gym;}
+if (sauna == false) {
+  saun = issauna;
+}
+else{saun = sauna;}
+if(location == ""){
+  location = loc;
+}
+if(ci == ""){
+  ci = city;
+}
+if(bedrooms == ""){
+  bedrooms = bed;
+  console.log('bedrooms ' + bedrooms);
+  console.log('bed ' + bed);
+}
+if(bathrooms == ""){
+  bathrooms = bath;
+}
+if(finishing == ""){
+  finish = finishing;
+}
+if(fr == "" && t == ""){
+  //fr = Number.MIN_VALUE;
+  //t = Number.MAX_VALUE;
+  //fr = parseInt(fr);
+  //t = parseInt(t);
+  fr = 0;
+  t = 500000;
+}
+else{
+  fr = parseInt(fr);
+  t = parseInt(t);
+}
+if(frarea == "" && tarea == ""){
+  //frarea = Number.MIN_VALUE;
+  //tarea = Number.MAX_VALUE;
+  frarea = 0;
+  tarea = 500000;
+}
+else{
+  frarea = parseInt(frarea);
+  tarea = parseInt(tarea);
+}
+if(unitfor == ""){
+  unitfor = ty;
+}
+if(unittype == ""){
+  unittype = u;
+}
+if(unit == ""){
+  unit = isflat;
+}
+if(payment == ""){
+  payment = pay;
+}
+if(ci == city){
+  console.log(ci + city);
+  if(ty == unitfor){
+    console.log(ty + unitfor);
+    price = parseInt(price);
+    console.log(price);
+    console.log(fr);
+    console.log(t);
+    if(price >= fr && price <= t){
+      console.log(price);
+      if(u == unittype){
+        console.log(u + unittype);
+        if(ai == isair){
+          console.log(ai + air + 'air');
+          if(ele == iselevator){
+            console.log(ele + iselevator+ 'ele');
+            if(bb == isbbq){
+              console.log(bb + isbbq + 'bb');
+              if(dogg == isdog){
+                console.log(dogg + dog + 'do');
+                if(fir == isfire){
+                  console.log(fir + fire + 'fire');
+                  if(greatVie == isgreatView){
+                    console.log(greatVie + greatView + 'great');
+                    if(larg == islarge){
+                      console.log(larg + large + 'large');
+                      if(pla == isplay){
+                        console.log(pla + play + 'play');
+                        if(roo == isroof){
+                          console.log(roo + roof);
+                          if(se == issec){
+                            console.log(se + sec);
+                            if(swi == isswim){
+                              console.log(swi + swim);
+                              if(mai == ismain){
+                                console.log(mai + main);
+                                if(beac == isbeach){
+                                  console.log(beac + beach);
+                                  if(lak == islake){
+                                    console.log(lak + lake);
+                                    if(nil == isnile){
+                                      console.log(nil + nile);
+                                      if(wif == iswifi){
+                                        console.log(wif + wifi);
+                                        if(garde == isgarden){
+                                          console.log(garde + garden);
+                                          if(sport == issports){
+                                            console.log(sport + sports);
+                                            if(schoo == isschool){
+                                              console.log(schoo + school);
+                                              if(hospita == ishospital){
+                                                console.log(hospita + hospital);
+                                                if(caf == iscafe){
+                                                  console.log(caf + cafe);
+                                                  if(swimmabl == isswimable){
+                                                    console.log(swimmabl + swimable);
+                                                    if(gy == isgym){
+                                                      console.log(gy + gym);
+                                                      if(saun == issauna){
+                                                        console.log(saun + sauna);
+                                                        if(loc == location){
+                                                          console.log(loc + location);
+                                                          if(isflat == unit){
+                                                            console.log(isflat + unit);
+                                                            if(pay == payment || pay == "Both"){
+                                                                console.log('payment');
+                                                              area = parseInt(area);
+                              if(area >= frarea && area <= tarea){
+                                console.log('area');
+                                if(finish == finishing){
+                                    console.log('finish');
+                                    console.log('bedrooms ' + bedrooms);
+                                    console.log('bed ' + parseInt(bed) + 1);
+                                  if(bed == bedrooms){
+                                    console.log('bed');
+                                    if(bath == bathrooms){
+                                      //sendM2(usermail, k);     
+                                      let title = childSnapshot.val().Title;
+                let description = childSnapshot.val().Description;
+                let time = childSnapshot.val().Time;
+                let appID = childSnapshot.key;
+                let location = childSnapshot.val().location;
+                let price = childSnapshot.val().price;
+                let mail = childSnapshot.val().UserID;
+                var image = "";
+                firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot){
+        snapshot.forEach(childSnapshot => {
+            if(childSnapshot.val().Des != "Contract"){
                     image = childSnapshot.val().link;
                 console.log(image);
                 return
                 }
-                
-            });
         });
-                    firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
-                        snapshot.forEach(childSnapshot => {
-                            let Name = childSnapshot.val().name;
-                            let type = childSnapshot.val().type;
-                            console.log(Name);
-                            console.log(image);
-                            let rating = childSnapshot.val().rate;
-                        document.getElementById('loading').style.display = "none";
+    });
+                firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
+                    snapshot.forEach(childSnapshot => {
+                        let Name = childSnapshot.val().name;
+                        console.log(Name);
+                        let type = childSnapshot.val().type;
+                        let rating = childSnapshot.val().rate;
+                        //document.getElementById('loading').style.display = "none";
                         AddAds(title, description, time, location, appID, price, image, Name,type, rating);
-                            //i++;
-                        });
-    
+                        //i++;
                     });
-    
-    
-                }
-                });
-            
-            })
 
-            firebase.database().ref('feedbacks').once('value', function (snapshot) {
-                snapshot.forEach(childSnapshot => {
-                    var FeedName = childSnapshot.val().name;
-                    var feedback = childSnapshot.val().feedback;
-                    var accepted = childSnapshot.val().Accepted;
-                    var mail = childSnapshot.val().email;
-                    var num = childSnapshot.val().phoneNum;
-                    let feedID = childSnapshot.key;
-                    console.log(FeedName + " " + feedback + " " + accepted +" " + feedID);
-                    
-                    
-                        document.querySelector('.owl-stage-outer').innerHTML +='<div class="testimonial clearfix col-md-4"><div class="desc"><h3><i class="fa fa-quote-left"></i> Feedback! <i class="fa fa-quote-right"></i></h3><p class="lead">'+ feedback+'</p></div><div class="testi-meta"><h4> - '+ FeedName+' <small>- Email: '+mail+'</small><small>- Phone: '+num+'</small></h4><button type="button" class="btn btn-success" id="yes">Accept</button><button type="button" class="btn btn-danger" id="no">Decline</button></div><!-- end testi-meta --></div>';
-                    
                 });
-                
+
+                                   
+                                    }
+                                  }
+                                  
+                                }
+                                
+                              }
+                                                              
+                                                            }
+                                                            
+                                                          }
+                                                          
+                                                        }
+                                                        
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                  
+              }
+            }
+          }
+        }
+        
+      }
+      
+      }
+    }
+  }
+    });
+  });
+
+}
+
+        function fetchAllData() {
+            var c = "";
+            var lo = "";
+            var ut = "";
+            var flat = "";
+            var br = "";
+            var btr = "";
+            var fin = "";
+            var uf = "";
+            var p = "";
+            firebase.database().ref('requests').orderByKey().equalTo(localStorage.getItem("reqNum")).once('value', function (snapshot) {
+                            
+                            snapshot.forEach(childSnapshot => {
+                                var key = childSnapshot.key;
+                                //let mail = childSnapshot.val().UserID;
+                                var city = childSnapshot.val().City;
+                                var location = childSnapshot.val().location;
+                                var unittype= childSnapshot.val().UnitType;
+                                var unit = childSnapshot.val().Unit;
+                                var bedrooms = childSnapshot.val().bedRooms;
+                                var bathrooms = childSnapshot.val().bathRooms;
+                                var finishing = childSnapshot.val().Finishing;
+                                var ty = childSnapshot.val().Type;
+                                var payment = childSnapshot.val().payment;
+                                var isbbq = childSnapshot.val().bbq;
+                                var isdog = childSnapshot.val().dogParks;
+                                var iselevator = childSnapshot.val().elevator;
+                                var isfire = childSnapshot.val().fire;
+                                var isgreatView = childSnapshot.val().greatView;
+                                var islarge = childSnapshot.val().largeWindow;
+                                var isplay = childSnapshot.val().playGround;
+                                var isair = childSnapshot.val().Air;
+                                var isroof = childSnapshot.val().roof;
+                                var issec = childSnapshot.val().secure;
+                                var isswim = childSnapshot.val().swimmingPool;
+                                var ismain = childSnapshot.val().mainStreet;
+                                var isbeach = childSnapshot.val().beachfront;
+                                var islake = childSnapshot.val().lake;
+                                var isnile = childSnapshot.val().nile;
+                                var iswifi = childSnapshot.val().wifi;
+                                var isgarden = childSnapshot.val().garden;
+                                var issports = childSnapshot.val().sportsClup;
+                                var isschool = childSnapshot.val().school;
+                                var ishospital = childSnapshot.val().hospital;
+                                var iscafe = childSnapshot.val().cafe;
+                                var isswimable = childSnapshot.val().swimable;
+                                var isgym = childSnapshot.val().gym;
+                                var issauna = childSnapshot.val().sauna;
+                                var fr = childSnapshot.val().priceFrom;
+                                var t = childSnapshot.val().priceTo;
+                                var frarea = childSnapshot.val().areaFrom;
+                                var tarea = childSnapshot.val().areaTo;
+                                //checkRequests(city, loc, cat, unit, bed, bath, finish, type, pay, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, priceF, priceT, areaF, areaT)
+                                //Search(city, loc, unit, type, areaF, areaT, priceF, priceT, cat, finish, bed, bath, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, pay);
+                                firebase
+  .database()
+  .ref("Ads")
+  .once("value", function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+      let k = childSnapshot.key;
+      let loc = childSnapshot.val().location;
+    let ci = childSnapshot.val().City;
+    let bed = childSnapshot.val().bedRooms;
+    let bath = childSnapshot.val().bathRooms;
+    let finish = childSnapshot.val().Finishing;
+    let elevator = childSnapshot.val().elevator;
+    let sec = childSnapshot.val().secure;
+    let air = childSnapshot.val().Air;
+    let greatView = childSnapshot.val().greatView;
+    let fire = childSnapshot.val().fire;
+    let large = childSnapshot.val().largeWindow;
+    let dog = childSnapshot.val().dogParks;
+    let play = childSnapshot.val().playGround;
+    let swim = childSnapshot.val().swimmingPool;
+    let bbq = childSnapshot.val().bbq;
+    let roof = childSnapshot.val().roof;
+    let main = childSnapshot.val().mainStreet;
+    let beach = childSnapshot.val().beachfront;
+    let lake = childSnapshot.val().lake;
+    let nile = childSnapshot.val().nile;
+    let wifi = childSnapshot.val().wifi;
+    let garden = childSnapshot.val().garden;
+    let sports = childSnapshot.val().sportsClup;
+    let school = childSnapshot.val().school;
+    let hospital = childSnapshot.val().hospital;
+    let cafe = childSnapshot.val().cafe;
+    let swimable = childSnapshot.val().swimable;
+    let gym = childSnapshot.val().gym;
+    let sauna = childSnapshot.val().sauna;
+    let price = childSnapshot.val().price;
+    let area = childSnapshot.val().area;
+    let usermail = childSnapshot.val().UserID;
+    let unitfor = childSnapshot.val().Type;
+    let u = childSnapshot.val().UnitType;
+    let isflat = childSnapshot.val().Unit;
+    let pay = childSnapshot.val().payment;
+    var ele = "";
+var se= "";
+var ai = "";
+var greatVie = "";
+var fir = "";
+var larg = "";
+var dogg = "";
+var pla = "";
+var swi = "";
+var bb = "";
+var roo = "";
+let mai = "";
+let beac = "";
+let lak = "";
+let nil = "";
+let wif = "";
+let garde = "";
+let sport = "";
+let schoo = "";
+let hospita = "";
+let caf = "";
+let swimmabl = "";
+let gy = "";
+let saun = "";
+if (isair == false) {
+  ai = air;
+}
+else{ai= isair;}
+if (iselevator == false) {
+  ele = elevator;
+}
+else{ele = iselevator;}
+if (isbbq == false) {
+  bb = bbq;
+}
+else{bb = isbbq;}
+if (isdog == false) {
+  dogg = dog;
+}
+else{dog = isdog;}
+if (isfire == false) {
+  fir = fire;
+}
+else{fir = isfire;}
+if (isgreatView == false) {
+  greatVie = greatView;
+}
+else{greatVie = isgreatView;}
+if (islarge == false) {
+  larg = large;
+}
+else{larg = islarge;}
+if (isplay == false) {
+  pla = play;
+}
+else{pla = isplay;}
+if (isroof == false) {
+  roo = roof;
+}
+else{roo = isroof;}
+if (issec == false) {
+  se = sec;
+}
+else{se = issec;}
+if (isswim == false) {
+  swi = swim;
+}
+else{swi = isswim;}
+if (ismain == false) {
+  mai = main;
+}
+else{mai = ismain;}
+if (isbeach == false) {
+  beac = beach;
+}
+else{beac = isbeach;}
+if (islake == false) {
+  lak = lake;
+}
+else{lak = islake;}
+if (isnile == false) {
+  nil = nile;
+}
+else{nil = isnile;}
+if (iswifi == false) {
+  wif = wifi;
+}
+else{wif = iswifi;}
+if (isgarden == false) {
+  garde = garden;
+}
+else{garde = isgarden;}
+if (issports == false) {
+  sport = sports;
+}
+else{sport = issports;}
+if (isschool == false) {
+  schoo = school;
+}
+else{schoo = isschool;}
+if (ishospital == false) {
+  hospita = hospital;
+}
+else{hospita = ishospital;}
+if (iscafe == false) {
+  caf = cafe;
+}
+else{caf = iscafe;}
+if (isswimable == false) {
+  swimmabl = swimable;
+}
+else{swimmabl = isswimable;}
+if (isgym == false) {
+  gy = gym;
+}
+else{gy = isgym;}
+if (issauna == false) {
+  saun = sauna;
+}
+else{saun = issauna;}
+if(location == ""){
+  lo = loc;
+}
+else{lo = location;}
+if(city == ""){
+  c = ci;
+}
+else{c = city;}
+if(bedrooms == ""){
+  br = bed;
+}
+else{br = bedrooms;}
+if(bathrooms == ""){
+  btr = bath;
+}
+else{btr = bathrooms;}
+if(finishing == ""){
+  fin = finish;
+}
+else{fin = finishing;}
+if(fr == "" && t == ""){
+  //fr = Number.MIN_VALUE;
+  //t = Number.MAX_VALUE;
+  fr = 0;
+  t = 1000000000;
+}
+else{
+  fr = parseInt(fr);
+  t = parseInt(t);
+}
+if(frarea == "" && tarea == ""){
+  //frarea = Number.MIN_VALUE;
+  //tarea = Number.MAX_VALUE;
+  frarea = 0;
+  tarea = 1000000000;
+}
+else{
+  frarea = parseInt(frarea);
+  tarea = parseInt(tarea);
+}
+if(ty == ""){
+  uf = unitfor;
+}
+else{uf = ty;}
+if(unittype == ""){
+  ut = u;
+}
+else{ut = unittype;}
+if(unit == ""){
+  flat = isflat;
+}
+else{flat = unit;}
+if(payment == ""){
+  p = pay;
+}
+else{p = payment;}
+if(c == ci){
+  console.log(c + ci);
+  if(uf == unitfor){
+    console.log(ty + unitfor);
+    price = parseInt(price);
+    if(price >= fr && price <= t){
+      console.log(price);
+      console.log(ut);
+      console.log(unittype);
+      if(ut == u){
+        console.log(u + unittype);
+        if(ai == air){
+          console.log(ai + air);
+          if(ele == elevator){
+            console.log(ele + elevator);
+            if(bb == bbq){
+              console.log(bb + bbq);
+              if(dogg == dog){
+                console.log(dogg + dog);
+                if(fir == fire){
+                  console.log(fir + fire);
+                  if(greatVie == greatView){
+                    console.log(greatVie + greatView);
+                    if(larg == large){
+                      console.log(larg + large);
+                      if(pla == play){
+                        console.log(pla + play);
+                        if(roo == roof){
+                          console.log(roo + roof);
+                          if(se == sec){
+                            console.log(se + sec);
+                            if(swi == swim){
+                              console.log(swi + swim);
+                              if(mai == main){
+                                console.log(mai + main);
+                                if(beac == beach){
+                                  console.log(beac + beach);
+                                  if(lak == lake){
+                                    console.log(lak + lake);
+                                    if(nil == nile){
+                                      console.log(nil + nile);
+                                      if(wif == wifi){
+                                        console.log(wif + wifi);
+                                        if(garde == garden){
+                                          console.log(garde + garden);
+                                          if(sport == sports){
+                                            console.log(sport + sports);
+                                            if(schoo == school){
+                                              console.log(schoo + school);
+                                              if(hospita == hospital){
+                                                console.log(hospita + hospital);
+                                                if(caf == cafe){
+                                                  console.log(caf + cafe);
+                                                  if(swimmabl == swimable){
+                                                    console.log(swimmabl + swimable);
+                                                    if(gy == gym){
+                                                      console.log(gy + gym);
+                                                      if(saun == sauna){
+                                                        console.log(saun + sauna);
+                                                        if(lo == loc){
+                                                          console.log(loc + location);
+                                                          if(flat == isflat){
+                                                            console.log(isflat + unit);
+                                                            if(p == pay || pay == "Both"){
+                                                                console.log(p);
+                                                              area = parseInt(area);
+                              if(area >= frarea && area <= tarea){
+                                  console.log(area);
+                                if(fin == finish){
+                                    console.log(fin);
+                                  if(br == bed){
+                                    console.log(bed);
+                                    if(btr == bath){
+                                        console.log(bath);
+                                      //sendM2(usermail, k); 
+                                      let title = childSnapshot.val().Title;
+                let description = childSnapshot.val().Description;
+                let time = childSnapshot.val().Time;
+                let appID = childSnapshot.key;
+                let location = childSnapshot.val().location;
+                let price = childSnapshot.val().price;
+                let mail = childSnapshot.val().UserID;
+                var image = "";
+                firebase.database().ref('images').orderByChild("main").equalTo(appID).once('value', function (snapshot){
+        snapshot.forEach(childSnapshot => {
+            if(childSnapshot.val().Des != "Contract"){
+                    image = childSnapshot.val().link;
+                console.log(image);
+                return
+                }
         });
-    }function AddFeed(name1,feedback1)
+    });
+                firebase.database().ref('users').orderByChild('email').equalTo(mail).once('value', function (snapshot) {
+                    snapshot.forEach(childSnapshot => {
+                        let Name = childSnapshot.val().name;
+                        console.log(Name);
+                        let type = childSnapshot.val().type;
+                        let rating = childSnapshot.val().rate;
+                        //document.getElementById('loading').style.display = "none";
+                        AddAds(title, description, time, location, appID, price, image, Name,type, rating);
+                        //i++;
+                    });
+
+                });
+                                       
+                                    }
+                                  }
+                                  
+                                }
+                                
+                              }
+                                                              
+                                                            }
+                                                            
+                                                          }
+                                                          
+                                                        }
+                                                        
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                  
+              }
+            }
+          }
+        }
+        
+      }
+      
+      }
+    }
+  }
+    });
+  });
+});
+            });
+}
+    function AddFeed(name1,feedback1)
     {
     }
         if (window.addEventListener) {

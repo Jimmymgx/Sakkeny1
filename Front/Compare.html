@@ -870,7 +870,7 @@
                 localStorage.setItem('SecondCompare', appID);
                 divMain.style.outline = "3px solid green";
                 setTimeout(() => {
-                    window.location.href = "Comparison.html";
+                    window.location.href = "Comparison.html?K1="+localStorage.getItem('FirstCompare')+"K2="+localStorage.getItem('SecondCompare');
                 }, 1000);
                 //alert("You did choose the second ad now you'll go to comparison");
                 //alert(localStorage.getItem('SecondCompare'));

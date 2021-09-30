@@ -487,6 +487,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
    });
  }
  function fetchAllData() {
+  //var loc = window.location.href;
+  //var params = loc.split('k=')[1];
    addView();
    addImg();
    ref1.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {

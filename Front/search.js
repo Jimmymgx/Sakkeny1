@@ -1029,7 +1029,7 @@ function fetchData() {
           }
           if(fr == "" && t == ""){
             from = Number.MIN_VALUE;
-            to = Number.MAX_VALUE;
+            to = Number.MAX_SAFE_INTEGER;
           }
           else{
             from = parseInt(fr);

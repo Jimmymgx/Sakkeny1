@@ -455,7 +455,7 @@ function getch(id){
               addWish();
              }
              else{
-               alert("The to is must be higher than from");
+               alert("The to is must be higher than from1");
              }
             }  
             else{
@@ -478,7 +478,7 @@ function getch(id){
               addWish();
              }
              else{
-               alert("The to is must be higher than from");
+               alert("The to is must be higher than from2");
              }
             }  
             else{
@@ -497,7 +497,7 @@ function getch(id){
         else {
           if(!isNaN(fr)){
             if(!isNaN(t)){
-             if (t >= fr){
+             if (parseInt(t) >= parseInt(fr) ){
               if(frarea == "" && tarea == ""){
                 addWish();
               }
@@ -512,7 +512,7 @@ function getch(id){
                       addWish();
                      }
                      else{
-                       alert("The to is must be higher than from");
+                       alert("The to is must be higher than from3");
                      }
                     }  
                     else{
@@ -526,7 +526,7 @@ function getch(id){
               }
              }
              else{
-               alert("The to is must be higher than from");
+               alert("The to is must be higher than from4");
              }
             }  
             else{

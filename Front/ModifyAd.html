@@ -465,6 +465,7 @@
                 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
                 <script src="LogIn.js"></script>
                 <script src="SignOut.js"></script>
+                <script src="Done.js"></script>
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
      crossorigin="anonymous"></script>
                 <script>
@@ -646,7 +647,7 @@
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './ads.html';
+            window.document.location = './EditAdv.html';
         });
         divSer.appendChild(divMain);
         var check = false;
@@ -821,7 +822,7 @@ function Delete(){
                                         let Name = childSnapshot.val().name;
                                         let type = childSnapshot.val().type;
                                         let rating = childSnapshot.val().rate;
-                        document.getElementById('loading').style.display = "none";
+                        //document.getElementById('loading').style.display = "none";
                         AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                                         //i++;
                                     });
