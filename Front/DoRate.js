@@ -51,7 +51,7 @@ var firebaseConfig = {
         snapshot.forEach(childSnapshot => {
             childSnapshot.ref.update({rate: finRate});
       });
-      alert("Done");
+      window.location.reload();
         });
          
     });
