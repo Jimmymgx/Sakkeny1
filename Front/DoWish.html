@@ -600,6 +600,7 @@
         document.getElementById("SignupBar").style.display = "none";
         document.getElementById("MyaccountBar").style.display = "block";
         document.getElementById("Logout").style.display = "block";
+        document.getElementById("add").style.display = "block";
         var currentusermail = user.email;
         var isVerify = user.emailVerified;
         if (isVerify != true) {
@@ -622,6 +623,7 @@
         document.getElementById("MyaccountBar").style.display = "none";
         document.getElementById("Logout").style.display = "none";
         document.getElementById("filter").style.display = 'none';
+        document.getElementById("add").style.display = 'none';
         console.log("inside else");
       }
     });

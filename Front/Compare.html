@@ -703,10 +703,6 @@
     <script src="js/custom.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/hoverdir.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-    <!-- MAP & CONTACT -->
-
-
 </body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
@@ -759,6 +755,8 @@
 <script>
     //let kk = "";
     function AddAds(title, description, time, location, appID, price, image, name,type, rating) {
+        localStorage.setItem('FirstCompare', "");
+            localStorage.setItem('SecondCompare', "");
         var divSize = document.createElement('div');
         var divSer = document.createElement('div');
         var divMain = document.createElement('div');
@@ -919,12 +917,14 @@
         divMain.addEventListener('click', function () {
             if(localStorage.getItem('FirstCompare') == ""){
                 localStorage.setItem('FirstCompare', appID);
+                console.log(localStorage.getItem('FirstCompare'));
                 divMain.style.outline = "3px solid green";
                 //alert("You did choose the first ad now choose the second one");
                 //alert(localStorage.getItem('FirstCompare'));
             }
             else if(localStorage.getItem('SecondCompare') == ""){
                 localStorage.setItem('SecondCompare', appID);
+                console.log(localStorage.getItem('SecondCompare'));
                 divMain.style.outline = "3px solid green";
                 setTimeout(() => {
                     window.location.href = "Comparison.html?K1="+localStorage.getItem('FirstCompare')+"K2="+localStorage.getItem('SecondCompare');
@@ -933,6 +933,8 @@
                 //alert(localStorage.getItem('SecondCompare'));
             }
             else{
+                console.log(localStorage.getItem('FirstCompare'));
+                console.log(localStorage.getItem('SecondCompare'));
                 alert("Somthing went wrong");
             }
             //window.document.location = './ads.html';

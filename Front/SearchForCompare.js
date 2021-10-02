@@ -852,6 +852,116 @@ function setLoc(){
       sel.appendChild(opt);
     }
   }
+  if(city == "Gouna"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Gouna";
+      opt.innerHTML = "Gouna";
+      sel.appendChild(opt);
+  }
+  if(city == "North Coast"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "North Coast";
+      opt.innerHTML = "North Coast";
+      sel.appendChild(opt);
+  }
+  if(city == "Ain Sokhna"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Ain Sokhna";
+      opt.innerHTML = "Ain Sokhna";
+      sel.appendChild(opt);
+  }
+  if(city == "Marina"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Marina";
+      opt.innerHTML = "Marina";
+      sel.appendChild(opt);
+  }
+  if(city == "Ras Sedr"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Ras Sedr";
+      opt.innerHTML = "Ras Sedr";
+      sel.appendChild(opt);
+  }
+  if(city == "Dahab"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Dahab";
+      opt.innerHTML = "Dahab";
+      sel.appendChild(opt);
+  }
+  if(city == "Hurghada"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Hurghada";
+      opt.innerHTML = "Hurghada";
+      sel.appendChild(opt);
+  }
+  if(city == "Marsa Alam"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Marsa Alam";
+      opt.innerHTML = "Marsa Alam";
+      sel.appendChild(opt);
+  }
+  if(city == "El Alamein"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "El Alamein";
+      opt.innerHTML = "El Alamein";
+      sel.appendChild(opt);
+  }
+  if(city == "Sharm ElSheikh"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+      var opt = document.createElement('option');
+      opt.value = "Sharm ElSheikh";
+      opt.innerHTML = "Sharm ElSheikh";
+      sel.appendChild(opt);
+  }
 }
 function fetchData() {
   var num = 0;

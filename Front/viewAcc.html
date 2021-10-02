@@ -295,9 +295,9 @@
                                 <h5>Profile</h5>
                             </div>
                             <h2 class="title" id="type" >Type: </h2>
-                            <h2 class="title " id="mail">Email: </h2>
-                            <h2 class="title " id="number">Contact: </h2>
-                            
+                            <h2 class="title " id="mail" style="display: none;">Email: </h2>
+                            <h2 class="title " id="number" style="display: none;">Contact: </h2>
+                            <h2 class="title " id="inOrder" style="display: none;">in order to see user contact please <a href="signUp.html" style="color: #997c47;">sign up </a>or <a href="login.html" style="color: #997c47;">log in </a> to your account </h2>
                             <h2 class="title" id="rate">user ratings: </h2>
                         </div>
                         <div style="display: flex; justify-content: center;">
@@ -447,6 +447,8 @@
                             document.getElementById("MyaccountBar").style.display = "block";
                             document.getElementById("Logout").style.display = "block";
                             document.getElementById("add").style.display = 'block';
+                            document.getElementById('mail').style.display = 'block';
+                            document.getElementById('number').style.display = 'block';
                             var currentusermail = user.email;
                             var isVerify = user.emailVerified;
                             if (isVerify != true) {
@@ -466,10 +468,12 @@
                         else {
                             document.getElementById("SigninBar").style.display = "block";
                             document.getElementById("SignupBar").style.display = "block";
+                            document.getElementById("inOrder").style.display = "block";
                             document.getElementById("MyaccountBar").style.display = "none";
                             document.getElementById("Logout").style.display = "none";
                             document.getElementById("rating").style.display = "none";
                             document.getElementById("doRate").style.display = "none";
+
                         }
                     });
                     var check = false;
