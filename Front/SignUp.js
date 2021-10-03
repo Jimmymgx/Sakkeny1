@@ -45,7 +45,8 @@ function checkValidity(){
           if(con != "" && con == pass){
             var name = document.getElementById("name").value;
             if (name != ""){
-              var daySelection = document.getElementById("day").value;
+              if(document.getElementById('confirmation').style.display == 'none'){
+                var daySelection = document.getElementById("day").value;
               if ( daySelection != "" || daySelection == "Day"){
                 var monthSelection = document.getElementById("month").value;
                 if ( monthSelection != "" || monthSelection == "Month"){
@@ -120,6 +121,11 @@ function checkValidity(){
               else{
                 alert("Enter the day")
               }
+              }
+              else{
+                alert("Please verify your number");
+              }
+              
             }
             else{
               alert("Please enter your name");
@@ -137,6 +143,127 @@ function checkValidity(){
       alert("You have to Enter your mail");
     }
 }
+document.getElementById('Do').addEventListener('click', checkMob);
+function checkMob(){
+  var check = false;
+  var cont1 = document.getElementById("contactnum").value;
+                    cont1 = cont1.trim();
+                    len = cont1.length;
+                    start = cont1.startsWith("01");
+                    if(cont1 != ""){
+                        if (!isNaN(cont1)){
+                          if(len == 11){
+                            if(start){
+                              
+                              firebase.database().ref('users').once('value', function (snapshot) {
+                                snapshot.forEach(childSnapshot => {
+                                    if(childSnapshot.val(). contactNumber == cont1){
+                                      check = true;
+                                    }
+                                })
+                                if(check == true){
+                                  alert('This phone number is already connected with existing account');
+                                }
+                                else{
+                                  Send();
+                                }
+                            });
+                            }
+                            else{
+                              alert('invalid');
+                            }
+                          }
+                          else{
+                            alert('invalid');
+                          }
+                        }
+                        else{
+                          alert('invalid');
+                        }
+                      }
+                      else{
+                        alert('invalid');
+                      }
+}
+function Send(){ 
+  var check = false;
+const phoneNumber = '+201060216885';
+const appVerifier = window.recaptchaVerifier;
+  if(check == false){
+    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+  .then((confirmationResult) => {
+    // SMS sent. Prompt user to type the code from the message, then sign the
+    // user in with confirmationResult.confirm(code).
+    
+    const sentCodeId = confirmationResult.verificationId;
+    //document.getElementById('Do').addEventListener('click', () => signInWithPhone(sentCodeId));
+    alert('Done');
+    //return confirmationResult.confirm(testVerificationCode);
+    //alert('Done');
+    // ...
+    document.getElementById('confirmation').addEventListener('click', function() {
+      var code = document.getElementById('confirm').value;
+      confirmationResult.confirm(code)
+    .then(function (result){
+      alert('Suc');
+      var user = result.user;
+      alert(user);
+    })
+    .catch(function (error){
+      alert(error.message);
+    })
+    });
+  })
+  .then(function(confirmation){
+    window.confirmationResult = confirmationResult;
+    coderesult = confirmationResult;
+    alert(coderesult);
+    document.getElementById('recaptcha-container').style.display = none;
+    alert('Done');
+    console.log(coderesult);
+    confirmationResult.confirm(code).then((result) => {
+  // User signed in successfully.
+  const user = result.user;
+  firebase.auth().signOut().then(() => {
+    // Sign-out successful.
+    //window.location.href = "index.html";
+    localStorage.setItem("currMail", "");
+    document.getElementById('Do').style.display = 'none';
+    document.getElementById('Do').style.display = 'none';
+    document.getElementById('textforcon').style.display = 'none';
+    document.getElementById('spanforcon').style.display = 'none';
+    document.getElementById('confirmation').style.display = 'none';
+  }).catch((error) => {
+    // An error happened.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage);
+  });
+  // ...
+}).catch((error) => {
+  // User couldn't sign in (bad verification code?)
+  // ...
+});
+  })
+  .catch((error) => {
+    // Error; SMS not sent
+    // ...
+    alert(error);
+  });
+  }
+}
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(document.getElementById('Do'), {
+    'size': 'invisible',
+    'callback': (response) => {
+      // reCAPTCHA solved, allow signInWithPhoneNumber.
+      //onSignInSubmit();
+
+    }
+  });
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+  recaptchaVerifier.render().then(widgetId =>{
+    window.recaptchaWidgetId = widgetId;
+  })
 function uploadImage(email){
   var numberOfFiles = document.getElementById('image').files.length;
     //window.alert(numberOfFiles);

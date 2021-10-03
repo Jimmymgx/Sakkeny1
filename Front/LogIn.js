@@ -10,16 +10,22 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 firebase.auth.Auth.Persistence.LOCAL
+var coderesult = "";
 document.getElementById("log").addEventListener("click",DoLogIn);
 document.getElementById("signinF").addEventListener("click",signin);
 document.getElementById("forget").addEventListener("click",forget);
 document.getElementById("signinG").addEventListener("click",googleLogIn);
+document.getElementById("email").addEventListener("click",clr);
+document.getElementById("password").addEventListener("click",clr);
 document.addEventListener("keyup", function(event) {
   if (event.code === 'Enter') {
    event.preventDefault();
    document.getElementById("log").click();
   }
 });
+function clr(){
+  document.getElementById('messageP').innerHTML = '';
+}
 let provider = new firebase.auth.GoogleAuthProvider();
 function googleLogIn(){
   console.log('login btn callback');
@@ -58,7 +64,16 @@ function DoLogIn(){
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
-    alert(errorMessage);
+    document.getElementById('messageP').innerHTML = errorMessage;
+    if(errorMessage == 'The email address is badly formatted.'){
+      document.getElementById('messageP').innerHTML = 'The email you entered is incorrect';
+    }
+    if(errorMessage == 'The password is invalid or the user does not have a password.'){
+      document.getElementById('messageP').innerHTML = 'Incorrect password';
+    }
+    if(errorMessage == 'There is no user record corresponding to this identifier. The user may have been deleted.'){
+      document.getElementById('messageP').innerHTML = 'User not found';
+    }
   });
 }
 function signin(){
@@ -82,3 +97,83 @@ function signin(){
       useremail.innerHTML = user.email;
   })
 }
+function Send(){ 
+  var check = false;
+const phoneNumber = '+201060216885';
+const appVerifier = window.recaptchaVerifier;
+  if(check == false){
+    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+  .then((confirmationResult) => {
+    // SMS sent. Prompt user to type the code from the message, then sign the
+    // user in with confirmationResult.confirm(code).
+    
+    const sentCodeId = confirmationResult.verificationId;
+    //document.getElementById('Do').addEventListener('click', () => signInWithPhone(sentCodeId));
+    alert('Done');
+    //return confirmationResult.confirm(testVerificationCode);
+    //alert('Done');
+    // ...
+    document.getElementById('confirmation').addEventListener('click', function() {
+      var code = document.getElementById('confirm').value;
+      confirmationResult.confirm(code)
+    .then(function (result){
+      alert('Suc');
+      var user = result.user;
+      alert(user);
+    })
+    .catch(function (error){
+      alert(error.message);
+    })
+    });
+  })
+  .then(function(confirmation){
+    window.confirmationResult = confirmationResult;
+    coderesult = confirmationResult;
+    alert(coderesult);
+    document.getElementById('recaptcha-container').style.display = none;
+    alert('Done');
+    console.log(coderesult);
+    confirmationResult.confirm(code).then((result) => {
+  // User signed in successfully.
+  const user = result.user;
+  // ...
+}).catch((error) => {
+  // User couldn't sign in (bad verification code?)
+  // ...
+});
+  })
+  .catch((error) => {
+    // Error; SMS not sent
+    // ...
+    alert(error);
+  });
+  }
+}
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(document.getElementById('Do'), {
+    'size': 'invisible',
+    'callback': (response) => {
+      // reCAPTCHA solved, allow signInWithPhoneNumber.
+      //onSignInSubmit();
+
+    }
+  });
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+  recaptchaVerifier.render().then(widgetId =>{
+    window.recaptchaWidgetId = widgetId;
+  })
+  
+ function Confirm(){
+    var code = document.getElementById('confirm').value;
+    coderesult.confirm(code)
+    .then(function (result){
+      alert('Suc');
+      var user = result.user;
+      alert(user);
+    })
+    .catch(function (error){
+      alert(error.message);
+    })
+ }
+
+document.getElementById('Do').addEventListener('click', Send);
+//document.getElementById('confirmation').addEventListener('click', Confirm);

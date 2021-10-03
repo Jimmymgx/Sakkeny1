@@ -383,18 +383,43 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Contact No. <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <div class="col-md-5 col-sm-8" style="float: left;">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
                   <input type="text" class="form-control" name="contactnum" id="contactnum"
                     placeholder="Enter your Primary contact no." value="" required>
+                    
                 </div>
+                
                 <div id="message2">
+                  
                   <small>
                   <p id="number2" class="invalid">Numbers <b>Only</b></p>
                 </small>
                 </div>
+                
+                <div id="recaptcha-container"></div>
+                
               </div>
+              <div style="float: left;">
+                <button style="float: left;" type="button" class="btn btn btn-primary" id="Do">
+                  Verify your phone number
+                </button>
+              </div>
+              
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3" id="textforcon">Confirmation code <span class="text-danger">*</span></label>
+              <div class="col-md-5 col-sm-8">
+                <div class="input-group">
+                <span class="input-group-addon" id="spanforcon"><i class="fas fa-check"></i></span>
+              <input type="text" class="form-control" id="confirm" >
+                
+            </div>
+        </div>
+        <button type="button" class="btn btn btn-primary" id="confirmation" id = 'butforcon'>
+          Confirm code
+        </button>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Contact Number 2 <br>
@@ -637,17 +662,18 @@
     }
     
     // When the user starts to type something inside the password field
+    var letters4 = /^[A-Za-z]+$/g;
     myInput4.onkeyup = function() {
       
   
       // Validate Letters
-      var letters4 = /[^[A-Za-z]+$]/g;
+      
       if(myInput4.value.match(letters4)) {  
         letters4.classList.remove("invalid");
         letters4.classList.add("valid");
       } else {
         letters4.classList.remove("valid");
-        letters4.classList.add("invalid");
+          letters4.classList.add("invalid");
       }
       
       
