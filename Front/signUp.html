@@ -662,13 +662,13 @@
     }
     
     // When the user starts to type something inside the password field
-    var letters4 = /^[A-Za-z]+$/g;
+    
     myInput4.onkeyup = function() {
       
   
       // Validate Letters
-      
-      if(myInput4.value.match(letters4)) {  
+      var letters = /^[A-Za-z]+$/g;
+      if(myInput4.value.match(letters)) {  
         letters4.classList.remove("invalid");
         letters4.classList.add("valid");
       } else {
