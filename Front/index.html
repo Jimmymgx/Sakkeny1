@@ -830,7 +830,9 @@
                     
                 </div><!-- end col -->
             </div><!-- end title -->
-            <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%; display: none;" id='loading'/>
+            <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
+            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
+            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>
                 <div class="row" id="adHeader" style="width: 100%;">
                 </div><!-- end row -->
         </div><!-- end container -->
@@ -1022,7 +1024,7 @@
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
             }
-             
+            localStorage.setItem('count', 0);
             // firebase.database().ref("users").orderByChild("email").equalTo(currentusermail).once('value', function (snapshot) {
             //                     snapshot.forEach(childSnapshot => {
                                     
@@ -1041,6 +1043,7 @@
             document.querySelector("fav").style.display = "none";
             console.log("inside else");
             localStorage.setItem('currMail', '');
+            localStorage.setItem('count', 0);
         }
     });
 </script>
@@ -1048,6 +1051,9 @@
 <script>
     //let kk = "";
     function AddAds(title, description, time, location, appID, price, image, name,type, rating) {
+        //var counter = 0;
+        localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
+            //alert('Count' + localStorage.getItem('count'));
         var divSize = document.createElement('div');
         var divSer = document.createElement('div');
         var divMain = document.createElement('div');
@@ -1126,7 +1132,7 @@
         
         
         //adlink.appendChild(adlinkIcon);
-
+        
         divPrice.appendChild(spanPrice);
         //adFig.appendChild(adlink);
         adFig.appendChild(adImg);
@@ -1145,45 +1151,45 @@
             let r = document.createElement('small');
             r.setAttribute('class','testi-meta text-muted');
             if(rating<=0){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating>0 && rating<1){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }else if(rating == 1){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if(rating > 1 && rating<2){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating ==2){
-                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if (rating > 2 && rating <3){
-                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating ==3){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if (rating > 3 && rating <4){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
             }else if(rating ==4){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
             }
             else if (rating > 4 && rating <5){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
             }else if (rating == 5){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
             }else{
                 
-                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             
             }
             //r.innerHTML = " Rate : " +rating + " / 5";
             name1=name.split(' ');
             spanLeft.append(name1[0]);
             spanLeft.appendChild(t);
-            let img = document.createElement('img');
-            img.setAttribute('src',image);
-            img.setAttribute('class','testi-meta text-muted');
-            img.style.width = '100px';
-            img.style.height ='40px';
+            // let img = document.createElement('img');
+            // img.setAttribute('src',image);
+            // img.setAttribute('class','testi-meta text-muted');
+            // img.style.width = '100px';
+            // img.style.height ='40px';
             /**let con = document.createElement('div');
             con.setAttribute("class", "rate");
             con.setAttribute("id", "rating") 
@@ -1192,11 +1198,12 @@
             stars.innerHTML = '<input type="radio" id="star5" name="rate" value="5" style="display: none;" /> <label for="star5" title="text">5 stars</label> <input type="radio" id="star4" name="rate" value="4" style="display: none;"/><label for="star4" title="text">4 stars</label><input type="radio" id="star3" name="rate" value="3" style="display: none;"/><label for="star3" title="text">3 stars</label><input type="radio" id="star2" name="rate" value="2" style="display: none;"/><label for="star2" title="text">2 stars</label><input type="radio" id="star1" name="rate" value="1" style="display: none;"/><label for="star1" title="text">1 star</label>';
             con.appendChild(stars);
             spanRight.appendChild(con);**/
+            
         divLeft.appendChild(spanLeft);
         spanRight.appendChild(rightIcon);
         spanRight.append(time);
         spanRight.appendChild(r);
-        spanLeft.appendChild(img);
+        //spanLeft.appendChild(img);
         divRight.appendChild(spanRight);
         divFoot.appendChild(divLeft);
         divFoot.appendChild(divRight);
@@ -1204,6 +1211,22 @@
         divWrap.appendChild(divBody);
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
+        var comp = document.createElement('button');
+        comp.setAttribute('class','btn btn-success btn-lg btn-block');
+        comp.innerHTML = '<i class="fas fa-poll"></i> Compare';
+        //comp.setAttribute('style',' margin-top:100px;');
+        localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
+        if(parseInt(localStorage.getItem('count')) > 1){
+            setTimeout(() => {
+                document.getElementById('50%').style.display = 'none';    
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('100%').style.display = 'block';    
+            }, 1000);        }
+        setTimeout(() => {
+                document.getElementById('100%').style.display = 'none';    
+            }, 1500);
         divMain.addEventListener('click', function () {
             //var st = 'q='+appID;
             //const queryStr = st;
@@ -1231,9 +1254,11 @@
         sold.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
+        
         sold.addEventListener("click", Del);
         divSer.appendChild(sold);
-        divSize.appendChild(divSer);
+        
+        // divSize.appendChild(divSer);
         
               }
             });
@@ -1255,7 +1280,7 @@
         });
         del.addEventListener("click", delFromFav);
         divSer.appendChild(del);
-        divSize.appendChild(divSer);
+        // divSize.appendChild(divSer);
                     }
             else{
               //console.log("User = " + user);
@@ -1273,14 +1298,15 @@
         });
         fav.addEventListener("click", addToFav);
         divSer.appendChild(fav);
-        divSize.appendChild(divSer);
+        // divSize.appendChild(divSer);
         
             }
           }
           });
         }); 
         
-        
+        divSer.appendChild(comp);
+        divSize.appendChild(divSer);
         
         document.getElementById('adHeader').appendChild(divSize);
         cityCounter();
@@ -1373,7 +1399,7 @@ function Delete(){
         
     }
     function fetchAllData() {
-        document.getElementById('loading').style.display = "block";
+        document.getElementById('0%').style.display = "block";
         cityCounter();
         firebase.database().ref('Ads').once('value', function (snapshot) {
             snapshot.forEach(childSnapshot => {
@@ -1403,7 +1429,9 @@ function Delete(){
                         console.log(Name);
                         let type = childSnapshot.val().type;
                         let rating = childSnapshot.val().rate;
-                        document.getElementById('loading').style.display = "none";
+                        document.getElementById('0%').style.display = "none";
+                        document.getElementById('50%').style.display = "block";
+                        //alert(50);
                         AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                         //i++;
                     });
