@@ -464,7 +464,8 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './approvead.html';
+            //window.document.location = './approvead.html';
+            window.document.location = './approvead.html?k='+appID;
         });
         divSer.appendChild(divMain);
         var check = false;

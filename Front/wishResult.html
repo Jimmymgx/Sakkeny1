@@ -249,6 +249,7 @@
             if (user) {
                 var user = firebase.auth().currentUser;
                 var currentusermail = user.email;
+                localStorage.setItem('currMail', currentusermail);
                 
                 document.getElementById("SigninBar").style.display = "none";
                 document.getElementById("SignupBar").style.display = "none";
@@ -277,7 +278,8 @@
                 document.getElementById("SignupBar").style.display = "block";
                 document.getElementById("MyaccountBar").style.display = "none";
                 document.getElementById("Logout").style.display = "none";
-                document.getElementById("filter").style.display = 'none';
+                //document.getElementById("filter").style.display = 'none';
+                localStorage.setItem('currMail', '');
                 console.log("inside else");
             }
         });
@@ -443,8 +445,8 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
-            localStorage.setItem('appID', appID);
-            window.document.location = './ads.html';
+          localStorage.setItem('appID', appID);
+            window.document.location = './ads.html?k='+appID;
         });
         divSer.appendChild(divMain);
         var check = false;
@@ -944,7 +946,9 @@ if(ci == city){
             var fin = "";
             var uf = "";
             var p = "";
-            firebase.database().ref('requests').orderByKey().equalTo(localStorage.getItem("reqNum")).once('value', function (snapshot) {
+            var loc = window.location.href;
+  var params = loc.split('k=')[1];
+            firebase.database().ref('requests').orderByKey().equalTo(params).once('value', function (snapshot) {
                             
                             snapshot.forEach(childSnapshot => {
                                 var key = childSnapshot.key;
@@ -993,7 +997,8 @@ if(ci == city){
   .ref("Ads")
   .once("value", function (snapshot) {
     snapshot.forEach((childSnapshot) => {
-      let k = childSnapshot.key;
+      if(childSnapshot.val().Accepted == "Yes"){
+        let k = childSnapshot.key;
       let loc = childSnapshot.val().location;
     let ci = childSnapshot.val().City;
     let bed = childSnapshot.val().bedRooms;
@@ -1355,6 +1360,8 @@ if(c == ci){
       }
     }
   }
+      }
+
     });
   });
 });

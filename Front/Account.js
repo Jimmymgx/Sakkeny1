@@ -92,7 +92,7 @@ function AddAds(title, description, time, location, appID, price,image) {
     divSize.appendChild(divSer);
     divSize.addEventListener('click', function () {
         localStorage.setItem('appID', appID);
-        window.document.location = './ads.html';
+            window.document.location = './ads.html?k='+appID;
     });
 
     document.getElementById('adHeader').appendChild(divSize);

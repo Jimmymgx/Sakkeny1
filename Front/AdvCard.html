@@ -716,6 +716,7 @@ $("#CnotractImg").on("change", function() {
         document.getElementById("MyaccountBar").style.display = "block";
         document.getElementById("Logout").style.display = "block";
         var currentusermail = user.email;
+        localStorage.setItem('currMail', currentusermail);
         var isVerify = user.emailVerified;
         if (isVerify != true) {
           window.location.href = "Verfication.html";
@@ -738,6 +739,7 @@ $("#CnotractImg").on("change", function() {
         document.getElementById("Logout").style.display = "none";
         document.getElementById("filter").style.display = 'none';
         console.log("inside else");
+        localStorage.setItem('currMail', '');
       }
     });
     var myInput5 = document.getElementById("floor");

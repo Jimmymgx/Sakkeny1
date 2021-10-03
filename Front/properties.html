@@ -316,6 +316,7 @@
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             var user = firebase.auth().currentUser;
+            localStorage.setItem('currMail', currentusermail);
             document.getElementById("SigninBar").style.display = "none";
             document.getElementById("SignupBar").style.display = "none";
             document.getElementById("MyaccountBar").style.display = "block";
@@ -332,6 +333,7 @@
             document.getElementById("SignupBar").style.display = "block";
             document.getElementById("MyaccountBar").style.display = "none";
             document.getElementById("Logout").style.display = "none";
+            localStorage.setItem('currMail', '');
             console.log("inside else");
         }
     });
@@ -438,7 +440,7 @@
         divSize.appendChild(divSer);
         divSize.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './ads.html';
+            window.document.location = './ads.html?k='+appID;
         });
 
         document.getElementById('adHeader').appendChild(divSize);

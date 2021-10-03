@@ -1017,6 +1017,7 @@
             document.getElementById("Logout").style.display = "block";
             document.getElementById("add").style.display = 'block';
             var currentusermail = user.email;
+            localStorage.setItem('currMail', currentusermail);
             var isVerify = user.emailVerified;
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
@@ -1039,6 +1040,7 @@
             document.getElementById("Logout").style.display = "none";
             document.querySelector("fav").style.display = "none";
             console.log("inside else");
+            localStorage.setItem('currMail', '');
         }
     });
 </script>
@@ -1054,7 +1056,6 @@
         var adlink = document.createElement('a');
         var adlinkIcon = document.createElement('i');
         var adImg = document.createElement('img');
-        
         var divPrice = document.createElement('div');
         var spanPrice = document.createElement('span');
         var divBody = document.createElement('div');

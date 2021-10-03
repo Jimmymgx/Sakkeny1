@@ -313,6 +313,7 @@
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             var user = firebase.auth().currentUser;
+            localStorage.setItem('currMail', currentusermail);
             document.getElementById("SigninBar").style.display = "none";
             document.getElementById("SignupBar").style.display = "none";
             document.getElementById("MyaccountBar").style.display = "block";
@@ -340,6 +341,7 @@
             document.getElementById("MyaccountBar").style.display = "none";
             document.getElementById("Logout").style.display = "none";
             document.querySelector("fav").style.display = "none";
+            localStorage.setItem('currMail', '');
             console.log("inside else");
         }
     });

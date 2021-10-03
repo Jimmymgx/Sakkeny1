@@ -223,7 +223,7 @@
 
 </head>
 
-<body class="profile-page realestate_version">
+<body class="profile-page realestate_version" id="bo">
 
     <header class="header header_style_01">
         <nav class="megamenu navbar navbar-default"  >
@@ -481,6 +481,7 @@
                         if (user) {
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
+                            localStorage.setItem('currMail', currentusermail);
                             var navname ="";
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
                             details.once('value', function (snapshot) {
@@ -493,6 +494,10 @@
                                     document.getElementById('MyaccountBar').append(navname[0]);
                                 });
                             });
+                        }
+                        else{
+                            localStorage.setItem('currMail', '');
+                            document.getElementById('bo').innerHTML = '<h2 class="title " id="inOrder" >You are not user <br> you can do <a href="signUp.html" style="color: #997c47;">sign up </a>or <a href="login.html" style="color: #997c47;">log in </a> to your existing account </h2>';
                         }
                     });
                     function checkRequests(city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, iselevator, issec, isair, isgreatView, isfire, islarge, isdog, isplay, isswim, isbbq, isroof, ismain, isbeach, islake, isnile, iswifi, isgarden, issports, isschool, ishospital, iscafe, isswimable, isgym, issauna, fr, t, frarea, tarea){
@@ -838,9 +843,10 @@ function addCard(key, text1, text, mail){
     main.appendChild(des);
         document.getElementById('adHeader').appendChild(main);
     main.addEventListener('click', function(){
-        alert(key);   
+        //alert(key);   
         localStorage.setItem('reqNum', key);
-           window.location.href = 'wishResult.html';
+           //window.location.href = 'wishResult.html';
+           window.document.location = './wishResult.html?k='+key;
        });
 }
                     function fetchAllData() {

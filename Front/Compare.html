@@ -672,9 +672,10 @@
             document.getElementById("add").style.display = 'block';
             var currentusermail = user.email;
             var isVerify = user.emailVerified;
+            localStorage.setItem('currMail', currentusermail);
             console.log(localStorage.getItem('currMail'));
-            localStorage.setItem('FirstCompare', "");
-            localStorage.setItem('SecondCompare', "");
+            localStorage.setItem('FirstCompare', '');
+            localStorage.setItem('SecondCompare', '');
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
             }
@@ -687,8 +688,9 @@
             document.getElementById("Logout").style.display = "none";
             document.querySelector("fav").style.display = "none";
             console.log("inside else");
-            localStorage.setItem('FirstCompare', "");
-            localStorage.setItem('SecondCompare', "");
+            localStorage.setItem('currMail', '');
+            localStorage.setItem('FirstCompare', '');
+            localStorage.setItem('SecondCompare', '');
         }
     });
 </script>

@@ -223,7 +223,7 @@
 
 </head>
 
-<body class="profile-page realestate_version">
+<body class="profile-page realestate_version" id = 'bo'>
 
     <header class="header header_style_01">
         <nav class="megamenu navbar navbar-default"  >
@@ -474,6 +474,7 @@
                         if (user) {
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
+                            localStorage.setItem('currMail', currentusermail);
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
                             details.once('value', function (snapshot) {
                                 snapshot.forEach(childSnapshot => {
@@ -485,6 +486,10 @@
                                     document.getElementById('MyaccountBar').append(navname[0]);
                                 });
                             });
+                        }
+                        else{
+                            localStorage.setItem('currMail', '');
+                            document.getElementById('bo').innerHTML = '<h2 class="title " id="inOrder" >You are not user <br> you can do <a href="signUp.html" style="color: #997c47;">sign up </a>or <a href="login.html" style="color: #997c47;">log in </a> to your existing account </h2>';
                         }
                     });
                     
@@ -655,7 +660,7 @@
         divMain.appendChild(divWrap);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './EditAdv.html';
+            window.document.location = './ads.html?k='+appID;
         });
         divSer.appendChild(divMain);
         var check = false;

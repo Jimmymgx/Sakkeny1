@@ -358,36 +358,41 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
   <script>
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        var user = firebase.auth().currentUser;
-        document.getElementById("SigninBar").style.display = "none";
-        document.getElementById("SignupBar").style.display = "none";
-        document.getElementById("MyaccountBar").style.display = "block";
-        document.getElementById("Logout").style.display = "block";
-        var currentusermail = user.email;
-        var isVerify = user.emailVerified;
-        if (isVerify != true) {
-          window.location.href = "Verfication.html";
-        }
-        // var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
-        //                     details.once('value', function (snapshot) {
-        //                         snapshot.forEach(childSnapshot => {
+                var user = firebase.auth().currentUser;
+                var currentusermail = user.email;
+                if(currentusermail != "sakkenyorg@gmail.com"){
+                    document.getElementById("bo").innerHTML = "Error : You Don't Have access To this page"
+                }
+                document.getElementById("SigninBar").style.display = "none";
+                document.getElementById("SignupBar").style.display = "none";
+                document.getElementById("MyaccountBar").style.display = "block";
+                document.getElementById("Logout").style.display = "block";
+                document.getElementById("add").style.display = 'block';
+                
+                localStorage.setItem('currMail', currentusermail);
+                var isVerify = user.emailVerified;
+                if (isVerify != true) {
+                    window.location.href = "Verfication.html";
+                }
+                // var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
+                //             details.once('value', function (snapshot) {
+                //                 snapshot.forEach(childSnapshot => {
                                     
-        //                             var navname = childSnapshot.val().name.split(' ');
-        //                             console.log(navname);
-        //                             document.getElementById('MyaccountBar').append(navname[0]);
-        //                         });
-        //                     });
-      }
+                //                     var navname = childSnapshot.val().name.split(' ');
+                //                     console.log(navname);
+                //                     document.getElementById('MyaccountBar').append(navname[0]);
+                //                 });
+                //             });
+            }
 
-      else {
-        document.getElementById("SigninBar").style.display = "block";
-        document.getElementById("SignupBar").style.display = "block";
-        document.getElementById("MyaccountBar").style.display = "none";
-        document.getElementById("Logout").style.display = "none";
-        document.getElementById("fav").style.display = "none";
-        document.getElementById("contact").style.display = "none";
-        console.log("inside else");
-      }
+            else {
+                document.getElementById("SigninBar").style.display = "block";
+                document.getElementById("SignupBar").style.display = "block";
+                document.getElementById("MyaccountBar").style.display = "none";
+                document.getElementById("Logout").style.display = "none";
+                document.getElementById("filter").style.display = 'none';
+                console.log("inside else");
+            }
     });
   </script>
 
@@ -397,7 +402,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
     function addView() {
       var numberOfViews = 0;
       var vv = 0;
-      ref1.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
+      var loc = window.location.href;
+  var params = loc.split('k=')[1];
+      ref1.orderByKey().equalTo(params).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
           numberOfViews = childSnapshot.val().NumOfViews;
           var vv = parseInt(numberOfViews);
@@ -410,7 +417,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
     }
     function addImg(){
       var i =1;
-      firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("appID")).once('value', function (snapshot){
+      var loc = window.location.href;
+  var params = loc.split('k=')[1];
+      firebase.database().ref('images').orderByChild("main").equalTo(params).once('value', function (snapshot){
         snapshot.forEach(childSnapshot => {
           var image = childSnapshot.val().link;
           if(childSnapshot.val().Des != "Contract"){
@@ -457,7 +466,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
     function fetchAllData() {
       addView();
       addImg();
-      ref1.orderByKey().equalTo(localStorage.getItem('appID')).once('value', function (snapshot) {
+      var loc = window.location.href;
+  var params = loc.split('k=')[1];
+      ref1.orderByKey().equalTo(params).once('value', function (snapshot) {
         snapshot.forEach(childSnapshot => {
           let title = childSnapshot.val().Title;
           let description = childSnapshot.val().Description;

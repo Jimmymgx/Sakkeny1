@@ -606,6 +606,7 @@
         document.getElementById("Logout").style.display = "block";
         document.getElementById("add").style.display = "block";
         var currentusermail = user.email;
+        localStorage.setItem('currMail', currentusermail);
         var isVerify = user.emailVerified;
         if (isVerify != true) {
           window.location.href = "Verfication.html";
@@ -629,6 +630,7 @@
         document.getElementById("filter").style.display = 'none';
         document.getElementById("add").style.display = 'none';
         console.log("inside else");
+        localStorage.setItem('currMail', '');
       }
     });
     

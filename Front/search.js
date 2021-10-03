@@ -400,8 +400,8 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divWrap.appendChild(divFoot);
   divMain.appendChild(divWrap);
   divMain.addEventListener('click', function () {
-      localStorage.setItem('appID', appID);
-      window.document.location = './ads.html';
+    localStorage.setItem('appID', appID);
+    window.document.location = './ads.html?k='+appID;
   });
   divSer.appendChild(divMain);
   var check = false;
