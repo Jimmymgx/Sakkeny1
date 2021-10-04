@@ -39,7 +39,7 @@ function sendM2(email, t){
       alert("mail sent successfully")
       });
 }
-function checkRequests(city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area){
+function checkRequests(country, city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area){
   //alert('Under process');
   //Current
   firebase
@@ -50,6 +50,7 @@ function checkRequests(city, location, unittype, unit, bedrooms, bathrooms, fini
       let k = childSnapshot.key;
       let loc = childSnapshot.val().location;
     let ci = childSnapshot.val().City;
+    let cont = childSnapshot.val().Country;
     let bed = childSnapshot.val().bedRooms;
     let bath = childSnapshot.val().bathRooms;
     let finish = childSnapshot.val().Finishing;
@@ -212,6 +213,9 @@ if(loc == ""){
 if(ci == ""){
   ci = city;
 }
+if(cont == ""){
+  cont = country;
+}
 if(bed == ""){
   bed = bedrooms;
 }
@@ -249,87 +253,89 @@ if(isflat == ""){
 if(pay == ""){
   pay = payment;
 }
-if(ci == city){
-  console.log(ci + city);
-  if(ty == unitfor){
-    console.log(ty + unitfor);
-    price = parseInt(price);
-    if(price >= fr && price <= t){
-      console.log(price);
-      if(u == unittype){
-        console.log(u + unittype);
-        if(ai == air){
-          console.log(ai + air);
-          if(ele == elevator){
-            console.log(ele + elevator);
-            if(bb == bbq){
-              console.log(bb + bbq);
-              if(dogg == dog){
-                console.log(dogg + dog);
-                if(fir == fire){
-                  console.log(fir + fire);
-                  if(greatVie == greatView){
-                    console.log(greatVie + greatView);
-                    if(larg == large){
-                      console.log(larg + large);
-                      if(pla == play){
-                        console.log(pla + play);
-                        if(roo == roof){
-                          console.log(roo + roof);
-                          if(se == sec){
-                            console.log(se + sec);
-                            if(swi == swim){
-                              console.log(swi + swim);
-                              if(mai == main){
-                                console.log(mai + main);
-                                if(beac == beach){
-                                  console.log(beac + beach);
-                                  if(lak == lake){
-                                    console.log(lak + lake);
-                                    if(nil == nile){
-                                      console.log(nil + nile);
-                                      if(wif == wifi){
-                                        console.log(wif + wifi);
-                                        if(garde == garden){
-                                          console.log(garde + garden);
-                                          if(sport == sports){
-                                            console.log(sport + sports);
-                                            if(schoo == school){
-                                              console.log(schoo + school);
-                                              if(hospita == hospital){
-                                                console.log(hospita + hospital);
-                                                if(caf == cafe){
-                                                  console.log(caf + cafe);
-                                                  if(swimmabl == swimable){
-                                                    console.log(swimmabl + swimable);
-                                                    if(gy == gym){
-                                                      console.log(gy + gym);
-                                                      if(saun == sauna){
-                                                        console.log(saun + sauna);
-                                                        if(loc == location){
-                                                          console.log(loc + location);
-                                                          if(isflat == unit){
-                                                            console.log(isflat + unit);
-                                                            if(pay == payment || payment == "Both"){
-                                                              area = parseInt(area);
-                              if(area >= frarea && area <= tarea){
-                                if(finish == finishing){
-                                  if(bed == bedrooms){
-                                    if(bath == bathrooms){
-                                      sendM2(usermail, k);                                        
+if(cont == country){
+  if(ci == city){
+    console.log(ci + city);
+    if(ty == unitfor){
+      console.log(ty + unitfor);
+      price = parseInt(price);
+      if(price >= fr && price <= t){
+        console.log(price);
+        if(u == unittype){
+          console.log(u + unittype);
+          if(ai == air){
+            console.log(ai + air);
+            if(ele == elevator){
+              console.log(ele + elevator);
+              if(bb == bbq){
+                console.log(bb + bbq);
+                if(dogg == dog){
+                  console.log(dogg + dog);
+                  if(fir == fire){
+                    console.log(fir + fire);
+                    if(greatVie == greatView){
+                      console.log(greatVie + greatView);
+                      if(larg == large){
+                        console.log(larg + large);
+                        if(pla == play){
+                          console.log(pla + play);
+                          if(roo == roof){
+                            console.log(roo + roof);
+                            if(se == sec){
+                              console.log(se + sec);
+                              if(swi == swim){
+                                console.log(swi + swim);
+                                if(mai == main){
+                                  console.log(mai + main);
+                                  if(beac == beach){
+                                    console.log(beac + beach);
+                                    if(lak == lake){
+                                      console.log(lak + lake);
+                                      if(nil == nile){
+                                        console.log(nil + nile);
+                                        if(wif == wifi){
+                                          console.log(wif + wifi);
+                                          if(garde == garden){
+                                            console.log(garde + garden);
+                                            if(sport == sports){
+                                              console.log(sport + sports);
+                                              if(schoo == school){
+                                                console.log(schoo + school);
+                                                if(hospita == hospital){
+                                                  console.log(hospita + hospital);
+                                                  if(caf == cafe){
+                                                    console.log(caf + cafe);
+                                                    if(swimmabl == swimable){
+                                                      console.log(swimmabl + swimable);
+                                                      if(gy == gym){
+                                                        console.log(gy + gym);
+                                                        if(saun == sauna){
+                                                          console.log(saun + sauna);
+                                                          if(loc == location){
+                                                            console.log(loc + location);
+                                                            if(isflat == unit){
+                                                              console.log(isflat + unit);
+                                                              if(pay == payment || payment == "Both"){
+                                                                area = parseInt(area);
+                                if(area >= frarea && area <= tarea){
+                                  if(finish == finishing){
+                                    if(bed == bedrooms){
+                                      if(bath == bathrooms){
+                                        sendM2(usermail, k);                                        
+                                      }
                                     }
+                                    
                                   }
                                   
                                 }
-                                
-                              }
+                                                                
+                                                              }
                                                               
                                                             }
                                                             
                                                           }
                                                           
                                                         }
-                                                        
                                                       }
                                                     }
                                                   }
@@ -349,18 +355,19 @@ if(ci == city){
                       }
                     }
                   }
+                    
                 }
-                  
               }
             }
           }
+          
         }
         
-      }
-      
+        }
       }
     }
-  }
+}
+
     });
   });
 }
@@ -371,6 +378,7 @@ function Accept(){
           var title = childSnapshot.val().Title;
           sendMail(localStorage.getItem('email'), title);
           let location = childSnapshot.val().location;
+          let country = childSnapshot.val().Country;
           let city = childSnapshot.val().City;
           let bedrooms = childSnapshot.val().bedRooms;
           let bathrooms = childSnapshot.val().bathRooms;
@@ -405,7 +413,7 @@ function Accept(){
           let unittype = childSnapshot.val().UnitType;
           let unit = childSnapshot.val().Unit;
           let payment = childSnapshot.val().payment;
-          checkRequests(city, location,unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area);
+          checkRequests(country, city, location,unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area);
         });
       });
       //alert("The ad has been successfully Accepted");
