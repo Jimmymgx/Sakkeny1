@@ -699,22 +699,24 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 
 .first-section h2 {
     color: #ffffff;
-    font-size: 52px;
+    font-size: 24px;
+    text-align: center;
     font-weight: 300;
     text-transform: capitalize;
     display: block;
     margin: 0;
-    padding: 30px 0 30px;
+    padding: 20px;
     position: relative;
 }
 
 .first-section .lead {
-    font-size: 21px;
+    font-size: 16px;
     font-weight: 300;
-    padding: 0 0 40px;
+    padding-bottom: 10px;
     margin: 0;
     line-height: inherit;
     color: #ffffff;
+    text-align: center;
 }
 
 .macbookright {

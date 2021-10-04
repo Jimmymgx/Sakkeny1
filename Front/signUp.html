@@ -177,42 +177,50 @@
 </header>
   <div class="container" style="margin-top: 100px;">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-10" style="padding-left:0px ;">
         <section>
           <h1 class="entry-title"><span>Sign Up</span> </h1>
           <hr>
           <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label col-sm-3">Email ID <span class="text-danger">*</span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9" style="float: left;">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                   <input type="email"  class="form-control" name="emailid" id="emailid" placeholder="Enter your Email ID"
                     value="" required>
+                    
                 </div>
+                
                 <small> Your Email Id is being used for ensuring the security of your account, authorization and access
                   recovery. </small>
-                  <h5 id="result"></h5>
+                  
               </div>
+              <p id="result" ></p>
             </div>
 
             <div class="form-group">
+              
               <label class="control-label col-sm-3">Set Password <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <div class="col-md-5 col-sm-8" style="float: left;">
+                
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                   <input type="password" class="form-control" name="psw" id="password"
                     placeholder="Choose password (5-15 chars)" value=""pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                </div>
-                <div id="message">
-                  <h5>Password must contain the following:</h5>
-                  <small><h6 id="letter" class="invalid">A <b>lowercase</b> letter</h6>
-                  <h6 id="capital" class="invalid">A <b>capital (uppercase)</b> letter</h6>
-                  <h6 id="number" class="invalid">A <b>number</b></h6>
-                  <h6 id="length" class="invalid">Minimum <b>8 characters</b></h6></small>
-                </div>
+                
+                  </div>
+                  <div id="message"  >
+                    <h5>Password must contain the following:</h5>
+                    <small><h6 id="letter" class="invalid">A <b>lowercase</b> letter</h6>
+                    <h6 id="capital" class="invalid">A <b>capital (uppercase)</b> letter</h6>
+                    <h6 id="number" class="invalid">A <b>number</b></h6>
+                    <h6 id="length" class="invalid">Minimum <b>8 characters</b></h6></small>
+                  </div>
               </div>
+              
             </div>
+           
             <div class="form-group">
               <label class="control-label col-sm-3">Confirm Password <span class="text-danger">*</span></label>
               <div class="col-md-5 col-sm-8">
@@ -221,9 +229,10 @@
                   <input type="password" class="form-control" name="cpassword" id="cpassword"
                     placeholder="Confirm your password"  value="" onkeyup='check();' required>
                 </div>
-                <h5 id="message6"> </h5>
+                
               
               </div>
+              <p id="message6"> </p>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Profile Photo <br>
@@ -413,7 +422,7 @@
               <div class="col-md-5 col-sm-8">
                 <div class="input-group">
                 <span class="input-group-addon" id="spanforcon"><i class="fas fa-check"></i></span>
-              <input type="text" class="form-control" id="confirm" >
+              <input type="text" class="form-control" id="confirm" placeholder="Enter the Confirmation code">
                 
             </div>
         </div>

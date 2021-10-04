@@ -182,23 +182,23 @@
         <section>
           <h1 class="entry-title"><span>Make an Advertisment</span> </h1>
           <hr>
-          <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
+          <form class="form-horizontal" method="GET" name="signup" id="signup" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fas fa-comment"></i></span>
-                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="" required>
+                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="" style="border-radius:0 25px 25px 0;" required>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">City <span class="text-danger"></span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-city"></i></span>
-                    <select name="dd" class="form-control" id="cities">
+                    <select name="dd" class="form-control" id="cities"style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="Cairo">Cairo</option>
                       <option value="Alexandria">Alexandria </option>
@@ -246,11 +246,11 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Location <span class="text-danger"></span></label>
-              <div class="col-md-8 col-sm-9" >
+              <div class="col-md-6 col-sm-9" >
                 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
-                    <select name="dd" class="form-control" id="locations">
+                    <select name="dd" class="form-control" id="locations"style="border-radius:0 25px 25px 0;">
                       <option value="" selected hidden></option>
                   </select>
                   </div>
@@ -259,10 +259,10 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Floor <span class="text-danger">*</span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-4 col-sm-9">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fas fa-gopuram"></i></span>
-                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="">
+                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="" style="border-radius:0 25px 25px 0;">
                 </div>
                 <div id="message5">
                   <small>
@@ -274,11 +274,11 @@
            
             <div class="form-group">
               <label class="control-label col-sm-3">Unit Category <span class="text-danger"></span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-building"></i></span>
-                    <select name="dd" class="form-control" id="unitType">
+                    <select name="dd" class="form-control" id="unitType" style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="Residential">Residential </option>
                       <option value="Commercial">Commercial </option>
@@ -293,11 +293,11 @@
 
             <div class="form-group">
               <label class="control-label col-sm-3">Unit Type <span class="text-danger"></label><span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-home"></i></i></span>
-                    <select name="dd" class="form-control" id="unitT" >
+                    <select name="dd" class="form-control" id="unitT" style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="Appartment">Appartment</option>
                       <option value="Dublix">Dublix </option>
@@ -330,11 +330,11 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Bedrooms <span class="text-danger"></span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-4 col-sm-9">
         
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-bed"></i></span>
-                    <select name="dd" class="form-control" id="bed">
+                    <select name="dd" class="form-control" id="bed" style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="1">1 </option>
                       <option value="2">2 </option>
@@ -351,11 +351,11 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Bathrooms <span class="text-danger"></span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-4 col-sm-9">
             
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-bath"></i></span>
-                    <select name="dd" class="form-control" id="bath">
+                    <select name="dd" class="form-control" id="bath"style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="1">1 </option>
                       <option value="2">2 </option>
@@ -369,11 +369,11 @@
               </div>
              <div class="form-group">
               <label class="control-label col-sm-3">Finishing <span class="text-danger"></span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
               
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-list-ul"></i></span>
-                    <select name="dd" class="form-control" id="finish">
+                    <select name="dd" class="form-control" id="finish"style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="Unfinished">Unfinished </option>
                       <option value="Semi finished">Semi finished </option>
@@ -499,19 +499,19 @@
               <label class="control-label col-sm-3">Unit Description <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
                 
-                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="" required></textarea>
+                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""  required></textarea>
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fas fa-hand-holding-usd"></i></span>
-                  <input type="text" class="form-control" name="price" id="price" placeholder="" value="">
+                  <input type="text" class="form-control" name="price" id="price" placeholder="" value=""style="border-radius:0 25px 25px 0;">
                 </div>
                   <label id="Egp">EGP</label>
-                  <div class="input-group col-md-5 col-sm-9" style="display: none;" id="terms">
+                  <div class="input-group col-md-12 col-sm-9" style="display: none;" id="terms">
                     
                     <label>
                       <input name="term" type="radio" value="Short" id="short">
@@ -533,10 +533,10 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Area per m<sup>2</sup> <span class="text-danger">*</span></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fas fa-chart-area"></i></span>
-                  <input type="text" class="form-control" name="area" id="area" placeholder="" value="">
+                  <input type="text" class="form-control" name="area" id="area" placeholder="" value=""style="border-radius:0 25px 25px 0;">
                 </div>
                 <div id="message7">
                   <small>
@@ -548,10 +548,10 @@
             <div class="form-group">
               <label class="control-label col-sm-3">Appartment Images <br>
                 <small>(Mandatory)</small></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
-                      <input class="form-control upload" required name="images" id="images" type="file" multiple="multiple">
+                      <input class="form-control upload" required name="images" id="images" type="file" multiple="multiple" style="border-radius:0 25px 25px 0;">
 
                 </div>
               </div>
@@ -559,11 +559,11 @@
             <div class="form-group">
               <label class="control-label col-sm-3">Appartment contract OR Electricity bill <br>
                 <small>(Mandatory)</small></label>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-6 col-sm-9">
                 <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
                   <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
-                    aria-describedby="file_upload" multiple="multiple" required >
+                    aria-describedby="file_upload" multiple="multiple"style="border-radius:0 25px 25px 0;" required >
                 </div>
               </div>
             </div>
