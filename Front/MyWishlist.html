@@ -904,6 +904,7 @@ function addCard(key, text1, text, mail){
                                 let priceT = childSnapshot.val().priceTo;
                                 let areaF = childSnapshot.val().areaFrom;
                                 let areaT = childSnapshot.val().areaTo;
+                                let country = childSnapshot.val().Country;
                                 checkRequests(city, loc, cat, unit, bed, bath, finish, type, pay, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, priceF, priceT, areaF, areaT);
                                 var text ="";
                                 var text1 ="";
@@ -920,6 +921,7 @@ function addCard(key, text1, text, mail){
                                 text += " To " + areaT;
                                 
                                 }
+                                text +=", Country: " + country;
                                 text +=", City: " + city;
                                 text +=", Location: " + loc;
                                 text +=", Unit Cateogry: " + cat;

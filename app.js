@@ -3,8 +3,7 @@ const path = require('path');
 const server = express();
 const members = require('./Members');
 //const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-localStorage.setItem('admin', admin);
+
 
 server.get('/api/members', (req, res) => res.json(members));
 

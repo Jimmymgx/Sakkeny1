@@ -946,6 +946,7 @@ if(ci == city){
             var fin = "";
             var uf = "";
             var p = "";
+            var cntry = "";
             var loc = window.location.href;
   var params = loc.split('k=')[1];
             firebase.database().ref('requests').orderByKey().equalTo(params).once('value', function (snapshot) {
@@ -990,6 +991,7 @@ if(ci == city){
                                 var t = childSnapshot.val().priceTo;
                                 var frarea = childSnapshot.val().areaFrom;
                                 var tarea = childSnapshot.val().areaTo;
+                                var country = childSnapshot.val().Country;
                                 //checkRequests(city, loc, cat, unit, bed, bath, finish, type, pay, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, priceF, priceT, areaF, areaT)
                                 //Search(city, loc, unit, type, areaF, areaT, priceF, priceT, cat, finish, bed, bath, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, pay);
                                 firebase
@@ -1035,6 +1037,7 @@ if(ci == city){
     let u = childSnapshot.val().UnitType;
     let isflat = childSnapshot.val().Unit;
     let pay = childSnapshot.val().payment;
+    var cont = childSnapshot.val().Country;
     var ele = "";
 var se= "";
 var ai = "";
@@ -1163,6 +1166,12 @@ if(city == ""){
   c = ci;
 }
 else{c = city;}
+if(country == ""){
+  cntry == cont;
+}
+else{
+  cntry = country;
+}
 if(bedrooms == ""){
   br = bed;
 }
@@ -1211,7 +1220,8 @@ if(payment == ""){
   p = pay;
 }
 else{p = payment;}
-if(c == ci){
+if(cntry == cont){
+  if(c == ci){
   console.log(c + ci);
   if(uf == unitfor){
     console.log(ty + unitfor);
@@ -1360,6 +1370,8 @@ if(c == ci){
       }
     }
   }
+}
+
       }
 
     });
