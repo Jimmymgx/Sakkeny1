@@ -342,34 +342,34 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
       let r = document.createElement('small');
       r.setAttribute('class','testi-meta text-muted');
       if(rating<=0){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
       }else if(rating>0 && rating<1){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
       }else if(rating == 1){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
       }
       else if(rating > 1 && rating<2){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
       }else if(rating ==2){
-          r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+          r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
       }
       else if (rating > 2 && rating <3){
-          r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+          r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
       }else if(rating ==3){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
       }
       else if (rating > 3 && rating <4){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
       }else if(rating ==4){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
       }
       else if (rating > 4 && rating <5){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
       }else if (rating == 5){
-          r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
       }else{
           
-          r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+          r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
       
       }
       //r.innerHTML = " Rate : " +rating + " / 5";
@@ -482,7 +482,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
     });
   }); 
   
-  
+  divSer.setAttribute('style','cursor: pointer;');
   
   document.getElementById('adHeader').appendChild(divSize);
   countryCounter();

@@ -90,6 +90,7 @@ function AddAds(title, description, time, location, appID, price,image) {
     divSer.appendChild(divMain);
     divSize.setAttribute('style','margin-bottom: 30px;');
     divSize.appendChild(divSer);
+    divSer.setAttribute('style','cursor: pointer;');
     divSize.addEventListener('click', function () {
         localStorage.setItem('appID', appID);
             window.document.location = './ads.html?k='+appID;

@@ -79,6 +79,8 @@
 <!-- Modernizer for Portfolio -->
 <script src="js/modernizer.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
+crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){
         $('#amenities').click(function() {
@@ -239,7 +241,7 @@
                     <option value="" disabled selected hidden>Unit Case</option>
                     
                     <option value="">All</option>
-                    <option value="Sale">Sale</option>
+                    <option value="Sale">For Sale</option>
                     <option value="Rent">Rent </option>
                     <option value="Old rent">Old rent </option>
                 </select>
@@ -286,9 +288,11 @@
                         <option value="">All</option>
                         <option value="Unfinished">Unfinished </option>
                         <option value="Semi finished">Semi finished </option>
+                        <option value="3/4 finished">3/4 finished </option>
                         <option value="Fully Finished">Fully Finished </option>
                         <option value="Furnished">Furnished </option>
-                        
+                        <option value="Furnished with E-devices">Furnished with Electrical Devices </option>
+                        <option value="Core & Shell">Core & Shell </option>
                       </select>
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -333,7 +337,7 @@
             </div>
             </div>
             <div class="form-group col-md-12">
-                <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">To</span></label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">Up To</span></label>
                 
                   <div class="input-group col-md-9 col-sm-9 col-xs-10">
                     <input type="text" class="form-control" name="to" id="to"
@@ -354,7 +358,7 @@
         </div>
         </div>
         <div class="form-group col-md-12">
-            <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">To</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">Up To</span></label>
             
               <div class="input-group col-md-9 col-sm-9 col-xs-10">
                 <input type="text" class="form-control" name="to" id="toArea"
@@ -638,7 +642,7 @@
                         </div>
 
                         <ul class="footer-links">
-                            <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+                            
                             <li><a href="mailto:support@sakkeny.com">Support@sakkeny.com</a></li>
                             <li><a href="index.html">www.Sakkeny.com</a></li>
                         </ul>
@@ -670,7 +674,7 @@
         <div class="container" >
             <div class="footer-distributed" >
                 <div class="footer-links" style="text-align: center;">
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate</a>
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
                         Design By : <a>Sakkeny Team</a></p>
                 </div>
 
@@ -707,8 +711,7 @@
 <script src="deleteFav.js"></script>
 <script src="Done.js"></script>
 <script src='search.js'></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
-     crossorigin="anonymous"></script>
+
 <script>
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {

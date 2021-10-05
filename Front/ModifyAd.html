@@ -33,6 +33,8 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
 <script src="js/modernizer.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
+crossorigin="anonymous"></script>
 <style>
     .h6,
     h6 {
@@ -412,7 +414,7 @@
                                     </div>
             
                                     <ul class="footer-links">
-                                        <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+                                        
                                         <li><a href="mailto:support@sakkeny.com">Support@sakkeny.com</a></li>
                                         <li><a href="index.html">www.Sakkeny.com</a></li>
                                     </ul>
@@ -473,8 +475,7 @@
                 <script src="LogIn.js"></script>
                 <script src="SignOut.js"></script>
                 <script src="Done.js"></script>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
-     crossorigin="anonymous"></script>
+                
                 <script>
                     var kk = "";
                     firebase.auth().onAuthStateChanged(function (user) {
@@ -595,34 +596,34 @@
             let r = document.createElement('small');
             r.setAttribute('class','testi-meta text-muted');
             if(rating<=0){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating>0 && rating<1){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }else if(rating == 1){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if(rating > 1 && rating<2){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating ==2){
-                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if (rating > 2 && rating <3){
-                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating ==3){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if (rating > 3 && rating <4){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
             }else if(rating ==4){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
             }
             else if (rating > 4 && rating <5){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
             }else if (rating == 5){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
             }else{
                 
-                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             
             }
             //r.innerHTML = " Rate : " +rating + " / 5";
@@ -735,7 +736,7 @@
           });
         }); 
         
-        
+        divSer.setAttribute('style','cursor: pointer;');
         
         document.getElementById('adHeader').appendChild(divSize);
         

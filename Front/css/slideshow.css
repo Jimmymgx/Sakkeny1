@@ -20,6 +20,7 @@ body, html {
   background-size: cover;
   background-position: 100% 100%;
   background-repeat: none;
+  filter: brightness(60%);
   opacity: 0;
   z-index: 0;
   -webkit-backface-visibility: hidden;
@@ -58,6 +59,7 @@ body, html {
 
 .slideshow li:nth-child(1) span {
   background-image: url(../uploads/home_01.jpg);
+  
 }
 
 .slideshow li:nth-child(2) span {
