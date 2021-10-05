@@ -180,7 +180,7 @@
     <div class="row" id = "ddd">
       <div class="col-md-8">
         <section>
-          <h1 class="entry-title"><span>Make an Advertisment</span> </h1>
+          <h1 class="entry-title"><span >Make an Ad</span> </h1>
           <hr>
           <form class="form-horizontal" method="GET" name="signup" id="signup" enctype="multipart/form-data">
             <div class="form-group">
@@ -193,12 +193,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Country <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">Country <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
                 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-city"></i></span>
-                    <select name="dd" class="form-control" id="countries">
+                    <select name="dd" class="form-control" id="countries" style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="Egypt">Egypt</option>
                       <option value="Emirates">Emirates</option>
@@ -211,12 +211,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">City <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">City <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
                 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-city"></i></span>
-                    <select name="dd" class="form-control" id="cities">
+                    <select name="dd" class="form-control" id="cities"style="border-radius:0 25px 25px 0;">
                       <option value="" selected hidden></option>
                     </select>
                   </div>
@@ -225,7 +225,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Location <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">Location <span class="text-danger">*</span></label>
               <div class="col-md-6 col-sm-9" >
                 
                   <div class="input-group">
@@ -253,7 +253,7 @@
             </div>
            
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Category <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">Unit Category <span class="text-danger">*</span></label>
               <div class="col-md-6 col-sm-9">
                 
                   <div class="input-group">
@@ -272,7 +272,7 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label col-sm-3">Unit Type <span class="text-danger"></label><span></label>
+              <label class="control-label col-sm-3">Unit Type <span class="text-danger">*<span></label>
               <div class="col-md-6 col-sm-9">
                 
                   <div class="input-group">
@@ -309,7 +309,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Bedrooms <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">Bedrooms <span class="text-danger">*</span></label>
               <div class="col-md-4 col-sm-9">
         
                   <div class="input-group">
@@ -324,13 +324,16 @@
                       <option value="6">6 </option>
                       <option value="7">7 </option>
                       <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
                     </select>
                   </div>
              
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Bathrooms <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">Bathrooms <span class="text-danger">*</span></label>
               <div class="col-md-4 col-sm-9">
             
                   <div class="input-group">
@@ -348,7 +351,7 @@
                 </div>
               </div>
              <div class="form-group">
-              <label class="control-label col-sm-3">Finishing <span class="text-danger"></span></label>
+              <label class="control-label col-sm-3">Finishing <span class="text-danger">*</span></label>
               <div class="col-md-6 col-sm-9">
               
                   <div class="input-group">
@@ -361,7 +364,7 @@
                       <option value="Fully Finished">Fully Finished </option>
                       <option value="Furnished">Furnished </option>
                       <option value="Furnished with E-devices">Furnished with Electrical Devices </option>
-
+                      <option value="Core & Shell">Core & Shell </option>
                       
                     </select>
                   </div>
@@ -526,8 +529,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Appartment Images <br>
-                <small>(Mandatory)</small></label>
+              <label class="control-label col-sm-3">Appartment Images <span class="text-danger">*</span></label>
               <div class="col-md-6 col-sm-9">
                 <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
@@ -537,20 +539,20 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Appartment contract OR Electricity bill <br>
-                <small>(Mandatory)</small></label>
+              <label class="control-label col-sm-3">Appartment contract <span class="text-danger">*</span> OR Electricity bill </label>
+              
               <div class="col-md-6 col-sm-9">
                 <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
                   <input type="file" name="file_nm" id="CnotractImg" class="form-control upload" placeholder=""
-                    aria-describedby="file_upload" multiple="multiple"style="border-radius:0 25px 25px 0;" required >
+                    aria-describedby="file_upload" multiple="multiple" style="border-radius:0 25px 25px 0;" required >
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-10">
-                <input  name="Share" value="Upload Ad." class="btn btn-primary" id="add2" >
+                <input  name="Share" value="Upload Ad." class="btn btn-primary" id="add2" style="border-radius: 25px;">
                 <h1 id = "up" style="display: none;">Your Ad is uploading now <br/>Please Wait ......</h1>
               </div>
             </div>
@@ -598,7 +600,7 @@
             </div>
 
             <ul class="footer-links">
-              <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+              
               <li><a href="#">www.Sakkeny.com</a></li>
               <li>Company Sakkeny 12 Nasr Road, Ste. 16 October, Egypt</li>
               <li>+02 01093628413</li>

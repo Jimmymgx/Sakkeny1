@@ -628,7 +628,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
     overflow: hidden;
     position: relative;
     background-position: center center;
-    vertical-align: sub;
+
     width: 100%;
     z-index: 2;
 }
@@ -1582,9 +1582,7 @@ hr.invis1 {
 }
 
 
-.single-services{
-	
-}
+
 
 .single-services-img{
 	padding: 15px 0px;
@@ -2161,7 +2159,7 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
+    
 }
 
 .footer {

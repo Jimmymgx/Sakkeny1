@@ -249,7 +249,7 @@
                     <option value="" disabled selected hidden>Unit Case</option>
                     
                     <option value="">All</option>
-                    <option value="Sale">Sale</option>
+                    <option value="Sale">For Sale</option>
                     <option value="Rent">Rent </option>
                     <option value="Old rent">Old rent </option>
                 </select>
@@ -318,7 +318,7 @@
                         <option value="Fully Finished">Fully Finished </option>
                         <option value="Furnished">Furnished </option>
                         <option value="Furnished with E-devices">Furnished with Electrical Devices </option>
-    
+                        <option value="Core & Shell">Core & Shell </option>
                         
                       </select>
                 </div>
@@ -336,12 +336,16 @@
                         <option value="6">6 </option>
                         <option value="7">7 </option>
                         <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
                       </select>
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
     
                     <select name="dd" class="form-control" id="bath"style="border-radius: 25px;">
                         <option value="" disabled selected hidden>Bathrooms</option>
+                        <option value="">All</option>
                         <option value="1">1 </option>
                         <option value="2">2 </option>
                         <option value="3">3 </option>
@@ -364,7 +368,7 @@
             </div>
             </div>
             <div class="form-group col-md-12">
-                <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">To</span></label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">Up To</span></label>
                 
                   <div class="input-group col-md-9 col-sm-9 col-xs-10">
                     <input type="text" class="form-control" name="to" id="to"
@@ -385,7 +389,7 @@
         </div>
         </div>
         <div class="form-group col-md-12">
-            <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">To</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-2" style="font-weight: normal;">Up To</span></label>
             
               <div class="input-group col-md-9 col-sm-9 col-xs-10">
                 <input type="text" class="form-control" name="to" id="toArea"
@@ -554,7 +558,7 @@
             <div class="section-title row text-center">
                 <div class="col-md-8 col-md-offset-2">
                     <small>All Awesome Property Details</small>
-                    <h3>Choose your unit</h3>
+                    <h3>Choose your units</h3>
                     
                 </div><!-- end col -->
             </div><!-- end title -->
@@ -607,7 +611,7 @@
                         </div>
 
                         <ul class="footer-links">
-                            <li><a href="mailto:sakkenyorg@gmail.com">Sakkenyorg@gmail.com</a></li>
+                            
                             <li><a href="mailto:support@sakkeny.com">Support@sakkeny.com</a></li>
                             <li><a href="index.html">www.Sakkeny.com</a></li>
                         </ul>
@@ -639,7 +643,7 @@
         <div class="container" >
             <div class="footer-distributed" >
                 <div class="footer-links" style="text-align: center;">
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate</a>
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
                         Design By : <a>Sakkeny Team</a></p>
                 </div>
 
@@ -810,34 +814,34 @@
             let r = document.createElement('small');
             r.setAttribute('class','testi-meta text-muted');
             if(rating<=0){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating>0 && rating<1){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }else if(rating == 1){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if(rating > 1 && rating<2){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating ==2){
-                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if (rating > 2 && rating <3){
-                r.innerHTML = " Rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML = " Owner rate : " +'<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             }else if(rating ==3){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
             }
             else if (rating > 3 && rating <4){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span><span class="fa fa-star"></span>'  
             }else if(rating ==4){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>'   
             }
             else if (rating > 4 && rating <5){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star-half-o checked"></span>'  
             }else if (rating == 5){
-                r.innerHTML =" Rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>'  
             }else{
                 
-                r.innerHTML =" Rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
+                r.innerHTML =" Owner rate : " + '<span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'  
             
             }
             //r.innerHTML = " Rate : " +rating + " / 5";
@@ -959,7 +963,7 @@
           });
         }); 
         
-        
+        divSer.setAttribute('style','cursor: pointer;');
         
         document.getElementById('adHeader').appendChild(divSize);
         cityCounter();

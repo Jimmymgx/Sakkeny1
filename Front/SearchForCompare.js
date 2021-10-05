@@ -370,7 +370,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
       alert("Somthing went wrong");
   }
   });
-  
+  divSer.setAttribute('style','cursor: pointer;');
   document.getElementById('adHeader').appendChild(divSize);
 }
 function setLoc(){
