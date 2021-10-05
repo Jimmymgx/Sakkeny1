@@ -376,11 +376,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
       name1=name.split(' ');
       spanLeft.append(name1[0]);
       spanLeft.appendChild(t);
-      let img = document.createElement('img');
-      img.setAttribute('src',image);
-      img.setAttribute('class','testi-meta text-muted');
-      img.style.width = '100px';
-      img.style.height ='40px';
+      
       /**let con = document.createElement('div');
       con.setAttribute("class", "rate");
       con.setAttribute("id", "rating") 
@@ -393,7 +389,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   spanRight.appendChild(rightIcon);
   spanRight.append(time);
   spanRight.appendChild(r);
-  spanLeft.appendChild(img);
+  
   divRight.appendChild(spanRight);
   divFoot.appendChild(divLeft);
   divFoot.appendChild(divRight);
@@ -612,6 +608,20 @@ function setCit(){
   if(country == ""){
     cit.innerHTML = "";
     sel.innerHTML = "";
+    var op3 = document.createElement('option');
+    op3.value = "";
+    op3.disabled = 'true';
+    op3.selected ='true';
+    op3.hidden = 'true';
+      op3.innerHTML = "Location";
+      sel.appendChild(op3);
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "City";
+      cit.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -620,6 +630,20 @@ function setCit(){
   if(country == "Egypt"){
     cit.innerHTML = "";
     sel.innerHTML = "";
+    var op3 = document.createElement('option');
+    op3.value = "";
+    op3.disabled = 'true';
+    op3.selected ='true';
+    op3.hidden = 'true';
+      op3.innerHTML = "Location";
+      sel.appendChild(op3);
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "City";
+      cit.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -635,6 +659,20 @@ function setCit(){
   if(country == "Emirates"){
     cit.innerHTML = "";
     sel.innerHTML = "";
+    var op3 = document.createElement('option');
+    op3.value = "";
+    op3.disabled = 'true';
+    op3.selected ='true';
+    op3.hidden = 'true';
+      op3.innerHTML = "Location";
+      sel.appendChild(op3);
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "City";
+      cit.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -650,6 +688,20 @@ function setCit(){
   if(country == "Kuwait"){
     cit.innerHTML = "";
     sel.innerHTML = "";
+    var op3 = document.createElement('option');
+    op3.value = "";
+    op3.disabled = 'true';
+    op3.selected ='true';
+    op3.hidden = 'true';
+      op3.innerHTML = "Location";
+      sel.appendChild(op3);
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "City";
+      cit.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -664,6 +716,21 @@ function setCit(){
   }
   if(country == "Saudi Arabia"){
     cit.innerHTML = "";
+    sel.innerHTML = "";
+    var op3 = document.createElement('option');
+    op3.value = "";
+    op3.disabled = 'true';
+    op3.selected ='true';
+    op3.hidden = 'true';
+      op3.innerHTML = "Location";
+      sel.appendChild(op3);
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "City";
+      cit.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -710,6 +777,13 @@ function setLoc(){
   let sel = document.getElementById("locations");
   if(city == ""){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -717,6 +791,13 @@ function setLoc(){
   }
   if(city == "Cairo"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -730,6 +811,13 @@ function setLoc(){
   }
   if(city == "Alexandria"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -743,6 +831,13 @@ function setLoc(){
   }
   if(city == "Giza"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -756,6 +851,13 @@ function setLoc(){
   }
   if(city == "Beheira"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -769,6 +871,13 @@ function setLoc(){
   }
   if(city == "Kafr El Sheikh"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -782,6 +891,13 @@ function setLoc(){
   }
   if(city == "Port Said"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -795,6 +911,13 @@ function setLoc(){
   }
   if(city == "North Sinai" || city == "South Sinai"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -808,6 +931,13 @@ function setLoc(){
   }
   if(city == "Gharbia"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -821,6 +951,13 @@ function setLoc(){
   }
   if(city == "Monufia"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -834,6 +971,13 @@ function setLoc(){
   }
   if(city == "Qalyubia"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -847,6 +991,13 @@ function setLoc(){
   }
   if(city == "Sharqia"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -860,6 +1011,13 @@ function setLoc(){
   }
   if(city == "Ismailia"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -873,6 +1031,13 @@ function setLoc(){
   }
   if(city == "Faiyum"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -886,6 +1051,13 @@ function setLoc(){
   }
   if(city == "Suez"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -899,6 +1071,13 @@ function setLoc(){
   }
   if(city == "Damietta"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -912,6 +1091,13 @@ function setLoc(){
   }
   if(city == "Beni Suef"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -925,6 +1111,13 @@ function setLoc(){
   }
   if(city == "Minya"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -938,6 +1131,13 @@ function setLoc(){
   }
   if(city == "New Valley"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -951,6 +1151,13 @@ function setLoc(){
   }
   if(city == "Asyut"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -964,6 +1171,13 @@ function setLoc(){
   }
   if(city == "Red Sea"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -977,6 +1191,13 @@ function setLoc(){
   }
   if(city == "Sohag"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -990,6 +1211,13 @@ function setLoc(){
   }
   if(city == "Qena"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1003,6 +1231,13 @@ function setLoc(){
   }
   if(city == "Luxor"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1016,6 +1251,13 @@ function setLoc(){
   }
   if(city == "Aswan"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1029,6 +1271,13 @@ function setLoc(){
   }
   if(city == "Matruh"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1042,6 +1291,13 @@ function setLoc(){
   }
   if(city == "Dakahlia"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1055,6 +1311,13 @@ function setLoc(){
   }
   if(city == "Gouna"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1066,6 +1329,13 @@ function setLoc(){
   }
   if(city == "North Coast"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1077,6 +1347,13 @@ function setLoc(){
   }
   if(city == "Ain Sokhna"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1088,6 +1365,13 @@ function setLoc(){
   }
   if(city == "Marina"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1099,6 +1383,13 @@ function setLoc(){
   }
   if(city == "Ras Sedr"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1110,6 +1401,13 @@ function setLoc(){
   }
   if(city == "Dahab"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1121,6 +1419,13 @@ function setLoc(){
   }
   if(city == "Hurghada"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1132,6 +1437,13 @@ function setLoc(){
   }
   if(city == "Marsa Alam"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1143,6 +1455,13 @@ function setLoc(){
   }
   if(city == "El Alamein"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1154,6 +1473,13 @@ function setLoc(){
   }
   if(city == "Sharm ElSheikh"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1246,6 +1572,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
 
  if(city == "Abu Dhabi"){
   sel.innerHTML = "";
+  var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
   var op = document.createElement('option');
   op.value = "";
     op.innerHTML = "";
@@ -1259,6 +1592,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
   }
   if(city == "Dubai"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1272,6 +1612,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
     }
     if(city == "ALAin"){
       sel.innerHTML = "";
+      var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
       var op = document.createElement('option');
       op.value = "";
         op.innerHTML = "";
@@ -1285,6 +1632,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
       }
       if(city == "Sharjah"){
         sel.innerHTML = "";
+        var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
         var op = document.createElement('option');
         op.value = "";
           op.innerHTML = "";
@@ -1298,6 +1652,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
         }
         if(city == "Ajman"){
           sel.innerHTML = "";
+          var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
           var op = document.createElement('option');
           op.value = "";
             op.innerHTML = "";
@@ -1311,6 +1672,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
           }
           if(city == "Ras AlKheimah"){
             sel.innerHTML = "";
+            var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
             var op = document.createElement('option');
             op.value = "";
               op.innerHTML = "";
@@ -1324,6 +1692,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
             }
             if(city == "Fujairah"){
               sel.innerHTML = "";
+              var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
               var op = document.createElement('option');
               op.value = "";
                 op.innerHTML = "";
@@ -1337,6 +1712,13 @@ var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah",
               }
               if(city == "Umm al-Quwain"){
                 sel.innerHTML = "";
+                var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                 var op = document.createElement('option');
                 op.value = "";
                   op.innerHTML = "";
@@ -1379,6 +1761,13 @@ var JahraLocation =  ["Abdali", "Al Nahda / East Sulaibikhat", "Amghara	", "Bar 
 
 if(city == "Kuwait City"){
   sel.innerHTML = "";
+  var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
   var op = document.createElement('option');
   op.value = "";
     op.innerHTML = "";
@@ -1392,6 +1781,13 @@ if(city == "Kuwait City"){
   }
   if(city == "Hawalli"){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1405,6 +1801,13 @@ if(city == "Kuwait City"){
     }
     if(city == "Mubarak Al-Kabeer"){
       sel.innerHTML = "";
+      var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
       var op = document.createElement('option');
       op.value = "";
         op.innerHTML = "";
@@ -1418,6 +1821,13 @@ if(city == "Kuwait City"){
       }
       if(city == "Ahmadi"){
         sel.innerHTML = "";
+        var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
         var op = document.createElement('option');
         op.value = "";
           op.innerHTML = "";
@@ -1431,6 +1841,13 @@ if(city == "Kuwait City"){
         }
         if(city == "Farwaniya"){
           sel.innerHTML = "";
+          var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
           var op = document.createElement('option');
           op.value = "";
             op.innerHTML = "";
@@ -1444,6 +1861,13 @@ if(city == "Kuwait City"){
           }
           if(city == "Jahra"){
             sel.innerHTML = "";
+            var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
             var op = document.createElement('option');
             op.value = "";
               op.innerHTML = "";
@@ -1494,6 +1918,13 @@ var AljawfLocation = ["Sakakah" ,"Qurayyat" ,"Dumat al-Jandal"];
 
 if(city == "Riyadh"){
   sel.innerHTML = "";
+  var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
   var op = document.createElement('option');
   op.value = "";
     op.innerHTML = "";
@@ -1507,6 +1938,13 @@ if(city == "Riyadh"){
   }
   if(city == "Makkah "){
     sel.innerHTML = "";
+    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
     var op = document.createElement('option');
     op.value = "";
       op.innerHTML = "";
@@ -1520,6 +1958,13 @@ if(city == "Riyadh"){
     }
     if(city == "Al Madinah"){
       sel.innerHTML = "";
+      var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
       var op = document.createElement('option');
       op.value = "";
         op.innerHTML = "";
@@ -1533,6 +1978,13 @@ if(city == "Riyadh"){
       }
       if(city == "Al-Qassim"){
         sel.innerHTML = "";
+        var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
         var op = document.createElement('option');
         op.value = "";
           op.innerHTML = "";
@@ -1546,6 +1998,13 @@ if(city == "Riyadh"){
         }
         if(city == "Eastern Province"){
           sel.innerHTML = "";
+          var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
           var op = document.createElement('option');
           op.value = "";
             op.innerHTML = "";
@@ -1559,6 +2018,13 @@ if(city == "Riyadh"){
           }
           if(city == "'Asir "){
             sel.innerHTML = "";
+            var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
             var op = document.createElement('option');
             op.value = "";
               op.innerHTML = "";
@@ -1572,6 +2038,13 @@ if(city == "Riyadh"){
             }
             if(city == "Tabuk"){
               sel.innerHTML = "";
+              var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
               var op = document.createElement('option');
               op.value = "";
                 op.innerHTML = "";
@@ -1585,6 +2058,13 @@ if(city == "Riyadh"){
               }
               if(city == "Ha'il "){
                 sel.innerHTML = "";
+                var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                 var op = document.createElement('option');
                 op.value = "";
                   op.innerHTML = "";
@@ -1598,6 +2078,13 @@ if(city == "Riyadh"){
                 }
                 if(city == "Northern Borders"){
                   sel.innerHTML = "";
+                  var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                   var op = document.createElement('option');
                   op.value = "";
                     op.innerHTML = "";
@@ -1611,6 +2098,13 @@ if(city == "Riyadh"){
                   }
                   if(city == "Jizan"){
                     sel.innerHTML = "";
+                    var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                     var op = document.createElement('option');
                     op.value = "";
                       op.innerHTML = "";
@@ -1624,6 +2118,13 @@ if(city == "Riyadh"){
                     }
                     if(city == "Najran"){
                       sel.innerHTML = "";
+                      var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                       var op = document.createElement('option');
                       op.value = "";
                         op.innerHTML = "";
@@ -1637,6 +2138,13 @@ if(city == "Riyadh"){
                       }
                       if(city == "Al Bahah"){
                         sel.innerHTML = "";
+                        var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                         var op = document.createElement('option');
                         op.value = "";
                           op.innerHTML = "";
@@ -1650,6 +2158,13 @@ if(city == "Riyadh"){
                         }
                         if(city == "Al Jawf"){
                           sel.innerHTML = "";
+                          var op2 = document.createElement('option');
+    op2.value = "";
+    op2.disabled = 'true';
+    op2.selected ='true';
+    op2.hidden = 'true';
+      op2.innerHTML = "Location";
+      sel.appendChild(op2);
                           var op = document.createElement('option');
                           op.value = "";
                             op.innerHTML = "";

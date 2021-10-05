@@ -635,11 +635,7 @@
             name1=name.split(' ');
             spanLeft.append(name1[0]);
             spanLeft.appendChild(t);
-            let img = document.createElement('img');
-            img.setAttribute('src',image);
-            img.setAttribute('class','testi-meta text-muted');
-            img.style.width = '100px';
-            img.style.height ='40px';
+            
             /**let con = document.createElement('div');
             con.setAttribute("class", "rate");
             con.setAttribute("id", "rating") 
@@ -652,7 +648,7 @@
         spanRight.appendChild(rightIcon);
         spanRight.append(time);
         spanRight.appendChild(r);
-        spanLeft.appendChild(img);
+        
         divRight.appendChild(spanRight);
         divFoot.appendChild(divLeft);
         divFoot.appendChild(divRight);
