@@ -146,6 +146,11 @@ function checkValidity(){
 document.getElementById('Do').addEventListener('click', checkMob);
 function checkMob(){
   var check = false;
+  var response = grecaptcha.getResponse();
+  if(response == 0){
+    alert('Not solved');
+    return;
+  }
   var cont1 = document.getElementById("contactnum").value;
                     cont1 = cont1.trim();
                     len = cont1.length;
@@ -186,8 +191,9 @@ function checkMob(){
                       }
 }
 function Send(){ 
+  
   var check = false;
-const phoneNumber = '+201060216885';
+const phoneNumber = '+2' + document.getElementById('contactnum').value;
 const appVerifier = window.recaptchaVerifier;
   if(check == false){
     firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
@@ -197,7 +203,19 @@ const appVerifier = window.recaptchaVerifier;
     
     const sentCodeId = confirmationResult.verificationId;
     //document.getElementById('Do').addEventListener('click', () => signInWithPhone(sentCodeId));
-    alert('Done');
+    
+    alert('Code is sending now');
+    document.getElementById('Do').style.display = 'none';
+    document.getElementById('loaderforsend').style.display = 'block';
+    document.getElementById('testforloadersend').style.display = 'block';
+    document.getElementById('recaptcha-container').style.display = 'none';
+    setTimeout(() => {
+      document.getElementById('loaderforsend').style.display = 'none';
+      document.getElementById('loaderforsent').style.display = 'block';
+      document.getElementById('testforloadersend').innerHTML = 'Sent';
+      
+    }, 10000);
+    //
     //return confirmationResult.confirm(testVerificationCode);
     //alert('Done');
     // ...
@@ -205,9 +223,29 @@ const appVerifier = window.recaptchaVerifier;
       var code = document.getElementById('confirm').value;
       confirmationResult.confirm(code)
     .then(function (result){
-      alert('Suc');
+      //alert('Suc');
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        //window.location.href = "index.html";
+        localStorage.setItem("currMail", "");
+        //document.getElementById('recaptcha-container').style.display = none;
+        document.getElementById('Do').style.display = 'none';
+        document.getElementById('Do').style.display = 'none';
+        document.getElementById('textforcon').style.display = 'none';
+        document.getElementById('spanforcon').style.display = 'none';
+        document.getElementById('confirmation').style.display = 'none';
+        document.getElementById('confirm').style.display = 'none';
+        document.getElementById('gif').style.display = 'block';
+        document.getElementById('te').style.display = 'block';
+        document.getElementById('gif').style.marginLeft = "57%";
+        document.getElementById('te').style.marginLeft = "57%";
+        setTimeout(() => {
+          document.getElementById('gif').style.display = 'none';
+        document.getElementById('png').style.display = 'block';
+        document.getElementById('png').style.marginLeft = "57%";
+        }, 2000);
       var user = result.user;
-      alert(user);
+      //alert(user);
     })
     .catch(function (error){
       alert(error.message);
@@ -217,27 +255,20 @@ const appVerifier = window.recaptchaVerifier;
   .then(function(confirmation){
     window.confirmationResult = confirmationResult;
     coderesult = confirmationResult;
-    alert(coderesult);
-    document.getElementById('recaptcha-container').style.display = none;
+    //alert(coderesult);
+    //document.getElementById('recaptcha-container').style.display = none;
     alert('Done');
     console.log(coderesult);
     confirmationResult.confirm(code).then((result) => {
   // User signed in successfully.
   const user = result.user;
-  firebase.auth().signOut().then(() => {
-    // Sign-out successful.
-    //window.location.href = "index.html";
-    localStorage.setItem("currMail", "");
-    document.getElementById('Do').style.display = 'none';
-    document.getElementById('Do').style.display = 'none';
-    document.getElementById('textforcon').style.display = 'none';
-    document.getElementById('spanforcon').style.display = 'none';
-    document.getElementById('confirmation').style.display = 'none';
+  
   }).catch((error) => {
     // An error happened.
     var errorCode = error.code;
     var errorMessage = error.message;
     alert(errorMessage);
+    //alert('Here');
   });
   // ...
 }).catch((error) => {
@@ -255,6 +286,8 @@ const appVerifier = window.recaptchaVerifier;
   window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(document.getElementById('Do'), {
     'size': 'invisible',
     'callback': (response) => {
+      Send();
+      
       // reCAPTCHA solved, allow signInWithPhoneNumber.
       //onSignInSubmit();
 
@@ -263,6 +296,7 @@ const appVerifier = window.recaptchaVerifier;
   window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
   recaptchaVerifier.render().then(widgetId =>{
     window.recaptchaWidgetId = widgetId;
+    //alert('Here');
   })
 function uploadImage(email){
   var numberOfFiles = document.getElementById('image').files.length;
@@ -329,7 +363,7 @@ function addUserByEmail(){
       var birthdate = daySelection +'/' + monthSelection +'/' +  yearSelection;
       var photo = document.getElementById('image').files.length;
       var typ = "";
-      if(document.getElementById("owner").checked){typ = "Personal"}
+      if(document.getElementById("owner").checked){typ = "Landlord"}
       if(document.getElementById("developer").checked){typ = "Developer"}
       if(document.getElementById("broker").checked){typ = "Broker"}
       var cont1 = document.getElementById("contactnum").value;
@@ -391,6 +425,7 @@ function addUserByEmail(){
     main.appendChild(toLoad);
     document.getElementById("bo").appendChild(main);
   }
+  
   document.getElementById("signupp").addEventListener('click',checkValidity);
 
   
