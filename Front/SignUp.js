@@ -143,7 +143,7 @@ function checkValidity(){
       alert("You have to Enter your mail");
     }
 }
-document.getElementById('Do').addEventListener('click', checkMob);
+
 function checkMob(){
   var check = false;
   var response = grecaptcha.getResponse();
@@ -162,7 +162,7 @@ function checkMob(){
                               
                               firebase.database().ref('users').once('value', function (snapshot) {
                                 snapshot.forEach(childSnapshot => {
-                                    if(childSnapshot.val(). contactNumber == cont1){
+                                    if(childSnapshot.val(). contactNumber === cont1){
                                       check = true;
                                     }
                                 })
@@ -170,7 +170,7 @@ function checkMob(){
                                   alert('This phone number is already connected with existing account');
                                 }
                                 else{
-                                  Send();
+                                  SendCode();
                                 }
                             });
                             }
@@ -190,7 +190,7 @@ function checkMob(){
                         alert('invalid');
                       }
 }
-function Send(){ 
+function SendCode(){ 
   
   var check = false;
 const phoneNumber = '+2' + document.getElementById('contactnum').value;
@@ -275,18 +275,14 @@ const appVerifier = window.recaptchaVerifier;
   // User couldn't sign in (bad verification code?)
   // ...
 });
-  })
-  .catch((error) => {
-    // Error; SMS not sent
-    // ...
-    alert(error);
-  });
+   })
+  
   }
 }
-  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(document.getElementById('Do'), {
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(document.getElementById('recaptcha-container'), {
     'size': 'invisible',
     'callback': (response) => {
-      Send();
+      SendCode();
       
       // reCAPTCHA solved, allow signInWithPhoneNumber.
       //onSignInSubmit();
@@ -427,5 +423,5 @@ function addUserByEmail(){
   }
   
   document.getElementById("signupp").addEventListener('click',checkValidity);
-
+  document.getElementById('Do').addEventListener('click', checkMob);
   
