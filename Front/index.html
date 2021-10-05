@@ -386,7 +386,11 @@
                             <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
                                 <select  class="custom-select form-control" id="countries"style="border-radius: 25px;" >
                                     <option value="" disabled selected hidden>Country</option>
-                                    
+                                    <option value=""></option>
+                      <option value="Egypt" id="Egypt">Egypt</option>
+                      <option value="Emirates" id="Emirates">Emirates</option>
+                      <option value="Kuwait" id="Kuwait">Kuwait</option>
+                      <option value="Saudi Arabia" id="Saudi Arabia">Saudi Arabia</option>
                                 </select>
                                 </div>
                             <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -396,44 +400,7 @@
                                 <select  class="custom-select form-control" id="cities" style="border-radius: 25px;">
                                     <option value="" disabled selected hidden>City</option>
                                     
-                                    <option value="">All</option>
-                                    <option value="Cairo" id="Cairo">Cairo</option>
-                                    <option value="Alexandria" id="Alexandria">Alexandria </option>
-                                    <option value="Giza" id="Giza">Giza</option>
-                                    <option value="Beheira" id="Beheira">Beheira</option>
-                                    <option value="Kafr El Sheikh" id="Kafr El Sheikh">Kafr El Sheikh</option>
-                                    <option value="Port Said" id="Port Said">Port Said</option>
-                                    <option value="North Sinai" id="North Sinai">North Sinai</option>
-                                    <option value="Gharbia" id="Gharbia">Gharbia</option>
-                                    <option value="Monufia" id="Monufia">Monufia</option>
-                                    <option value="Qalyubia" id="Qalyubia">Qalyubia</option>
-                                    <option value="Sharqia" id="Sharqia">Sharqia</option>
-                                    <option value="Ismailia" id="Ismailia">Ismailia</option>
-                                    <option value="Faiyum" id="Faiyum">Faiyum</option>
-                                    <option value="Suez" id="Suez">Suez</option>
-                                    <option value="Damietta" id="Damietta">Damietta</option>
-                                    <option value="South Sinai" id="South Sinai">South Sinai</option>
-                                    <option value="Beni Suef" id="Beni Suef">Beni Suef</option>
-                                    <option value="Minya" id="Minya">Minya</option>
-                                    <option value="New Valley" id="New Valley">New Valley</option>
-                                    <option value="Asyut" id="Asyut">Asyut</option>
-                                    <option value="Red Sea" id="Red Sea">Red Sea</option>
-                                    <option value="Sohag" id="Sohag">Sohag</option>
-                                    <option value="Qena" id="Qena">Qena</option>
-                                    <option value="Luxor" id="Luxor">Luxor</option>
-                                    <option value="Aswan" id="Aswan">Aswan</option>
-                                    <option value="Matruh" id="Matruh">Matruh</option>
-                                    <option value="Dakahlia" id="Dakahlia">Dakahlia</option>
-                                    <option value="Gouna" id="Gouna">Gouna</option>
-                                    <option value="North Coast" id="North Coast">North Coast</option>
-                                    <option value="Ain Sokhna" id="Ain Sokhna">Ain Sokhna</option>
-                                    <option value="Marina" id="Marina">Marina</option>
-                                    <option value="Ras Sedr" id="Ras Sedr">Ras Sedr</option>
-                                    <option value="Dahab" id="Dahab">Dahab</option>
-                                    <option value="Hurghada" id="Hurghada">Hurghada</option>
-                                    <option value="Marsa Alam" id="Marsa Alam">Marsa Alam</option>
-                                    <option value="El Alamein" id="El Alamein">El Alamein</option>
-                                    <option value="Sharm ElSheikh" id="Sharm ElSheikh">Sharm ElSheikh</option>
+                                    
                                 </select>
                                 </div>
                                 <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -796,6 +763,7 @@
             </div>
             
         </div>
+<div  class="section wb" id="toScroll">
 <div  id="noRes" class="section wb" style="display: none; padding-top: 0px;">
     <div class="container">
         <div  class="section wb" >
@@ -1016,6 +984,8 @@
                 window.location.href = "Verfication.html";
             }
             localStorage.setItem('count', 0);
+            localStorage.setItem('FirstCompare', '');
+            localStorage.setItem('SecondCompare', '');
             // firebase.database().ref("users").orderByChild("email").equalTo(currentusermail).once('value', function (snapshot) {
             //                     snapshot.forEach(childSnapshot => {
                                     
@@ -1035,6 +1005,8 @@
             console.log("inside else");
             localStorage.setItem('currMail', '');
             localStorage.setItem('count', 0);
+            localStorage.setItem('FirstCompare', '');
+            localStorage.setItem('SecondCompare', '');
         }
     });
 </script>
@@ -1205,6 +1177,43 @@
         var comp = document.createElement('button');
         comp.setAttribute('class','btn btn-success btn-lg btn-block');
         comp.innerHTML = '<i class="fas fa-poll"></i> Compare';
+        comp.addEventListener('click', function(){
+            if(localStorage.getItem('currMail') != ""){
+                if(localStorage.getItem('FirstCompare') == ""){
+                localStorage.setItem('FirstCompare', appID);
+                console.log(localStorage.getItem('FirstCompare'));
+                divMain.style.outline = "3px solid green";
+                //alert("You did choose the first ad now choose the second one");
+                //alert(localStorage.getItem('FirstCompare'));
+            }
+            else if(localStorage.getItem('SecondCompare') == ""){
+                localStorage.setItem('SecondCompare', appID);
+                if(localStorage.getItem('SecondCompare') === localStorage.getItem('FirstCompare')){
+                    alert("You can't compare the ad with itself please choose another ad");
+                    localStorage.setItem('SecondCompare', "");
+                }
+                else{
+                    //localStorage.setItem('SecondCompare', appID);
+                console.log(localStorage.getItem('SecondCompare'));
+                divMain.style.outline = "3px solid green";
+                setTimeout(() => {
+                    window.location.href = "Comparison.html?K1="+localStorage.getItem('FirstCompare')+"K2="+localStorage.getItem('SecondCompare');
+                }, 1000);
+                //alert("You did choose the second ad now you'll go to comparison");
+                //alert(localStorage.getItem('SecondCompare'));
+                }
+                
+            }
+            else{
+                console.log(localStorage.getItem('FirstCompare'));
+                console.log(localStorage.getItem('SecondCompare'));
+                alert("Somthing went wrong");
+            }
+            }
+            else{
+                alert('In order to use compare feature you have to be user');
+            }
+        })
         //comp.setAttribute('style',' margin-top:100px;');
         localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
         if(parseInt(localStorage.getItem('count')) > 1){
@@ -1300,9 +1309,30 @@
         
         divSer.setAttribute('style','cursor: pointer;');
         document.getElementById('adHeader').appendChild(divSize);
-        cityCounter();
-        
+        //cityCounter();
+        countryCounter();
     }
+    function countryCounter(){
+  let cit = ["Egypt", "Emirates", "Kuwait", "Saudi Arabia"];
+  let count = 0;
+  for(let i = 0; i < cit.length; i++){
+      let counter = 0;
+      firebase.database().ref('Ads').orderByChild("Country").equalTo(cit[i]).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          if(childSnapshot.val().Accepted == "Yes"){
+              counter += 1;  
+          console.log(counter);
+          console.log(cit[i]);
+          count = counter;
+          document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+          }
+      }); 
+      document.getElementById("countries").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+  });
+  //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+  }
+  
+}
     function checkTime(str){
     var today = new Date();
     dayToday = today.getDate();
@@ -1391,7 +1421,8 @@ function Delete(){
     }
     function fetchAllData() {
         document.getElementById('0%').style.display = "block";
-        cityCounter();
+        //cityCounter();
+        countryCounter();
         firebase.database().ref('Ads').once('value', function (snapshot) {
             snapshot.forEach(childSnapshot => {
                 kk = childSnapshot.key;

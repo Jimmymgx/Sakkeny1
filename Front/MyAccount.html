@@ -362,9 +362,11 @@ crossorigin="anonymous"></script>
                 </div>
 
                 <div class="tab-content tab-space">
+                    <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
+            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
+            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>
                     <div class="row" id="adHeader">
                         <h1 class="title" id='total'></h1>
-                        <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%;" id='loading'/>
 
 
                     </div>
@@ -473,6 +475,7 @@ crossorigin="anonymous"></script>
                     var kk = "";
                     firebase.auth().onAuthStateChanged(function (user) {
                         if (user) {
+                            localStorage.setItem('count', 0);
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
                             localStorage.setItem('currMail', currentusermail);
@@ -489,6 +492,7 @@ crossorigin="anonymous"></script>
                             });
                         }
                         else{
+                            localStorage.setItem('count', 0);
                             localStorage.setItem('currMail', '');
                             document.getElementById('bo').innerHTML = '<h2 class="title " id="inOrder" >You are not user <br> you can do <a href="signUp.html" style="color: #997c47;">sign up </a>or <a href="login.html" style="color: #997c47;">log in </a> to your existing account </h2>';
                         }
@@ -659,6 +663,18 @@ crossorigin="anonymous"></script>
         divWrap.appendChild(divBody);
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
+        localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
+        if(parseInt(localStorage.getItem('count')) > 1){
+            setTimeout(() => {
+                document.getElementById('50%').style.display = 'none';    
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('100%').style.display = 'block';    
+            }, 1000);        }
+        setTimeout(() => {
+                document.getElementById('100%').style.display = 'none';    
+            }, 1500);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
             window.document.location = './ads.html?k='+appID;
@@ -801,7 +817,9 @@ function Delete(){
 }
 
                     function fetchAllData() {
-                        window.scrollTo(0, 700);
+                        document.getElementById('0%').style.display = "block";
+                        document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
+                        //window.scrollTo(0, 700);
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
                         Totalnum = 0;
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
@@ -840,7 +858,9 @@ function Delete(){
                                         let Name = childSnapshot.val().name;
                                         let type = childSnapshot.val().type;
                                         let rating = childSnapshot.val().rate;
-                                        document.getElementById('loading').style.display = "none";
+                                        //document.getElementById('loading').style.display = "none";
+                                        document.getElementById('0%').style.display = "none";
+                        document.getElementById('50%').style.display = "block";
                                         AddAds(title, description, time, location, appID, price, views, image, Name,type,rating);
                                         //i++;
                                     });

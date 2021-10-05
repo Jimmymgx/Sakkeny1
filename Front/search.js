@@ -9,7 +9,8 @@ var firebaseConfig = {
   appId: "1:407960924893:web:c1a7b36d984f67469f6134",
   measurementId: "G-SSL0VK1HTY",
 };
-
+localStorage.setItem('count', 0);
+var cntry = "";
 var city = "";
 var type = "";
 var unit ="";
@@ -97,6 +98,7 @@ function getch(id){
 function check(){  
   
   //document.getElementById('loading').style.display = "block";
+  var country = document.getElementById('countries').value;
   var pay  = document.getElementById("Pay").value;
   var isflat = document.getElementById("unitType").value;
   var iselevator = getch("IsElevator");
@@ -134,7 +136,7 @@ function check(){
     var finish = document.getElementById('finish').value;
     var bed = document.getElementById("bed").value;
     var bath = document.getElementById("bath").value;
-    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false){
+    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false && country == ""){
       alert('You have to Make the filter');
       window.scrollTo(0, 300);
     }
@@ -399,6 +401,18 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divWrap.appendChild(divBody);
   divWrap.appendChild(divFoot);
   divMain.appendChild(divWrap);
+  localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
+        if(parseInt(localStorage.getItem('count')) > 1){
+            setTimeout(() => {
+                document.getElementById('50%').style.display = 'none';    
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('100%').style.display = 'block';    
+            }, 1000);        }
+        setTimeout(() => {
+                document.getElementById('100%').style.display = 'none';    
+            }, 1500);
   divMain.addEventListener('click', function () {
     localStorage.setItem('appID', appID);
     window.document.location = './ads.html?k='+appID;
@@ -471,11 +485,38 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divSer.setAttribute('style','cursor: pointer;');
   
   document.getElementById('adHeader').appendChild(divSize);
-  cityCounter();
+  countryCounter();
   
 }
 function cityCounter(){
-  let cit = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia"];
+var country = document.getElementById('countries').value;
+var city = document.getElementById('cities').value;
+  if(country == 'Egypt'){
+    let cit = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia"];
+  let count = 0;
+  for(let i = 0; i < cit.length; i++){
+      let counter = 0;
+      firebase.database().ref('Ads').orderByChild("City").equalTo(cit[i]).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          if(childSnapshot.val().Accepted == "Yes"){
+              counter += 1;  
+          console.log(counter);
+          console.log(cit[i]);
+          count = counter;
+          document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+          //city.options[i].innerHTML = cit[i] + "  (" + counter + ")";
+          //alert(city.options[i]);
+        }
+      }); 
+      document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+      //document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+      //city.options[i].innerHTML = cit[i] + "  (" + counter + ")";
+    });
+  //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+  }
+  }
+  if(country == "Emirates"){
+    var cit = ["Abu Dhabi", "Dubai", "ALAin", "Sharjah" , "Ajman", "Ras AlKheimah", "Fujairah", "Umm al-Quwain"];
   let count = 0;
   for(let i = 0; i < cit.length; i++){
       let counter = 0;
@@ -489,13 +530,156 @@ function cityCounter(){
           document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
           }
       }); 
-      document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+      document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+      //document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+  });
+  //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+  }
+  }
+  if(country == "Kuwait"){
+    var cit =["Kuwait City", "Hawalli", "Mubarak Al-Kabeer", "Ahmadi" , "Farwaniya", "Jahra"];
+    let count = 0;
+    for(let i = 0; i < cit.length; i++){
+        let counter = 0;
+        firebase.database().ref('Ads').orderByChild("City").equalTo(cit[i]).once('value', function (snapshot) {
+        snapshot.forEach(childSnapshot => {
+            if(childSnapshot.val().Accepted == "Yes"){
+                counter += 1;  
+            console.log(counter);
+            console.log(cit[i]);
+            count = counter;
+            document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+            }
+        }); 
+        document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+        //document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+    });
+    //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+    }
+  }
+  if(country == "Saudi Arabia"){
+    var cit =  ["Riyadh", "Makkah ", "Al Madinah", "Al-Qassim", "Eastern Province", "'Asir ", "Tabuk", "Ha'il ", "Northern Borders","Jizan", "Najran", "Al Bahah", "Al Jawf"];
+  let count = 0;
+  for(let i = 0; i < cit.length; i++){
+      let counter = 0;
+      firebase.database().ref('Ads').orderByChild("City").equalTo(cit[i]).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          if(childSnapshot.val().Accepted == "Yes"){
+              counter += 1;  
+          console.log(counter);
+          console.log(cit[i]);
+          count = counter;
+          document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+          }
+      }); 
+      document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+      //document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+  });
+  //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+  }
+  }
+  
+}
+function countryCounter(){
+  let cit = ["Egypt", "Emirates", "Kuwait", "Saudi Arabia"];
+  let count = 0;
+  for(let i = 0; i < cit.length; i++){
+      let counter = 0;
+      firebase.database().ref('Ads').orderByChild("Country").equalTo(cit[i]).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          if(childSnapshot.val().Accepted == "Yes"){
+              counter += 1;  
+          console.log(counter);
+          console.log(cit[i]);
+          count = counter;
+          document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+          }
+      }); 
+      document.getElementById("countries").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
   });
   //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
   }
   
 }
+function setCit(){
+  var egypt = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia", "Gouna", "North Coast", "Ain Sokhna", "Marina", "Ras Sedr", "Dahab", "Hurghada", "Marsa Alam", "El Alamein", "Sharm ElSheikh"];
+  var Emirates = ["Abu Dhabi", "Dubai", "ALAin", "Sharjah" , "Ajman", "Ras AlKheimah", "Fujairah", "Umm al-Quwain"];
+  var Kuwait =["Kuwait City", "Hawalli", "Mubarak Al-Kabeer", "Ahmadi" , "Farwaniya", "Jahra"];
+  var Saudi =  ["Riyadh", "Makkah ", "Al Madinah", "Al-Qassim", "Eastern Province", "'Asir ", "Tabuk", "Ha'il ", "Northern Borders","Jizan", "Najran", "Al Bahah", "Al Jawf"];
+  let country = document.getElementById("countries").value;
+  let cit = document.getElementById("cities");
+  let sel = document.getElementById("locations");
+  if(country == ""){
+    cit.innerHTML = "";
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+  }
+  if(country == "Egypt"){
+    cit.innerHTML = "";
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< egypt.length; i++){
+      var opt = document.createElement('option');
+      opt.value = egypt[i];
+      opt.innerHTML = egypt[i];
+      opt.setAttribute('id', egypt[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(country == "Emirates"){
+    cit.innerHTML = "";
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< Emirates.length; i++){
+      var opt = document.createElement('option');
+      opt.value = Emirates[i];
+      opt.innerHTML = Emirates[i];
+      opt.setAttribute('id', Emirates[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(country == "Kuwait"){
+    cit.innerHTML = "";
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< Kuwait.length; i++){
+      var opt = document.createElement('option');
+      opt.value = Kuwait[i];
+      opt.innerHTML = Kuwait[i];
+      opt.setAttribute('id', Kuwait[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(country == "Saudi Arabia"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< Saudi.length; i++){
+      var opt = document.createElement('option');
+      opt.value = Saudi[i];
+      opt.innerHTML = Saudi[i];
+      opt.setAttribute('id', Saudi[i]);
+      cit.appendChild(opt);
+    }
+  }
+}
+
 function setLoc(){
+  //Egypt
   var cairo = ["Abbassia", "Ain Shams", "Azbakeya", "Bab al-Louq", "Boulaq", "City of the Dead (Cairo)", "Coptic Cairo", "Daher", "Downtown", "El Manial", "El Marg", "El Matareya", "El Sherouk", "El Obour", "El Qobbah", "El Rehab", "El Sahel", "El Sakkakini", "El Zawia El Hamra","Ezbet El Haggana", "Ezbet El Nakhl", "Faggala", "Fifth Settlement", "Fustat", "Garden City", "Gezira", "Heliopolis", "Islamic", "Maadi", "Mataria", "Naser City", "Old Cairo", "Roda Island", "Shubra", "Shubra El Kheima", "Wagh El Birket", "Zamalek", "Zeitoun"];
   var alex = ["Al Hadrah Qebli", "Amreya", "Anfoushi", "Asafra", "Azarita", "Bahary", "Bakos", "Baucalis", "Bolkly", "Camp Chezar", "Cleopatra", "Dekhela", "Downtown", "El Atareen", "El Gomrok", "El Ibrahimiya", "El Labban", "El Maamora", "El Mandara", "El Mansheya", "El Max", "El Qabary", "El Saraya", "El Soyof", "Fleming", "Gianaclis", "Glim", "Kafr Abdu", "Karmoz", "Kom El Deka", "Louran", "Mahatet El Raml", "Miami", "Moharam Bek", "Montaza", "Roshdy", "Saba Pasha", "Safar", "San Stefano", "Shatby", "Shods", "Sidi Bishr", "Sidi Gaber", "Smouha", "Sporting", "Stanley", "Tharwat", "Victoria", "Wardeyan", "Zezenia"];
   var giza = ["Agouza", "Dokki", "Imbaba", "Mohandiseen"];
@@ -528,26 +712,15 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled;
-    op.selected;
-    op.hidden;
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      
   }
   if(city == "Cairo"){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< cairo.length; i++){
       var opt = document.createElement('option');
       opt.value = cairo[i];
@@ -559,15 +732,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< alex.length; i++){
       var opt = document.createElement('option');
       opt.value = alex[i];
@@ -579,15 +745,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< giza.length; i++){
       var opt = document.createElement('option');
       opt.value = giza[i];
@@ -599,15 +758,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< beheira.length; i++){
       var opt = document.createElement('option');
       opt.value = beheira[i];
@@ -619,15 +771,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< kafr.length; i++){
       var opt = document.createElement('option');
       opt.value = kafr[i];
@@ -639,15 +784,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< port.length; i++){
       var opt = document.createElement('option');
       opt.value = port[i];
@@ -659,15 +797,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< Sinai.length; i++){
       var opt = document.createElement('option');
       opt.value = Sinai[i];
@@ -679,15 +810,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< gharb.length; i++){
       var opt = document.createElement('option');
       opt.value = gharb[i];
@@ -699,15 +823,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< mnofia.length; i++){
       var opt = document.createElement('option');
       opt.value = mnofia[i];
@@ -719,15 +836,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< qalyobia.length; i++){
       var opt = document.createElement('option');
       opt.value = qalyobia[i];
@@ -739,15 +849,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< sharqia.length; i++){
       var opt = document.createElement('option');
       opt.value = sharqia[i];
@@ -759,15 +862,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< ismailia.length; i++){
       var opt = document.createElement('option');
       opt.value = ismailia[i];
@@ -779,15 +875,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< fayom.length; i++){
       var opt = document.createElement('option');
       opt.value = fayom[i];
@@ -799,15 +888,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< suez.length; i++){
       var opt = document.createElement('option');
       opt.value = suez[i];
@@ -819,15 +901,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< domiat.length; i++){
       var opt = document.createElement('option');
       opt.value = domiat[i];
@@ -839,15 +914,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< baniswef.length; i++){
       var opt = document.createElement('option');
       opt.value = baniswef[i];
@@ -859,15 +927,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< minya.length; i++){
       var opt = document.createElement('option');
       opt.value = minya[i];
@@ -879,15 +940,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< newVally.length; i++){
       var opt = document.createElement('option');
       opt.value = newVally[i];
@@ -899,15 +953,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< asyot.length; i++){
       var opt = document.createElement('option');
       opt.value = asyot[i];
@@ -919,15 +966,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< redSea.length; i++){
       var opt = document.createElement('option');
       opt.value = redSea[i];
@@ -939,15 +979,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< sohag.length; i++){
       var opt = document.createElement('option');
       opt.value = sohag[i];
@@ -959,15 +992,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< qena.length; i++){
       var opt = document.createElement('option');
       opt.value = qena[i];
@@ -979,15 +1005,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< luxor.length; i++){
       var opt = document.createElement('option');
       opt.value = luxor[i];
@@ -999,15 +1018,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< aswan.length; i++){
       var opt = document.createElement('option');
       opt.value = aswan[i];
@@ -1019,15 +1031,8 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< matroh.length; i++){
       var opt = document.createElement('option');
       opt.value = matroh[i];
@@ -1039,19 +1044,12 @@ function setLoc(){
     sel.innerHTML = "";
     var op = document.createElement('option');
     op.value = "";
-    op.disabled = 'true';
-    op.selected ='true';
-    op.hidden = 'true';
-      op.innerHTML = "Location";
+      op.innerHTML = "";
       sel.appendChild(op);
-      var op2 = document.createElement('option');
-      op2.value = "";
-        op2.innerHTML = "All";
-        sel.appendChild(op2);
     for (var i = 0; i< daka.length; i++){
       var opt = document.createElement('option');
       opt.value = daka[i];
-      opt.innerHTML = daka[i];
+      opt .innerHTML = daka[i];
       sel.appendChild(opt);
     }
   }
@@ -1165,11 +1163,512 @@ function setLoc(){
       opt.innerHTML = "Sharm ElSheikh";
       sel.appendChild(opt);
   }
+  //Egypt End
+  //Emarat
+  var AbuDhabiLocation =  ["AL Raha", "Khalifa City", "AL Muroor", "Al Rowdah ana AL Mushrif", "AL karamah", 
+"Khalidya", "AL Wahda", "Madinat Zayed", "AL Zahiyah and AL Markaziyah"];
+
+var DubaiLocation = ["Abu Hail", "AL Awir First", "AL Awir Second", "Aleyas", "AL Bada'a", 
+"AL Barsha", "AL Barsha first", "AL Barsha second", "AL Barsha third", "AL Barsha south first",
+ "AL Barsha south second", "AL Barsha south third", "AL Barsha south fourth", 
+"AL Barsha south fourth", "AL Barsha south fifth", "AL Buteen", "AL Corniche", 
+"Al Dhagaya", "Al Faqa","Al Garhoud", "Al Hamriya, Dubai", 
+"Al Hamriya Port", "Al Hathmah", "Al Hebiah First", "Al Hebiah Fourth", 
+"Al Hebiah Fifth", "Al Hebiah Second", "Al Hebiah Sixth", "Al Hebiah Third", 
+"Al Hudaiba","Al Jaddaf", "Al Jafiliya", "Al Karama", "Al Khabisi", "Al Khawaneej First", "Al Khawaneej Second",
+ "Al Kifaf","Al Mamzar", "Al Manara",  
+"Al Mankhool", "Al Merkad", "Al Mina", "Al Mizhar First", "Al Mizhar Second", "Al Muraqqabat", 
+"Al Murar", "Al Mushrif" ,"Al Muteena", "Al Nahda First", "Al Nahda Second", "Al Nasr, Dubai", "Al Quoz First", 
+"Al Quoz Industrial First", "Al Quoz Industrial Fourth", "Al Quoz Industrial Second", "Al Quoz Industrial Third", "Al Quoz Second", 
+"Al Quoz Third", "Al Quoz Fourth", "Al Qusais First", 
+"Al Qusais Industrial Fifth", "Al Qusais Industrial First", "Al Qusais Industrial Fourth", "Al Qusais Industrial Second", "Al Qusais Industrial Third", "Al Qusais Second","Al Qusais Third",
+ "Al Raffa", "Al Ras", "Al Rashidiya", "Al Rigga", "Al Sabkha","Al Safa First", "Al Safa Second", "Al Safouh First",
+ "Al Safouh Second", "Al Satwa", 
+"Al Shindagha", "Al Souq Al Kabeer", "Al Twar First", "Al Twar Second", "Al Twar Third", "Al Warqa'a Fifth", "Al Warqa'a First", 
+"Al Warqa'a Fourth", 
+"Al Warqa'a Second", "Al Warqa'a Third", "Al Wasl", "Al Waheda", "Ayal Nasir", "Business Bay","Bu Kadra", 
+"Downtown Dubai", 
+"Dubai Investment Park First", "Dubai Investment Park Second", "Emirates Hill First", "Emirates Hill Second", "Emirates Hill Third", "Enkhali", "Hatta", "Hor Al Anz", "Hor Al Anz East", 
+"Jebel Ali 1", "Jebel Ali 2", "Jebel Ali Industrial", "Jebel Ali Palm", "Jumeira First", "Palm Jumeira", "Jumeira Second", "Jumeira Third" ,"Marsa Dubai", "Mirdif",
+ "Muhaisanah Fourth", "Muhaisanah Second", "Muhaisanah Third", 
+"Muhaisnah First", "Nad Al Hammar", "Nadd Al Shiba Fourth", "Nadd Al Shiba Second", "Nadd Al Shiba Third", "Nad Shamma", "Naif", "Port Saeed", 
+"Arabian Ranches", "Oud Al Muteena Third", "Ras Al Khor", "Ras Al Khor Industrial First", "Ras Al Khor Industrial Second", "Ras Al Khor Industrial Third",
+"Rigga Al Buteen", "Trade Centre 1", 
+"Trade Centre 2", "Umm Al Sheif", "Umm Hurair First", "Umm Hurair Second", "Umm Ramool", "Umm Suqeim First", "Umm Suqeim Second", "Umm Suqeim Third", "Wadi Alamardi", 
+"Warsan First", "Warsan Second", "Yaraah", "Za'abeel First", "Za'abeel Second", "Margham", "Umm Nahad First", "	Umm Nahad Second",
+"Umm Nahad Third", "Umm Nahad Fourth","Saih Al-Dahal", "Saih Al Salam", 
+"Al Lisaili", "	Lehbab First"];
+
+
+var ALAinLocation =  ["Al Bateen", "Al Buraimi", "Al Foah", "Al Hili - see Hili", "Al Jimi", 
+"Al Saniya ", "Al Surooj", "Al Tawiyah", "Central District","Falaj Hazza", "Hili", "Magar Al Dhabi", "Munaseer, Muniseer, Munasir", "Saniya ", 
+"Tawam", "Zakhir", "Al Koua", "Jafeer Al Jadeed" , "Oud Al Touba", "Umm Ghafa"];
+
+
+var SharjahLocation =  ["Abu Tina", "Al Abar", "Al Azra", "Al Darari", "Al Falaj", 
+"Al Fayha ", "Al Gaphia", "Al Gharayen 1", "Al Gharayen 2","Al Gharayen 3", "Al Gharayen 4", "Al Gharayen 5", "Al Ghubaiba", "Al Goaz ", 
+"Al Hazana", "Al Jazat", "Al Juraina", "Al Juraina 1" , "Al Khalidiya", "Al Khan", "Al Khezamia", "Al Lyyah", "Al Majaz", "Al Mamzar", "Al Manakh", 
+"Al Mansura ", "Al Musala", "Al Mirgab", "Al Naba","Al Nahda", "Al Nasseria", "Al Nekhailat", "Al Noaf", "Al Nud ", 
+"Al Qadisia", "Al Qasimiyah", "Al Ramaqia", "Al Ramla" , "Al Ramtha", "Al Rifa", "Al Sabkha", "Al Sajaa", "Al Seef", "Al Shahba", 
+"Al Sweihat ", "Al Tala", "Al Turfa", "Al Yarmook","Bu Danig", "Bu Shagara", "Dasman", "Elyash", "Industrial Area 1 ", 
+"Industrial Area 2", "Industrial Area 3", "Industrial Area 4", "Industrial Area 5" , "Industrial Area ", "Industrial Area 7", "Industrial Area 8", "Industrial Area 9", "Industrial Area 10", "Industrial Area 11", "Industrial Area 12", 
+"Industrial Area 13 ", "Industrial Area 14", "Industrial Area 15", "Industrial Area 16","Industrial Area 17", "Maysalon", "Mowafjah", "Mowailah Commercial", "Mowailah Camp ", 
+"Rifa", "Sajaa", "Samnan", "Sharjah International Airport" , "Sharjah International Airport Free Zone", "Sharjah University City", "Sharqan"];
+
+var AjmanLocation =  ["Ajman City Center", "Ajman Corniche", "Ajman Free Zone", "Ajman Khor", "Ajman Marina", 
+"Ajman Pearl ", "Ajman Port", "Ajman Uptown", "Al Ameera Village","Al Bustan", "Al Butain", "Al Dhran", "Al Jurf", "Al Hamidiya ", 
+"Al Hamriya", "Al Helio", "Al Muntazi", "Al Mushairef" , "Al Muwayhat", "Al Naemiyah", "Al Nakhil", "Al Naseem", "Al Owan", "Al Rashidiya", "Al Rifaahh", 
+"Al Rowdha ", "Al Rumailah", "Al Sawan", "Al Zahra","Al Zora", "Awali City", "Emirates City", "Emirates City Extension", "Escape ", 
+"Garden City", "Green City", "Hatta", "Ittihad Village" , "Manama", "Marmooka City", "Masfouta", "Mazeria", "Meadows Ajman", "Meidan Al Tallah", 
+"Mushairef ", "Mushairef Commercial", "New Industrial Area", "Old Industrial Area","Safia Island", "Subaikah"];
+
+var RasElkheimahLocation =  ["Al Darbijaniyah", "Al Dhait", "Al Hamra", "Al Hamra Village", "Al Hudaihbah", 
+"Al Jazeera", "Al Juwais", "Al Kharan", "Al Nakheel","Al Saih", "Al Seer", "Al Soor", "Al Uraibi", "Al Zahra ", 
+"Al Zaith", "Dafan Al Khor", "Dafan Al Nakheel", "Dahan " , "Jazeera Al Hamra", "Julan", "Julfar", "Khuzam", "Maareed", "Mamourah", "Nakheel", 
+"Old Town RAK ", "Seih Al Burairat", "Seih Al Hudaibah", "Seih Al Uraibi"];
+
+
+var FujairahLocation =  ["Al Faseel", "Al Gurfaa", "Al Hilal", "Al Ittihad", "Al Mahatta", 
+"Al Sharia ", "Al Sharia 1", "Anajaimat", "Fujairah Free Zone","Ghalala", 
+"Haleefath", "Ishwais", "Madhab", "Merashid ", 
+"Owaid", "Port of Fujairah", "Rughaylat", "Rumaila" , "Safad", "Sakamkam", "Seh Al Rahi", "Town Center" ];
+
+
+var UmmquwaeinLocation =  ["Al Abraq", "Al Labsah", "Al Adhib", "Al Ḩazaywah", "Al Adhīb", 
+"Ar Ra`fah ", "Ar Rafa`ah", "Ar Rafāah", "Ar Ramlah","Ar Ramlah C", "Ar Rashidiyah", "Ar Rā‘fah", "As Salamah", "As Salamah C ", 
+"As Surrah", "Biyatah", "Dhad al Arab", "Falaj Ibn Mu'alla" , "Falaj al Ali", "Falaj al Mu`alla", "Falj Al `Ali	", "Falq Al Ali", "Fili Maala", "Kabir", "Lazimah", 
+"Madū Māj ", "Mintaqah al Hadithah", "Mintaqat ad Dar al Bayda' A", "Mintaqat ad Dar al Bayda' B","Mintaqat al Hawiyah", "Mintaqat al Humrah D", "Mintaqat al Humrah J", 
+"Mintaqat al Madinah al Qadimah", "Mintaqat al Maydan ", 
+"Mintaqat al `Ahd", "Mintaqat ar Ra's A", "Mintaqat ar Ra's B", "Mintaqat ar Ra's D" , "Mintaqat ar Ra's J", "Minţaqah", "Minţaqat Limghadar", "Minţaqat Umm al Qaywayn aţ Ţibbīyah", 
+"Minţaqat ad Dār al Bayḑā’ A", "Minţaqat ad Dār al Bayḑā’ B", 
+"Minţaqat al Khawr ", "Minţaqat al Ḩumrah A", "Minţaqat al Ḩumrah B", "Minţaqat al ‘Ahd	","Minţaqat ar Rawḑah", "Minţaqat ar Ra’s A", "Minţaqat ar Ra’s B", "Minţaqat ar Ra’s D",
+ "Minţaqat ar Ra’s J", "Minţaqat ar Riqqah", "Muhadhdhib", "Oumm al Qaïwaïn", "Yumul al Quwain" , "Zarqa", "Awanat","Uwaynat"];
+
+ if(city == "Abu Dhabi"){
+  sel.innerHTML = "";
+  var op = document.createElement('option');
+  op.value = "";
+    op.innerHTML = "";
+    sel.appendChild(op);
+  for (var i = 0; i< AbuDhabiLocation.length; i++){
+    var opt = document.createElement('option');
+    opt.value = AbuDhabiLocation[i];
+    opt.innerHTML = AbuDhabiLocation[i];
+    sel.appendChild(opt);
+    }
+  }
+  if(city == "Dubai"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+    for (var i = 0; i< DubaiLocation.length; i++){
+      var opt = document.createElement('option');
+      opt.value = DubaiLocation[i];
+      opt.innerHTML = DubaiLocation[i];
+      sel.appendChild(opt);
+      }
+    }
+    if(city == "ALAin"){
+      sel.innerHTML = "";
+      var op = document.createElement('option');
+      op.value = "";
+        op.innerHTML = "";
+        sel.appendChild(op);
+      for (var i = 0; i< ALAinLocation.length; i++){
+        var opt = document.createElement('option');
+        opt.value = ALAinLocation[i];
+        opt.innerHTML = ALAinLocation[i];
+        sel.appendChild(opt);
+        }
+      }
+      if(city == "Sharjah"){
+        sel.innerHTML = "";
+        var op = document.createElement('option');
+        op.value = "";
+          op.innerHTML = "";
+          sel.appendChild(op);
+        for (var i = 0; i< SharjahLocation.length; i++){
+          var opt = document.createElement('option');
+          opt.value = SharjahLocation[i];
+          opt.innerHTML = SharjahLocation[i];
+          sel.appendChild(opt);
+          }
+        }
+        if(city == "Ajman"){
+          sel.innerHTML = "";
+          var op = document.createElement('option');
+          op.value = "";
+            op.innerHTML = "";
+            sel.appendChild(op);
+          for (var i = 0; i< AjmanLocation.length; i++){
+            var opt = document.createElement('option');
+            opt.value = AjmanLocation[i];
+            opt.innerHTML = AjmanLocation[i];
+            sel.appendChild(opt);
+            }
+          }
+          if(city == "Ras AlKheimah"){
+            sel.innerHTML = "";
+            var op = document.createElement('option');
+            op.value = "";
+              op.innerHTML = "";
+              sel.appendChild(op);
+            for (var i = 0; i< RasElkheimahLocation.length; i++){
+              var opt = document.createElement('option');
+              opt.value = RasElkheimahLocation[i];
+              opt.innerHTML = RasElkheimahLocation[i];
+              sel.appendChild(opt);
+              }
+            }
+            if(city == "Fujairah"){
+              sel.innerHTML = "";
+              var op = document.createElement('option');
+              op.value = "";
+                op.innerHTML = "";
+                sel.appendChild(op);
+              for (var i = 0; i< FujairahLocation.length; i++){
+                var opt = document.createElement('option');
+                opt.value = FujairahLocation[i];
+                opt.innerHTML = FujairahLocation[i];
+                sel.appendChild(opt);
+                }
+              }
+              if(city == "Umm al-Quwain"){
+                sel.innerHTML = "";
+                var op = document.createElement('option');
+                op.value = "";
+                  op.innerHTML = "";
+                  sel.appendChild(op);
+                for (var i = 0; i< UmmquwaeinLocation.length; i++){
+                  var opt = document.createElement('option');
+                  opt.value = UmmquwaeinLocation[i];
+                  opt.innerHTML = UmmquwaeinLocation[i];
+                  sel.appendChild(opt);
+                  }
+                }
+                //emarat End
+                //Kwait
+                var KuwatcityLocation =  ["Abdulla Al-Salem", "Adailiya", "Bnaid Al-Qar", "Daʿiya", "Dasma", 
+"Doha ", "Doha Port", "Faiha'", "Failaka","Ghornata", "Jaber Al-Ahmad City", "Jibla", "Kaifan", "Khaldiya", 
+"Mansūriya", "Mirgab", "Nahdha", "North West Sulaibikhat" , "Nuzha", "Qadsiya", "Qurtuba", "Rawda", "Shamiya", "Sharq", "Shuwaikh", 
+"Shuwaikh Industrial Area ", "Shuwaikh Port", "Sulaibikhat", "Surra","Umm an Namil Island", "Yarmouk"];
+
+var HwalliLocation =  ["Anjafa", "Bayān", "Bi'da", "Hawally", "Hittin", 
+"Jabriya ", "Maidan Hawalli", "Mishrif", "Mubarak Al-Jabir","Nigra", "Rumaithiya", "Salam", "Salmiya", "Salwa", 
+"Sha'ab", "Shuhada", "Siddiq", "South Surra" , "Zahra"];
+
+var MubarakAlKabeerLocation  =  ["Abu Al Hasaniya", "Abu Futaira", "Adān", "Al Qurain", "Al-Qusour", 
+"Fintās", "Funaitīs", "Misīla", "Mubarak Al-Kabeer","Sabah Al-Salem", "Sabhān", "South Wista", "Wista"];
+
+var AhmadiLocation =  ["Abu Halifa", "Abdullah Port", "Ahmadi", "Ali As-Salim", "Aqila", 
+"Bar Al Ahmadi ", "Bneidar", "Dhaher", "Fahaheel","Fahad Al-Ahmad", "Hadiya", "Jaber Al-Ali", "Jawaher Al Wafra	", "Jilei'a", 
+"Khairan", "Mahbula", "Mangaf", "Miqwa'" , "New Khairan City","New Wafra", "Nuwaiseeb", "Riqqa", "Sabah Al-Ahmad City", "Sabah Al Ahmad Sea City", 
+"Sabahiya", "Shu'aiba (North & South)", "South Sabahiya	", "Wafra","Zoor", "Zuhar" ];
+
+
+var FarwniyaLocation =  ["Abdullah Al-Mubarak", "Airport District", "Andalous", "Ardiya", "Ardiya Herafiya", 
+"Ardiya Industrial Area ", "Ashbelya", "Dhajeej", "Farwaniya","Fordous	", "Jleeb Al-Shuyoukh", "Khaitan", "Omariya", "Rabiya", 
+"Rai", "Al-Riggae", "Rihab", "Sabah Al-Nasser" , "Sabaq Al Hajan"];
+
+
+var JahraLocation =  ["Abdali", "Al Nahda / East Sulaibikhat", "Amghara	", "Bar Jahra", "Jahra", 
+"Jahra Industrial Area", "Kabad", "Naeem", "Nasseem","Oyoun", "Qasr", "Saad Al Abdullah City", "Salmi", "Sikrab", 
+"South Doha / Qairawān", "Subiya", "Sulaibiya", "Sulaibiya Agricultural Area" , "Taima", "Waha"];
+
+if(city == "Kuwait City"){
+  sel.innerHTML = "";
+  var op = document.createElement('option');
+  op.value = "";
+    op.innerHTML = "";
+    sel.appendChild(op);
+  for (var i = 0; i< KuwatcityLocation.length; i++){
+    var opt = document.createElement('option');
+    opt.value = KuwatcityLocation[i];
+    opt.innerHTML = KuwatcityLocation[i];
+    sel.appendChild(opt);
+    }
+  }
+  if(city == "Hawalli"){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+    for (var i = 0; i< HwalliLocation.length; i++){
+      var opt = document.createElement('option');
+      opt.value = HwalliLocation[i];
+      opt.innerHTML = HwalliLocation[i];
+      sel.appendChild(opt);
+      }
+    }
+    if(city == "Mubarak Al-Kabeer"){
+      sel.innerHTML = "";
+      var op = document.createElement('option');
+      op.value = "";
+        op.innerHTML = "";
+        sel.appendChild(op);
+      for (var i = 0; i< MubarakAlKabeerLocation.length; i++){
+        var opt = document.createElement('option');
+        opt.value = MubarakAlKabeerLocation[i];
+        opt.innerHTML = MubarakAlKabeerLocation[i];
+        sel.appendChild(opt);
+        }
+      }
+      if(city == "Ahmadi"){
+        sel.innerHTML = "";
+        var op = document.createElement('option');
+        op.value = "";
+          op.innerHTML = "";
+          sel.appendChild(op);
+        for (var i = 0; i< AhmadiLocation.length; i++){
+          var opt = document.createElement('option');
+          opt.value = AhmadiLocation[i];
+          opt.innerHTML = AhmadiLocation[i];
+          sel.appendChild(opt);
+          }
+        }
+        if(city == "Farwaniya"){
+          sel.innerHTML = "";
+          var op = document.createElement('option');
+          op.value = "";
+            op.innerHTML = "";
+            sel.appendChild(op);
+          for (var i = 0; i< FarwniyaLocation.length; i++){
+            var opt = document.createElement('option');
+            opt.value = FarwniyaLocation[i];
+            opt.innerHTML = FarwniyaLocation[i];
+            sel.appendChild(opt);
+            }
+          }
+          if(city == "Jahra"){
+            sel.innerHTML = "";
+            var op = document.createElement('option');
+            op.value = "";
+              op.innerHTML = "";
+              sel.appendChild(op);
+            for (var i = 0; i< JahraLocation.length; i++){
+              var opt = document.createElement('option');
+              opt.value = JahraLocation[i];
+              opt.innerHTML = JahraLocation[i];
+              sel.appendChild(opt);
+              }
+            }
+            //Kwait End
+            //Saudi
+            var RiyadhLocation = ["Al-Dirah ","Mi'kal","Manfuha","Manfuha Al-Jadidah","Al-'Oud","Al-Mansorah","Al-Margab","Salam","Jabrah","Al-Yamamah","'Otayyigah",
+"Al-'Olayya","Al-Sulaymaniyyah","Al Izdihar","King Fahd District","Al-Masif","Al-Murooj","Al-Mugharrazat","Al-Wurood","Dharat Nemar","Tuwaiq","Hazm","Nemar","Deerab","Irqah","Al-Khozama",
+"Al-Rabwah","Jarir","Al-Malaz","Al-Murabba'","Al-Shifa","Al-Mansuriyya","Al-Marwah","Al-Masani'","Al-Urayja","Al-Urayja Al-Wusta","Al-Urayja (West)","Shubra","Dharat Laban","Hijrat Laban",
+"As-Suwaidi",
+"As-Suwaidi (West)","Sultanah","Al-Malga","Al-Sahafa","Hittin","Al-Wadi","Al-Ghadir","Al-Nafil","Imam Muhammad ibn Saud University main campus","Al-Qayrawan","Al-Aqiq","Al-Shemaysi",
+"Eleyshah","Al-Badi'ah","Syah","Al-Nasriyyah","Umm Sleym","Al-Ma'athar","Umm Al-Hamam (East)","Al-Olayya","Al-Nakheel",
+"King Saud University main campus","Umm Al-Hamam (East)","Umm Al-Hamam (West)","Al-Ma'athar Al-Shimali ('North Ma'athar')","Al-Rahmaniyya",
+"Al-Muhammadiyya","Al-Ra'id","Al-Ghannamiyyah","Uraydh","Al-Ha'ir","Ad Dar Al Baida","Taybah","Al Mansouriyah","Al-Naseem (East)","Al-Naseem (West)","As-Salam","Al-Manar",
+"Al-Rimayah","Al-Nadheem","Al-Rayyan","Al-Rawdhah","Al-Qadisiyah","Al-M'aizliyyah","Al-Nahdhah","Gharnatah (Granada)","Qortubah (Cordoba)","Al-Hamra","Al-Qouds","Al-Selayy"
+,"Ad Difa'","Al Iskan","Khashm Al-'Aan","Al-Sa'adah","Al-Fayha","Al-Manakh",];
+
+var MakkahLocation = ["Mecca", "Jeddah", "Al Qunfudhah" , "Al Lith","Rabigh" ,"Al Jumum" ,"Khulays" ,"Al Kamil" ,"Al Khurmah" ,"Ranyah" ,"Turubah"];
+
+var MadinahLocation = ["Medina" ,"Yanbu" ,"Al-`Ula" ,"Mahd adh Dhahab" ,"Badr" ,"Khaybar" ,"Al Hinakiyah"];
+
+var AlQassimLocation = ["Buraidah" ,"Unaizah" ,"Ar Rass" ,"Al Mithnab" ,"Al Bukayriyah" ,"Al Badayea" ,"Asyah" ,"Al Nabhaniyah" ,"Uyun AlJiwa" ,"Riyadh Al Khabra" ,"Al Shimasiyah"];
+
+var EasternProvinceLocation = ["Dammam" ,"Al Ahsa" ,"Hafar Al-Batin" ,"Jubail" ,"Qatif" ,"Khobar" ,"Khafji" ,"Ras Tanura" ,"Abqaiq" ,"Al Nairyah" ,"Qaryat al-Ulya"];
+
+var AsirLocation = ["Abha" ,"Khamis Mushait" ,"Bisha" ,"Al-Namas" ,"Muhayil" , "Sarat Abidah" ,"Tathlith" ,"Rojal" ,"Ahad Rafidah" ,"Dhahran Al Janub" ,"Balqarn" ,"Al Majaridah"];
+
+var TabukLocation =["Tabuk" ,"Al Wajh" ,"Duba" ,"Tayma" ,"Umluj" ,"Haql"];
+
+var HailLocation = ["Ha'il" ,"Baqaa" , "Al Khazaiah" ,"Al Shinan"];
+
+var NorthernBordersLocation = ["Arar" ,"Rafha" ,"Turaif"];
+
+var JizanLocation = ["Al Dayer" ,"Ahad al Masarihah" ,"Al Edabi" ,"Al Aridhah" ,"Al Darb"];
+
+var NajranLocation =["Najran" ,"Sharurah" ,"Hubuna" ,"Badr Al Janub" ,"Yadamah" ,"Thar" ,"Khubash" ,"Al Kharkhir"];
+
+var AlBahahLocation = ["Al Bahah" ,"Baljurashi" ,"Al Mandaq" ,"Al Makhwah" ,"Al Aqiq" ,"Qilwah" ,"Al Qara" ];
+
+var AljawfLocation = ["Sakakah" ,"Qurayyat" ,"Dumat al-Jandal"];
+
+if(city == "Riyadh"){
+  sel.innerHTML = "";
+  var op = document.createElement('option');
+  op.value = "";
+    op.innerHTML = "";
+    sel.appendChild(op);
+  for (var i = 0; i< RiyadhLocation.length; i++){
+    var opt = document.createElement('option');
+    opt.value = RiyadhLocation[i];
+    opt.innerHTML = RiyadhLocation[i];
+    sel.appendChild(opt);
+    }
+  }
+  if(city == "Makkah "){
+    sel.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      sel.appendChild(op);
+    for (var i = 0; i< MakkahLocation.length; i++){
+      var opt = document.createElement('option');
+      opt.value = MakkahLocation[i];
+      opt.innerHTML = MakkahLocation[i];
+      sel.appendChild(opt);
+      }
+    }
+    if(city == "Al Madinah"){
+      sel.innerHTML = "";
+      var op = document.createElement('option');
+      op.value = "";
+        op.innerHTML = "";
+        sel.appendChild(op);
+      for (var i = 0; i< MadinahLocation.length; i++){
+        var opt = document.createElement('option');
+        opt.value = MadinahLocation[i];
+        opt.innerHTML = MadinahLocation[i];
+        sel.appendChild(opt);
+        }
+      }
+      if(city == "Al-Qassim"){
+        sel.innerHTML = "";
+        var op = document.createElement('option');
+        op.value = "";
+          op.innerHTML = "";
+          sel.appendChild(op);
+        for (var i = 0; i< AlQassimLocation.length; i++){
+          var opt = document.createElement('option');
+          opt.value = AlQassimLocation[i];
+          opt.innerHTML = AlQassimLocation[i];
+          sel.appendChild(opt);
+          }
+        }
+        if(city == "Eastern Province"){
+          sel.innerHTML = "";
+          var op = document.createElement('option');
+          op.value = "";
+            op.innerHTML = "";
+            sel.appendChild(op);
+          for (var i = 0; i< EasternProvinceLocation.length; i++){
+            var opt = document.createElement('option');
+            opt.value = EasternProvinceLocation[i];
+            opt.innerHTML = EasternProvinceLocation[i];
+            sel.appendChild(opt);
+            }
+          }
+          if(city == "'Asir "){
+            sel.innerHTML = "";
+            var op = document.createElement('option');
+            op.value = "";
+              op.innerHTML = "";
+              sel.appendChild(op);
+            for (var i = 0; i< AsirLocation.length; i++){
+              var opt = document.createElement('option');
+              opt.value = AsirLocation[i];
+              opt.innerHTML = AsirLocation[i];
+              sel.appendChild(opt);
+              }
+            }
+            if(city == "Tabuk"){
+              sel.innerHTML = "";
+              var op = document.createElement('option');
+              op.value = "";
+                op.innerHTML = "";
+                sel.appendChild(op);
+              for (var i = 0; i< TabukLocation.length; i++){
+                var opt = document.createElement('option');
+                opt.value = TabukLocation[i];
+                opt.innerHTML = TabukLocation[i];
+                sel.appendChild(opt);
+                }
+              }
+              if(city == "Ha'il "){
+                sel.innerHTML = "";
+                var op = document.createElement('option');
+                op.value = "";
+                  op.innerHTML = "";
+                  sel.appendChild(op);
+                for (var i = 0; i< HailLocation.length; i++){
+                  var opt = document.createElement('option');
+                  opt.value = HailLocation[i];
+                  opt.innerHTML = HailLocation[i];
+                  sel.appendChild(opt);
+                  }
+                }
+                if(city == "Northern Borders"){
+                  sel.innerHTML = "";
+                  var op = document.createElement('option');
+                  op.value = "";
+                    op.innerHTML = "";
+                    sel.appendChild(op);
+                  for (var i = 0; i< NorthernBordersLocation.length; i++){
+                    var opt = document.createElement('option');
+                    opt.value = NorthernBordersLocation[i];
+                    opt.innerHTML = NorthernBordersLocation[i];
+                    sel.appendChild(opt);
+                    }
+                  }
+                  if(city == "Jizan"){
+                    sel.innerHTML = "";
+                    var op = document.createElement('option');
+                    op.value = "";
+                      op.innerHTML = "";
+                      sel.appendChild(op);
+                    for (var i = 0; i< JizanLocation.length; i++){
+                      var opt = document.createElement('option');
+                      opt.value = JizanLocation[i];
+                      opt.innerHTML = JizanLocation[i];
+                      sel.appendChild(opt);
+                      }
+                    }
+                    if(city == "Najran"){
+                      sel.innerHTML = "";
+                      var op = document.createElement('option');
+                      op.value = "";
+                        op.innerHTML = "";
+                        sel.appendChild(op);
+                      for (var i = 0; i< NajranLocation.length; i++){
+                        var opt = document.createElement('option');
+                        opt.value = NajranLocation[i];
+                        opt.innerHTML = NajranLocation[i];
+                        sel.appendChild(opt);
+                        }
+                      }
+                      if(city == "Al Bahah"){
+                        sel.innerHTML = "";
+                        var op = document.createElement('option');
+                        op.value = "";
+                          op.innerHTML = "";
+                          sel.appendChild(op);
+                        for (var i = 0; i< AlBahahLocation.length; i++){
+                          var opt = document.createElement('option');
+                          opt.value = AlBahahLocation[i];
+                          opt.innerHTML = AlBahahLocation[i];
+                          sel.appendChild(opt);
+                          }
+                        }
+                        if(city == "Al Jawf"){
+                          sel.innerHTML = "";
+                          var op = document.createElement('option');
+                          op.value = "";
+                            op.innerHTML = "";
+                            sel.appendChild(op);
+                          for (var i = 0; i< AljawfLocation.length; i++){
+                            var opt = document.createElement('option');
+                            opt.value = AljawfLocation[i];
+                            opt.innerHTML = AljawfLocation[i];
+                            sel.appendChild(opt);
+                            }
+                          }
+                      
 }
 function fetchData() {
+  document.getElementById('0%').style.display = "block";
   var num = 0;
   var counter = 0;
   var counter2 = 0;
+  var country = document.getElementById('countries').value;
   var isflat = document.getElementById("unitType").value;
   var loc = document.getElementById("locations").value; 
   var ci = document.getElementById("cities").value;
@@ -1244,6 +1743,8 @@ function fetchData() {
       console.log(num);
       snapshot.forEach((childSnapshot) => {
         kk = childSnapshot.key;
+        if(country == ""){cntry = childSnapshot.val().Country;}
+        else{cntry = country;}
         if(bed == ""){bedrooms = childSnapshot.val().bedRooms;}
         else{bedrooms = bed;}
         if(bath == ""){bathrooms = childSnapshot.val().bathRooms;}
@@ -1395,119 +1896,123 @@ function fetchData() {
             else{sauna = issauna;}
         if(childSnapshot.val().Accepted == "Yes"){
           if(checkTime(childSnapshot.val().DeadLine)){
-            if(childSnapshot.val().City == city){
-              if(childSnapshot.val().Type == type){
-                Pr = parseInt(childSnapshot.val().price);
-                if(Pr >= from && Pr <= to){
-                  if(childSnapshot.val().UnitType == type2){
-                    console.log(air);
-                    console.log(elevator);
-                    console.log(bbq);
-                    console.log(dog);
-                    console.log(fire);
-                    console.log(greatView);
-                    console.log(large);
-                    console.log(play);
-                    console.log(roof)
-                    console.log(sec);
-                    console.log(swim);
-                    console.log(isflat2);
-                    if(air === childSnapshot.val().Air){
-                      
-                      if(elevator === childSnapshot.val().elevator){
-                        if(bbq === childSnapshot.val().bbq){
-                          if(dog === childSnapshot.val().dogParks){
-                            if(fire === childSnapshot.val().fire){
-                              if(greatView === childSnapshot.val().greatView){
-                                if(large === childSnapshot.val().largeWindow){
-                                  if(play === childSnapshot.val().playGround){
-                                    if(roof === childSnapshot.val().roof){
-                                      if(sec === childSnapshot.val().secure){
-                                        if(swim === childSnapshot.val().swimmingPool){
-                                          if(main === childSnapshot.val().mainStreet){
-                                            if(beach === childSnapshot.val().beachfront){
-                                              if(lake === childSnapshot.val().lake){
-                                                if(nile === childSnapshot.val().nile){
-                                                  if(wifi === childSnapshot.val().wifi){
-                                                    if(garden === childSnapshot.val().garden){
-                                                      if(sports === childSnapshot.val().sportsClup){
-                                                        if(school === childSnapshot.val().school){
-                                                          if(hospital === childSnapshot.val().hospital){
-                                                            if(cafe === childSnapshot.val().cafe){
-                                                              if(swimmable === childSnapshot.val().swimable){
-                                                                if(gym === childSnapshot.val().gym){
-                                                                  if(sauna === childSnapshot.val().sauna){
-                                                                    if(loca == childSnapshot.val().location){
-                                                                      if(isflat2 == childSnapshot.val().Unit){
-                                                                        if(payment == childSnapshot.val().payment || childSnapshot.val().payment == "Both"){
-                                                                          area = parseInt(childSnapshot.val().area);
-                                          if(area >= fromArea && area <= toArea){
-                                            if(finishing === childSnapshot.val().Finishing){
-                                              if(bedrooms == childSnapshot.val().bedRooms){
-                                                if(bathrooms == childSnapshot.val().bathRooms){
-                                                  counter += 1;
-                                            let title = childSnapshot.val().Title;
-                                          let description = childSnapshot.val().Description;
-                                          let time = childSnapshot.val().Time;
-                                          let appID = childSnapshot.key;
-                                          let location = childSnapshot.val().location;
-                                          let price = childSnapshot.val().price;
-                                          let mail = childSnapshot.val().UserID;
-                                          var image = "";
-                                          firebase
-                                            .database()
-                                            .ref("images")
-                                            .orderByChild("main")
-                                            .equalTo(appID)
-                                            .once("value", function (snapshot) {
-                                              snapshot.forEach((childSnapshot) => {
-                                                if(childSnapshot.val().Des != "Contract"){
-                                                  image = childSnapshot.val().link;
-                                              console.log(image);
-                                              return
-                                              }
-                                              });
-                                            });
-                                          firebase
-                                            .database()
-                                            .ref("users")
-                                            .orderByChild("email")
-                                            .equalTo(mail)
-                                            .once("value", function (snapshot) {
-                                              snapshot.forEach((childSnapshot) => {
-                                                let Name = childSnapshot.val().name;
-                                                let type = childSnapshot.val().type;
-                                                console.log(Name);
-                                                let rating = childSnapshot.val().rate;
-                                                //document.getElementById('loading').style.display = "none";
-                                                AddAds(
-                                                  title,
-                                                  description,
-                                                  time,
-                                                  location,
-                                                  appID,
-                                                  price,
-                                                  image,
-                                                  Name,
-                                                  type,
-                                                  rating
-                                                );
-                                                check2(counter);
-                                              });
-                                            });
+            if(cntry == childSnapshot.val().Country){
+              if(childSnapshot.val().City == city){
+                if(childSnapshot.val().Type == type){
+                  Pr = parseInt(childSnapshot.val().price);
+                  if(Pr >= from && Pr <= to){
+                    if(childSnapshot.val().UnitType == type2){
+                      console.log(air);
+                      console.log(elevator);
+                      console.log(bbq);
+                      console.log(dog);
+                      console.log(fire);
+                      console.log(greatView);
+                      console.log(large);
+                      console.log(play);
+                      console.log(roof)
+                      console.log(sec);
+                      console.log(swim);
+                      console.log(isflat2);
+                      if(air === childSnapshot.val().Air){
+                        
+                        if(elevator === childSnapshot.val().elevator){
+                          if(bbq === childSnapshot.val().bbq){
+                            if(dog === childSnapshot.val().dogParks){
+                              if(fire === childSnapshot.val().fire){
+                                if(greatView === childSnapshot.val().greatView){
+                                  if(large === childSnapshot.val().largeWindow){
+                                    if(play === childSnapshot.val().playGround){
+                                      if(roof === childSnapshot.val().roof){
+                                        if(sec === childSnapshot.val().secure){
+                                          if(swim === childSnapshot.val().swimmingPool){
+                                            if(main === childSnapshot.val().mainStreet){
+                                              if(beach === childSnapshot.val().beachfront){
+                                                if(lake === childSnapshot.val().lake){
+                                                  if(nile === childSnapshot.val().nile){
+                                                    if(wifi === childSnapshot.val().wifi){
+                                                      if(garden === childSnapshot.val().garden){
+                                                        if(sports === childSnapshot.val().sportsClup){
+                                                          if(school === childSnapshot.val().school){
+                                                            if(hospital === childSnapshot.val().hospital){
+                                                              if(cafe === childSnapshot.val().cafe){
+                                                                if(swimmable === childSnapshot.val().swimable){
+                                                                  if(gym === childSnapshot.val().gym){
+                                                                    if(sauna === childSnapshot.val().sauna){
+                                                                      if(loca == childSnapshot.val().location){
+                                                                        if(isflat2 == childSnapshot.val().Unit){
+                                                                          if(payment == childSnapshot.val().payment || childSnapshot.val().payment == "Both"){
+                                                                            area = parseInt(childSnapshot.val().area);
+                                            if(area >= fromArea && area <= toArea){
+                                              if(finishing === childSnapshot.val().Finishing){
+                                                if(bedrooms == childSnapshot.val().bedRooms){
+                                                  if(bathrooms == childSnapshot.val().bathRooms){
+                                                    counter += 1;
+                                              let title = childSnapshot.val().Title;
+                                            let description = childSnapshot.val().Description;
+                                            let time = childSnapshot.val().Time;
+                                            let appID = childSnapshot.key;
+                                            let location = childSnapshot.val().location;
+                                            let price = childSnapshot.val().price;
+                                            let mail = childSnapshot.val().UserID;
+                                            var image = "";
+                                            firebase
+                                              .database()
+                                              .ref("images")
+                                              .orderByChild("main")
+                                              .equalTo(appID)
+                                              .once("value", function (snapshot) {
+                                                snapshot.forEach((childSnapshot) => {
+                                                  if(childSnapshot.val().Des != "Contract"){
+                                                    image = childSnapshot.val().link;
+                                                console.log(image);
+                                                return
                                                 }
+                                                });
+                                              });
+                                            firebase
+                                              .database()
+                                              .ref("users")
+                                              .orderByChild("email")
+                                              .equalTo(mail)
+                                              .once("value", function (snapshot) {
+                                                snapshot.forEach((childSnapshot) => {
+                                                  let Name = childSnapshot.val().name;
+                                                  let type = childSnapshot.val().type;
+                                                  console.log(Name);
+                                                  let rating = childSnapshot.val().rate;
+                                                  //document.getElementById('loading').style.display = "none";
+                                                  document.getElementById('0%').style.display = "none";
+                        document.getElementById('50%').style.display = "block";
+                                                  AddAds(
+                                                    title,
+                                                    description,
+                                                    time,
+                                                    location,
+                                                    appID,
+                                                    price,
+                                                    image,
+                                                    Name,
+                                                    type,
+                                                    rating
+                                                  );
+                                                  check2(counter);
+                                                });
+                                              });
+                                                  }
+                                                }
+                                                
                                               }
                                               
                                             }
-                                            
-                                          }
+                                                                            
+                                                                          }
                                                                           
                                                                         }
                                                                         
                                                                       }
                                                                       
                                                                     }
-                                                                    
                                                                   }
                                                                 }
                                                               }
@@ -1527,18 +2032,19 @@ function fetchData() {
                                   }
                                 }
                               }
+                                
                             }
-                              
                           }
                         }
                       }
+                      
                     }
                     
-                  }
-                  
+                    }
                   }
                 }
-              }
+            }
+            
           }
           else{
             Delete();
@@ -1571,9 +2077,18 @@ function clear2(){
 function clear() {
   document.getElementById("adHeader").innerHTML = "";
 }
+function scrol(){
+  var elmntToView = document.getElementById("toScroll");
+elmntToView.scrollIntoView({behavior: "smooth",inline: "nearest"}); 
+}
+document.getElementById("search").addEventListener("click", scrol);
 document.getElementById("search").addEventListener("click", check);
 document.getElementById("search").addEventListener("click", clear);
 document.getElementById("search").addEventListener("click", clear2);
+document.getElementById("countries").addEventListener("change", setCit);
 document.getElementById("cities").addEventListener("change", setLoc);
+
+document.getElementById("countries").addEventListener("change", cityCounter);
+
 //document.getElementById("cities").addEventListener("click", setLoc);
 
