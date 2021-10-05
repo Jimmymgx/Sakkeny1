@@ -668,7 +668,8 @@ function Delete(){
 }
 
                     function fetchAllData() {
-                        window.scrollTo(0, 700);
+                        document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
+                        //window.scrollTo(0, 700);
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
                         Totalnum = 0;
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {

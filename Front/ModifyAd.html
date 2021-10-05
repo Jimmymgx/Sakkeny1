@@ -364,7 +364,9 @@
                     <h1 class="title">Choose the ad that you want to modify</h1>
                 </div>
                 <div class="tab-content tab-space">
-                    <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%;" id='loading'/>
+                    <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
+            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
+            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>
                     <div class="row" id="adHeader">
 
 
@@ -477,6 +479,7 @@
                     var kk = "";
                     firebase.auth().onAuthStateChanged(function (user) {
                         if (user) {
+                            localStorage.setItem('count', 0);
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
@@ -651,6 +654,18 @@
         divWrap.appendChild(divBody);
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
+        localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
+        if(parseInt(localStorage.getItem('count')) > 1){
+            setTimeout(() => {
+                document.getElementById('50%').style.display = 'none';    
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('100%').style.display = 'block';    
+            }, 1000);        }
+        setTimeout(() => {
+                document.getElementById('100%').style.display = 'none';    
+            }, 1500);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
             window.document.location = './EditAdv.html';
@@ -793,7 +808,9 @@ function Delete(){
 }
 
                     function fetchAllData() {
-                        window.scrollTo(0, 700);
+                        document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
+                        //window.scrollTo(0, 700);
+                        document.getElementById('0%').style.display = "block";
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
@@ -828,7 +845,9 @@ function Delete(){
                                         let Name = childSnapshot.val().name;
                                         let type = childSnapshot.val().type;
                                         let rating = childSnapshot.val().rate;
-                        document.getElementById('loading').style.display = "none";
+                        //document.getElementById('loading').style.display = "none";
+                        document.getElementById('0%').style.display = "none";
+                        document.getElementById('50%').style.display = "block";
                         AddAds(title, description, time, location, appID, price, image, Name,type, rating);
                                         //i++;
                                     });

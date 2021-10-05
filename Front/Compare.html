@@ -186,7 +186,11 @@
             <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
                 <select  class="custom-select form-control" id="countries"style="border-radius: 25px;" >
                     <option value="" disabled selected hidden>Country</option>
-                    
+                    <option value=""></option>
+                      <option value="Egypt" id="Egypt">Egypt</option>
+                      <option value="Emirates" id="Emirates">Emirates</option>
+                      <option value="Kuwait" id="Kuwait">Kuwait</option>
+                      <option value="Saudi Arabia" id="Saudi Arabia">Saudi Arabia</option>
                 </select>
                 </div>
             <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -196,44 +200,6 @@
                 <select  class="custom-select form-control" id="cities" style="border-radius: 25px;">
                     <option value="" disabled selected hidden>City</option>
                     
-                    <option value="">All</option>
-                    <option value="Cairo" id="Cairo">Cairo</option>
-                    <option value="Alexandria" id="Alexandria">Alexandria </option>
-                    <option value="Giza" id="Giza">Giza</option>
-                    <option value="Beheira" id="Beheira">Beheira</option>
-                    <option value="Kafr El Sheikh" id="Kafr El Sheikh">Kafr El Sheikh</option>
-                    <option value="Port Said" id="Port Said">Port Said</option>
-                    <option value="North Sinai" id="North Sinai">North Sinai</option>
-                    <option value="Gharbia" id="Gharbia">Gharbia</option>
-                    <option value="Monufia" id="Monufia">Monufia</option>
-                    <option value="Qalyubia" id="Qalyubia">Qalyubia</option>
-                    <option value="Sharqia" id="Sharqia">Sharqia</option>
-                    <option value="Ismailia" id="Ismailia">Ismailia</option>
-                    <option value="Faiyum" id="Faiyum">Faiyum</option>
-                    <option value="Suez" id="Suez">Suez</option>
-                    <option value="Damietta" id="Damietta">Damietta</option>
-                    <option value="South Sinai" id="South Sinai">South Sinai</option>
-                    <option value="Beni Suef" id="Beni Suef">Beni Suef</option>
-                    <option value="Minya" id="Minya">Minya</option>
-                    <option value="New Valley" id="New Valley">New Valley</option>
-                    <option value="Asyut" id="Asyut">Asyut</option>
-                    <option value="Red Sea" id="Red Sea">Red Sea</option>
-                    <option value="Sohag" id="Sohag">Sohag</option>
-                    <option value="Qena" id="Qena">Qena</option>
-                    <option value="Luxor" id="Luxor">Luxor</option>
-                    <option value="Aswan" id="Aswan">Aswan</option>
-                    <option value="Matruh" id="Matruh">Matruh</option>
-                    <option value="Dakahlia" id="Dakahlia">Dakahlia</option>
-                    <option value="Gouna" id="Gouna">Gouna</option>
-                    <option value="North Coast" id="North Coast">North Coast</option>
-                    <option value="Ain Sokhna" id="Ain Sokhna">Ain Sokhna</option>
-                    <option value="Marina" id="Marina">Marina</option>
-                    <option value="Ras Sedr" id="Ras Sedr">Ras Sedr</option>
-                    <option value="Dahab" id="Dahab">Dahab</option>
-                    <option value="Hurghada" id="Hurghada">Hurghada</option>
-                    <option value="Marsa Alam" id="Marsa Alam">Marsa Alam</option>
-                    <option value="El Alamein" id="El Alamein">El Alamein</option>
-                    <option value="Sharm ElSheikh" id="Sharm ElSheikh">Sharm ElSheikh</option>
                 </select>
                 </div>
                 <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -547,8 +513,8 @@
 </div><!-- end title -->
 </div>
 </div>
-        <div id="features" class="section wb">
-        <div class="container">
+        <div id="features"  class="section wb"> 
+        <div class="container" id="toScroll">
             <div class="section-title row text-center">
                 <div class="col-md-8 col-md-offset-2">
                     <small>All Awesome Property Details</small>
@@ -556,8 +522,10 @@
                     
                 </div><!-- end col -->
             </div><!-- end title -->
-            <img src=images/ajax-loader.gif class="col-md-1 col-sm-2 col-xs-2" style="margin-left: 45%;" id='loading'/>
-                <div class="row" id="adHeader" style="width: 100%;">
+            <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
+            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
+            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>    
+            <div class="row" id="adHeader" style="width: 100%;">
 
 
                 
@@ -687,21 +655,20 @@
             console.log(localStorage.getItem('currMail'));
             localStorage.setItem('FirstCompare', '');
             localStorage.setItem('SecondCompare', '');
+            localStorage.setItem('count', 0);
             if (isVerify != true) {
                 window.location.href = "Verfication.html";
             }
         }
 
         else {
-            document.getElementById("SigninBar").style.display = "block";
-            document.getElementById("SignupBar").style.display = "block";
-            document.getElementById("MyaccountBar").style.display = "none";
-            document.getElementById("Logout").style.display = "none";
-            document.querySelector("fav").style.display = "none";
-            console.log("inside else");
+            localStorage.setItem('count', 0);
+                            localStorage.setItem('currMail', '');
+                            document.getElementById('bo').innerHTML = '<h2 class="title " id="inOrder" >In order to use compare feature you have to be a user <br> you can do <a href="signUp.html" style="color: #997c47;">sign up </a>or <a href="login.html" style="color: #997c47;">log in </a> to your existing account </h2>';
             localStorage.setItem('currMail', '');
             localStorage.setItem('FirstCompare', '');
             localStorage.setItem('SecondCompare', '');
+            localStorage.setItem('count', 0);
         }
     });
 </script>
@@ -868,6 +835,18 @@
         divWrap.appendChild(divBody);
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
+        localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
+        if(parseInt(localStorage.getItem('count')) > 1){
+            setTimeout(() => {
+                document.getElementById('50%').style.display = 'none';    
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('100%').style.display = 'block';    
+            }, 1000);        }
+        setTimeout(() => {
+                document.getElementById('100%').style.display = 'none';    
+            }, 1500);
         divMain.addEventListener('click', function () {
             if(localStorage.getItem('FirstCompare') == ""){
                 localStorage.setItem('FirstCompare', appID);
@@ -878,6 +857,12 @@
             }
             else if(localStorage.getItem('SecondCompare') == ""){
                 localStorage.setItem('SecondCompare', appID);
+                if(localStorage.getItem('SecondCompare') === localStorage.getItem('FirstCompare')){
+                    alert("You can't compare the ad with itself please choose another ad");
+                    localStorage.setItem('SecondCompare', "");
+                }
+                else{
+                    //localStorage.setItem('SecondCompare', appID);
                 console.log(localStorage.getItem('SecondCompare'));
                 divMain.style.outline = "3px solid green";
                 setTimeout(() => {
@@ -885,6 +870,8 @@
                 }, 1000);
                 //alert("You did choose the second ad now you'll go to comparison");
                 //alert(localStorage.getItem('SecondCompare'));
+                }
+                
             }
             else{
                 console.log(localStorage.getItem('FirstCompare'));
@@ -961,7 +948,7 @@
         
         
         document.getElementById('adHeader').appendChild(divSize);
-        cityCounter();
+        //cityCounter();
         
     }
     function checkTime(str){
@@ -1029,29 +1016,30 @@ function Delete(){
     //alert("The ad has been successfully Deleted");
     //window.location.href = "Dashboard.html";
 }
-    function cityCounter(){
-        let cit = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia"];
-        let count = 0;
-        for(let i = 0; i < cit.length; i++){
-            let counter = 0;
-            firebase.database().ref('Ads').orderByChild("City").equalTo(cit[i]).once('value', function (snapshot) {
-            snapshot.forEach(childSnapshot => {
-                if(childSnapshot.val().Accepted == "Yes"){
-                    counter += 1;  
-                console.log(counter);
-                console.log(cit[i]);
-                count = counter;
-                document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
-                }
-            }); 
-            document.getElementById("cities").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
-        });
-        //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
-        }
-        
-    }
+function countryCounter(){
+  let cit = ["Egypt", "Emirates", "Kuwait", "Saudi Arabia"];
+  let count = 0;
+  for(let i = 0; i < cit.length; i++){
+      let counter = 0;
+      firebase.database().ref('Ads').orderByChild("Country").equalTo(cit[i]).once('value', function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+          if(childSnapshot.val().Accepted == "Yes"){
+              counter += 1;  
+          console.log(counter);
+          console.log(cit[i]);
+          count = counter;
+          document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+          }
+      }); 
+      document.getElementById("countries").options[i + 2].innerHTML = cit[i] + "  (" + counter + ")";   
+  });
+  //document.getElementById(cit[i]).innerHTML = cit[i] + "  (" + counter + ")";
+  }
+  
+}
     function fetchAllData() {
-        cityCounter();
+        document.getElementById('0%').style.display = "block";
+        countryCounter();
         firebase.database().ref('Ads').once('value', function (snapshot) {
             snapshot.forEach(childSnapshot => {
                 kk = childSnapshot.key;
@@ -1080,7 +1068,8 @@ function Delete(){
                         console.log(Name);
                         let type = childSnapshot.val().type;
                         let rating = childSnapshot.val().rate;
-                        document.getElementById('loading').style.display = "none";
+                        document.getElementById('0%').style.display = "none";
+                        document.getElementById('50%').style.display = "block";
                         AddAds(title, description, time, location, appID, price, image, Name,type,rating);
                         //i++;
                     });
