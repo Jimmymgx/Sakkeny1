@@ -362,10 +362,26 @@ crossorigin="anonymous"></script>
                 </div>
                 <div class="name">
                     <h1 class="title" id='wish'>My Wishlist</h1>
-                    <h1 class="title" id='nowish' style="display: none;">No Wishlist has been made</h1>
+                    <div  id="noRes" class="section wb" style="display: none; padding-top: 0px;">
+                      <div class="container">
+                          <div  class="section wb" >
+                              <div class="container">
+                                  <div class="section-title row text-center">
+                                      <div class="col-md-8 col-md-offset-2">
+                          <h3 >No result found</h3>
+                          <p class="lead"> But you can<a href="DoWish.html" style="color: #997c47;"> Make A Wish</a> of your desired property </p>
+                      </div><!-- end col -->
+                  </div><!-- end title -->
+                  </div>
+                  </div>
+                  </div>
+                  </div>
                 </div>
                 <div class="tab-content tab-space">
-                    <div class="row" id="adHeader">
+                  <img src=images/0.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='0%'/>
+                        <img src=images/50.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='50%'/>
+                        <img src=images/100.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='100%'/>    
+                    <div class="row" id="adHeader" style="width: 100%;">
                         <div class="col-md-12 col-sm-12">
                             <div  class="testi-carousel owl-carousel owl-theme">
                                 <div class="container col-md-12 col-sm-4" id = 'carousel'>
@@ -837,6 +853,16 @@ if(ci == city){
   
 }
 function addCard(key, text1, text, mail){
+  setTimeout(() => {
+                document.getElementById('50%').style.display = 'none';    
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('100%').style.display = 'block';    
+            }, 1000);        
+        setTimeout(() => {
+                document.getElementById('100%').style.display = 'none';    
+            }, 1500);
     var main = document.createElement('div');
     main.setAttribute('class', 'testimonial clearfix col-md-4');
     var des = document.createElement('div');
@@ -851,7 +877,19 @@ function addCard(key, text1, text, mail){
            window.document.location = './wishResult.html?k='+key;
        });
 }
+function check2(para){
+  if(para < 1){
+    document.getElementById('noRes').style.display = "block";
+    document.getElementById('0%').style.display = "none";
+  }
+  if(para > 0){
+    document.getElementById('noRes').style.display = "none";
+    document.getElementById('0%').style.display = "block";
+  }
+}
                     function fetchAllData() {
+                      var counter = 0;
+                      document.getElementById('0%').style.display = "block";
                         var  k  = "";
                         document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
                         //window.scrollTo(0, 700);
@@ -865,8 +903,11 @@ function addCard(key, text1, text, mail){
                         });
 
                         firebase.database().ref('requests').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
-                            
+                          document.getElementById('0%').remove();
+                          
+                            document.getElementById('50%').style.display = "block";
                             snapshot.forEach(childSnapshot => {
+                              counter++;
                                 var key = childSnapshot.key;
                                 let mail = childSnapshot.val().UserID;
                                 var city = childSnapshot.val().City;
@@ -907,6 +948,8 @@ function addCard(key, text1, text, mail){
                                 let areaF = childSnapshot.val().areaFrom;
                                 let areaT = childSnapshot.val().areaTo;
                                 let country = childSnapshot.val().Country;
+                                let bus = childSnapshot.val().bus;
+                                let metro = childSnapshot.val().metro;
                                 checkRequests(city, loc, cat, unit, bed, bath, finish, type, pay, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, priceF, priceT, areaF, areaT);
                                 var text ="";
                                 var text1 ="";
@@ -970,6 +1013,14 @@ function addCard(key, text1, text, mail){
         
          text +=", "+largeWindow;
        }
+       if (bus != false) {
+        
+        text +=", "+bus;
+      }
+      if (metro != false) {
+        
+        text +=", "+metro;
+      }
        if (playground != false) {
         
          text +=", "+playground;
@@ -1041,7 +1092,7 @@ function addCard(key, text1, text, mail){
        console.log(text);
        addCard(key, text1, text, mail);
                                 });
-                                
+                                check2(counter);
                             
                         });
                         

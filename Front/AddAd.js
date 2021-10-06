@@ -1765,6 +1765,8 @@ function getch(id){
   var iscafe = getch("IsCafe");
   var isswimable = getch("IsSwimable");
   var isgym = getch("IsGym");
+  var isbus = getch("IsBus");
+  var ismetro = getch("IsMetro");
   var issauna = getch("IsSauna");
   var pric = document.getElementById("price").value;
   var secondprice = pric;
@@ -1804,6 +1806,8 @@ function getch(id){
     school: isschool,
     hospital: ishospital,
     cafe: iscafe,
+    bus: isbus,
+    metro: ismetro,
     swimable: isswimable,
     gym: isgym,
     sauna: issauna,
@@ -1840,6 +1844,78 @@ function getch(id){
 }
 });
   }
+  function setType(){
+    var cat = document.getElementById('unitType').value;
+    var res = ['Apartment', 'Duplex', "Villa", "Chalet", "Cabin", "Town house", "Twin house", "Condominium", "Cottage", "Mansion", "Barndominium", "Roof", "Penthouse", "IVilla", "Residential Land", "Hotel appartment", "While building", "Bulk sale/rent units", "Full floor", "Half floor", "Compounds"];
+    var com = ["Warehouse", "Whole building", "Commercial land", "Showroom", "Retail shop", "Full floor", "Half floor", "Factory", "Mall", "Retail unit in a mall", "Villa", "Staff accommodation", "Bulk sale/rent units"];
+    var adm = ["Office space", "Warehouse", "Administrative land", "Full floor", "Half floor", "Whole building", "Factory", "Mall", "Villa", "Staff accommodation", "Bulk sale/rent units", "Co-working space"];
+    var med = ["Medical building", "Medical land", "Clinic", "Full floor", "Half floor", "Whole building", "Medical centre unit", "Hospital", "Villa", "Staff accommodation", "Bulk sale/rent units"];
+    var cit = document.getElementById("unitT");
+  if(cat == ""){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+  }
+  if(cat == "Residential"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< res.length; i++){
+      var opt = document.createElement('option');
+      opt.value = res[i];
+      opt.innerHTML = res[i];
+      opt.setAttribute('id', res[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(cat == "Commercial"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< com.length; i++){
+      var opt = document.createElement('option');
+      opt.value = com[i];
+      opt.innerHTML = com[i];
+      opt.setAttribute('id', com[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(cat == "Administrative"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< adm.length; i++){
+      var opt = document.createElement('option');
+      opt.value = adm[i];
+      opt.innerHTML = adm[i];
+      opt.setAttribute('id', adm[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(cat == "Medical"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< med.length; i++){
+      var opt = document.createElement('option');
+      opt.value = med[i];
+      opt.innerHTML = med[i];
+      opt.setAttribute('id', med[i]);
+      cit.appendChild(opt);
+    }
+  }
+  }
+  document.getElementById("unitType").addEventListener("change", setType);
   function makeLoader(){
     
     document.getElementById("bo").innerHTML = "";

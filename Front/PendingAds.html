@@ -363,12 +363,26 @@ crossorigin="anonymous"></script>
                 </div>
                 <div class="name">
                     <h1 class="title">Your pending ads</h1>
+                    <div  id="noRes" class="section wb" style="display: none; padding-top: 0px;">
+                        <div class="container">
+                            <div  class="section wb" >
+                                <div class="container">
+                                    <div class="section-title row text-center">
+                                        <div class="col-md-8 col-md-offset-2">
+                            <h3 >No result found</h3>
+                            <p class="lead"> But you can<a href="AdvCard.html" style="color: #997c47;"> Upload ad </a>  </p>
+                        </div><!-- end col -->
+                    </div><!-- end title -->
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                 </div>
                 <div class="tab-content tab-space">
-                    <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
-            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
-            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>
-                    <div class="row" id="adHeader">
+                    <img src=images/0.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='0%'/>
+                        <img src=images/50.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='50%'/>
+                        <img src=images/100.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='100%'/>    
+                    <div class="row" id="adHeader" style="width: 100%;">
 
 
 
@@ -480,8 +494,9 @@ crossorigin="anonymous"></script>
                         if (user) {
                             localStorage.setItem('count', 0);
                             var user = firebase.auth().currentUser;
-                            localStorage.setItem('currMail', currentusermail);
                             var currentusermail = user.email;
+                            localStorage.setItem('currMail', currentusermail);
+                            
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
                             details.once('value', function (snapshot) {
                                 snapshot.forEach(childSnapshot => {
@@ -692,24 +707,41 @@ function Delete(){
   //alert("The ad has been successfully Deleted");
   //window.location.href = "Dashboard.html";
 }
-
+function check2(para){
+  if(para < 1){
+    document.getElementById('noRes').style.display = "block";
+    document.getElementById('0%').style.display = "none";
+  }
+  if(para > 0){
+    document.getElementById('noRes').style.display = "none";
+    document.getElementById('0%').style.display = "block";
+  }
+}
                     function fetchAllData() {
+                        counter = 0;
+                        console.log('Here fetch');
                         document.getElementById('0%').style.display = "block";
                         document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
                         //window.scrollTo(0, 700);
                         document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
+                        console.log('Befor img');
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                            
                             snapshot.forEach(childSnapshot => {
+                                console.log('Here img');
                                 image = childSnapshot.val().link;
                                 document.getElementById('userPp').setAttribute('src', image);
                             });
                         });
-
-                        firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
+                        console.log('Befor ad');
+                        firebase.database().ref('Ads').orderByChild("UserID").equalTo(localStorage.getItem('currMail')).once('value', function (snapshot) {
                                     snapshot.forEach(childSnapshot => {
+                                        counter++;
+                                        console.log('Hereeeeeeeeeeee');
                                         kk = childSnapshot.key;
-                                        document.getElementById('loading').style.display = "none";
+                                        //document.getElementById('loading').style.display = "none";
                                         if(childSnapshot.val().Accepted == "No"){
+                                            //console.log('Hereeeeeeeeeeee2');
                                             if(checkTime(childSnapshot.val().DeadLine)){
                                                 let title = childSnapshot.val().Title;
                                         let description = childSnapshot.val().Description;
@@ -737,7 +769,7 @@ function Delete(){
                                                 document.getElementById('0%').style.display = "none";
                         document.getElementById('50%').style.display = "block";
                                                 AddAds(title, description, time, location, appID, price, image, Name,type);
-                                                i++;
+                                                //i++;
                                             });
                                         });
 
@@ -750,7 +782,7 @@ function Delete(){
                                 }
                                         });
                                         
-
+                                        check2(counter);
                                 });
                     }
                     if (window.addEventListener) {

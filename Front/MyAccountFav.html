@@ -362,12 +362,26 @@
                     
                         <div class="name">
                             <h1 class="title">My Favorites</h1>
+                            <div  id="noRes" class="section wb" style="display: none; padding-top: 0px;">
+                                <div class="container">
+                                    <div  class="section wb" >
+                                        <div class="container">
+                                            <div class="section-title row text-center">
+                                                <div class="col-md-8 col-md-offset-2">
+                                    <h3 >No result found</h3>
+                                    <p class="lead"> But you can go to <a href="index.html" style="color: #997c47;"> Home </a> and choose ad to be in your favourites </p>
+                                </div><!-- end col -->
+                            </div><!-- end title -->
+                            </div>
+                            </div>
+                            </div>
+                            </div>
                         </div>
                 <div class="tab-content tab-space">
-                    <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
-            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
-            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>
-                    <div class="row" id="adHeader">
+                    <img src=images/0.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='0%'/>
+                        <img src=images/50.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='50%'/>
+                        <img src=images/100.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='100%'/>    
+                    <div class="row" id="adHeader" style="width: 100%;">
 
 
 
@@ -808,9 +822,19 @@ function Delete(){
   //alert("The ad has been successfully Deleted");
   //window.location.href = "Dashboard.html";
 }
-
+function check2(para){
+  if(para < 1){
+    document.getElementById('noRes').style.display = "block";
+    document.getElementById('0%').style.display = "none";
+  }
+  if(para > 0){
+    document.getElementById('noRes').style.display = "none";
+    document.getElementById('0%').style.display = "block";
+  }
+}
                     function fetchAllData() {
                         //window.scrollTo(0, 700);
+                        counter = 0;
                         document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
                         document.getElementById('0%').style.display = "block";
 
@@ -824,6 +848,7 @@ function Delete(){
 
                         firebase.database().ref('Favorites').orderByChild("user").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
+                                counter++
                                 var ad = childSnapshot.val().Ad;
 
                                 firebase.database().ref('Ads').orderByKey().equalTo(ad).once('value', function (snapshot) {
@@ -871,6 +896,7 @@ function Delete(){
 
                                 });
                             });
+                            check2(counter);
                         });
                     }
                     if (window.addEventListener) {

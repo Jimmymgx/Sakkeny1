@@ -472,9 +472,10 @@ crossorigin="anonymous"></script>
                     var kk = "";
                     firebase.auth().onAuthStateChanged(function (user) {
                         if (user) {
-                            localStorage.setItem('currMail', currentusermail);
+                            
                             var user = firebase.auth().currentUser;
                             var currentusermail = user.email;
+                            localStorage.setItem('currMail', currentusermail);
                             var details = firebase.database().ref("users").orderByChild("email").equalTo(currentusermail);
                             details.once('value', function (snapshot) {
                                 snapshot.forEach(childSnapshot => {

@@ -360,13 +360,29 @@ crossorigin="anonymous"></script>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="tab-content tab-space">
-                    <div class="row" id="adHeader">
-                        <h1 class="title" id='total'></h1>
-                    <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
-            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
-            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>
+                    <h1 class="title" id='total'></h1>
+                    <img src=images/0.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='0%'/>
+                        <img src=images/50.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='50%'/>
+                        <img src=images/100.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='100%'/>    
+                    <div class="row" id="adHeader" style="width: 100%;"></div>
+                        
+                        <div  id="noRes" class="section wb" style="display: none; padding-top: 0px;">
+                            <div class="container">
+                                <div  class="section wb" >
+                                    <div class="container">
+                                        <div class="section-title row text-center">
+                                            <div class="col-md-8 col-md-offset-2">
+                                <h3 >No result found</h3>
+                                <p class="lead"> But you can<a href="AdvCard.html" style="color: #997c47;"> Upload ad </a>  </p>
+                            </div><!-- end col -->
+                        </div><!-- end title -->
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        
                     
 
 
@@ -812,8 +828,18 @@ function Delete(){
   //alert("The ad has been successfully Deleted");
   //window.location.href = "Dashboard.html";
 }
-
+function check2(para){
+  if(para < 1){
+    document.getElementById('noRes').style.display = "block";
+    document.getElementById('0%').style.display = "none";
+  }
+  if(para > 0){
+    document.getElementById('noRes').style.display = "none";
+    document.getElementById('0%').style.display = "block";
+  }
+}
                     function fetchAllData() {
+                        var counter = 0;
                         document.getElementById('0%').style.display = "block";
                         document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
                         //window.scrollTo(0, 700);
@@ -831,6 +857,7 @@ function Delete(){
                                 kk = childSnapshot.key;
                                 if(childSnapshot.val().Accepted == "Yes"){
                                     if(checkTime(childSnapshot.val().DeadLine)){
+                                        counter++;
                                         var ad = childSnapshot.val().Ad;
                                 let title = childSnapshot.val().Title;
                                 let description = childSnapshot.val().Description;
@@ -876,6 +903,7 @@ function Delete(){
                                 
                             console.log(Totalnum);
                             document.getElementById('total').innerHTML = "Total Views of My Ads are: " + Totalnum;
+                            check2(counter);
                         });
 
                     }

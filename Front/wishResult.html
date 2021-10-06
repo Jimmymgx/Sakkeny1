@@ -946,7 +946,7 @@ if(ci == city){
             var loc = window.location.href;
   var params = loc.split('k=')[1];
             firebase.database().ref('requests').orderByKey().equalTo(params).once('value', function (snapshot) {
-                            
+                            console.log('Here');
                             snapshot.forEach(childSnapshot => {
                                 var key = childSnapshot.key;
                                 //let mail = childSnapshot.val().UserID;
@@ -988,6 +988,9 @@ if(ci == city){
                                 var frarea = childSnapshot.val().areaFrom;
                                 var tarea = childSnapshot.val().areaTo;
                                 var country = childSnapshot.val().Country;
+                                var isbus = childSnapshot.val().bus;
+                                var ismetro = childSnapshot.val().metro;
+                                
                                 //checkRequests(city, loc, cat, unit, bed, bath, finish, type, pay, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, priceF, priceT, areaF, areaT)
                                 //Search(city, loc, unit, type, areaF, areaT, priceF, priceT, cat, finish, bed, bath, elevator, secure, air, greatView, firePlace, largeWindow, dogParks, playground, swimming, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimmable, gym, sauna, pay);
                                 firebase
@@ -996,6 +999,7 @@ if(ci == city){
   .once("value", function (snapshot) {
     snapshot.forEach((childSnapshot) => {
       if(childSnapshot.val().Accepted == "Yes"){
+        //console.log('now');
         let k = childSnapshot.key;
       let loc = childSnapshot.val().location;
     let ci = childSnapshot.val().City;
@@ -1007,6 +1011,8 @@ if(ci == city){
     let air = childSnapshot.val().Air;
     let greatView = childSnapshot.val().greatView;
     let fire = childSnapshot.val().fire;
+    let bus = childSnapshot.val().bus;
+    let metro = childSnapshot.val().metro;
     let large = childSnapshot.val().largeWindow;
     let dog = childSnapshot.val().dogParks;
     let play = childSnapshot.val().playGround;
@@ -1058,6 +1064,8 @@ let caf = "";
 let swimmabl = "";
 let gy = "";
 let saun = "";
+let bu = "";
+let me = "";
 if (isair == false) {
   ai = air;
 }
@@ -1070,6 +1078,14 @@ if (isbbq == false) {
   bb = bbq;
 }
 else{bb = isbbq;}
+if (isbus == false) {
+  bu = bus;
+}
+else{bu = isbus;}
+if (ismetro == false) {
+  me = metro;
+}
+else{me = ismetro;}
 if (isdog == false) {
   dogg = dog;
 }
@@ -1163,7 +1179,7 @@ if(city == ""){
 }
 else{c = city;}
 if(country == ""){
-  cntry == cont;
+  cntry = cont;
 }
 else{
   cntry = country;
@@ -1216,7 +1232,9 @@ if(payment == ""){
   p = pay;
 }
 else{p = payment;}
+console.log(cntry + cont);
 if(cntry == cont){
+  console.log(cntry + cont);
   if(c == ci){
   console.log(c + ci);
   if(uf == unitfor){
@@ -1291,8 +1309,9 @@ if(cntry == cont){
                                     console.log(bed);
                                     if(btr == bath){
                                         console.log(bath);
-                                      //sendM2(usermail, k); 
-                                      let title = childSnapshot.val().Title;
+                                        if(bu == bus){
+                                          if(me == metro){
+                                            let title = childSnapshot.val().Title;
                 let description = childSnapshot.val().Description;
                 let time = childSnapshot.val().Time;
                 let appID = childSnapshot.key;
@@ -1321,6 +1340,10 @@ if(cntry == cont){
                     });
 
                 });
+                                          }
+                                        }
+                                      //sendM2(usermail, k); 
+                
                                        
                                     }
                                   }

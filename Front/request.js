@@ -1110,6 +1110,8 @@ function getch(id){
   var isswimable = getch("IsSwimable");
   var isgym = getch("IsGym");
   var issauna = getch("IsSauna");
+  var isbus = getch("IsBus");
+  var ismetro = getch("IsMetro");
     var loc = document.getElementById("locations").value; 
     var ci = document.getElementById("cities").value;
     var country = document.getElementById('countries').value;
@@ -1122,7 +1124,7 @@ function getch(id){
     var finish = document.getElementById('finish').value;
     var bed = document.getElementById("bed").value;
     var bath = document.getElementById("bath").value;
-    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false && country == ""){
+    if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false && country == "" && isbus == false && ismetro == false){
       alert('You have to Make the Wish');
       //window.scrollTo(0, 300);
     }
@@ -1229,6 +1231,78 @@ function getch(id){
     }
   
   }
+  function setType(){
+    var cat = document.getElementById('unit').value;
+    var res = ['Apartment', 'Duplex', "Villa", "Chalet", "Cabin", "Town house", "Twin house", "Condominium", "Cottage", "Mansion", "Barndominium", "Roof", "Penthouse", "IVilla", "Residential Land", "Hotel appartment", "While building", "Bulk sale/rent units", "Full floor", "Half floor", "Compounds"];
+    var com = ["Warehouse", "Whole building", "Commercial land", "Showroom", "Retail shop", "Full floor", "Half floor", "Factory", "Mall", "Retail unit in a mall", "Villa", "Staff accommodation", "Bulk sale/rent units"];
+    var adm = ["Office space", "Warehouse", "Administrative land", "Full floor", "Half floor", "Whole building", "Factory", "Mall", "Villa", "Staff accommodation", "Bulk sale/rent units", "Co-working space"];
+    var med = ["Medical building", "Medical land", "Clinic", "Full floor", "Half floor", "Whole building", "Medical centre unit", "Hospital", "Villa", "Staff accommodation", "Bulk sale/rent units"];
+    var cit = document.getElementById("unitT");
+  if(cat == ""){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+  }
+  if(cat == "Residential"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< res.length; i++){
+      var opt = document.createElement('option');
+      opt.value = res[i];
+      opt.innerHTML = res[i];
+      opt.setAttribute('id', res[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(cat == "Commercial"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< com.length; i++){
+      var opt = document.createElement('option');
+      opt.value = com[i];
+      opt.innerHTML = com[i];
+      opt.setAttribute('id', com[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(cat == "Administrative"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< adm.length; i++){
+      var opt = document.createElement('option');
+      opt.value = adm[i];
+      opt.innerHTML = adm[i];
+      opt.setAttribute('id', adm[i]);
+      cit.appendChild(opt);
+    }
+  }
+  if(cat == "Medical"){
+    cit.innerHTML = "";
+    var op = document.createElement('option');
+    op.value = "";
+      op.innerHTML = "";
+      cit.appendChild(op);
+    for (var i = 0; i< med.length; i++){
+      var opt = document.createElement('option');
+      opt.value = med[i];
+      opt.innerHTML = med[i];
+      opt.setAttribute('id', med[i]);
+      cit.appendChild(opt);
+    }
+  }
+  }
+  document.getElementById("unit").addEventListener("change", setType);
     function addWish (){
     firebase.auth().onAuthStateChanged(function(user){
       if(user){
@@ -1242,6 +1316,8 @@ function getch(id){
           var isair = getch("IsAir");
           var isgreatView = getch("IsGreat");
           var isfire = getch("IsFire");
+          var isbus = getch("IsBus");
+          var ismetro = getch("IsMetro");
           var islarge = getch("IsLarge");
           var isdog = getch("IsDog");
           var isplay = getch("IsPlay");
@@ -1294,6 +1370,8 @@ function getch(id){
     mainStreet: ismain,
     beachfront: isbeach,
     lake: islake,
+    bus: isbus,
+    metro: ismetro,
     nile: isnile,
     wifi: iswifi,
     garden: isgarden,

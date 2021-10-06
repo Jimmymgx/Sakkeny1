@@ -188,7 +188,7 @@
             <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
                 <select  class="custom-select form-control" id="countries"style="border-radius: 25px;" >
                     <option value="" disabled selected hidden>Country</option>
-                    <option value=""></option>
+                    <option value="">All</option>
                       <option value="Egypt" id="Egypt">Egypt</option>
                       <option value="Emirates" id="Emirates">Emirates</option>
                       <option value="Kuwait" id="Kuwait">Kuwait</option>
@@ -201,13 +201,13 @@
                 
                 <select  class="custom-select form-control" id="cities" style="border-radius: 25px;">
                     <option value="" disabled selected hidden>City</option>
-                    
+                    <option value="" >All</option>
                 </select>
                 </div>
                 <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
                 <select  class="custom-select form-control" id="locations"style="border-radius: 25px;" >
                     <option value="" disabled selected hidden>Location</option>
-                    
+                    <option value="" >All</option>
                 </select>
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -497,7 +497,14 @@
     <label  for="IsLarge"><small >Large Windows with Natural Light </small></label>
        </div>
         </div>
-        
+        <div class="col-md-3 col-sm-2 col-xs-9" >
+            <input type="checkbox" id="IsBus" name="Amenities11" value="Near to bus station">
+    <label for="IsBus"> <small> Near to bus station </small></label><br>
+               </div>
+               <div class="col-md-3 col-sm-2 col-xs-9" >
+                <input type="checkbox" id="IsMetro" name="Amenities11" value="Near to metro station">
+    <label for="IsMetro"><small> Near to metro station </small></label><br>
+                   </div>
             
         
         
@@ -528,9 +535,9 @@
                     
                 </div><!-- end col -->
             </div><!-- end title -->
-            <img src=images/0.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='0%'/>
-            <img src=images/50.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='50%'/>
-            <img src=images/100.png class="col-md-4 col-sm-2 col-xs-2" style="margin-left: 33%; display: none;" id='100%'/>    
+            <img src=images/0.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='0%'/>
+            <img src=images/50.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='50%'/>
+            <img src=images/100.png class="col-md-4 col-sm-4 col-xs-9" style="margin-left: 33%; display: none;" id='100%'/>
             <div class="row" id="adHeader" style="width: 100%;">
 
 

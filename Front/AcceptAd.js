@@ -39,7 +39,7 @@ function sendM2(email, t){
       alert("mail sent successfully")
       });
 }
-function checkRequests(country, city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area){
+function checkRequests(country, city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area, bus, metro){
   //alert('Under process');
   //Current
   firebase
@@ -57,6 +57,8 @@ function checkRequests(country, city, location, unittype, unit, bedrooms, bathro
     let iselevator = childSnapshot.val().elevator;
     let issec = childSnapshot.val().secure;
     let isair = childSnapshot.val().Air;
+    let isbus = childSnapshot.val().bus;
+    let ismetro = childSnapshot.val().metro;
     let isgreatView = childSnapshot.val().greatView;
     let isfire = childSnapshot.val().fire;
     let islarge = childSnapshot.val().largeWindow;
@@ -111,10 +113,20 @@ let caf = "";
 let swimmabl = "";
 let gy = "";
 let saun = "";
+let bu = "";
+let me = "";
 if (isair == false) {
   ai = air;
 }
 else{ai= isair;}
+if (isbus == false) {
+  bu = bus;
+}
+else{bu= isbus;}
+if (ismetro == false) {
+  me = metro;
+}
+else{me= ismetro;}
 if (iselevator == false) {
   ele = elevator;
 }
@@ -321,7 +333,12 @@ if(cont == country){
                                   if(finish == finishing){
                                     if(bed == bedrooms){
                                       if(bath == bathrooms){
-                                        sendM2(usermail, k);                                        
+                                        if(bu == bus){
+                                          if(me == metro){
+                                            sendM2(usermail, k);                                 
+                                          }
+                                        }
+                                        
                                       }
                                     }
                                     
@@ -388,6 +405,8 @@ function Accept(){
           let air = childSnapshot.val().Air;
           let greatView = childSnapshot.val().greatView;
           let fire = childSnapshot.val().fire;
+          let bus = childSnapshot.val().bus;
+          let metro = childSnapshot.val().metro;
           let large = childSnapshot.val().largeWindow;
           let dog = childSnapshot.val().dogParks;
           let play = childSnapshot.val().playGround;
@@ -413,7 +432,7 @@ function Accept(){
           let unittype = childSnapshot.val().UnitType;
           let unit = childSnapshot.val().Unit;
           let payment = childSnapshot.val().payment;
-          checkRequests(country, city, location,unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area);
+          checkRequests(country, city, location,unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area, bus, metro);
         });
       });
       //alert("The ad has been successfully Accepted");
