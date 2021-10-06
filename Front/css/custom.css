@@ -103,4 +103,7 @@
   select{
     cursor: pointer;
   }
+  #Logout{
+    cursor: pointer;
+  }
   
