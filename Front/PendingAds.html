@@ -620,7 +620,7 @@ crossorigin="anonymous"></script>
   divWrap.appendChild(divFoot);
   divMain.appendChild(divWrap);
   localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
-        if(parseInt(localStorage.getItem('count')) > 1){
+        if(parseInt(localStorage.getItem('count')) >= 1){
             setTimeout(() => {
                 document.getElementById('50%').style.display = 'none';    
             }, 1000);
