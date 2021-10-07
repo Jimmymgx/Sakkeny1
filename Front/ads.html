@@ -199,7 +199,11 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                         <h5 class="u-text u-text-28" style="display: none;" id="ccc">Contact:</h5>
                         <br>
                         <h3 class="u-text u-text-21" style="display: none;" id="msg">If you wish to see the Ad owner's contacts please <a href="signUp.html" style="color: #997c47;">Sign up</a> or <a href="login.html" style="color: #997c47;">Login</a> to your account</h3>
-                        
+                        <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px; margin-left: 0px; display: flex;
+                        justify-content: center; display: none;" id="Whats" target="_blank"><i class="fa fa-whatsapp my-float" style="font-size: 23px;" ></i>  WhatsApp  </a>
+
+                      
+
                         <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2" style="margin-top: 40px; margin-left: 0px; display: flex;
                         justify-content: center;" id="showNum" >Show Contact Number</a>
                         <a class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-gradient u-hover-palette-1-light-1 u-none u-radius-50 u-text-body-alt-color u-btn-2 " style="margin-left: 0px; display: flex;
@@ -442,6 +446,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         document.getElementById("doneM").style.display = "none";
         //document.getElementById("contact").style.display = "none";
         document.getElementById("showNum").style.display = "none";
+        document.getElementById("Whats").style.display = "none";
         console.log("inside else");
         localStorage.setItem('currMail', '');
       }
@@ -754,7 +759,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
          pool.innerHTML = '<h5 style="margin-left: 20px; color:indianred"><span class="fa-li"><i class="fas fa-check-square"></i></span>' +sauna +'</h5>';;
          div.appendChild(pool);
        }
-      
+
         if(localStorage.getItem('currMail') == user){
                 document.getElementById("fav").style.display = "none";
                 document.getElementById("del").style.display = "none";
@@ -763,13 +768,14 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                 document.getElementById("doneM").style.display = "block";
                 document.getElementById("acc").style.display = "none";
                 document.getElementById("showNum").style.display = "none";
-
+                document.getElementById("Whats").style.display = "none";
               }
        console.log(localStorage.getItem('currMail'));
        ref2.orderByChild('email').equalTo(user).once('value', function (snapshot) {
          snapshot.forEach(childSnapshot => {
            let Name = childSnapshot.val().name;
            let num = childSnapshot.val().contactNumber;
+           document.getElementById('Whats').setAttribute('href', 'https://wa.me/' + num +'/?text=urlencodedtext');
            let type = childSnapshot.val().type;
            let mail = childSnapshot.val().email;
            let Rate = childSnapshot.val().rate;
