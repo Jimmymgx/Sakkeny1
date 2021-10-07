@@ -1223,7 +1223,7 @@
         })
         //comp.setAttribute('style',' margin-top:100px;');
         localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
-        if(parseInt(localStorage.getItem('count')) > 1){
+        if(parseInt(localStorage.getItem('count')) >= 1){
             setTimeout(() => {
                 document.getElementById('50%').style.display = 'none';    
             }, 1000);

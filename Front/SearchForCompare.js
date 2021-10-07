@@ -427,7 +427,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divSize.setAttribute('style','margin-bottom: 30px;');
   divSize.appendChild(divSer);
   localStorage.setItem('count', parseInt(localStorage.getItem('count')) + 1);
-        if(parseInt(localStorage.getItem('count')) > 1){
+        if(parseInt(localStorage.getItem('count')) >= 1){
             setTimeout(() => {
                 document.getElementById('50%').style.display = 'none';    
             }, 1000);
