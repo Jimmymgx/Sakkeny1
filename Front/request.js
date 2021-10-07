@@ -1125,7 +1125,8 @@ function getch(id){
     var bed = document.getElementById("bed").value;
     var bath = document.getElementById("bath").value;
     if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false && country == "" && isbus == false && ismetro == false){
-      alert('You have to Make the Wish');
+      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Make the Wish';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
       //window.scrollTo(0, 300);
     }
 
@@ -1135,7 +1136,9 @@ function getch(id){
       }
       else if (fr == "" && t == "" ){
         if(frarea == "" || tarea == ""){
-          alert("This is wrong you have to enter a range of Area");
+          document.getElementById('ErrorMessage').innerHTML = 'Error: This is wrong you have to enter a range of Area';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+   
         }
         else {
           if(!isNaN(frarea)){
@@ -1144,21 +1147,25 @@ function getch(id){
               addWish();
              }
              else{
-               alert("The to is must be higher than from1");
-             }
+              document.getElementById('ErrorMessage').innerHTML = 'Error: The to is must be higher than from';
+              document.getElementById('ErrorMessage').style.display = 'block';
+            }
             }  
             else{
-              alert("Invalid input in to fieled");  
+              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in up to fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
             }
           }
           else{
-            alert("Invalid input in from fieled");
+            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in from fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
           }
         }
       }
       else if (frarea == "" && tarea == ""){
         if(fr == "" || t == ""){
-          alert("This is wrong you have to enter a range of price");
+          document.getElementById('ErrorMessage').innerHTML = 'Error: This is wrong you have to enter a range of price';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
         }
         else {
           if(!isNaN(fr)){
@@ -1167,21 +1174,25 @@ function getch(id){
               addWish();
              }
              else{
-               alert("The to is must be higher than from2");
+              document.getElementById('ErrorMessage').innerHTML = 'Error: The to is must be higher than from';
+              document.getElementById('ErrorMessage').style.display = 'block';
              }
             }  
             else{
-              alert("Invalid input in to fieled");  
+              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in to fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
             }
           }
           else{
-            alert("Invalid input in from fieled");
+            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in from fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
           }
         }
       }
       else{
         if(fr == "" || t == ""){
-          alert("This is wrong you have to enter a range of price");
+          document.getElementById('ErrorMessage').innerHTML = 'Error: This is wrong you have to enter a range of price';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
         }
         else {
           if(!isNaN(fr)){
@@ -1192,7 +1203,8 @@ function getch(id){
               }
               else{
                 if(frarea == "" || tarea == ""){
-                  alert("This is wrong you have to enter a range of Area");
+                  document.getElementById('ErrorMessage').innerHTML = 'Error: This is wrong you have to enter a range of Area';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                 }
                 else {
                   if(!isNaN(frarea)){
@@ -1201,29 +1213,35 @@ function getch(id){
                       addWish();
                      }
                      else{
-                       alert("The to is must be higher than from3");
+                      document.getElementById('ErrorMessage').innerHTML = 'Error: The to is must be higher than from';
+                      document.getElementById('ErrorMessage').style.display = 'block';
                      }
                     }  
                     else{
-                      alert("Invalid input in to fieled");  
+                      document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in to fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                     }
                   }
                   else{
-                    alert("Invalid input in from fieled");
+                    document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in from fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                   }
                 }
               }
              }
              else{
-               alert("The to is must be higher than from4");
+              document.getElementById('ErrorMessage').innerHTML = 'Error: The to is must be higher than from';
+              document.getElementById('ErrorMessage').style.display = 'block';
              }
             }  
             else{
-              alert("Invalid input in to fieled");  
+              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in to fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
             }
           }
           else{
-            alert("Invalid input in from fieled");
+            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid input in from fieled';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
           }
         }
       }
@@ -1437,6 +1455,9 @@ function getch(id){
       document.getElementById("terms").style.display = "none";
       document.getElementById("Egp").style.display = "block";
   }
+  document.getElementById("add2").addEventListener("click", function(){
+    document.getElementById('ErrorMessage').style.display = 'none';
+  });
 document.getElementById("add2").addEventListener("click", checkValidity);
 document.getElementById("cities").addEventListener("change", setLoc);
 document.getElementById("countries").addEventListener("change", setCit);

@@ -35,7 +35,11 @@ function Del(link){
           childSnapshot.ref.remove();
       });
   });    
-  alert("The ad has been successfully Deleted");
+  document.getElementById('ErrorMessage').innerHTML = 'The Image has been successfully Deleted';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                          setTimeout(() => {
+                                            document.getElementById('ErrorMessage').style.display = 'none';
+                                          }, 3000);
 }
 function putImg(image){
   but = document.createElement('div');
@@ -83,7 +87,11 @@ function fetchAllData(){
           putImg(image);
       });
       if(check == false){
-        alert("You don't have pp");
+        document.getElementById('ErrorMessage').innerHTML = "You don't have profile picture";
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                          setTimeout(() => {
+                                            document.getElementById('ErrorMessage').style.display = 'none';
+                                          }, 3000);
       }
   });
   
@@ -131,81 +139,101 @@ function checkValidity(){
                                             EditUserData();
                                           }
                                           else{
-                                            alert("You can't upload the profile picture again you must delete yours first");
+                                            document.getElementById('ErrorMessage').innerHTML = "Error: You can't upload the profile picture again you must delete yours first";
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                           }
                                         }
                                         else{
-                                          alert("Wrong phone number");
+                                          document.getElementById('ErrorMessage').innerHTML = 'Error: Wrong phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                         }
                                       }
                                       else{
-                                        alert("Wrong phone number");
+                                        document.getElementById('ErrorMessage').innerHTML = 'Error: Wrong phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                       }
                                     }
                                     else{
-                                      alert("Wrong phone number");
+                                      document.getElementById('ErrorMessage').innerHTML = 'Error: Wrong phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                     }
                                   }
                                   else{
+                                    
                                     var numberOfFiles = document.getElementById('image').files.length;
                                     console.log(numberOfFiles + parseInt(localStorage.getItem("imagesAcc")));
                                     if(numberOfFiles + parseInt(localStorage.getItem("imagesAcc")) <= 1){
                                       EditUserData();
                                     }
                                     else{
-                                      alert("You can't upload the profile picture again you must delete yours first");
+                                      document.getElementById('ErrorMessage').innerHTML = "Error: You can't upload the profile picture again you must delete yours first";
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                    
                                     }
                                   }
                                 
                               }
                               else{
-                                alert("You have to Specify are you owner or developer or broker");
+                                document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Specify are you owner or developer or broker';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                
                               }
                               
                             }
                             
                             else{
-                              alert("Invalid phone number 1 for 01");
+                              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                             }
                           }
                           else{
-                            alert("Invalid phone number 1 for len");
+                            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                            document.getElementById('ErrorMessage').style.display = 'block';
                           }
                         }
                         else{
-                          alert("Invalid phone number 1 for str");
+                          document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                          document.getElementById('ErrorMessage').style.display = 'block';
                         }
                     }
                     else{
-                      alert("Enter your phone number");
+                      document.getElementById('ErrorMessage').innerHTML = 'Error: Enter phone number';
+                      document.getElementById('ErrorMessage').style.display = 'block';
                     }
                   }
                   else{
-                    alert("Enter the year")
+                    document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the year';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                   }
                 }
                 else{
-                  alert("Enter the month")
+                  document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the month';
+                  document.getElementById('ErrorMessage').style.display = 'block';
                 }
               }
               else{
-                alert("Enter the day")
+                document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the day';
+                document.getElementById('ErrorMessage').style.display = 'block';
               }
             }
             else{
-              alert("Please enter your name");
+              document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the name';
+              document.getElementById('ErrorMessage').style.display = 'block';
             }
           }
           else{
-            alert("You have to Enter your password confirmation right");
+            document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Enter your password confirmation right';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
           }
       }
       else{
-        alert("You have to Enter your password");
+        document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Enter your password';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
       }
     }
     else{
-      alert("You have to Enter your mail");
+      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Enter your mail';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
     }
 }
 function uploadImage(email){
@@ -281,7 +309,7 @@ function EditUserData(){
           }
           
         }
-        alert("Your Account has been changed succesfully");
+        //alert("Your Account has been changed succesfully");
         makeLoader();
         
 
@@ -303,6 +331,9 @@ function EditUserData(){
     main.appendChild(toLoad);
     document.getElementById("bo").appendChild(main);
   }
+  document.getElementById("signupp").addEventListener('click',function(){
+    document.getElementById('ErrorMessage').style.display = 'none';
+  });
   document.getElementById("signupp").addEventListener('click',checkValidity);
   if (window.addEventListener) {
     window.addEventListener('load', fetchAllData());

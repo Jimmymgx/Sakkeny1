@@ -29,35 +29,43 @@ var firebaseConfig = {
                     sendF();
                   }
                   else{
-                    alert("You have to enter the feedback to submit it");    
+                    document.getElementById('ErrorMessage').innerHTML = 'Error: You have to enter the feedback to submit it';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                   } 
                 }
                 else{
-                  alert("Invalid phone number");  
+                  document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                 }
               }
               else{
-                alert("Invalid phone number");    
+                document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                document.getElementById('ErrorMessage').style.display = 'block';
               }
             }
             else{
-              alert("Invalid phone number");  
+              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+              document.getElementById('ErrorMessage').style.display = 'block';
             }
           }
           else{
-            alert("You have to enter your phone number to submit your feedback");  
+            document.getElementById('ErrorMessage').innerHTML = 'Error: You have to enter your phone number to submit your feedback';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
           }
         }
         else{
-          alert("You have to enter your email to submit your feedback");
+          document.getElementById('ErrorMessage').innerHTML = 'Error: You have to enter your email to submit your feedback';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
         }
       }
       else{
-        alert("You have to enter your last name to submit your feedback");
+        document.getElementById('ErrorMessage').innerHTML = 'Error: You have to enter your last name to submit your feedback';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
       }
     }
     else{
-      alert("You have to enter your first name to submit your feedback");
+      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to enter your first name to submit your feedback';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
     }
   }
   function sendF(){

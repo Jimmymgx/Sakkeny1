@@ -183,6 +183,9 @@
                 <small id="show"><a style="cursor: pointer;">Press to show / hide the search <i id='iconS'class="fas fa-angle-down"></i></a></small>
             </div><!-- end col -->
         </div><!-- end title -->
+        <div id="err" style="background-color: rgb(249,249,249,0.7); width: 50%;text-align: center; margin: auto; display: none;">
+            <h3 style="color: red; font-weight: bold;" id="errorT">Error</h3>
+        </div>
         <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee; border-radius: 25px; display: none;">
                             
             <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -862,7 +865,7 @@
                 //alert("You did choose the first ad now choose the second one");
                 //alert(localStorage.getItem('FirstCompare'));
             }
-            else if(localStorage.getItem('SecondCompare') == ""){
+            else if(localStorage.getItem('SecondCompare') === ""){
                 localStorage.setItem('SecondCompare', appID);
                 if(localStorage.getItem('SecondCompare') === localStorage.getItem('FirstCompare')){
                     alert("You can't compare the ad with itself please choose another ad");

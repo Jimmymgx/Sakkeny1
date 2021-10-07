@@ -16,7 +16,8 @@ var firebaseConfig = {
     var user = firebase.auth().currentUser;
     document.getElementById("em").innerHTML = "Welcome user " + user.email;
     user.sendEmailVerification().then(function(){
-    alert("Verification sent Verfy and refresh the page");
+      document.getElementById('ErrorMessage').innerHTML = 'Error: Verification sent Verfy your mail then click on I Verfied My Account';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
     }).catch(function(error){
       alert(error);
     })

@@ -1536,88 +1536,110 @@ function getch(id){
                                             //checkRequests();
                                             }
                                             else{
-                                              alert("You have to choose the payment method");
+                                              document.getElementById('ErrorMessage').innerHTML = 'Error: You have to choose the payment method';
+                                              document.getElementById('ErrorMessage').style.display = 'block';
+                
                                             }
                                           }
                                           else{
-                                            alert("You have to choose the unit type");
+                                            document.getElementById('ErrorMessage').innerHTML = 'Error: You have to choose the unit type';
+                                              document.getElementById('ErrorMessage').style.display = 'block';
                                           }
                                         }
                                         else{
-                                          alert("You have to choose the unit Category");
+                                          document.getElementById('ErrorMessage').innerHTML = 'Error: You have to choose the unit Category';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                         }
                                       }
                                       else{
-                                        alert("You have to upload Appartment contract OR Electricity bill");
+                                        document.getElementById('ErrorMessage').innerHTML = 'Error: You have to upload Appartment contract OR Electricity bill';
+                                        document.getElementById('ErrorMessage').style.display = 'block';
                                       }
                                     }
                                     else{
-                                      alert("You have to upload at least 1 image to the Ad");
+                                      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to upload at least 1 image to the Ad';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                                     }
                                     
                                   }
                                   else{
-                                    alert("The maximum number of images to the Ad is 10 images");
+                                    document.getElementById('ErrorMessage').innerHTML = 'Error: The maximum number of images to the Ad is 10 images';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                                   }
                                 }
                                 else{
-                                  alert("You have to Specify is that Apartment for rent or sale or old rent");
+                                  document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Specify is that Apartment for rent or sale or old rent';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                                 }
                               }
                               else{
-                                alert("Invalid Area");
+                                document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid Area';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                               }
                             }
                             else{
-                              alert("You have to add The Area");
+                              document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add The Area';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                             }
                           }
                           else{
-                            alert("Invalid price");
+                            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid price';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                           }
                         }
                         else{
-                          alert("You have to add The Price");
+                          document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add The Price';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                         }
                       }
                       else{
-                        alert("You have to add The finishing");
+                        document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add The finishing';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                       }
                     }
                     else{
-                      alert("You have to add The number of bathrooms");
+                      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add The number of bathrooms';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                     }
                   }
                   else{
-                    alert("You have to add The number of bedrooms");
+                    document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add The number of bedrooms';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                   }
                 }
                 else{
-                  alert("Invalid floor input");
+                  document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid floor input';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
                 }
               }
               else{
-                alert("You have to add The floor");
+                document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add The floor';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
               }
             }
             else{
-              alert("You have to add Location");
+              document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add Location';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
             }
           }
           else{
-            alert("You have to choose city");
+            document.getElementById('ErrorMessage').innerHTML = 'Error: You have to choose city';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
           }
         }
         else{
-          alert('you have to choose Country');
+          document.getElementById('ErrorMessage').innerHTML = 'Error: you have to choose Country';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
         }
       }
       else{
-        alert("You have to add Description");
+        document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add Description';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
       }
     }
     else{
-      alert("You have to add Title");
+      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to add Title';
+                                      document.getElementById('ErrorMessage').style.display = 'block';
     }
   }
   function uploadImages(Id){
@@ -1948,6 +1970,9 @@ function getch(id){
       document.getElementById("terms").style.display = "none";
       document.getElementById("Egp").style.display = "block";
   }
+document.getElementById("add2").addEventListener("click", function(){
+  document.getElementById('ErrorMessage').style.display = 'none';
+});
 document.getElementById("add2").addEventListener("click", checkValidity);
 document.getElementById("cities").addEventListener("change", setLoc);
 document.getElementById("countries").addEventListener("change", setCit);

@@ -40,14 +40,23 @@ function forget(){
   if(email != ""){
     firebase.auth().sendPasswordResetEmail(email).
   then(() => {
-    alert("The password reset mail is sent please check your email");
+    document.getElementById('messageP2').innerHTML = "The password reset mail is sent please check your email";
+    setTimeout(() => {
+      document.getElementById('messageP2').style.display = 'none';
+    }, 10000);
   })
   .catch(error =>{
-    alert(error);
+    document.getElementById('messageP2').innerHTML = error;
+    setTimeout(() => {
+      document.getElementById('messageP2').style.display = 'none';
+    }, 10000);
   });
   }
   else{
-    alert("Please enter your email so we can help you");
+    document.getElementById('messageP2').innerHTML = "Please enter your email so we can help you to change password";
+    setTimeout(() => {
+      document.getElementById('messageP2').style.display = 'none';
+    }, 10000);
   }
 }
 function DoLogIn(){
@@ -109,7 +118,7 @@ const appVerifier = window.recaptchaVerifier;
     
     const sentCodeId = confirmationResult.verificationId;
     //document.getElementById('Do').addEventListener('click', () => signInWithPhone(sentCodeId));
-    alert('Done');
+    //alert('Done');
     //return confirmationResult.confirm(testVerificationCode);
     //alert('Done');
     // ...
@@ -117,21 +126,21 @@ const appVerifier = window.recaptchaVerifier;
       var code = document.getElementById('confirm').value;
       confirmationResult.confirm(code)
     .then(function (result){
-      alert('Suc');
+      //alert('Suc');
       var user = result.user;
-      alert(user);
+      //alert(user);
     })
     .catch(function (error){
-      alert(error.message);
+      //alert(error.message);
     })
     });
   })
   .then(function(confirmation){
     window.confirmationResult = confirmationResult;
     coderesult = confirmationResult;
-    alert(coderesult);
+    //alert(coderesult);
     document.getElementById('recaptcha-container').style.display = none;
-    alert('Done');
+    //alert('Done');
     console.log(coderesult);
     confirmationResult.confirm(code).then((result) => {
   // User signed in successfully.
@@ -145,7 +154,7 @@ const appVerifier = window.recaptchaVerifier;
   .catch((error) => {
     // Error; SMS not sent
     // ...
-    alert(error);
+    //alert(error);
   });
   }
 }
@@ -166,12 +175,12 @@ const appVerifier = window.recaptchaVerifier;
     var code = document.getElementById('confirm').value;
     coderesult.confirm(code)
     .then(function (result){
-      alert('Suc');
+      //alert('Suc');
       var user = result.user;
-      alert(user);
+      //alert(user);
     })
     .catch(function (error){
-      alert(error.message);
+      //alert(error.message);
     })
  }
 

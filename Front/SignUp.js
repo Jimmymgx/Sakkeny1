@@ -72,75 +72,105 @@ function checkValidity(){
                                           addUserByEmail();
                                         }
                                         else{
-                                          alert("Wrong phone number");
+                                          document.getElementById('ErrorMessage').innerHTML = 'Error: Wrong phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                         }
                                       }
                                       else{
-                                        alert("Wrong phone number");
+                                        document.getElementById('ErrorMessage').innerHTML = 'Error: Wrong phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                                       }
                                     }
                                     else{
-                                      alert("Wrong phone number");
+                                      document.getElementById('ErrorMessage').innerHTML = 'Error: Wrong phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                      
                                     }
                                   }
                                   else{
+                                    
                                     addUserByEmail();
                                   }
                                 
                               }
                               else{
-                                alert("You have to Specify are you owner or developer or broker");
+                                document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Specify are you landlord or developer or broker';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                
                               }
                               
                             }
                             
                             else{
-                              alert("Invalid phone number 1 for 01");
+                              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                             }
                           }
                           else{
-                            alert("Invalid phone number 1 for len");
+                            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                            
                           }
                         }
                         else{
-                          alert("Invalid phone number 1 for str");
+                          document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                          
                         }
                     }
                     else{
-                      alert("Enter your phone number");
+                      document.getElementById('ErrorMessage').innerHTML = 'Error: Enter your phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                      
                     }
                   }
                   else{
-                    alert("Enter the year")
+                    document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the year';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                    
                   }
                 }
                 else{
-                  alert("Enter the month")
+                  document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the month';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                  
                 }
               }
               else{
-                alert("Enter the day")
+                document.getElementById('ErrorMessage').innerHTML = 'Error: Enter the day';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                
               }
               }
               else{
-                alert("Please verify your number");
+                document.getElementById('ErrorMessage').innerHTML = 'Error: Please verify your number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                
               }
               
             }
             else{
-              alert("Please enter your name");
+              document.getElementById('ErrorMessage').innerHTML = 'Error: Please enter your name';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+              
             }
           }
           else{
-            alert("You have to Enter your password confirmation right");
+            document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Enter your password confirmation right';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+            
           }
       }
       else{
-        alert("You have to Enter your password");
+        document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Enter your password';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+        
       }
     }
     else{
-      alert("You have to Enter your mail");
+      document.getElementById('ErrorMessage').innerHTML = 'Error: You have to Enter your mail';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+      
     }
 }
 
@@ -148,8 +178,9 @@ function checkMob(){
   var check = false;
   var response = grecaptcha.getResponse();
   if(response == 0){
-    alert('Not solved');
-    return;
+    document.getElementById('ErrorMessage').innerHTML = 'Error: You have to solve the captcha';
+    document.getElementById('ErrorMessage').style.display = 'block';
+        return;
   }
   var cont1 = document.getElementById("contactnum").value;
                     cont1 = cont1.trim();
@@ -167,7 +198,9 @@ function checkMob(){
                                     }
                                 })
                                 if(check == true){
-                                  alert('This phone number is already connected with existing account');
+                                  document.getElementById('ErrorMessage').innerHTML = 'Error: This phone number is already connected with existing account';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
+                                  
                                 }
                                 else{
                                   SendCode();
@@ -175,20 +208,21 @@ function checkMob(){
                             });
                             }
                             else{
-                              alert('invalid');
+                              document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                                          document.getElementById('ErrorMessage').style.display = 'block';
                             }
                           }
                           else{
-                            alert('invalid');
-                          }
+                            document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                            document.getElementById('ErrorMessage').style.display = 'block';                          }
                         }
                         else{
-                          alert('invalid');
-                        }
+                          document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                          document.getElementById('ErrorMessage').style.display = 'block';                        }
                       }
                       else{
-                        alert('invalid');
-                      }
+                        document.getElementById('ErrorMessage').innerHTML = 'Error: Invalid phone number';
+                        document.getElementById('ErrorMessage').style.display = 'block';                      }
 }
 function SendCode(){ 
   
@@ -257,7 +291,7 @@ const appVerifier = window.recaptchaVerifier;
     coderesult = confirmationResult;
     //alert(coderesult);
     //document.getElementById('recaptcha-container').style.display = none;
-    alert('Done');
+    //alert('Done');
     console.log(coderesult);
     confirmationResult.confirm(code).then((result) => {
   // User signed in successfully.
@@ -421,7 +455,9 @@ function addUserByEmail(){
     main.appendChild(toLoad);
     document.getElementById("bo").appendChild(main);
   }
-  
+  document.getElementById("signupp").addEventListener('click',function(){
+    document.getElementById('ErrorMessage').style.display = 'none';
+  });
   document.getElementById("signupp").addEventListener('click',checkValidity);
   document.getElementById('Do').addEventListener('click', checkMob);
   
