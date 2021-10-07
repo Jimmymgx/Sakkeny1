@@ -37,7 +37,66 @@
 <link rel="stylesheet" href="css/custom.css">
 
 
+<style>
+  #message5 {
+    display:none;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  #message6 {
+    display:none;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  #message7 {
+    display:none;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  #message5 p {
+    padding: 10px 35px;
+    font-size: 13px;
+  }
+  
+  
+  #message6 p {
+    padding: 10px 35px;
+    font-size: 13px;
+  }
+  #message7 p {
+    padding: 10px 35px;
+    font-size: 13px;
+  }
 
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+  }
+  
+</style>
 
 <!-- Modernizer for Portfolio -->
 <script src="js/modernizer.js"></script>
@@ -47,9 +106,7 @@ crossorigin="anonymous"></script>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script>
 
-</script>
 </head>
 
 <body class="realestate_version" id="bo">
@@ -119,94 +176,116 @@ crossorigin="anonymous"></script>
         <section>
           <h1 class="entry-title"><span>Modify an Ad</span> </h1>
           <hr>
-          <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
+          <form class="form-horizontal" method="GET" name="Add ad" id="AddAd" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="">
+                  <span class="input-group-addon"><i class="fas fa-comment"></i></span>
+                  <input type="text" class="form-control" name="title" id="title" placeholder="" value="" style="border-radius:0 25px 25px 0;" required>
                 </div>
               </div>
             </div>
-
             <div class="form-group">
-              <label class="control-label col-sm-3">Description <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""></textarea>
+              <label class="control-label col-sm-3">Country <span class="text-danger">*</span></label>
+              <div class="col-md-8 col-sm-9">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-city"></i></span>
+                    <select name="dd" class="form-control" id="countries" style="border-radius:0 25px 25px 0;">
+                      <option value=""></option>
+                      <option value="Egypt">Egypt</option>
+                      <option value="Emirates">Emirates</option>
+                      <option value="Kuwait">Kuwait</option>
+                      <option value="Saudi Arabia">Saudi Arabia</option>
+                    </select>
+                  </div>
+
+               
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">City <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="cities">
-                      <option value=""></option>
-                      <option value="Cairo">Cairo</option>
-                      <option value="Alexandria">Alexandria </option>
-                      <option value="Giza">Giza</option>
-                      <option value="Beheira">Beheira</option>
-                      <option value="Kafr El Sheikh">Kafr El Sheikh</option>
-                      <option value="Port Said">Port Said</option>
-                      <option value="North Sinai">North Sinai</option>
-                      <option value="Gharbia">Gharbia</option>
-                      <option value="Monufia">Monufia</option>
-                      <option value="Qalyubia">Qalyubia</option>
-                      <option value="Sharqia">Sharqia</option>
-                      <option value="Ismailia">Ismailia</option>
-                      <option value="Faiyum">Faiyum</option>
-                      <option value="Suez">Suez</option>
-                      <option value="Damietta">Damietta</option>
-                      <option value="South Sinai">South Sinai</option>
-                      <option value="Beni Suef">Beni Suef</option>
-                      <option value="Minya">Minya</option>
-                      <option value="New Valley">New Valley</option>
-                      <option value="Asyut">Asyut</option>
-                      <option value="Red Sea">Red Sea</option>
-                      <option value="Sohag">Sohag</option>
-                      <option value="Qena">Qena</option>
-                      <option value="Luxor">Luxor</option>
-                      <option value="Aswan">Aswan</option>
-                      <option value="Matruh">Matruh</option>
-                      <option value="Dakahlia">Dakahlia</option>
-                      <option value="Gouna" id="Gouna">Gouna</option>
-                <option value="North Coast" id="North Coast">North Coast</option>
-                <option value="Ain Sokhna" id="Ain Sokhna">Ain Sokhna</option>
-                <option value="Marina" id="Marina">Marina</option>
-                <option value="Ras Sedr" id="Ras Sedr">Ras Sedr</option>
-                <option value="Dahab" id="Dahab">Dahab</option>
-                <option value="Hurghada" id="Hurghada">Hurghada</option>
-                <option value="Marsa Alam" id="Marsa Alam">Marsa Alam</option>
-                <option value="El Alamein" id="El Alamein">El Alamein</option>
-                <option value="Sharm ElSheikh" id="Sharm ElSheikh">Sharm ElSheikh</option>
+              <div class="col-md-8 col-sm-9">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-city"></i></span>
+                    <select name="dd" class="form-control" id="cities"style="border-radius:0 25px 25px 0;">
+                      <option value="" selected hidden></option>
                     </select>
                   </div>
 
-                </div>
+               
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Location <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="loc" id="loc" placeholder="" value="">
-                </div>
+              <div class="col-md-6 col-sm-9" >
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
+                    <select name="dd" class="form-control" id="loc"style="border-radius:0 25px 25px 0;">
+                      <option value="" selected hidden></option>
+                  </select>
+                  </div>
+               
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Floor <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <div class="col-md-4 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="">
+                  <span class="input-group-addon"><i class="fas fa-gopuram"></i></span>
+                  <input type="text" class="form-control" name="floor" id="floor" placeholder="" value="" style="border-radius:0 25px 25px 0;">
                 </div>
+                <div id="message5">
+                  <small>
+                  <p id="number5" class="invalid">Numbers <b>Only</b></p>
+                </small>
+                </div>
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <label class="control-label col-sm-3">Unit Category <span class="text-danger">*</span></label>
+              <div class="col-md-6 col-sm-9">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-building"></i></span>
+                    <select name="dd" class="form-control" id="unitType" style="border-radius:0 25px 25px 0;">
+                      <option value=""></option>
+                      <option value="Residential">Residential </option>
+                      <option value="Commercial">Commercial </option>
+                      <option value="Administrative">Administrative </option>
+                      <option value="Medical">Medical </option>
+
+                    </select>
+                  </div>
+                
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-3">Unit Type <span class="text-danger">*<span></label>
+              <div class="col-md-6 col-sm-9">
+                
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-home"></i></i></span>
+                    <select name="dd" class="form-control" id="unitT" style="border-radius:0 25px 25px 0;">
+                      <option value=""></option>
+                      
+                    </select>
+                  </div>
+                
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Bedrooms <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="bed">
+              <div class="col-md-4 col-sm-9">
+        
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-bed"></i></span>
+                    <select name="dd" class="form-control" id="bed" style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="1">1 </option>
                       <option value="2">2 </option>
@@ -216,36 +295,39 @@ crossorigin="anonymous"></script>
                       <option value="6">6 </option>
                       <option value="7">7 </option>
                       <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
                     </select>
                   </div>
-
-                </div>
+             
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Bathrooms <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="bath">
+              <div class="col-md-4 col-sm-9">
+            
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-bath"></i></span>
+                    <select name="dd" class="form-control" id="bath"style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="1">1 </option>
                       <option value="2">2 </option>
                       <option value="3">3 </option>
-                      <option value="4">4
+                      <option value="4">4</option>
                       <option value="5">5 </option>
                       <option value="6">6</option>
                     </select>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
+             <div class="form-group">
               <label class="control-label col-sm-3">Finishing <span class="text-danger">*</span></label>
-              <div class="col-xs-8">
-                <div class="form-inline">
-                  <div class="form-group">
-                    <select name="dd" class="form-control" id="finish">
+              <div class="col-md-6 col-sm-9">
+              
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-list-ul"></i></span>
+                    <select name="dd" class="form-control" id="finish"style="border-radius:0 25px 25px 0;">
                       <option value=""></option>
                       <option value="Unfinished">Unfinished </option>
                       <option value="Semi finished">Semi finished </option>
@@ -254,14 +336,14 @@ crossorigin="anonymous"></script>
                       <option value="Furnished">Furnished </option>
                       <option value="Furnished with E-devices">Furnished with Electrical Devices </option>
                       <option value="Core & Shell">Core & Shell </option>
+                      
                     </select>
                   </div>
-
-                </div>
+               
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Appartment For <span class="text-danger">*</span></label>
+              <label class="control-label col-sm-3">Unit Case <span class="text-danger">*</span></label>
               <div class="col-md-9 col-sm-9">
                 <label>
                   <input name="type" type="radio" value="rent" id="rent">
@@ -270,71 +352,174 @@ crossorigin="anonymous"></script>
                 <label>
                   <input name="type" type="radio" value="sale" id="sale">
                   Sale </label>
+                  <label style="margin-left: 3%;">
+                    <input name="type" type="radio" value="old rent" id="oldRent">
+                    Old rent </label>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Amenities <span class="text-danger">*</span></label>
-              <div class="col-md-8  col-sm-9">
+              <label class="control-label col-sm-3">Payment Method <span class="text-danger">*</span></label>
+              <div class="col-md-9 col-sm-9">
+                <label>
+                  <input name="pay" type="radio" value="rent" id="cash">
+                  Cash</label>
+                   
+                <label>
+                  <input name="pay" type="radio" value="sale" id="install">
+                  Installment </label>
+                  <label style="margin-left: 3%;">
+                    <input name="pay" type="radio" value="old rent" id="both">
+                    Both </label>
+                  
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Amenities <span class="text-danger"></span></label>
+              <div class="col-md-12  col-sm-9" style="padding-left: 25%;">
+                <div class="col-md-7 col-sm-7">
                 <input type="checkbox" id="IsElevator" name="Amenities1" value="Elevator">
-                <label for="Amenities">Elevator </label><br>
+                <label for="IsElevator">Elevator </label><br>
 
                 <input type="checkbox" id="IsSecure" name="Amenities2" value="Secured Garage">
-                <label for="Amenities2">Secured Garage </label><br>
+                <label for="IsSecure">Secured Garage </label><br>
 
                 <input type="checkbox" id="IsAir" name="Amenities3" value="Air conditioning">
-                <label for="Amenities3"> Air conditioning</label><br>
+                <label for="IsAir"> Air conditioning</label><br>
 
                 <input type="checkbox" id="IsGreat" name="Amenities4" value="Great View">
-                <label for="Amenities4">Great View </label><br>
+                <label for="IsGreat">Great View </label><br>
 
                 <input type="checkbox" id="IsFire" name="Amenities5" value="Fireplace">
-                <label for="Amenities5"> Fireplace </label><br>
+                <label for="IsFire"> Fireplace </label><br>
 
-                <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
-                <label for="Amenities6">Large Windows with Natural Light </label><br>
+                
 
                 <input type="checkbox" id="IsDog" name="Amenities7" value="Dog Parks">
-                <label for="Amenities7"> Dog Parks</label><br>
+                <label for="IsDog"> Dog Parks</label><br>
 
                 <input type="checkbox" id="IsPlay" name="Amenities8" value="Playground">
-                <label for="Amenities8"> Playground</label><br>
+                <label for="IsPlay"> Playground</label><br>
 
                 <input type="checkbox" id="IsSwim" name="Amenities9" value="Swimming Pool">
-                <label for="Amenities9">Swimming Pool</label><br>
+                <label for="IsSwim">Swimming Pool</label><br>
 
                 <input type="checkbox" id="IsBbq" name="Amenities10" value="Barbecue Areas">
-                <label for="Amenities10"> Barbecue Areas</label><br>
+                <label for="IsBbq"> Barbecue Areas</label><br>
 
                 <input type="checkbox" id="IsRoof" name="Amenities11" value="Rooftop Lounge Areas">
-                <label for="Amenities11"> Rooftop Lounge Areas</label><br>
+                <label for="IsRoof"> Rooftop Lounge Areas</label><br>
+
+
+                <input type="checkbox" id="IsMain" name="Amenities11" value="Main street view">
+                <label for="IsMain"> Main street view</label><br>
+                <input type="checkbox" id="IsBeach" name="Amenities11" value="Beachfront view">
+                <label for="IsBeach"> Beachfront view</label><br>
+                
+                <input type="checkbox" id="IsLarge" name="Amenities6" value="Large Windows with Natural Light">
+                <label for="IsLarge">Large Windows with Natural Light </label><br>
+                
+                </div>
+
+                <div class="col-md-5 col-sm-5">
+                <input type="checkbox" id="IsLake" name="Amenities11" value="Lake view">
+                <label for="IsLake"> Lake view</label><br>
+                <input type="checkbox" id="IsNile" name="Amenities11" value="Nile view">
+                <label for="IsNile"> Nile view</label><br>
+                <input type="checkbox" id="IsWifi" name="Amenities11" value="WiFi">
+                <label for="IsWifi"> WiFi</label><br>
+                <input type="checkbox" id="IsGarden" name="Amenities11" value="Garden">
+                <label for="IsGarden"> Garden</label><br>
+                <input type="checkbox" id="IsSports" name="Amenities11" value="Near to sports clup">
+                <label for="IsSports"> Near to sports clup</label><br>
+                <input type="checkbox" id="IsSchool" name="Amenities11" value="Near to school">
+                <label for="IsSchool"> Near to school</label><br>
+                <input type="checkbox" id="IsHospital" name="Amenities11" value="Near to hospital">
+                <label for="IsHospital"> Near to hospital</label><br>
+                <input type="checkbox" id="IsCafe" name="Amenities11" value="Near to Cafe & resturant">
+                <label for="IsCafe"> Near to Cafe & resturant </label><br>
+                <input type="checkbox" id="IsBus" name="Amenities11" value="Near to bus station">
+                <label for="IsBus"> Near to bus station </label><br>
+                <input type="checkbox" id="IsMetro" name="Amenities11" value="Near to metro station">
+                <label for="IsMetro"> Near to metro station </label><br>
+                
+                <input type="checkbox" id="IsSwimable" name="Amenities11" value="Swimmable lagoon">
+                <label for="IsSwimable"> Swimmable lagoon </label><br>
+                <input type="checkbox" id="IsGym" name="Amenities11" value="Gym">
+                <label for="IsGym"> Gym </label><br>
+                <input type="checkbox" id="IsSauna" name="Amenities11" value="Sauna">
+                <label for="IsSauna"> Sauna  </label><br>
+                
+                </div>
               </div>
             </div>
 
+
+            <div class="form-group">
+              <label class="control-label col-sm-3">Unit Description <span class="text-danger">*</span></label>
+              <div class="col-md-8 col-sm-9">
+                
+                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""  required></textarea>
+              </div>
+            </div>
 
             <div class="form-group">
               <label class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <div class="col-md-6 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="price" id="price" placeholder="" value="">
+                  <span class="input-group-addon"><i class="fas fa-hand-holding-usd"></i></span>
+                  <input type="text" class="form-control" name="price" id="price" placeholder="" value=""style="border-radius:0 25px 25px 0;">
+                </div>
+                  <label id="Egp">EGP</label>
+                  <div class="input-group col-md-12 col-sm-9" style="display: none;" id="terms">
+                    
+                    <label>
+                      <input name="term" type="radio" value="Short" id="short">
+                      Short term (EGP / Month) </label>
+                      <label>
+                        <input name="term" type="radio" value="Long" id="long">
+                        Long term (EGP / Year) </label>
+                        <label>
+                          The default is Short term (EGP / Month)
+                        </label>
+                  </div>
+                
+                <div id="message6">
+                  <small>
+                  <p id="number6" class="invalid">Numbers <b>Only</b></p>
+                </small>
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Area per m <sup>2</sup> <span class="text-danger">*</span></label>
-              <div class="col-md-5 col-sm-8">
+              <label class="control-label col-sm-3">Area per m<sup>2</sup> <span class="text-danger">*</span></label>
+              <div class="col-md-6 col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="area" id="area" placeholder="" value="">
+                  <span class="input-group-addon"><i class="fas fa-chart-area"></i></span>
+                  <input type="text" class="form-control" name="area" id="area" placeholder="" value=""style="border-radius:0 25px 25px 0;">
+                </div>
+                <div id="message7">
+                  <small>
+                  <p id="number7" class="invalid">Numbers <b>Only</b></p>
+                </small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Appartment Images <span class="text-danger">*</span></label>
+              <div class="col-md-6 col-sm-9">
+                <div class="input-group" > <span class="input-group-addon"  id="file_upload"><i
+                      class="glyphicon glyphicon-upload"></i></span>
+                      <input class="form-control upload" required name="images" id="images" type="file" multiple="multiple" style="border-radius:0 25px 25px 0;">
+
                 </div>
               </div>
             </div>
             
-              </div>
-            </div>
-
 
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-10">
-                <input name="Share" value="Confirm Edit" class="btn btn-primary" id="add2">
+                <input name="Share" value="Confirm Edit" class="btn btn-primary" id="add2" style="border-radius: 25px;">
+                <h1 id = "up" style="display: none;">Your Ad is uploading now <br/>Please Wait ......</h1>
               </div>
             </div>
           </form>
@@ -366,7 +551,7 @@ crossorigin="anonymous"></script>
                     <ul class="twitter-widget footer-links">
                         <li><a href="index.html"> Home </a></li>
                         <li><a href="service.html"> Services</a></li>
-                        <!--<li><a href="#"> Gallery</a></li>-->
+                        <li><a href="Compare.html"> Compare</a></li>
                         <li><a href="contact.html"> Contact</a></li>
                     </ul><!-- end links -->
                 </div><!-- end clearfix -->
@@ -480,6 +665,96 @@ crossorigin="anonymous"></script>
         localStorage.setItem('currMail', '');
       }
     });
+    var myInput5 = document.getElementById("floor");
+    var number5 = document.getElementById("number5");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput5.onfocus = function() {
+      document.getElementById("message5").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput5.onblur = function() {
+      document.getElementById("message5").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput5.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers5 = /[0-9]/g;
+      if(myInput5.value.match(numbers5)) {  
+        number5.classList.remove("invalid");
+        number5.classList.add("valid");
+      } else {
+        number5.classList.remove("valid");
+        number5.classList.add("invalid");
+      }
+   
+    }
+    var myInput6 = document.getElementById("price");
+    var number6 = document.getElementById("number6");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput6.onfocus = function() {
+      document.getElementById("message6").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput6.onblur = function() {
+      document.getElementById("message6").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput6.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers6 = /[0-9]/g;
+      if(myInput6.value.match(numbers6)) {  
+        number6.classList.remove("invalid");
+        number6.classList.add("valid");
+      } else {
+        number6.classList.remove("valid");
+        number6.classList.add("invalid");
+      }
+      
+      
+    }
+
+    var myInput7 = document.getElementById("area");
+    var number7 = document.getElementById("number7");
+   
+    
+    // When the user clicks on the password field, show the message box
+    myInput7.onfocus = function() {
+      document.getElementById("message7").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    myInput7.onblur = function() {
+      document.getElementById("message7").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    myInput7.onkeyup = function() {
+      
+    
+      // Validate numbers
+      var numbers7 = /[0-9]/g;
+      if(myInput7.value.match(numbers7)) {  
+        number7.classList.remove("invalid");
+        number7.classList.add("valid");
+      } else {
+        number7.classList.remove("valid");
+        number7.classList.add("invalid");
+      }
+      
+      
+    }
   </script>
   
 
