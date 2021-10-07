@@ -4,8 +4,12 @@ function addToFav() {
   console.log("HHH");
   var use = localStorage.getItem("currMail");
   var ad = localStorage.getItem("appID");
-  if (use == ""){
-    alert("in order to add a favorite property please sign up or log in to your account");
+  if (use === ""){
+    document.getElementById(ad).innerHTML = "Error: in order to add a favorite property please sign up or log in to your account";
+    document.getElementById(ad).style.display = 'block';
+    setTimeout(() => {
+      document.getElementById(ad).style.display = 'none';
+    }, 10000);
   }
   else{
       var data = {

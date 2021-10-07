@@ -380,7 +380,9 @@
                     <div class="big-tagline clearfix">
                         <h2>Find Your Property with Sakkeny Real Estate</h2>
                         <p class="lead">With Sakkeny you can rent, sell or buy all your properties and real estate projects. </p>
-                        
+                        <div id="err" style="background-color: rgb(249,249,249,0.7); width: 50%;text-align: center; margin: auto; display: none;">
+                            <h3 style="color: red; font-weight: bold;" id="errorT">Error</h3>
+                        </div>
                         <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: rgb(249,249,249,0.7); border-radius: 25px;">
                             
                             <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
@@ -1160,6 +1162,20 @@
         divWrap.appendChild(divBody);
         divWrap.appendChild(divFoot);
         divMain.appendChild(divWrap);
+        var divError = document.createElement('div');
+        
+        var er = document.createElement('h1');
+        divError.setAttribute('class', 'price');
+        divError.style.backgroundColor = 'White';
+        divError.style.color = 'red';
+        divError.style.fontSize = '24px';
+        er.innerHTML = "Error:";
+        //er.style.color = 'red';
+        divError.setAttribute('id', appID);
+        divError.style.display = 'none';
+        er.setAttribute('class', 'item-sub-price');
+        divError.appendChild(er);
+        adFig.appendChild(divError);
         var comp = document.createElement('button');
         comp.setAttribute('class','btn btn-success btn-lg btn-block');
         comp.innerHTML = '<i class="fas fa-poll"></i> Compare';
@@ -1197,7 +1213,12 @@
             }
             }
             else{
-                alert('In order to use compare feature you have to be user');
+                document.getElementById(appID).innerHTML = "Error: In order to use compare feature you have to be user";
+    document.getElementById(appID).style.display = 'block';
+    setTimeout(() => {
+      document.getElementById(appID).style.display = 'none';
+    }, 10000);
+                
             }
         })
         //comp.setAttribute('style',' margin-top:100px;');
