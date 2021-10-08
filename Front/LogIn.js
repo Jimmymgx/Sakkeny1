@@ -12,9 +12,9 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth.Auth.Persistence.LOCAL
 var coderesult = "";
 document.getElementById("log").addEventListener("click",DoLogIn);
-// document.getElementById("signinF").addEventListener("click",signin);
+document.getElementById("signinF").addEventListener("click",signin);
 document.getElementById("forget").addEventListener("click",forget);
-// document.getElementById("signinG").addEventListener("click",googleLogIn);
+document.getElementById("signinG").addEventListener("click",googleLogIn);
 document.getElementById("email").addEventListener("click",clr);
 document.getElementById("password").addEventListener("click",clr);
 document.addEventListener("keyup", function(event) {
