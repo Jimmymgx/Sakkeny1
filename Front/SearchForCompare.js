@@ -411,6 +411,8 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   t.innerHTML = " By " +type;
   spanLeft.append(name);
   spanLeft.appendChild(t);
+  divRight.setAttribute('align','right');
+            divLeft.setAttribute('align','left');
   divLeft.appendChild(spanLeft);
   spanRight.appendChild(rightIcon);
   spanRight.append(time);
