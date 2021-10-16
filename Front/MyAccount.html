@@ -515,6 +515,7 @@ crossorigin="anonymous"></script>
                                     var navname = childSnapshot.val().name.split(' ');
                                     console.log(navname);
                                     document.getElementById('MyaccountBar').append(navname[0]);
+                                    localStorage.setItem('userName', navname[0]);
                                 });
                             });
                         }

@@ -41,15 +41,12 @@ function forget(){
     firebase.auth().sendPasswordResetEmail(email).
   then(() => {
     document.getElementById('messageP2').innerHTML = "The password reset mail is sent please check your email";
-    setTimeout(() => {
-      document.getElementById('messageP2').style.display = 'none';
-    }, 10000);
+    document.getElementById('messageP2').style.color = 'green';
+    document.getElementById('messageP2').style.fontSize = '20px';
   })
   .catch(error =>{
     document.getElementById('messageP2').innerHTML = error;
-    setTimeout(() => {
-      document.getElementById('messageP2').style.display = 'none';
-    }, 10000);
+    
   });
   }
   else{

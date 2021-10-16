@@ -741,6 +741,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
               let type = childSnapshot.val().type;
               let mail = childSnapshot.val().email;
               document.getElementById('name').innerHTML = Name;
+              var navname = Name.split(' ');
+              console.log(navname[0]);
+              localStorage.setItem('nameForap', navname[0]);
               document.getElementById('num').innerHTML = num;
               document.getElementById('Type').innerHTML = type;
               firebase.database().ref('images').orderByChild("main").equalTo(mail).once('value', function (snapshot) {
