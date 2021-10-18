@@ -280,11 +280,7 @@ crossorigin="anonymous"></script>
                                                 aria-hidden="true" style="color: black;font-size: 25px;"></i> Upload Ad</a>
                               
                                           </li>
-                                        <li class="search-option" title="Search">
-                                            <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
-                                          aria-hidden="true" style="color: black;font-size: 20px;"></i> Search</a>
-                
-                                        </li>
+                                        
                                 </ul>
                 </div>
                 
@@ -515,7 +511,6 @@ crossorigin="anonymous"></script>
                                     var navname = childSnapshot.val().name.split(' ');
                                     console.log(navname);
                                     document.getElementById('MyaccountBar').append(navname[0]);
-                                    localStorage.setItem('userName', navname[0]);
                                 });
                             });
                         }

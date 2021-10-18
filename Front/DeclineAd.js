@@ -21,7 +21,7 @@ function sendM(email, t){
         To: email,
         From: "ads@sakkeny.com",
         Subject: "Your Ad " + t,
-        Body: "Dear "+ localStorage.getItem('nameForap') + "<br>Unfortunately Your Ad "+ t + " has been declined by Sakkeny team according to our terms and conditions <br> Please check our terms and conditions and try submitting your Ad again . <br>If you wish to get in contact with Sakkeny team, please contact us on <br>https://www.sakkeny.com/contact.html <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html <br> Thank you for using sakkeny.",
+        Body: "Your Ad "+ t + " has been declined and removed because it not match with our polices <br><br> Thanks for using Sakkeny <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html",
     })
         .then(function (message) {
         //alert("mail sent successfully")

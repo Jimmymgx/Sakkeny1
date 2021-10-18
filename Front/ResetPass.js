@@ -15,8 +15,9 @@ var firebaseConfig = {
       firebase.auth().sendPasswordResetEmail(email).
     then(() => {
       document.getElementById('messageP2').innerHTML = "The password reset mail is sent please check your email";
-      document.getElementById('messageP2').style.color = 'green';
-      document.getElementById('messageP2').style.fontSize = '20px';
+    setTimeout(() => {
+      document.getElementById('messageP2').style.display = 'none';
+    }, 10000);
       firebase.auth().signOut().then(() => {
         // Sign-out successful.
         window.location.href = "login.html";

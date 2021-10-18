@@ -11,16 +11,14 @@ var firebaseConfig = {
 //firebase.initializeApp(firebaseConfig);
 var ref = firebase.database().ref('Ads');
 function sendMail(email, t){
-  var loc = window.location.href;
-  var params = loc.split('k=')[1];
   Email.send({
     Host: "mail.sakkeny.com",
     Username: "ads@sakkeny.com",
     Password: "1-Sakkeny-1",
       To: email,
       From: "ads@sakkeny.com",
-      Subject: "Congratulations!",
-      Body: "Congratulations!"+ localStorage.getItem('nameForap') + "<br>Your Ad "+ t + " has been declared and uploaded to sakkeny. <br>You can check the numbers of viewers and your rating on your Ad.<br>To view your Ad please click<br>https://www.sakkeny.com/ads.html?k="+params + "<br>Please note that your Ad will be expired in 3 months starting now.<br>If your property has been sold/rented please notify us by clicking on the Sold icon located under your Ad, in order to remove the Ad.<br>If you wish to get in contact with Sakkeny team, please contact us on <br>https://www.sakkeny.com/contact.html <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html <br>Thanks for using Sakkeny.",
+      Subject: "Your Ad " + t,
+      Body: "Your Ad "+ t + " has been Accepted now it's on your ads <br><br> Thanks for using Sakkeny <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html",
   })
       .then(function (message) {
       //alert("mail sent successfully")
@@ -28,29 +26,18 @@ function sendMail(email, t){
       });
 }
 function sendM2(email, t){
-  var loc = window.location.href;
-  var params = loc.split('k=')[1];
-  var name = "";
-  firebase.database().ref("users").orderByChild("email").equalTo(email)
-  .once("value", function (snapshot) {
-    snapshot.forEach((childSnapshot) => {
-      var navname = childSnapshot.val().name.split(' ');
-      name = navname[0];
-      Email.send({
-        Host: "mail.sakkeny.com",
-        Username: "ads@sakkeny.com",
-        Password: "1-Sakkeny-1",
-          To: email,
-          From: "ads@sakkeny.com",
-          Subject: "Your request " + t,
-          Body: "Dear "+name+ "<br>we are following up with you on your property listed on your wish list. <br>We were able to find a property that matches your wishlist, please find below what you were looking for <br> https://www.sakkeny.com/ads.html?k="+params +"<br> If you wish to get in contact with Sakkeny team, please contact us on <br>https://www.sakkeny.com/contact.html <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html <br> Thank you for using sakkeny.",
-      })
-          .then(function (message) {
-          alert("mail sent successfully")
-          });
-    
-    });
-  });
+  Email.send({
+    Host: "mail.sakkeny.com",
+    Username: "ads@sakkeny.com",
+    Password: "1-Sakkeny-1",
+      To: email,
+      From: "ads@sakkeny.com",
+      Subject: "Your request " + t,
+      Body: "There's a new ad uploaded that match your request " + t +" check it out after 48 hours",
+  })
+      .then(function (message) {
+      alert("mail sent successfully")
+      });
 }
 function checkRequests(country, city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, elevator, sec, air, greatView, fire, large, dog, play, swim, bbq, roof, main, beach, lake, nile, wifi, garden, sports, school, hospital, cafe, swimable, gym, sauna, price, area, bus, metro){
   //alert('Under process');

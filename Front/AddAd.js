@@ -1083,7 +1083,7 @@ function sendM(email, t){
             To: email,
             From: "ads@sakkeny.com",
             Subject: "Your Ad " + t,
-            Body: "Hello"+ localStorage.getItem('userName')+ "<br>Thank you for advertising your property with Sakkeny. <br> Your Ad "+ t + "will be reviewed by Sakkeny team within 48 hour <br>You will receive an E-mail by the declaration or decline of your Ad within 48 hours.<br>If you wish to get in contact with Sakkeny team, please contact us on <br>https://www.sakkeny.com/contact.html <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html <br> Thank you for using sakkeny.",
+            Body: "Your Ad "+ t + " is after review process and it'll be accepted or diclined within 48 hours<br><br> Thanks for using Sakkeny <br> To see the Terms and conditions go to <br> https://sakkeny.com/terms-and-conditions.html <br> To see the privacy policy go to <br> https://sakkeny.com/privacy.html",
         })
             .then(function (message) {
             //alert("mail sent successfully")
