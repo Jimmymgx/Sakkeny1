@@ -280,7 +280,7 @@ function EditUserData(){
       var yearSelection = document.getElementById("year").value;
       var birthdate = daySelection +'/' + monthSelection +'/' +  yearSelection;
       var typ = "";
-      if(document.getElementById("owner").checked){typ = "Owner"}
+      if(document.getElementById("owner").checked){typ = "Landlord"}
       if(document.getElementById("developer").checked){typ = "Developer"}
       if(document.getElementById("broker").checked){typ = "Broker"}
       var cont1 = document.getElementById("contactnum").value;
@@ -311,7 +311,7 @@ function EditUserData(){
         }
         //alert("Your Account has been changed succesfully");
         makeLoader();
-        
+        setTimeout(function(){window.location.href = "MyAccount.html";},3000);
 
   }
   function makeLoader(){
@@ -320,7 +320,7 @@ function EditUserData(){
     var main = document.createElement("div");
     main.classList.add("toWait");
     var text = document.createElement("h1");
-    text.innerHTML = "Your are going to be user now <br/>Please Wait ......";
+    text.innerHTML = "Please Wait ......";
     text.style.color = "white";
     var toLoad = document.createElement("span");
     toLoad.classList.add("loaderForWait");

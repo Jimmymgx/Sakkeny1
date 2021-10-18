@@ -187,7 +187,7 @@
         <section>
           <h1 class="entry-title"><span>Sign Up</span> </h1>
           <hr>
-          <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data">
+          <form class="form-horizontal" method="get" name="signup" id="signup" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label col-sm-3">Email ID <span class="text-danger">*</span></label>
               <div class="col-md-6 col-sm-9" style="float: left;">
@@ -241,7 +241,7 @@
               <p id="message6"> </p>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3">Profile Photo <span class="text-danger">*</span></label>
+              <label class="control-label col-sm-3">Profile Photo </label>
               <div class="col-md-5 col-sm-8">
                 <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
                       class="glyphicon glyphicon-upload"></i></span>
@@ -253,19 +253,17 @@
             <div class="form-group">
               <label class="control-label col-sm-3">Full Name <span class="text-danger">*</span></label>
               <div class="col-md-8 col-sm-9">
+                <div class="input-group"> <span class="input-group-addon" id="file_upload"><i
+                  class="fa fa-user"></i></span>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name here"
-                  value="" style="border-radius: 25px;" required>
-                  <div id="message4">
-                    <small>
-                    <p id="letters4" class="invalid">letters <b>Only</b></p>
-                  </small>
-                  </div>
+                  value="" style="border-radius: 0 25px 25px 0;" required>
+                </div>  
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Date of Birth <span class="text-danger">*</span></label>
               <div class="col-xs-8">
-                <div class="form-inline">
+                <div class="form-inline" style="padding-left: 15px;">
                   <div class="form-group">
                     <select name="dd" class="form-control" id="day" style="border-radius:0 25px 25px 0;">
                       <option value="">Day</option>
@@ -384,7 +382,7 @@
               <div class="col-md-9 col-sm-9">
                 <label>
                   <input name="type" type="radio" value="Personal" id="owner" >
-                  Landlord </label>
+                  Personal </label>
                    
                 <label style="margin-right: 10px;">
                   <input name="type" type="radio" value="Company" id="developer" >
@@ -416,7 +414,7 @@
                 <div id="recaptcha-container"></div>
                 
               </div>
-              <div style="float: left;">
+              <div style="float: left; padding-left: 15px;" >
                 <button style="float: left;border-radius: 25px;" type="button" class="btn btn btn-primary" id="Do">
                   Send verification code
                 </button>
@@ -426,7 +424,7 @@
                 <h2 id="testforloadersend" style="display: none;">Sending</h2>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3" id="textforcon">Confirmation code <span class="text-danger">*</span></label>
+              <label class="control-label col-sm-3" id="textforcon">Verification code <span class="text-danger">*</span></label>
               <div class="col-md-5 col-sm-8">
                 <div class="input-group">
                 <span class="input-group-addon" id="spanforcon"><i class="fas fa-check"></i></span>
@@ -440,9 +438,11 @@
             </div>
             
         </div>
-        <button type="button" class="btn btn btn-primary" id="confirmation" id = 'butforcon'style="border-radius: 25px;">
+        <div style="float: left; padding-left: 15px;" >
+        <button type="button" class="btn btn btn-primary" id="confirmation" id = 'butforcon'style="border-radius: 25px; ">
           Confirm code
         </button>
+      </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-3">Contact Number 2 <br>
@@ -460,7 +460,7 @@
               </div>            
 
             <div class="form-group">
-              <div class="col-xs-offset-3 col-md-8 col-sm-9" style="font-weight: bold;"><input type="checkbox" class="custom-control-label" name="agree" required/><span class="text-danger" style="font-size: 20px;"> *</span> I agree to your <a href="terms-and-conditions.html" style="color: #997c47;">Terms & conditions</a>
+              <div class="col-xs-offset-2 col-md-8 col-sm-9" style="font-weight: bold;padding-top: 20px;"><input type="checkbox" id="agree" class="custom-control-label" name="agree" required/><span for="agree" class="text-danger" style="font-size: 20px;"> *</span> I agree to your <a href="terms-and-conditions.html" style="color: #997c47;">Terms & conditions</a>
                   and I have read your <a href="privacy.html" style="color: #997c47;">Policy policy</a>.</span>
               </div>
             </div>
@@ -672,37 +672,7 @@
       
       
     }
-    var myInput4 = document.getElementById("name");
-    var letters4 = document.getElementById("letters4");
-   
     
-    // When the user clicks on the password field, show the message box
-    myInput4.onfocus = function() {
-      document.getElementById("message4").style.display = "block";
-    }
-    
-    // When the user clicks outside of the password field, hide the message box
-    myInput4.onblur = function() {
-      document.getElementById("message4").style.display = "none";
-    }
-    
-    // When the user starts to type something inside the password field
-    
-    myInput4.onkeyup = function() {
-      
-  
-      // Validate Letters
-      var letters = /^[A-Za-z]+$/g;
-      if(myInput4.value.match(letters)) {  
-        letters4.classList.remove("invalid");
-        letters4.classList.add("valid");
-      } else {
-        letters4.classList.remove("valid");
-          letters4.classList.add("invalid");
-      }
-      
-      
-    }
     var myInput3 = document.getElementById("contactnum2");
     var number3 = document.getElementById("number3");
    

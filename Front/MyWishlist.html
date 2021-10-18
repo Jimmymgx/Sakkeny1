@@ -221,6 +221,10 @@ crossorigin="anonymous"></script>
     .tab-content>.active {
         display: block;
     }
+
+    .testimonial {
+      cursor: pointer;
+    }
 </style>
 <!-- Hotjar Tracking Code for https://sakkeny.com/ -->
 <script>
@@ -271,13 +275,13 @@ crossorigin="anonymous"></script>
                                    </ul>
                                    <ul class="nav navbar-nav navbar-right">
                                     <li><a class="active" href="MyAccount.html" style="margin-right: 5px;"
-                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> </a></li>
+                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> My Account</a></li>
                                             <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
                                                 id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i> logOut</a>
                                         </li>
                                         <li class="search-option" title="Add an advertisment">
                                             <a class="search tran3s dropdown-toggle" style="padding: 10px; " id="add" href="AdvCard.html"><i  class="fa fa-plus-circle"
-                                                aria-hidden="true" style="color: black;font-size: 25px;"></i> Upload Ad</a>
+                                                aria-hidden="true" style="color: black;font-size: 25px;"></i> Create an ad</a>
                               
                                           </li>
                                         
@@ -314,13 +318,13 @@ crossorigin="anonymous"></script>
                                 <li class="nav-item">
                                     <a class="nav-link" href="AdvCard.html">
                                         <i class="fa fa-plus-circle"></i>
-                                       Upload Ad
+                                        Create Ad
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="DoWish.html">
                                         <i class="fa fa-plus-circle"></i>
-                                        Make a wish
+                                        Make A Wish
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -340,7 +344,7 @@ crossorigin="anonymous"></script>
                                 <li class="nav-item">
                                     <a class="nav-link " href="EditAccount.html">
                                         <i class="fa fa-edit"></i>
-                                        Edit account
+                                        Edit Account
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -353,7 +357,7 @@ crossorigin="anonymous"></script>
                                 <li class="nav-item" >
                                     <a class="nav-link" href="MyAccountFav.html" >
                                         <i class="fa fa-star"></i>
-                                        My favorites
+                                        My Favorites
                                     </a>
                                 </li>
                                 <li class="nav-item" >
@@ -515,7 +519,7 @@ crossorigin="anonymous"></script>
                                     console.log(childSnapshot.val().name);
                                     navname = childSnapshot.val().name.split(' ');
                                     console.log(navname);
-                                    document.getElementById('MyaccountBar').append(navname[0]);
+                                    
                                 });
                             });
                         }
@@ -873,7 +877,7 @@ function addCard(key, text1, text, mail){
     main.setAttribute('class', 'testimonial clearfix col-md-4');
     var des = document.createElement('div');
     des.setAttribute('class', 'desc');
-    des.innerHTML = '<h3><i class="fa fa-quote-left"></i>' + key +'<i class="fa fa-quote-right"></i><br> -' +text1 +'</h3><p class="lead"style="color: black;">'+ text+'</p></div><div class="testi-meta"><h4> - '+ mail+'</h4>';
+    des.innerHTML = '<h3><i class="fa fa-quote-left"></i>' + key +'<i class="fa fa-quote-right"></i><br> -' +text1 +'</h3><p class="lead"style="color: black;"><hr>'+ text+'</p></div><hr><div class="testi-meta" style="float:left;">- '+ mail+'</div>';
     main.appendChild(des);
         document.getElementById('adHeader').appendChild(main);
     main.addEventListener('click', function(){
@@ -986,7 +990,7 @@ function check2(para){
                                     text1 +=" For Rent";
                                 }
                                 text +=", Payment Method: " + pay;
-                                text += "<br> Amenties: <br>";
+                                text += "<hr> Amenties: <br>";
                                 if (air != false) {
          var Airc = document.createElement('a');
          Airc.setAttribute('class','u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3');

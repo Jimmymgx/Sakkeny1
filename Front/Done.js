@@ -46,7 +46,7 @@ function makeLoader(){
     var main = document.createElement("div");
     main.classList.add("toWait");
     var text = document.createElement("h1");
-    text.innerHTML = "Your Ad is Deleting now <br/>Please Wait ......";
+    text.innerHTML = "Congratulations! <br/>Please Wait ......";
     text.style.color = "white";
     var toLoad = document.createElement("span");
     toLoad.classList.add("loaderForWait");

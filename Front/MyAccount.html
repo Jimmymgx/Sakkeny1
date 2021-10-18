@@ -271,13 +271,13 @@ crossorigin="anonymous"></script>
                                    </ul>
                                    <ul class="nav navbar-nav navbar-right">
                                     <li><a class="active" href="MyAccount.html" style="margin-right: 5px;"
-                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> </a></li>
+                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> My Account</a></li>
                                             <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
                                                 id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i> logOut</a>
                                         </li>
                                         <li class="search-option" title="Add an advertisment">
                                             <a class="search tran3s dropdown-toggle" style="padding: 10px; " id="add" href="AdvCard.html"><i  class="fa fa-plus-circle"
-                                                aria-hidden="true" style="color: black;font-size: 25px;"></i> Upload Ad</a>
+                                                aria-hidden="true" style="color: black;font-size: 25px;"></i> Create an ad</a>
                               
                                           </li>
                                         
@@ -314,13 +314,13 @@ crossorigin="anonymous"></script>
                                 <li class="nav-item">
                                     <a class="nav-link" href="AdvCard.html">
                                         <i class="fa fa-plus-circle"></i>
-                                       Upload Ad
+                                        Create Ad
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="DoWish.html">
                                         <i class="fa fa-plus-circle"></i>
-                                        Make a wish
+                                        Make A Wish
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -340,7 +340,7 @@ crossorigin="anonymous"></script>
                                 <li class="nav-item">
                                     <a class="nav-link " href="EditAccount.html">
                                         <i class="fa fa-edit"></i>
-                                        Edit account
+                                        Edit Account
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -353,7 +353,7 @@ crossorigin="anonymous"></script>
                                 <li class="nav-item" >
                                     <a class="nav-link" href="MyAccountFav.html" >
                                         <i class="fa fa-star"></i>
-                                        My favorites
+                                        My Favorites
                                     </a>
                                 </li>
                                 <li class="nav-item" >
@@ -381,7 +381,7 @@ crossorigin="anonymous"></script>
                                         <div class="section-title row text-center">
                                             <div class="col-md-8 col-md-offset-2">
                                 <h3 >No result found</h3>
-                                <p class="lead"> But you can<a href="AdvCard.html" style="color: #997c47;"> Upload ad </a>  </p>
+                                <p class="lead"> But you can<a href="AdvCard.html" style="color: #997c47;"> Create an ad </a>  </p>
                             </div><!-- end col -->
                         </div><!-- end title -->
                         </div>
@@ -510,7 +510,7 @@ crossorigin="anonymous"></script>
                                     console.log(childSnapshot.val().name);
                                     var navname = childSnapshot.val().name.split(' ');
                                     console.log(navname);
-                                    document.getElementById('MyaccountBar').append(navname[0]);
+                                    
                                     localStorage.setItem('userName', navname[0]);
                                 });
                             });
