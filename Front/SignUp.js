@@ -31,7 +31,21 @@ var link = "";
     }
 });*/
 console.log("1");
-
+function sendMail(email, name){
+  Email.send({
+    Host: "mail.sakkeny.com",
+    Username: "ads@sakkeny.com",
+    Password: "1-Sakkeny-1",
+      To: email,
+      From: "ads@sakkeny.com",
+      Subject: "Welcome to Sakkeny real estate search engine platform",
+      Body: "HELLO " + name + " Welcome to Sakkeny <br>Thank you for creating your account with us ,We open doors to a world of properties. <br>We are a real estate platform, our aim is to help you sell or rent your property tailored to our customers needs. <br> With sakkeny customers who are looking to buy or rent a property can search for the property and get in direct contact with yourself. <br> With sakkeny customers who are looking to buy or rent a property, can easily compare properties. <br> With sakkeny customers who are looking to buy or rent a property can submit their wish list of properties and we will follow up with them. <br> If you wish to list your own property for sale or rent, you can easily upload your ad using your account. <br> We provide all the above services for free. <br> If you wish to contact our team, please contact us on <br> https://www.sakkeny.com/contact.html”      ",
+  })
+      .then(function (message) {
+      //alert("mail sent successfully")
+      //window.location.href = "Dashboard.html";
+      });
+}
 function checkValidity(){
   console.log("11");
     var email = document.getElementById("emailid").value;
@@ -145,7 +159,7 @@ function checkValidity(){
               else{
                 document.getElementById('ErrorMessage').innerHTML = 'Error: Please verify your number';
                                           document.getElementById('ErrorMessage').style.display = 'block';
-                
+            
               }
               
             }
@@ -411,6 +425,7 @@ function addUserByEmail(){
       }
       firebase.database().ref('users').push(data);
       uploadImage(email);
+      sendMail(email, name);
       makeLoader();
       if(photo == 0){
         setTimeout(function(){window.location.href = "index.html";},5000);
