@@ -201,9 +201,9 @@
         z-index: 111;
     }
     .navbar-default .navbar-toggle {
-        border-color: grey;
-        color: #ffffff ;
-        background-color: grey;
+
+        color: #F2EBE8 ;
+
     }
     .navbar-default .navbar-collapse,
     .navbar-default .navbar-form {
@@ -351,11 +351,11 @@
 		height: auto;
 	}
 	.navbar-default .navbar-toggle .icon-bar{
-		background-color: #ffffff;
+		background-color: #F2EBE8;
 	}
 	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
-		border-color: #997c47;
-		background-color: #997c47;
+		border-color: #DC7A63;
+		background-color: #DC7A63;
 	}
 	.all-title-box{
 		text-align: center;
@@ -441,11 +441,11 @@
 		height: auto;
 	}
 	.navbar-default .navbar-toggle .icon-bar{
-		background-color: #ffffff;
+		background-color: #F2EBE8;
 	}
 	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
-		border-color: #997c47;
-		background-color: #997c47;
+		border-color: #DC7A63;
+		background-color: #DC7A63;
 	}
 	.all-title-box{
 		text-align: center;

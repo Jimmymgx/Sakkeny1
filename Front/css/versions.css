@@ -133,7 +133,7 @@ body.realestate_version .social-links {
 }
 
 body.realestate_version .social-links i {
-    border: 1px solid grey;
+    color: #DC7A63;
     display: block;
     font-size: 14px;
     height: 30px;
@@ -146,7 +146,7 @@ body.realestate_version .social-links i {
 
 body.realestate_version .section-title small {
     font-size: 15px;
-    color: #999;
+    color: #627C83;
     letter-spacing: 1px;
     padding-bottom: 0px;
     display: block;

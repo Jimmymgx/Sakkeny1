@@ -32,11 +32,24 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <style>
-    #hov:hover {
-        color: #997c47;
+    *{
+        font-family: 'Open Sans';
+        
     }
-    
+    legend{
+        color: #F2EBE8;
+    }
+    input{
+        background-color:  #F2EBE8;
+    }
+    select option{
+        background-color:  #F2EBE8;
+    }
+    select option::selection{
+        background-color:  #F2EBE8;
+    }
 </style>
 
 <!-- Modernizer for Portfolio -->
@@ -82,29 +95,29 @@
 
     
 
-    <header class="header header_style_01">
+    <header class="header header_style_01" style="background-color: #2B303A;">
         <nav class="megamenu navbar navbar-default"  >
             <div class="container-fluid" >
                 <div class="navbar-header" >
                     
                     <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar" >
+                        aria-expanded="false" aria-controls="navbar" style="border: none; ">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><img src="images/logos/llll4444.png" alt="image"
-                        style="height: 60px; "></a>
+                    <a class="navbar-brand" href="index.html" style="padding: 0px; margin: 0px;"><img src="images/logos/Logos-05.png" alt="image"
+                        style="height: 48px; padding: 0px; margin: 0px;"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
                     <ul class="nav navbar-nav">
-                        <li><a  href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
-                        <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
+                        <li><a  href="index.html"></i> Home</a></li>
+                        <li><a href="service.html"> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
-                        <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact</a></li>
-                        <li><a class="active" href="Compare.html"><i class="fas fa-poll"></i> Compare</a></li>
+                        <li><a href="contact.html"> Contact</a></li>
+                        <li><a class="active" href="Compare.html">Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -115,23 +128,18 @@
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
                                     <ul class="nav navbar-nav navbar-right">
-                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="fa fa-user-plus" style="font-size: 20px;"></i> Sign Up</a></li>
-                        <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fa fa-sign-in" style="font-size: 20px;"></i> Log In</a></li>
-                        <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
-                                id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> My Account</a></li>
-                                <li class="search-option" title="LogOut" style="align-items: center;"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px; display :none;"
-                                    id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;"></i> logOut</a>
+                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="far fa-user-plus"></i> Sign Up</a></li>
+                        <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
+                        <li><a href="MyAccount.html" style="  display: none;"
+                                id="MyaccountBar"><i class="far fa-user"></i> My Account</a></li>
+                                <li title="Add an advertisment">
+                                    <a id="add" href="AdvCard.html" style="display: none;"><i class="far fa-plus-square"></i> Create an ad</a>
+                      
+                                  </li>
+                                <li  title="LogOut" ><a value="LogOut" id="Logout"><i class="fas fa-sign-out-alt"></i> logOut</a>
                             </li>
-                            <li class="search-option" title="Add an advertisment">
-                                <a class="search tran3s dropdown-toggle" style="padding: 10px; display: none;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
-                                    aria-hidden="true" style="color: black;font-size: 25px; font-size: 20px;"></i> Create an ad</a>
-                  
-                              </li>
-                            <li class="search-option" title="Search">
-                                <a class="search tran3s dropdown-toggle"style="padding: 12px;" href="Filter.html" id="filter"><i  class="fa fa-search"
-                                        aria-hidden="true" style="color: black;"></i> Search</a>
-    
-                            </li>
+                            
+                            
                     </ul>
                 </div>
                 
@@ -173,7 +181,7 @@
                   
 -->
 
-<div  class="section wb">
+<div class="section wb">
     <div class="container">
         <div class="section-title row text-center" style="margin-bottom: 0px;">
             <div class="col-md-8 col-md-offset-2">
@@ -182,14 +190,15 @@
                
             </div><!-- end col -->
         </div><!-- end title -->
-        <div id="err" style="background-color: rgb(249,249,249,0.7); width: 50%;text-align: center; margin: auto; display: none;">
-            <h3 style="color: red; font-weight: bold;" id="errorT">Error</h3>
+        <div id="err" style="background-color: #2B303A; width: 50%;text-align: center; margin: auto; display: none;">
+            <h3 style="color: #F2EBE8; font-weight: bold;" id="errorT"></h3>
         </div>
-        <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #eee; border-radius: 25px; ">
+        <div id='menu' class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 0px; padding-top:20px; background-color: #2B303A; color: #F2EBE8; border-radius: 25px 25px 0px 0px; ">
                             
             <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
+                <small>Country</small>
                 <select  class="custom-select form-control" id="countries"style="border-radius: 25px;" >
-                    <option value="" disabled selected hidden>Country</option>
+                    <option value="" disabled selected hidden></option>
                     <option value="">All</option>
                       <option value="Egypt" id="Egypt">Egypt</option>
                       <option value="Emirates" id="Emirates">Emirates</option>
@@ -200,21 +209,23 @@
             <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
     
                     
-                
+                <small>City</small>
                 <select  class="custom-select form-control" id="cities" style="border-radius: 25px;">
-                    <option value="" disabled selected hidden>City</option>
+                    <option value="" disabled selected hidden></option>
                     <option value="" >All</option>
                 </select>
                 </div>
                 <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
-                <select  class="custom-select form-control" id="locations"style="border-radius: 25px;" >
-                    <option value="" disabled selected hidden>Location</option>
+                <small>Location</small>
+                    <select  class="custom-select form-control" id="locations"style="border-radius: 25px;" >
+                        <option value="" disabled selected hidden></option>
                     <option value="" >All</option>
                 </select>
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
+                    <small>Unit Case</small>
                 <select name="dd" class="custom-select form-control" id="type"style="border-radius: 25px;">
-                    <option value="" disabled selected hidden>Unit Case</option>
+                    <option value="" disabled selected hidden></option>
                     
                     <option value="">All</option>
                     <option value="Sale">For Sale</option>
@@ -224,8 +235,9 @@
                 </div>
                 
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
+                    <small>Unit Category</small>
                 <select name="dd" class="custom-select form-control" id="unit"style="border-radius: 25px;">
-                    <option value="" disabled selected hidden>Unit Category</option>
+                    <option value="" disabled selected hidden></option>
                     
                     <option value="">All</option>
                       <option value="Residential">Residential </option>
@@ -235,8 +247,9 @@
                 </select>
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
-                <select name="dd" class="custom-select form-control" id="unitType"style="border-radius: 25px;">
-                    <option value="" disabled selected hidden>Unit type</option>
+                    <small>Unit type</small>
+                <select name="dd" class="custom-select form-control" id="unitType"style="border-radius: 25px; ">
+                    <option value="" disabled selected hidden></option>
                    
                     <option value="">All</option>
                     <option value="Appartment">Appartment</option>
@@ -267,8 +280,9 @@
                 </select>
                 </div>
                 <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
+                    <small>Payment method</small>
                 <select name="dd" class="custom-select form-control" id="Pay"style="border-radius: 25px;">
-                    <option value="" disabled selected hidden>Payment method</option>
+                    <option value="" disabled selected hidden></option>
                    
                     <option value="Both">All</option>
                     <option value="Cash">Cash</option>
@@ -276,9 +290,9 @@
                 </select>
                 </div>
                 <div class="input-group col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 10px; float: left;">
-    
+                    <small>Finishing</small>
                     <select name="dd" class="form-control" id="finish"style="border-radius: 25px;">
-                        <option value="" disabled selected hidden>Finishing</option>
+                        <option value="" disabled selected hidden></option>
                         <option value="">All</option>
                         <option value="Unfinished">Unfinished </option>
                         <option value="Semi finished">Semi finished </option>
@@ -292,9 +306,9 @@
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
     
-                    
+                    <small>Bedrooms</small>
                     <select name="dd" class="form-control" id="bed"style="border-radius: 25px;">
-                        <option value="" disabled selected hidden>Bedrooms</option>
+                        <option value="" disabled selected hidden></option>
                         <option value="">All</option>
                         <option value="1">1 </option>
                         <option value="2">2 </option>
@@ -310,9 +324,9 @@
                       </select>
                 </div>
                 <div class="input-group col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; float: left;">
-    
+                    <small>Bathrooms</small>
                     <select name="dd" class="form-control" id="bath"style="border-radius: 25px;">
-                        <option value="" disabled selected hidden>Bathrooms</option>
+                        <option value="" disabled selected hidden></option>
                         <option value="">All</option>
                         <option value="1">1 </option>
                         <option value="2">2 </option>
@@ -517,13 +531,13 @@
     </div>
     
     
-            <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #ccc; border-radius: 25px; ">Search</button>
+            <button type="button" id='search' class="btn btn-secondary btn-lg btn-block" style="margin-top:  20px; background-color: #DC7A63;color: #F2EBE8; border-radius:0px 0px 25px 25px; ">Search</button>
         <div  class="section wb" id="noRes" style="display: none;">
             <div class="container">
                 <div class="section-title row text-center">
                     <div class="col-md-8 col-md-offset-2">
         <h3 >No result found</h3>
-        <p class="lead"> But you can<a href="request.html" style="color: #997c47;"> Make A Wish</a> for your desired property </p>
+        <p class="lead"> But you can<a href="request.html" style="color: #DC7A63;"> Make A Wish</a> for your desired property </p>
     </div><!-- end col -->
 </div><!-- end title -->
 </div>
@@ -559,7 +573,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <img src="images/logos/llll4444.png" alt="Sakkeny real-estate agency">
+                            <img src="images/logos/Logos-01.png" style="height: 120px; padding-left: 20px;" alt="Sakkeny real-estate agency">
                         </div>
                         <p>On Sakkeny website, you will find all your housing units at prices that suit your needs and
                             sell your units safely.</p>
@@ -617,11 +631,11 @@
 
 
     <div class="copyrights" >
-        <div class="container" >
+        <div class="container" style="height: 5px;">
             <div class="footer-distributed" >
-                <div class="footer-links" style="text-align: center;">
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
-                        Design By : <a>Sakkeny Team</a></p>
+                <div class="footer-links" style="text-align: center; ">
+                    <p class="footer-company-name"><small>All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
+                        Design By : <a href="service.html">Sakkeny Team</a></small></p>
                 </div>
 
                 
@@ -717,15 +731,16 @@
         var spanRight = document.createElement('span');
         var rightIcon = document.createElement('i');
         var Location = document.createElement('text');
-
-
+        var verfied = document.createElement('span');
+        verfied.innerHTML = ' <i class="fas fa-check-circle"></i>verfied';
+        verfied.style.float ='right';
 
         divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
         divSer.setAttribute('class', 'service-widget box');
         divMain.setAttribute('class', 'property-main');
         divWrap.setAttribute('class', 'property-wrap');
         adFig.setAttribute('class', 'post-media wow fadeIn');
-        adFig.setAttribute('style','border-width: medium;')
+        
         adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
         adlink.setAttribute('class', 'hoverbutton global-radius');
         adlink.setAttribute('href', image);
@@ -742,7 +757,7 @@
         divBody.setAttribute('class', 'item-body');
         divDesc.setAttribute('class', 'info');
         divAddress.setAttribute('class', 'adderess');
-        addrsIcon.classList.add('fa', 'fa-map-pin');
+        addrsIcon.classList.add('fas', 'fa-map-marker-alt'); 
         addrsIcon.setAttribute('aria-hidden', 'true');
         divFoot.setAttribute('class', 'item-foot');
         divLeft.setAttribute('class', 'pull-left');
@@ -770,16 +785,16 @@
         
         
         
-        //adlink.appendChild(adlinkIcon);
+        
 
         divPrice.appendChild(spanPrice);
         //adFig.appendChild(adlink);
         adFig.appendChild(adImg);
-        
         adFig.appendChild(divPrice);
         divDesc.appendChild(Desc);
         divAddress.appendChild(addrsIcon);
         divAddress.appendChild(Location);
+        divAddress.appendChild(verfied)
         divBody.appendChild(Title);
         divBody.appendChild(divDesc);
         divBody.appendChild(divAddress);
@@ -862,7 +877,7 @@
             if(localStorage.getItem('FirstCompare') == ""){
                 localStorage.setItem('FirstCompare', appID);
                 console.log(localStorage.getItem('FirstCompare'));
-                divMain.style.outline = "3px solid green";
+                divMain.style.outline = "5px solid #DC7A63";
                 //alert("You did choose the first ad now choose the second one");
                 //alert(localStorage.getItem('FirstCompare'));
             }
@@ -875,7 +890,7 @@
                 else{
                     //localStorage.setItem('SecondCompare', appID);
                 console.log(localStorage.getItem('SecondCompare'));
-                divMain.style.outline = "3px solid green";
+                divMain.style.outline = "5px solid #DC7A63";
                 setTimeout(() => {
                     window.location.href = "Comparison.html?K1="+localStorage.getItem('FirstCompare')+"K2="+localStorage.getItem('SecondCompare');
                 }, 1000);
@@ -899,16 +914,29 @@
               user = childSnapshot.val().UserID;
               //console.log("User1 = " + user);
               if(localStorage.getItem('currMail') == user){
-                var sold = document.createElement('button');
-        sold.setAttribute('class','btn btn-primary btn-lg btn-block');
-        sold.innerHTML = '<i class="fa fa-check-circle"></i> Sold';
-        sold.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+                var sold = document.createElement('div');
+                var span = document.createElement('span');
+        span.setAttribute('class','label fav');
+        span.innerHTML = '<i class="fas fa-coins"></i>';
+        sold.setAttribute('class','label-inner');
+        span.addEventListener("mouseenter", function( event ) {
+  // highlight the mouseover target
+  event.target.append(' Sold');
+
+  // reset the color after a short delay
+  setTimeout(function() {
+    span.innerHTML = '<i class="fas fa-coins"></i>';
+  }, 1000);
+}, false);
+        sold.appendChild(span);
+        //sold.setAttribute('style','margin-bottom: 30px; margin-top:0px; border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
         sold.setAttribute('id',"fav");
         sold.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
         sold.addEventListener("click", Del);
-        divSer.appendChild(sold);
+        
+        adFig.appendChild(sold);
         divSize.appendChild(divSer);
         
               }
@@ -921,16 +949,19 @@
               }
             });
             if(check == true){
-                var del = document.createElement('button');
-        del.setAttribute('class','btn btn-primary btn-lg btn-block');
-        del.innerHTML = '<i class="fa fa-trash-o"></i> Delete from my favourites';
-        del.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+                var del = document.createElement('div');
+                var span = document.createElement('span');
+        span.setAttribute('class','label del');
+        span.innerHTML = '<i class="fas fa-star"></i>';
+        //del.setAttribute('style','margin-bottom: 30px; margin-top:0px;border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
+        del.setAttribute('class','label-inner');
+        del.appendChild(span);
         del.setAttribute('id',"fav");
         del.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
         del.addEventListener("click", delFromFav);
-        divSer.appendChild(del);
+        adFig.appendChild(del);
         divSize.appendChild(divSer);
                     }
             else{
@@ -939,16 +970,20 @@
               if(localStorage.getItem('currMail') != user){
                 //console.log("User = " + user);
                 //console.log(localStorage.getItem('currMail'));
-                var fav = document.createElement('button');
-        fav.setAttribute('class','btn btn-primary btn-lg btn-block');
-        fav.innerHTML = '<i class="fa fa-star-o"></i> Add to my favourites';
-        fav.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+                var fav = document.createElement('div');
+        
+        var span = document.createElement('span');
+        span.setAttribute('class','label fav');
+        span.innerHTML = '<i class="fas fa-star" ></i>';
+        //fav.setAttribute('style','margin-bottom: 30px; margin-top:0px; border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
+        fav.setAttribute('class','label-inner');
+        fav.appendChild(span);
         fav.setAttribute('id',"fav");
         fav.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
         fav.addEventListener("click", addToFav);
-        divSer.appendChild(fav);
+        adFig.appendChild(fav);
         divSize.appendChild(divSer);
         
             }

@@ -55,7 +55,7 @@ body {
 }
 
 body.demos .section {
-    background: url(images/bg.png) repeat top center #f2f3f5;
+    background: url(images/bg.png) repeat top center #F2EBE8;
 }
 
 body.demos .section-title img {
@@ -63,12 +63,15 @@ body.demos .section-title img {
     display: block;
     margin: 10px auto;
 }
-
+.service-widget{
+    background-color: #F2EBE8;
+    border-radius: 20px;
+}
 body.demos .service-widget h3 {
     border-bottom: 1px solid #ededed;
     font-size: 18px;
     padding: 20px 0;
-    background-color: #ffffff;
+    background-color: #F2EBE8;
 }
 
 body.demos .service-widget {
@@ -387,7 +390,7 @@ a img.aligncenter {
 }
 
 .header_style_01 {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #2B303A;
     display: block;
     left: 0;
     padding: 20px 40px;
@@ -415,12 +418,12 @@ a img.aligncenter {
 }
 
 .header_style_01 .navbar-brand {
-    padding: 2px 15px 0 15px;
+    padding: 0px 15px 0 15px;
 }
 
 .header_style_01 .navbar-default .navbar-nav > li > a {
     border-radius: 0;
-    color: #222222;
+    color: #F2EBE8;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
@@ -435,19 +438,22 @@ a img.aligncenter {
 
 .header_style_01 .navbar-default .navbar-nav > li:hover a,
 .header_style_01 .navbar-default .navbar-nav > li:focus a {
-    background-color: grey;
-	color: #ffffff;
+    background-color: #DC7A63;
+    border-radius: 25px;
+	color: #F2EBE8;
 }
 
 body.realestate_version .social-links:hover a{
 	background-color: transparent !important;
-	color: #333333 !important;
+	color: #F2EBE8 !important;
+    
+
 }
 
 .header_style_01 .navbar-default .navbar-nav > li a.active {
-	background-color: #997c47;
-	color: #ffffff;
-	border-radius: 2px;
+	background-color: #DC7A63;
+	color: #F2EBE8;
+	border-radius: 25px;
 }
 
 .header_style_01 .navbar-right > li {
@@ -512,7 +518,7 @@ li.social-links a {
     top: 0px;
     width: 100%;
     padding: 0px 0px;
-    background: #ffffff;
+    background: #2B303A;
     z-index: 0;
     transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -557,13 +563,13 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option button
 	line-height: 43px;
 	width: 45px;
 	color: #fff;
-	background: #997c47;
+	background: #DC7A63;
 	border: none;
 	transition: all .3s ease-in-out;
 	border-radius: 2px;
 }
 body.realestate_version .header_style_01 .navbar-right > li.search-option button.search:hover{
-	background: grey;
+	background: #DC7A63;
 }
 body.realestate_version .header_style_01 .navbar-right > li.search-option form.dropdown-menu{
 	position: absolute;
@@ -666,7 +672,8 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .section.wb {
-    background-color: #ffffff;
+    background-color: #F2EBE8;
+    
 }
 
 .section.lb {
@@ -741,6 +748,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .section-title h3 {
+    color: #2B303A;
     font-size: 42px;
     font-weight: 300;
     line-height: 62px;
@@ -1264,11 +1272,11 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .property-main{
-	background: #fff;
+	background: #2B303A;
 	position: relative;
-	box-shadow: 0 2px 0 0 #e3e4e7;
-	border: 1px solid #f1f1f1;
-	border-radius: 2px;
+	box-shadow: 0 2px 0 0 #2B303A;
+	margin-bottom: 20px;
+	border-radius: 25px ;
 	-webkit-transition: all .15s ease;
 	-moz-transition: all .15s ease;
 	-o-transition: all .15s ease;
@@ -1277,6 +1285,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .property-wrap{
+    
 	width: 100%;
 	padding: 8px;
 }
@@ -1288,36 +1297,48 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 
 .label-inner {
     position: absolute;
-    top: 20px;
+    padding: 3px;
+    top: 12px;
     right: 12px;
-	background: #997c47;
+	background: #DC7A63;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
-	border-radius: 2px;
+	border-radius: 100%;
     z-index: 3;
 }
 
 .label-inner .label{
 	display: block;
 	line-height: 1.8;
+    font-size:14px;
 }
 
+  .fav:hover i{
+    color:yellow;
+  }
+  .del{
+      color: yellow;
+  }
+  .del:hover i{
+    color:white;
+  }
 .property-wrap .price {
+    
     position: absolute;
     left: 12px;
     top: 12px;
     z-index: 4;
-    color: #fff;
+    color: #F2EBE8;
     text-align: left;
-    background: #997c47;
+    background: #DC7A63;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
-	border-radius: 2px;
+	border-radius: 20px;
     padding: 6px 10px;
 }
 
 .item-body .adderess {
-    color: #999;
+    color: #DC7A63;
     font-size: 13px;
     line-height: 22px;
     margin: 5px 0px;
@@ -1328,6 +1349,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .item-body .info {
+    color: #F2EBE8;
     font-size: 13px;
     margin-top: 10px;
     line-height: 16px;
@@ -1341,18 +1363,21 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .item-foot{
+    color: #F2EBE8;
 	display: inline-block;
 	width: 100%;
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid #F2EBE8;
 	padding: 14px 20px;
 	margin: -7px 0;
 }
 
 .item-foot .prop-user-agent i{
+    color: #DC7A63;
 	padding-right: 5px;
 }
 
 .item-foot .prop-date i{
+    color: #DC7A63;
 	padding-right: 5px;
 }
 
@@ -1373,7 +1398,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 .service-widget h3 a,
 .section.wb .service-widget h3,
 .section.lb .service-widget h3 {
-    color: #1f1f1f;
+    color: #F2EBE8;
 }
 
 .service-widget p {
@@ -1419,11 +1444,13 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .post-media {
+    border-radius: 20px;
     position: relative;
-	border: 8px solid #997c47;	
+	
 }
 
 .post-media img {
+    
     width: 100%;
 }
 
@@ -1444,10 +1471,10 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .hoverbutton {
-    background-color: #997c47;
+    background-color: #DC7A63;
     position: absolute;
     color: #1f1f1f !important;
-    top: 48%;
+
     font-size: 21px;
     z-index: 12;
     left: 0;
@@ -2164,8 +2191,8 @@ select.mobile-device {
 
 .footer {
     padding: 90px 0 80px !important;
-    color: #999;
-    background-color: #333333;
+    color: #F2EBE8;
+    background-color: #2B303A;
 }
 
 .footer .widget-title {
@@ -2182,7 +2209,7 @@ select.mobile-device {
 }
 
 .footer .widget-title h3 {
-    color: #fff;
+    color: #F2EBE8;
     font-weight: 300;
     font-size: 21px;
     padding: 0;
@@ -2196,13 +2223,13 @@ select.mobile-device {
 }
 
 .footer-links a {
-    color: #999;
+    color: #DC7A63;
 	display: block;
 }
 
-.footer-links a:hover,
-.footer a:hover {
-    color: #997c47;
+.footer-links ul li a:hover,
+.footer ul li a:hover {
+    color: #627C83;
 }
 
 .footer-links li {
@@ -2238,12 +2265,13 @@ select.mobile-device {
 
 .copyrights {
     border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    background-color: #393939;
+    background-color: #2B303A;
     box-sizing: border-box;
     width: 100%;
     text-align: left;
     padding: 30px 0px;
     overflow: hidden;
+    height: auto;
 }
 
 .dmtop.show {
@@ -2257,7 +2285,7 @@ select.mobile-device {
 }
 
 .footer-distributed .footer-links {
-    margin: 0 0 10px;
+    margin: 0px;
     text-transform: uppercase;
     padding: 0;
 }
@@ -2265,15 +2293,15 @@ select.mobile-device {
 .footer-distributed .footer-links a {
     display: inline-block;
     line-height: 1.8;
-    margin: 0 10px 0 10px;
+    margin: 0;
     text-decoration: none;
 }
 
 .footer-distributed .footer-company-name {
     font-weight: 300;
-    margin: 0 10px;
-    color: #666;
-    padding: 20px 0px;}
+    margin: 0;
+    color: grey;
+    padding: 0px;}
 
 
 /* Footer right */
@@ -2338,11 +2366,11 @@ select.mobile-device {
 }
 
 .footer-distributed .footer-company-name a{
-	color: #ffffff;
+	color: #DC7A63;
 }
 
 .footer-distributed .footer-company-name a:hover{
-	color: #997c47;
+	color: #627C83;
 }
 
 
@@ -2366,7 +2394,7 @@ select.mobile-device {
 }
 
 .dmtop {
-    background-color: #997c47;
+    background-color: #DC7A63;
     z-index: 100;
     width: 50px;
     height: 50px;
@@ -2597,7 +2625,7 @@ select.mobile-device {
 -------------------------------------------------------------------*/
 
 .all-title-box{
-	background: url(uploads/inner-bg.jpg);
+	background: url(uploads/photo-1582407947304-fd86f028f716.jfif);
 	position: relative;
 	padding: 200px 0 70px 0px;
 	margin-bottom: 0px;
@@ -2618,30 +2646,28 @@ select.mobile-device {
 }
 
 .all-title-box h2{
-	color: #ffffff;
+	color: #F2EBE8;
 	padding: 0px;
 	font-size: 40px;
 	font-weight: 600;
 }
 
 #breadcrumbs {
-	background: #997c47;
+	background: #2B303A;
 	padding: 10px 20px;
     position: absolute;
     right: 0px;
     display: inline-block;
     font-size: 15px;
     font-weight: 500;
-    color: #888;
+    color: #F2EBE8;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-#breadcrumbs:hover{
-	background: grey;
-}
+
 
 #breadcrumbs ul {
     margin: 0;
@@ -2650,10 +2676,13 @@ select.mobile-device {
     display: inline-block;
     list-style: none;
     margin: 0 0 0 10px;
-	color: #ffffff;
+	color: #F2EBE8;
+}
+#breadcrumbs ul li a{
+    color: #F2EBE8;
 }
 #breadcrumbs:hover ul li a{
-	color: #997c47;
+	color: #627C83;
 }
 #breadcrumbs ul li:first-child::before {
 	display: none;
