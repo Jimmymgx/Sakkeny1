@@ -362,7 +362,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
         divBody.setAttribute('class', 'item-body');
         divDesc.setAttribute('class', 'info');
         divAddress.setAttribute('class', 'adderess');
-        addrsIcon.classList.add('fa', 'fa-map-pin');
+        addrsIcon.classList.add('fas', 'fa-map-marker-alt');
         addrsIcon.setAttribute('aria-hidden', 'true');
         divFoot.setAttribute('class', 'item-foot');
         divLeft.setAttribute('class', 'pull-left');
@@ -480,16 +480,29 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
               user = childSnapshot.val().UserID;
               //console.log("User1 = " + user);
               if(localStorage.getItem('currMail') == user){
-                var sold = document.createElement('button');
-        sold.setAttribute('class','btn btn-primary btn-lg btn-block');
-        sold.innerHTML = '<i class="fa fa-check-circle"></i> Sold';
-        sold.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+                var sold = document.createElement('div');
+                var span = document.createElement('span');
+        span.setAttribute('class','label fav');
+        span.innerHTML = '<i class="fas fa-coins"></i>';
+        sold.setAttribute('class','label-inner');
+        span.addEventListener("mouseenter", function( event ) {
+  // highlight the mouseover target
+  event.target.append(' Sold');
+
+  // reset the color after a short delay
+  setTimeout(function() {
+    span.innerHTML = '<i class="fas fa-coins"></i>';
+  }, 1000);
+}, false);
+        sold.appendChild(span);
+        //sold.setAttribute('style','margin-bottom: 30px; margin-top:0px; border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
         sold.setAttribute('id',"fav");
         sold.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
         sold.addEventListener("click", Del);
-        divSer.appendChild(sold);
+        
+        adFig.appendChild(sold);
         divSize.appendChild(divSer);
         
               }
@@ -502,34 +515,41 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
               }
             });
             if(check == true){
-                var del = document.createElement('button');
-        del.setAttribute('class','btn btn-primary btn-lg btn-block');
-        del.innerHTML = '<i class="fa fa-trash-o"></i> Delete from my favourites';
-        del.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+                var del = document.createElement('div');
+                var span = document.createElement('span');
+        span.setAttribute('class','label del');
+        span.innerHTML = '<i class="fas fa-star"></i>';
+        //del.setAttribute('style','margin-bottom: 30px; margin-top:0px;border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
+        del.setAttribute('class','label-inner');
+        del.appendChild(span);
         del.setAttribute('id',"fav");
         del.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
         del.addEventListener("click", delFromFav);
-        divSer.appendChild(del);
+        adFig.appendChild(del);
         divSize.appendChild(divSer);
-                    }
+                     }
             else{
               //console.log("User = " + user);
                 //console.log(localStorage.getItem('currMail'));
               if(localStorage.getItem('currMail') != user){
                 //console.log("User = " + user);
                 //console.log(localStorage.getItem('currMail'));
-                var fav = document.createElement('button');
-        fav.setAttribute('class','btn btn-primary btn-lg btn-block');
-        fav.innerHTML = '<i class="fa fa-star-o"></i> Add to my favourites';
-        fav.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+                var fav = document.createElement('div');
+        
+        var span = document.createElement('span');
+        span.setAttribute('class','label fav');
+        span.innerHTML = '<i class="fas fa-star" ></i>';
+        //fav.setAttribute('style','margin-bottom: 30px; margin-top:0px; border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
+        fav.setAttribute('class','label-inner');
+        fav.appendChild(span);
         fav.setAttribute('id',"fav");
         fav.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
         });
         fav.addEventListener("click", addToFav);
-        divSer.appendChild(fav);
+        adFig.appendChild(fav);
         divSize.appendChild(divSer);
         
             }

@@ -518,7 +518,7 @@ crossorigin="anonymous"></script>
                         }
                     });
                     function AddAds(title, description, time, location, appID, price, image, name,type, rating) {
-        var divSize = document.createElement('div');
+                        var divSize = document.createElement('div');
         var divSer = document.createElement('div');
         var divMain = document.createElement('div');
         var divWrap = document.createElement('div');
@@ -526,7 +526,7 @@ crossorigin="anonymous"></script>
         var adlink = document.createElement('a');
         var adlinkIcon = document.createElement('i');
         var adImg = document.createElement('img');
-        
+        var spanLabel = document.createElement('span');
         var divPrice = document.createElement('div');
         var spanPrice = document.createElement('span');
         var divBody = document.createElement('div');
@@ -543,20 +543,23 @@ crossorigin="anonymous"></script>
         var spanRight = document.createElement('span');
         var rightIcon = document.createElement('i');
         var Location = document.createElement('text');
-
-
+        var divLabel = document.createElement('div');
+        var verfied = document.createElement('span');
+        verfied.innerHTML = ' <i class="fas fa-check-circle"></i>verfied';
+        verfied.style.float ='right';
 
         divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
         divSer.setAttribute('class', 'service-widget box');
         divMain.setAttribute('class', 'property-main');
+        divMain.setAttribute('style','margin-bottom:0px; border-radius: 25px 25px 0px 0px;');
         divWrap.setAttribute('class', 'property-wrap');
         adFig.setAttribute('class', 'post-media wow fadeIn');
         adFig.setAttribute('style','border-width: medium;')
         adlink.setAttribute('data-rel', 'prettyPhoto[gal]');
         adlink.setAttribute('class', 'hoverbutton global-radius');
         adlink.setAttribute('href', image);
-
-
+        divLabel.setAttribute('class', 'label-inner');
+        
 
         adlinkIcon.setAttribute('class', 'flaticon-unlink');
         adImg.setAttribute('src', image);
@@ -568,7 +571,7 @@ crossorigin="anonymous"></script>
         divBody.setAttribute('class', 'item-body');
         divDesc.setAttribute('class', 'info');
         divAddress.setAttribute('class', 'adderess');
-        addrsIcon.classList.add('fa', 'fa-map-pin');
+        addrsIcon.classList.add('fas', 'fa-map-marker-alt');
         addrsIcon.setAttribute('aria-hidden', 'true');
         divFoot.setAttribute('class', 'item-foot');
         divLeft.setAttribute('class', 'pull-left');
@@ -581,7 +584,7 @@ crossorigin="anonymous"></script>
         rightIcon.classList.add('fa', 'fa-calendar');
         rightIcon.setAttribute('aria-hideen', 'true');
         Desc.innerHTML = description.substring(0, 40);
-        Title.setAttribute('style' ,'color: black;')
+       
         Title.innerHTML = title.substring(0,40);
         Location.innerHTML = location.substring(0, 30);
         spanPrice.innerHTML = price;
@@ -598,15 +601,15 @@ crossorigin="anonymous"></script>
         
         
         //adlink.appendChild(adlinkIcon);
-
+        divLabel.appendChild(spanLabel);
         divPrice.appendChild(spanPrice);
         //adFig.appendChild(adlink);
         adFig.appendChild(adImg);
-        
         adFig.appendChild(divPrice);
         divDesc.appendChild(Desc);
         divAddress.appendChild(addrsIcon);
         divAddress.appendChild(Location);
+        divAddress.appendChild(verfied)
         divBody.appendChild(Title);
         divBody.appendChild(divDesc);
         divBody.appendChild(divAddress);
@@ -662,6 +665,7 @@ crossorigin="anonymous"></script>
             spanRight.appendChild(con);**/
             divRight.setAttribute('align','right');
             divLeft.setAttribute('align','left');
+            
         divLeft.appendChild(spanLeft);
         spanRight.appendChild(rightIcon);
         spanRight.append(time);
@@ -688,7 +692,7 @@ crossorigin="anonymous"></script>
             }, 1500);
         divMain.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
-            window.document.location = './EditAdv.html';
+            window.document.location = './EditAdv.html?k='+appID;
         });
         divSer.appendChild(divMain);
         var check = false;
@@ -700,8 +704,8 @@ crossorigin="anonymous"></script>
               if(localStorage.getItem('currMail') == user){
                 var sold = document.createElement('button');
         sold.setAttribute('class','btn btn-primary btn-lg btn-block');
-        sold.innerHTML = '<i class="fa fa-check-circle"></i> Sold';
-        sold.setAttribute('style','margin-bottom: 30px; margin-top:0px;');
+        sold.setAttribute('style','margin-bottom: 30px; margin-top:0px; border-radius:0px 0px 25px 25px; background-color:#DC7A63;');
+        sold.innerHTML = '<i class="fas fa-coins"></i> Sold';
         sold.setAttribute('id',"fav");
         sold.addEventListener('click', function () {
             localStorage.setItem('appID', appID);
@@ -754,11 +758,12 @@ crossorigin="anonymous"></script>
           }
           });
         }); 
-        
         divSer.setAttribute('style','cursor: pointer;');
+        
         
         document.getElementById('adHeader').appendChild(divSize);
         
+         
         
     }
                     function checkTime(str){

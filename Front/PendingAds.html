@@ -566,7 +566,7 @@ crossorigin="anonymous"></script>
   divBody.setAttribute('class', 'item-body');
   divDesc.setAttribute('class', 'info');
   divAddress.setAttribute('class', 'adderess');
-  addrsIcon.classList.add('fa', 'fa-map-pin');
+  addrsIcon.classList.add('fas', 'fa-map-marker-alt');
   addrsIcon.setAttribute('aria-hidden', 'true');
   divFoot.setAttribute('class', 'item-foot');
   divLeft.setAttribute('class', 'pull-left');
@@ -578,7 +578,7 @@ crossorigin="anonymous"></script>
   spanRight.classList.add('prop-date');
   rightIcon.classList.add('fa', 'fa-calendar');
   rightIcon.setAttribute('aria-hideen', 'true');
-  Title.setAttribute('style', 'color:black');
+  
   Desc.innerHTML = description.substring(0, 40);
   Title.innerHTML = title.substring(0,30);
   Location.innerHTML = location.substring(0, 30);
@@ -600,7 +600,7 @@ crossorigin="anonymous"></script>
   divPrice.appendChild(spanPrice);
 
   adFig.appendChild(adImg);
-  adFig.appendChild(divLabel);
+  
   adFig.appendChild(divPrice);
   divDesc.appendChild(Desc);
   divAddress.appendChild(addrsIcon);
@@ -612,7 +612,8 @@ crossorigin="anonymous"></script>
   let t = document.createElement('small');
       t.setAttribute('class','testi-meta text-muted');
       t.innerHTML = " By " +type;
-      spanLeft.append(name);
+      name1=name.split(' ');
+            spanLeft.append(name1[0]);
       spanLeft.appendChild(t);
       divRight.setAttribute('align','right');
             divLeft.setAttribute('align','left');
