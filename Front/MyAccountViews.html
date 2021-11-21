@@ -31,10 +31,15 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
 <script src="js/modernizer.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420495444925923"
 crossorigin="anonymous"></script>
 <style>
+     body{
+    background-color: #F2EBE8;
+  }
     .h6,
     h6 {
         font-size: .75rem !important;
@@ -88,7 +93,7 @@ crossorigin="anonymous"></script>
     }
 
     .header-filter::before {
-        background: #997c47;
+        background: #FFF;
     }
 
     .main-raised {
@@ -144,7 +149,7 @@ crossorigin="anonymous"></script>
     .profile-page .description {
         margin: 1.071rem auto 0;
         max-width: 600px;
-        color: #997c47;
+        color: #627C83;
         font-weight: 300;
     }
 
@@ -169,8 +174,8 @@ crossorigin="anonymous"></script>
 
     .nav-pills .nav-item .nav-link.active {
         color: #fff;
-        background-color: #997c47;
-        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(156, 39, 176, .6);
+        background-color: #627C83;
+        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px #DC7A63;
     }
 
     .nav-pills .nav-item .nav-link {
@@ -178,7 +183,7 @@ crossorigin="anonymous"></script>
         font-size: 12px;
         font-weight: 500;
         min-width: 100px;
-        color: #997c47;
+        color: #627C83;
         transition: all .3s;
         border-radius: 30px;
         padding: 10px 15px;
@@ -186,7 +191,7 @@ crossorigin="anonymous"></script>
     }
 
     .nav-pills .nav-item .nav-link:not(.active):hover {
-        background-color: #997c47;
+        background-color: #627C83;
     }
 
 
@@ -227,29 +232,29 @@ crossorigin="anonymous"></script>
 
 <body class="profile-page realestate_version" id = 'bo'>
 
-    <header class="header header_style_01">
+    <header class="header header_style_01" style="background-color: #2B303A;">
         <nav class="megamenu navbar navbar-default"  >
             <div class="container-fluid" >
                 <div class="navbar-header" >
                     
                     <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar" >
+                        aria-expanded="false" aria-controls="navbar" style="border: none; ">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><img src="images/logos/llll4444.png" alt="image"
-                        style="height: 60px; "></a>
+                    <a class="navbar-brand" href="index.html" style="padding: 0px; margin: 0px;"><img src="images/logos/Logos-05.png" alt="image"
+                        style="height: 48px; padding: 0px; margin: 0px;"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><a href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
-                        <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
+                    <ul class="nav navbar-nav">
+                        <li><a  href="index.html"></i> Home</a></li>
+                        <li><a href="service.html"> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
-                        <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
-                        <li><a href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
+                        <li><a href="contact.html"> Contact</a></li>
+                        <li><a href="Compare.html">Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -259,19 +264,18 @@ crossorigin="anonymous"></script>
                         <li class="social-links"><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
-                                   <ul class="nav navbar-nav navbar-right">
-                                    <li><a class="active" href="MyAccount.html" style="margin-right: 5px;"
-                                            id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> My Account</a></li>
-                                            <li class="search-option" title="LogOut"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px;"
-                                                id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;font-size: 20px;"></i> logOut</a>
-                                        </li>
-                                        <li class="search-option" title="Add an advertisment">
-                                            <a class="search tran3s dropdown-toggle" style="padding: 10px; " id="add" href="AdvCard.html"><i  class="fa fa-plus-circle"
-                                                aria-hidden="true" style="color: black;font-size: 25px;"></i> Upload Ad</a>
-                              
-                                          </li>
-                                       
-                                </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="MyAccount.html" 
+                                id="MyaccountBar"><i class="far fa-user"></i> My Account</a></li>
+                                <li title="Add an advertisment">
+                                    <a id="add" href="AdvCard.html"><i class="far fa-plus-square"></i> Create an ad</a>
+                      
+                                  </li>
+                                <li  title="LogOut" ><a value="LogOut" id="Logout"><i class="fas fa-sign-out-alt"></i> logOut</a>
+                            </li>
+                            
+                            
+                    </ul>
                 </div>
                 
                 
@@ -282,7 +286,7 @@ crossorigin="anonymous"></script>
 
     <div class="page-header header-filter" data-parallax="true"></div>
     <div class="main main-raised">
-        <div class="profile-content">
+        <div class="profile-content"style="background-color: #F2EBE8">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 ml-auto mr-auto">
@@ -291,8 +295,8 @@ crossorigin="anonymous"></script>
                                 <img id='userPp' alt="Circle Image" class="img-raised rounded-circle img-fluid">
                             </div>
                             <div class="name">
-                                <h1 class="title" id="name"></h1>
-                                <h5>Profile</h5>
+                                <h1 class="title" id="name"style="color: #2B303A; font-family: 'Open Sans'; font-weight: 580;"></h1>
+                                <h1 style="color: #2B303A; font-family: 'Open Sans'; font-weight: 580;">Profile</h1>
                             </div>
                         </div>
                     </div>
@@ -302,50 +306,50 @@ crossorigin="anonymous"></script>
                         <div class="profile-tabs">
                             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="AdvCard.html">
+                                    <a class="nav-link" href="AdvCard.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-plus-circle"></i>
-                                        Add your advertisment
+                                        Add My Ad
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="DoWish.html">
+                                    <a class="nav-link" href="DoWish.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-plus-circle"></i>
-                                        Make you request
+                                        Make a request
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="MyAccount.html">
+                                    <a class="nav-link" href="MyAccount.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-audio-description"></i>
-                                        Your Ads
+                                        My Ads
                                     </a>
                                 </li>
                                 <li class="nav-item" >
-                                    <a class="nav-link " href="PendingAds.html">
+                                    <a class="nav-link " href="PendingAds.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-audio-description"></i>
                                         Pending advertisments
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="MyAccountFav.html">
+                                    <a class="nav-link" href="MyAccountFav.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-star"></i>
                                         My favorite
                                     </a>
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="MyAccountViews.html">
+                                    <a class="nav-link active" href="MyAccountViews.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-eye"></i>
                                         Monitor my views
                                     </a>
                                     </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="ModifyAd.html">
+                                    <a class="nav-link " href="ModifyAd.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-edit"></i>
-                                        Modify advertisment
+                                        Modify Ad
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="EditAccount.html">
+                                    <a class="nav-link " href="EditAccount.html" style="font-family: 'Open Sans'; font-weight: 580;">
                                         <i class="fa fa-edit"></i>
                                         Modify account
                                     </a>
@@ -359,7 +363,7 @@ crossorigin="anonymous"></script>
 
                 <div class="tab-content tab-space">
                     <div class="row" id="adHeader">
-                        <h1 class="title" id='total'></h1>
+                        <h1 class="title" id='total'  style="font-family: 'Open Sans'; font-weight: 580; color: #2B303A; text-align: center;"></h1>
 
 
 
@@ -374,7 +378,7 @@ crossorigin="anonymous"></script>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="widget clearfix">
                             <div class="widget-title">
-                                <img src="images/logos/llll4444.png" alt="Sakkeny real-estate agency">
+                                <img src="images/logos/Logos-01.png" style="height: 120px; padding-left: 20px;" alt="Sakkeny real-estate agency">
                             </div>
                             <p>On Sakkeny website, you will find all your housing units at prices that suit your needs and
                                 sell your units safely.</p>
@@ -416,11 +420,11 @@ crossorigin="anonymous"></script>
                                 <h3>Social</h3>
                             </div>
                             <ul class="footer-links">
-                                <li><a href="https://www.facebook.com/sakkeny.org.eg/"><i class="fa fa-facebook"></i>
+                                <li><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i class="fa fa-facebook"></i>
                                         Facebook</a></li>
-                                <li><a href="https://twitter.com/sakkeny1"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                <li><a href="https://twitter.com/sakkeny1" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
                                 <li><a href="https://www.instagram.com/sakkeny_realestate/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
-                                <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/"><i
+                                <li><a href="https://www.linkedin.com/in/sakkeny-org-b55245213/" target="_blank"><i
                                             class="fa fa-linkedin"></i> Linked In</a></li>
                             </ul><!-- end links -->
                         </div><!-- end clearfix -->
@@ -432,20 +436,20 @@ crossorigin="anonymous"></script>
     
     
         <div class="copyrights" >
-            <div class="container" >
+            <div class="container" style="height: 5px;">
                 <div class="footer-distributed" >
-                    <div class="footer-links" style="text-align: center;">
-                        <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate</a>
-                            Design By : <a>Sakkeny Team</a></p>
+                    <div class="footer-links" style="text-align: center; ">
+                        <p class="footer-company-name"><small>All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
+                            Design By : <a href="service.html">Sakkeny Team</a></small></p>
                     </div>
     
                     
                 </div>
             </div><!-- end container -->
         </div><!-- end copyrights -->
-
-                <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-
+    
+        <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    
                 <!-- ALL JS FILES -->
                 <script src="js/all.js"></script>
                 <!-- ALL PLUGINS -->

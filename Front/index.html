@@ -32,15 +32,20 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
 <style>
+    *{
+        font-family: 'Open Sans';
+    }
     #hov:hover {
-        color: #997c47;
+    color:#DC7A63;
     }     
     .h6,
     h6 {
         font-size: .75rem !important;
         font-weight: 500;
-        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-family: 'Open Sans';
         line-height: 1.5em;
         text-transform: uppercase;
     }
@@ -49,9 +54,6 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
-
-
-
 
 
     .fixed-top {
@@ -89,7 +91,7 @@
     }
 
     .header-filter::before {
-        background: #997c47;
+        background:#DC7A63 ;
     }
 
     .main-raised {
@@ -137,15 +139,15 @@
         margin-top: 30px;
         margin-bottom: 25px;
         min-height: 32px;
-        color: #3C4858;
+        color: #2B303A;
         font-weight: 700;
-        font-family: "Roboto Slab", "Times New Roman", serif;
+        font-family: 'Open Sans';
     }
 
     .profile-page .description {
         margin: 1.071rem auto 0;
         max-width: 600px;
-        color: #997c47;
+        color: #DC7A63;
         font-weight: 300;
     }
 
@@ -170,8 +172,8 @@
 
     .nav-pills .nav-item .nav-link.active {
         color: #fff;
-        background-color: #997c47;
-        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(156, 39, 176, .6);
+        background-color: #DC7A63;
+        box-shadow: 0 5px 20px 0 , 0 13px 24px -11px ;
     }
 
     .nav-pills .nav-item .nav-link {
@@ -179,7 +181,7 @@
         font-size: 12px;
         font-weight: 500;
         min-width: 100px;
-        color: #997c47;
+        color: #DC7A63;
         transition: all .3s;
         border-radius: 30px;
         padding: 10px 15px;
@@ -187,7 +189,7 @@
     }
 
     .nav-pills .nav-item .nav-link:not(.active):hover {
-        background-color: #997c47;
+        background-color: #DC7A63;
     }
 
 
@@ -234,7 +236,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 2500px;
   text-align: center;
-  font-family: arial;
+  font-family: 'Open Sans';
   border-radius:220px;
   margin-bottom: 0px;
 }
@@ -249,7 +251,7 @@
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: indianred;
+  background-color: #2B303A;
   text-align: center;
   cursor: pointer;
   width: 50%;
@@ -258,7 +260,9 @@
 }
 
 .card button:hover {
-  opacity: 0.7;
+  
+  color:#DC7A63;
+  
 }
 legend{
         color: #F2EBE8;
@@ -316,29 +320,29 @@ legend{
 
     
 
-    <header class="header header_style_01" >
+    <header class="header header_style_01" style="background-color: #2B303A;">
         <nav class="megamenu navbar navbar-default"  >
             <div class="container-fluid" >
                 <div class="navbar-header" >
                     
                     <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar" >
+                        aria-expanded="false" aria-controls="navbar" style="border: none; ">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><img src="images/logos/llll4444.png" alt="image"
-                        style="height: 60px; "></a>
+                    <a class="navbar-brand" href="index.html" style="padding: 0px; margin: 0px;"><img src="images/logos/Logos-05.png" alt="image"
+                        style="height: 48px; padding: 0px; margin: 0px;"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
                     <ul class="nav navbar-nav">
-                        <li><a class="active" href="index.html"><i class="fa fa-home" style="font-size: 20px;"></i> Home</a></li>
-                        <li><a href="service.html"><i class="fa fa-server" style="font-size: 20px;"></i> Services</a></li>
+                        <li><a class="active" href="index.html"></i> Home</a></li>
+                        <li><a href="service.html"> Services</a></li>
                         <!-- <li><a href="gallery.html">Gallery</a></li> -->
                         
-                        <li><a href="contact.html"><i class="fa fa-envelope" style="font-size: 20px;"></i> Contact Us</a></li>
-                        <li><a href="Compare.html"><i class="fas fa-poll" style="font-size: 20px;"></i> Compare</a></li>
+                        <li><a href="contact.html"> Contact</a></li>
+                        <li><a  href="Compare.html">Compare</a></li>
                         <li class="social-links"><a href="https://twitter.com/sakkeny1" target="_blank"><i
                                     class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="https://www.facebook.com/sakkeny.org.eg/" target="_blank"><i
@@ -349,18 +353,17 @@ legend{
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
                                     <ul class="nav navbar-nav navbar-right">
-                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="fa fa-user-plus" style="font-size: 20px;"></i> Sign Up</a></li>
-                        <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fa fa-sign-in" style="font-size: 20px;"></i> Log In</a></li>
-                        <li><a href="MyAccount.html" style="margin-right: 5px;  display: none;"
-                                id="MyaccountBar"><i class="fa fa-user" style="font-size: 20px;"></i> My Account</a></li>
-                                <li class="search-option" title="LogOut" style="align-items: center;"><a value="LogOut" class="search tran3s dropdown-toggle" style="padding: 12px; display :none;"
-                                    id="Logout"><i class="fa fa-sign-out" aria-hidden="true" style="color: black;"></i> logOut</a>
+                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="far fa-user-plus"></i> Sign Up</a></li>
+                        <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
+                        <li><a href="MyAccount.html" style="  display: none;"
+                                id="MyaccountBar"><i class="far fa-user"></i> My Account</a></li>
+                                <li title="Add an advertisment">
+                                    <a id="add" href="AdvCard.html" style="display: none;"><i class="far fa-plus-square"></i> Create an ad</a>
+                      
+                                  </li>
+                                <li  title="LogOut" ><a value="LogOut" id="Logout"><i class="fas fa-sign-out-alt"></i> logOut</a>
                             </li>
-                            <li class="search-option" title="Add an advertisment">
-                                <a class="search tran3s dropdown-toggle" style="padding: 10px; display: none;" id="add" href="AdvCard.html" style="display: none;"><i  class="fa fa-plus-circle"
-                                    aria-hidden="true" style="color: black;font-size: 25px; font-size: 20px;"></i> Create an ad</a>
-                  
-                              </li>
+                            
                             
                     </ul>
                 </div>
@@ -370,6 +373,7 @@ legend{
             </div>
         </nav>
     </header>
+
 
     
 
@@ -745,13 +749,13 @@ legend{
     </div><!-- end section -->
 
     
-    <div class="section wb" style="padding-bottom: 0px;">
+    <div class="section wb" style="padding-bottom: 0px; ">
         <div class="container" >
             <div class="section-title row text-center">
                 <div class="col-md-8 col-md-offset-2">
-                    <small>All Awesome Property Details</small>
+                    <small style="font-family: 'Open Sans'; ">All Awesome Property Details</small>
                 
-                        <h3 style="font-style:italic; color:indianred;"><strong> Featured properties</strong></h3>
+                        <h3 style="font-family: 'Open Sans'; color:#2B303A;"><strong> Featured properties</strong></h3>
                         <div class="row">
                                   <div class="col-md-4 col-sm-12 col-xs-12" style="padding-bottom: 10px;">
                                   <div class="card">
@@ -844,7 +848,7 @@ legend{
                     <div class="testi-carousel owl-carousel owl-theme">
                         <div class="testimonial clearfix">
                             <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Wonderful Support! <i
+                                <h3 style="color: #DC7A63;"><i class="fa fa-quote-left"></i> Wonderful Support! <i
                                         class="fa fa-quote-right"></i></h3>
                                 <p class="lead">They have got my project on time with the competition with a sed highly
                                     skilled, and experienced & professional team.</p>
@@ -860,7 +864,7 @@ legend{
 
                         <div class="testimonial clearfix">
                             <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Awesome Services! <i class="fa fa-quote-right"></i>
+                                <h3 style="color: #DC7A63;"><i class="fa fa-quote-left"></i> Awesome Services! <i class="fa fa-quote-right"></i>
                                 </h3>
                                 <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and
                                     praising pain was born and I will give you completed.</p>
@@ -875,7 +879,7 @@ legend{
 
                         <div class="testimonial clearfix">
                             <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team! <i
+                                <h3 style="color: #DC7A63;"><i class="fa fa-quote-left"></i> Great & Talented Team! <i
                                         class="fa fa-quote-right"></i></h3>
                                 <p class="lead">The master-builder of human happines no one rejects, dislikes avoids
                                     pleasure itself, because it is very pursue pleasure. </p>
@@ -900,7 +904,7 @@ legend{
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <img src="images/logos/llll4444.png" alt="Sakkeny real-estate agency">
+                            <img src="images/logos/Logos-01.png" style="height: 120px; padding-left: 20px;" alt="Sakkeny real-estate agency">
                         </div>
                         <p>On Sakkeny website, you will find all your housing units at prices that suit your needs and
                             sell your units safely.</p>
@@ -958,11 +962,11 @@ legend{
 
 
     <div class="copyrights" >
-        <div class="container" >
+        <div class="container" style="height: 5px;">
             <div class="footer-distributed" >
-                <div class="footer-links" style="text-align: center;">
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
-                        Design By : <a>Sakkeny Team</a></p>
+                <div class="footer-links" style="text-align: center; ">
+                    <p class="footer-company-name"><small>All Rights Reserved. &copy; 2021 <a href="index.html">Sakkeny Real Estate platform</a>
+                        Design By : <a href="service.html">Sakkeny Team</a></small></p>
                 </div>
 
                 

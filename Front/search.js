@@ -140,7 +140,7 @@ function check(){
     var bath = document.getElementById("bath").value;
     if(ci == "" && ty == "" && fr == "" && t == "" && u == "" && iselevator == false && issec == false && isair == false && isgreatView == false && isfire == false && islarge == false && isdog == false && isplay == false && isswim == false && isbbq == false && isroof == false && loc == "" && isflat == "" && (pay == "" || pay == "Both") && frarea == "" && tarea == "" && finish == "" && bed == "" && bath == "" && ismain == false && isbeach == false && islake == false && isnile == false && iswifi == false && isgarden == false && issports == false && isschool == false && ishospital == false && iscafe == false && isswimable == false && isgym == false && issauna == false && country == "" && isbus == false && ismetro == false){
       //alert('You have to Make the filter');
-      document.getElementById('errorT').innerHTML = "Error: please fill in the missing filters";
+      document.getElementById('errorT').innerHTML = "Please fill in the missing filters";
     document.getElementById('err').style.display = 'block';
     setTimeout(() => {
       document.getElementById('err').style.display = 'none';
@@ -154,7 +154,7 @@ function check(){
       }
       else if (fr == "" && t == "" ){
         if(frarea == "" || tarea == ""){
-          document.getElementById('errorT').innerHTML = "Error: This is wrong you have to enter a range of Area";
+          document.getElementById('errorT').innerHTML = "This is wrong you have to enter a range of Area";
     document.getElementById('err').style.display = 'block';
     setTimeout(() => {
       document.getElementById('err').style.display = 'none';
@@ -167,7 +167,7 @@ function check(){
               fetchData();
              }
              else{
-              document.getElementById('errorT').innerHTML = "Error: The up to is must be higher than from";
+              document.getElementById('errorT').innerHTML = "The up to is must be higher than from";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -176,7 +176,7 @@ function check(){
              }
             }  
             else{
-              document.getElementById('errorT').innerHTML = "Error: Invalid input in up to ";
+              document.getElementById('errorT').innerHTML = "Invalid input in up to ";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -185,7 +185,7 @@ function check(){
             }
           }
           else{
-            document.getElementById('errorT').innerHTML = "Error: Invalid input in from ";
+            document.getElementById('errorT').innerHTML = "Invalid input in from ";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -195,7 +195,7 @@ function check(){
       }
       else if (frarea == "" && tarea == ""){
         if(fr == "" || t == ""){
-          document.getElementById('errorT').innerHTML = "Error: This is wrong you have to enter a range of price";
+          document.getElementById('errorT').innerHTML = "This is wrong you have to enter a range of price";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -208,7 +208,7 @@ function check(){
               fetchData();
              }
              else{
-              document.getElementById('errorT').innerHTML = "Error: The to is must be higher than from";
+              document.getElementById('errorT').innerHTML = "The to is must be higher than from";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -217,7 +217,7 @@ function check(){
              }
             }  
             else{
-              document.getElementById('errorT').innerHTML = "Error: Invalid input in up to";
+              document.getElementById('errorT').innerHTML = "Invalid input in up to";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -226,7 +226,7 @@ function check(){
             }
           }
           else{
-            document.getElementById('errorT').innerHTML = "Error: Invalid input in from";
+            document.getElementById('errorT').innerHTML = "Invalid input in from";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -236,7 +236,7 @@ function check(){
       }
       else{
         if(fr == "" || t == ""){
-          document.getElementById('errorT').innerHTML = "Error: This is wrong you have to enter a range of price";
+          document.getElementById('errorT').innerHTML = "This is wrong you have to enter a range of price";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -251,7 +251,7 @@ function check(){
               }
               else{
                 if(frarea == "" || tarea == ""){
-                  document.getElementById('errorT').innerHTML = "Error: This is wrong you have to enter a range of Area";
+                  document.getElementById('errorT').innerHTML = "This is wrong you have to enter a range of Area";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -264,7 +264,7 @@ function check(){
                       fetchData();
                      }
                      else{
-                      document.getElementById('errorT').innerHTML = "Error: The to is must be higher than from";
+                      document.getElementById('errorT').innerHTML = "The to is must be higher than from";
                       document.getElementById('err').style.display = 'block';
                       setTimeout(() => {
                         document.getElementById('err').style.display = 'none';
@@ -272,7 +272,7 @@ function check(){
                      }
                     }  
                     else{
-                      document.getElementById('errorT').innerHTML = "Error: Invalid input in up to";
+                      document.getElementById('errorT').innerHTML = "Invalid input in up to";
                       document.getElementById('err').style.display = 'block';
                       setTimeout(() => {
                         document.getElementById('err').style.display = 'none';
@@ -280,7 +280,7 @@ function check(){
                     }
                   }
                   else{
-                    document.getElementById('errorT').innerHTML = "Error: Invalid input in from ";
+                    document.getElementById('errorT').innerHTML = "Invalid input in from ";
                       document.getElementById('err').style.display = 'block';
                       setTimeout(() => {
                         document.getElementById('err').style.display = 'none';
@@ -290,7 +290,7 @@ function check(){
               }
              }
              else{
-              document.getElementById('errorT').innerHTML = "Error: The to is must be higher than from";
+              document.getElementById('errorT').innerHTML = "The to is must be higher than from";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -298,7 +298,7 @@ function check(){
              }
             }  
             else{
-              document.getElementById('errorT').innerHTML = "Error: Invalid input in to fieled";
+              document.getElementById('errorT').innerHTML = "Invalid input in to fieled";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -306,7 +306,7 @@ function check(){
             }
           }
           else{
-            document.getElementById('errorT').innerHTML = "Error: Invalid input in from fieled";
+            document.getElementById('errorT').innerHTML = "Invalid input in from fieled";
               document.getElementById('err').style.display = 'block';
               setTimeout(() => {
                 document.getElementById('err').style.display = 'none';
@@ -344,12 +344,15 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   var spanRight = document.createElement('span');
   var rightIcon = document.createElement('i');
   var Location = document.createElement('text');
-
+  var verfied = document.createElement('span');
+  verfied.innerHTML = ' <i class="fas fa-check-circle"></i>verfied';
+  verfied.style.float ='right';
 
 
   divSize.setAttribute('class', 'col-md-4 col-sm-12 col-xs-12');
   divSer.setAttribute('class', 'service-widget box');
   divMain.setAttribute('class', 'property-main');
+  divMain.setAttribute('style','margin-bottom:0px; border-radius: 25px 25px 0px 0px;');
   divWrap.setAttribute('class', 'property-wrap');
   adFig.setAttribute('class', 'post-media wow fadeIn');
   adFig.setAttribute('style','border-width: medium;')
@@ -369,7 +372,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divBody.setAttribute('class', 'item-body');
   divDesc.setAttribute('class', 'info');
   divAddress.setAttribute('class', 'adderess');
-  addrsIcon.classList.add('fa', 'fa-map-pin');
+  addrsIcon.classList.add('fas', 'fa-map-marker-alt');
   addrsIcon.setAttribute('aria-hidden', 'true');
   divFoot.setAttribute('class', 'item-foot');
   divLeft.setAttribute('class', 'pull-left');
@@ -407,6 +410,7 @@ function AddAds(title, description, time, location, appID, price, image, name,ty
   divDesc.appendChild(Desc);
   divAddress.appendChild(addrsIcon);
   divAddress.appendChild(Location);
+  divAddress.appendChild(verfied)
   divBody.appendChild(Title);
   divBody.appendChild(divDesc);
   divBody.appendChild(divAddress);
