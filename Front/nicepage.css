@@ -3987,7 +3987,7 @@ span.fr-img-caption.fr-view {
 }
 /*end-commonstyles library*//*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: 'Open Sans';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -20025,7 +20025,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Oswald,sans-serif;
+  font-family: 'Open Sans';
 }
 /*end-variables font-family*/
 /*begin-variables color*/

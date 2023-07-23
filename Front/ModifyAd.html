@@ -275,7 +275,7 @@ crossorigin="anonymous"></script>
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
                                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="MyAccount.html" 
+                        <li><a class="active" href="MyAccount.html" 
                                 id="MyaccountBar"><i class="far fa-user"></i> My Account</a></li>
                                 <li title="Add an advertisment">
                                     <a id="add" href="AdvCard.html"><i class="far fa-plus-square"></i> Create an ad</a>
@@ -373,7 +373,7 @@ crossorigin="anonymous"></script>
                     </div>
                 </div>
                 <div class="name">
-                    <h1 class="title" style="font-family: 'Open Sans'; font-weight: 580; color: #2B303A;">Choose the Ad that you want to modify</h1>
+                    <h1 class="title" style="text-align:center; font-family: 'Open Sans'; font-weight: 580; color: #2B303A;">Choose the Ad that you want to modify</h1>
                     <div  id="noRes" class="section wb" style="display: none; padding-top: 0px;">
                         <div class="container">
                             <div  class="section wb" >
@@ -850,7 +850,7 @@ function check2(para){
                         document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
                         //window.scrollTo(0, 700);
                         document.getElementById('0%').style.display = "block";
-                        document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
+                        document.getElementById('userPp').setAttribute('src', "uploads/man.png");
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {
                                 image = childSnapshot.val().link;

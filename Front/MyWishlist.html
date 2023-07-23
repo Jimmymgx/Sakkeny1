@@ -275,7 +275,7 @@ crossorigin="anonymous"></script>
                             class="fa fa-linkedin global-radius"></i></a></li>
                            </ul>
                             <ul class="nav navbar-nav navbar-right">
-                <li><a href="MyAccount.html" 
+                <li><a class="active" href="MyAccount.html" 
                         id="MyaccountBar"><i class="far fa-user"></i> My Account</a></li>
                         <li title="Add an advertisment">
                             <a id="add" href="AdvCard.html"><i class="far fa-plus-square"></i> Create an ad</a>
@@ -525,7 +525,7 @@ crossorigin="anonymous"></script>
                         }
                         else{
                             localStorage.setItem('currMail', '');
-                            document.getElementById('bo').innerHTML = '<h2 class="title " id="inOrder" >You are not user <br> you can do <a href="signUp.html" style="color: #997c47;">sign up </a>or <a href="login.html" style="color: #997c47;">log in </a> to your existing account </h2>';
+                            document.getElementById('bo').innerHTML = '<h2 class="title " id="inOrder" >You are not user <br> you can do <a href="signUp.html" style="color: #DC7A63;">sign up </a>or <a href="login.html" style="color: #DC7A63;">log in </a> to your existing account </h2>';
                         }
                     });
                     function checkRequests(city, location, unittype, unit, bedrooms, bathrooms, finishing, unitfor, payment, iselevator, issec, isair, isgreatView, isfire, islarge, isdog, isplay, isswim, isbbq, isroof, ismain, isbeach, islake, isnile, iswifi, isgarden, issports, isschool, ishospital, iscafe, isswimable, isgym, issauna, fr, t, frarea, tarea){
@@ -891,6 +891,7 @@ function check2(para){
   if(para < 1){
     document.getElementById('noRes').style.display = "block";
     document.getElementById('0%').style.display = "none";
+    
   }
   if(para > 0){
     document.getElementById('noRes').style.display = "none";
@@ -903,7 +904,7 @@ function check2(para){
                         var  k  = "";
                         document.getElementById('adHeader').scrollIntoView({behavior: "smooth",block: "center", inline: "nearest"});
                         //window.scrollTo(0, 700);
-                        document.getElementById('userPp').setAttribute('src', "uploads/pp.jpg");
+                        document.getElementById('userPp').setAttribute('src', "uploads/man.png");
                         Totalnum = 0;
                         firebase.database().ref('images').orderByChild("main").equalTo(localStorage.getItem("currMail")).once('value', function (snapshot) {
                             snapshot.forEach(childSnapshot => {

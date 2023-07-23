@@ -353,7 +353,7 @@ legend{
                                     class="fa fa-linkedin global-radius"></i></a></li>
                                    </ul>
                                     <ul class="nav navbar-nav navbar-right">
-                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="far fa-user-plus"></i> Sign Up</a></li>
+                                    <li ><a href="signUp.html" id="SignupBar" style="display: none;"><i class="fas fa-user-plus"></i> Sign Up</a></li>
                         <li><a href="login.html" id="SigninBar" style="display: none;"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
                         <li><a href="MyAccount.html" style="  display: none;"
                                 id="MyaccountBar"><i class="far fa-user"></i> My Account</a></li>
@@ -440,8 +440,8 @@ legend{
                                     
                                     <option value="">All</option>
                                     <option value="Sale">For Sale</option>
-                                    <option value="Rent">Rent </option>
-                                    <option value="Old rent">Old rent </option>
+                                    <option value="Rent">For Rent </option>
+                                    <option value="Old rent">For Old rent </option>
                                 </select>
                                 </div>
                                 
@@ -805,7 +805,7 @@ legend{
                 <div class="section-title row text-center">
                     <div class="col-md-8 col-md-offset-2">
         <h3 >No result found</h3>
-        <p class="lead"> But you can<a href="DoWish.html" style="color: #997c47;"> Make A Wish</a> for your desired property </p>
+        <p class="lead"> But you can<a href="DoWish.html" style="color: #DC7A63;"> Make A Wish</a> for your desired property </p>
     </div><!-- end col -->
 </div><!-- end title -->
 </div>
@@ -1237,7 +1237,7 @@ legend{
                 if(localStorage.getItem('FirstCompare') === ""){
                 localStorage.setItem('FirstCompare', appID);
                 console.log(localStorage.getItem('FirstCompare'));
-                divMain.style.outline = "3px solid green";
+                divMain.style.outline = "5px solid #DC7A63";
                 //alert("You did choose the first ad now choose the second one");
                 //alert(localStorage.getItem('FirstCompare'));
             }
@@ -1250,7 +1250,7 @@ legend{
                 else{ 
                     //localStorage.setItem('SecondCompare', appID);
                 console.log(localStorage.getItem('SecondCompare'));
-                divMain.style.outline = "3px solid green";
+                divMain.style.outline = "5px solid #DC7A63";
                 setTimeout(() => {
                     window.location.href = "Comparison.html?K1="+localStorage.getItem('FirstCompare')+"K2="+localStorage.getItem('SecondCompare');
                 }, 1000);

@@ -479,7 +479,7 @@ function cityCounter(){
   var country = document.getElementById('countries').value;
   var city = document.getElementById('cities').value;
     if(country == 'Egypt'){
-      let cit = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia"];
+      let cit = ["Cairo", "Alexandria", "Giza", "Beheira", "Kafr El Sheikh", "Port Said", "North Sinai", "Gharbia", "Monufia", "Qalyubia", "Sharqia", "Ismailia", "Faiyum", "Suez", "Damietta", "South Sinai", "Beni Suef", "Minya", "New Valley", "Asyut", "Red Sea", "Sohag", "Qena", "Luxor", "Aswan", "Matruh", "Dakahlia", "Gouna", "North Coast", "Ain Sokhna", "Marina", "Ras Sedr", "Dahab", "Hurghada", "Marsa Alam", "El Alamein", "Sharm ElSheikh"];
     let count = 0;
     for(let i = 0; i < cit.length; i++){
         let counter = 0;
@@ -623,6 +623,10 @@ function cityCounter(){
       op.value = "";
         op.innerHTML = "All";
         cit.appendChild(op);
+        var op5 = document.createElement('option');
+    op5.innerHTML = "All";
+    op5.value = "";
+    sel.appendChild(op5);
       for (var i = 0; i< egypt.length; i++){
         var opt = document.createElement('option');
         opt.value = egypt[i];
@@ -640,6 +644,10 @@ function cityCounter(){
       op.value = "";
         op.innerHTML = "All";
         cit.appendChild(op);
+        var op5 = document.createElement('option');
+    op5.innerHTML = "All";
+    op5.value = "";
+    sel.appendChild(op5);
       for (var i = 0; i< Emirates.length; i++){
         var opt = document.createElement('option');
         opt.value = Emirates[i];
@@ -657,6 +665,10 @@ function cityCounter(){
       op.value = "";
         op.innerHTML = "All";
         cit.appendChild(op);
+        var op5 = document.createElement('option');
+    op5.innerHTML = "All";
+    op5.value = "";
+    sel.appendChild(op5);
       for (var i = 0; i< Kuwait.length; i++){
         var opt = document.createElement('option');
         opt.value = Kuwait[i];
@@ -674,6 +686,10 @@ function cityCounter(){
       op.value = "";
         op.innerHTML = "All";
         cit.appendChild(op);
+        var op5 = document.createElement('option');
+    op5.innerHTML = "All";
+    op5.value = "";
+    sel.appendChild(op5);
       for (var i = 0; i< Saudi.length; i++){
         var opt = document.createElement('option');
         opt.value = Saudi[i];
